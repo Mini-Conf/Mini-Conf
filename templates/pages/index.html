@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% set page_title = "{{config.name}}" %}
+  {% include 'pages/head.html' %}
+
+
+  <body>
+    <!-- NAV -->
+    {% set active_page = "Home" %}
+    {% include 'pages/header.html' %}
+    <div class="">
+
+      <!-- Header -->
+      <div class="jumbotron jumbotron-fluid back" style="padding-bottom:20px">    
+        <div class="row mx-auto text-center" >      
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <!-- Sponsor -->
+      <div class="sponsors">
+        <div class="row p-4" id="organizers">
+          <div class="col-12 bd-content ">
+            <h2 class="text-center"> Sponsors </h2>
+          </div>
+        </div>
+      </div>
+
+      <!-- Organizers -->
+      <div class="organizers">
+        <div class="border-top my-3"></div>
+        <div class="row p-4" id="organizers">
+          <div class="col-12 bd-content ">
+            <h2 class="text-center"> Organizers </h2>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% include 'pages/footer.html' %}
+  </body>
+</html>

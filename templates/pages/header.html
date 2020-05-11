@@ -1,0 +1,27 @@
+{% set navigation_bar = [
+    ('index.html', 'Home'),
+    ('calendar.html', 'Schedule'),
+    ('papers.html', 'Papers'),
+    ('about.html', 'Help'),
+] -%}
+
+
+<nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light mr-auto " id="main-nav" >
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img class="logo" style='visibility: {% if active_page == 'Home_old' %}hidden;{% endif %}' src="{{config.logo}}"  width="180px" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse text-right flex-grow-1" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        {% for href, id in navigation_bar %}
+        <li class="nav-item {% if id == active_page %}active{% endif %}">
+          <a class="nav-link" href="{{href}}">{{id}}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</nav>

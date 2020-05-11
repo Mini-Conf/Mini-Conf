@@ -1,0 +1,196 @@
+body a {
+    color: #2294e0;
+}
+body a:hover {
+    color: #2294e0;
+    text-decoration: none;
+}
+
+h2,  h3 {
+    font-family: 'Lato';
+}
+label:text-muted, .nav-link {
+   font-family: 'Lato';
+}
+
+body{font-family: 'Lato', sans-serif; background-color: rgba(236, 241, 246, 1)}
+.container a:hover { text-decoration: none;}
+
+.jumbotron{font-family: 'Lato', sans-serif; background-color: rgba(236, 241, 246, 1)}
+  .btn-group{background-color: white}
+  .btn {background-color: white}
+  #main-nav {padding-top:10px; padding-bottom:10px;}
+  .header {font: "Montserrat"; }
+  .pp-card {
+      font-family: 'Exo';
+      box-shadow: 0px 0px 14px 0px rgba(204, 204, 204, 1);
+      margin-bottom: 1em;
+      display: block; overflow: hidden;}
+
+  .pp-card-header {
+      border: 4px solid #eee;
+      font-family: "Exo";
+      height: 340px;
+      padding-top : 10px;
+
+      padding-left : 15px;
+      padding-right : 15px;
+  }
+
+  .pp-mode-list .pp-card-header {
+      height: 175px;
+      border: 1px solid #eee;
+  }
+
+  .pp-card-footer {
+      position: absolute;
+      width: 100%;
+      bottom: 3px;
+  }
+
+  .pp-mode-list .pp-card-header .card-title {
+      font-size: 17px;
+  }
+
+  .cards_img {margin-top: 20px;
+              border-radius: 2px;
+              max-height: 130px;
+              object-fit: scale-down;}
+  body .nav-pills .nav-link.active {
+      background-color: #bed972;
+  }
+
+  .container {margin-top: 10px;}
+  .card {font-family: 'Exo';}
+  .card-header {
+                font-family: "Exo";}
+  .card-header .card-title {
+                font-family: "Exo";}
+
+  .cards.myCard {display: flex;flex-flow: wrap;margin-left: 0;box-sizing: border-box;}
+  .cards {margin-top: 10px;}
+  .card-title {margin-top: 10px; font-size: 20px;}
+  h2.card-title  {margin-top: 10px; font-size: 30px;}
+  h3.card-subtitle.text-muted  {margin-top: 10px; font-size: 20px;}
+  .card-subtitle.text-muted {text-align: center; font-size: 13px;}
+
+  .main-title {font-weight: 700;  color: #2294e0; font-family: "Exo";}
+
+  .myAccordion {
+
+  box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.10);
+    border-radius: 10px;
+    margin-bottom: 18px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+    padding-top: 10px;
+    background-color: rgba(255, 255, 255, 1);
+  }
+
+  .sponsorLogo {
+  width: 300px;
+  display: block;
+  margin-left: auto;
+    margin-right: auto;
+  margin-top: auto;
+    margin-bottom: auto;
+
+  }
+
+  .slp iframe {
+      background: #fff
+      margin: 5 px;
+
+      border: 1px solid rgba(0,0,0,.125);
+      border-radius: .25rem;
+  }
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+  display: flex;
+}
+
+
+/* .carousel-inner .carousel-item-right.active, */
+/* .carousel-inner .carousel-item-next { */
+/*   transform: translateX(25%); */
+/* } */
+
+/* .carousel-inner .carousel-item-left.active, */
+/* .carousel-inner .carousel-item-prev { */
+/*   transform: translateX(-25%); */
+/* } */
+
+/* .carousel-inner .carousel-item-right, */
+/* .carousel-inner .carousel-item-left{ */
+/*   transform: translateX(0); */
+
+/* } */
+
+
+.carousel-control-prev-icon {
+  filter: invert(1);
+  transform: translateX(-200%);
+}
+
+
+div.anchor {
+    display: block;
+    position: relative;
+    top: -250px;
+    visibility: hidden;
+}
+
+.carousel-control-next-icon {
+  filter: invert(1);
+  transform: translateX(200%);
+}
+
+.border {
+  background: #fff
+
+  padding: 10px;
+
+  border: 4px solid #eee;
+
+  box-shadow: rgb(204, 204, 204) 2px 2px 14px 0px;
+  }
+tr.fc-list-item {
+    cursor: pointer;
+}
+
+.details {
+    font-family: 'Lato', sans-serif;
+}
+
+  #abstractExample.collapse:not(.show) {
+  display: block;
+  /* height = lineheight * no of lines to display */
+  height: 4.5em;
+  overflow: hidden;
+  }
+
+  #abstractExample.collapsing {
+  height: 4.5em;
+  }
+
+
+#absShow.collapsed:after {
+  content: '+ Show More';
+}
+
+#absShow:not(.collapsed):after {
+  content: '- Show Less';
+}
+body .carousel-control-next, body .carousel-control-prev {
+    width: 5%;
+}
+
+.icon_video, .icon_cal {
+    fill: #6c757d;
+}
+
+.icon_video:hover, .icon_cal:hover {
+    fill: #000000;
+}

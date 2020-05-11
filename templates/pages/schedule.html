@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+  {% set page_title = "Calendar" %}
+  {% include 'pages/head.html' %}  
+  <body>
+    <!-- Calendar Includes -->
+    {% include 'pages/cal_head.html' %}
+
+    <!-- NAV -->
+    {% include 'pages/header.html' %}
+
+    <div class="container">
+      <div id="calendar">            
+      </div>
+    </div>
+    
+    <script type='text/javascript'>
+      make_cal("static/basic.ics")
+    </script>
+    
+    
+    {% include 'pages/footer.html' %}
+  </body>
+</html>
