@@ -1,4 +1,7 @@
-# Conference Portal
+# Mini Conf
+
+Template for a miniature virtual conference portal.  
+
 
 ### Installation
 ```
