@@ -48,30 +48,31 @@ def index():
 @app.route('/index.html')
 def home():
     data = _data()
-    return render_template('pages/index.html', **data)
+    data["committee"] = site_data["committee"]["committee"]
+    return render_template('index.html', **data)
 
 @app.route('/about.html')
 def about():
     data = _data()
     data["FAQ"] = site_data["faq"]["FAQ"]
-    return render_template('pages/about.html', **data)
+    return render_template('about.html', **data)
 
 @app.route('/papers.html')
 def papers():
     data = _data()
     data["papers"] = site_data["papers"]
-    return render_template('pages/papers.html', **data)
+    return render_template('papers.html', **data)
 
 @app.route('/paper_vis.html')
 def paperVis():
     data = _data()
-    return render_template('pages/papers_vis.html', **data)
+    return render_template('papers_vis.html', **data)
 
 
 @app.route('/calendar.html')
 def schedule():
     data = _data()
-    return render_template('pages/schedule.html', **data)
+    return render_template('schedule.html', **data)
 
 
 def format_paper(v):
@@ -93,7 +94,7 @@ def poster(poster):
     v = site_data["papers"][uid]
     data = _data()
     data = {"paper": format_paper(v)}
-    return render_template('pages/page.html', **data)
+    return render_template('page.html', **data)
 
 @app.route('/papers.json')
 def paper_json():

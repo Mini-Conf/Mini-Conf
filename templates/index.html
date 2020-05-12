@@ -32,6 +32,11 @@
         <div class="row p-4" id="organizers">
           <div class="col-12 bd-content ">
             <h2 class="text-center"> Organizers </h2>
+              {% for org in committee %}
+              {% set org = org %}
+              {% include 'member.html' %}              
+              {% endfor %}
+
           </div>
         </div>
       </div>
