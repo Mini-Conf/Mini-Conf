@@ -93,7 +93,7 @@ def poster(poster):
     uid = int(poster) - 1
     v = site_data["papers"][uid]
     data = _data()
-    data = {"paper": format_paper(v)}
+    data["paper"] =  format_paper(v)
     return render_template('page.html', **data)
 
 @app.route('/papers.json')

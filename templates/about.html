@@ -1,65 +1,42 @@
-<!doctype html>
-<html lang="en">
-  {% set page_title = "ICLR 2020 - About" %}
-  {% include 'pages/head.html' %}
-  <body>
-    <!-- NAV -->
-    {% set active_page = "About" %}
-    {% include 'pages/header.html' %}
-    <div class="container">
+{% extends "base.html" %}
 
+{% block tabs %}
+{{tabs([("faq", "FAQ", "active")])}}
+{% endblock %}
 
-      <!-- Tab nav -->
-      <ul class=" nav nav-pills justify-content-center">
-        <li class="nav-item"><a class="text-muted nav-link active"  href="#tab-faq" data-toggle="tab" role="tab" aria-controls="nav-home" aria-selected="true">FAQ</a></li>
-      </ul>
+{% block content %}
+<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+  
+  <!-- FAQ -->
+  <div class="tab-pane active" id="tab-faq" role="tabpanel" aria-labelledby="nav-profile-tab">
+    {{ section("Frequently Asked Questions") }}
 
-
-
-      
-      <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-
-
-
-        
-        <!-- FAQ -->
-        <div class="tab-pane active" id="tab-faq" role="tabpanel" aria-labelledby="nav-profile-tab">
-        
-          <div class="border-top my-3"></div>
-          <div class="row p-4" id="faq">
-            <div class="col-12 bd-content ">
-              <h2 class="text-center"> Frequently Asked Questions </h2>
+    {% for section in FAQ %}
+    {{ subsection(section.Section) }}
+    
+    {% set rowloop = loop.index %}
+    {% for qa in section.QA %}
+    <div class="row">
+      <div class="col-12" id="accordionExample">
+        <div class=" card m-2">
+          <div class="card-header" >
+            <a class="" href="#" data-toggle="collapse"
+               data-target="#collapse{{rowloop}}-{{loop.index}}"
+               aria-expanded="true" aria-controls="collapse{{rowloop}}-{{loop.index}}">
+              {{qa.Question}}
+            </a>
+          </div>
+          <div id="collapse{{rowloop}}-{{loop.index}}" class="collapse"
+               aria-labelledby="headingOne" data-parent="#accordionExample">
+            <div class="card-body">
+              {{qa.Answer}}
             </div>
           </div>
-          {% for section in FAQ %}
-          <div class="row p-3">
-            <div class="col-12 bd-content">
-              <h3 class=""> {{section.Section}} </h3>
-            </div>
-          </div>
-          {% set rowloop = loop.index %}
-          {% for qa in section.QA %}
-          <div class="row">
-            <div class="col-12" id="accordionExample">
-              <div class=" card m-2">
-                <div class="card-header" >
-                  <a class="" href="#" data-toggle="collapse" data-target="#collapse{{rowloop}}-{{loop.index}}" aria-expanded="true" aria-controls="collapse{{rowloop}}-{{loop.index}}">
-                  {{qa.Question}}
-                  </a>
-                </div>
-                <div id="collapse{{rowloop}}-{{loop.index}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                  <div class="card-body">
-                    {{qa.Answer}}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-          {% endfor %}
         </div>
       </div>
     </div>
-    {% include 'pages/footer.html' %}
-  </body>
-</html>
+    {% endfor %}
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

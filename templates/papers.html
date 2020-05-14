@@ -1,258 +1,112 @@
-<!doctype html>
-<html lang="en">
-  {% set page_title = "ICLR 2020" %}
-  {% include 'pages/head.html' %}
-  <body>
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://unpkg.com/tippy.js@6"></script>
-    <!-- NAV -->
-    {% set active_page = "Papers" %}
-    {% include 'pages/header.html' %}
-    <div class="container">
-      <!-- Header -->
-      <ul class="nav nav-pills justify-content-center">
-        <li class="nav-item active">
-          <a class="nav-link text-muted active " data-toggle="tab"
-            href="#tab-browse" role="tab" aria-controls="nav-home"
-            aria-selected="true">Browse
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-muted" href="paper_vis.html">Visualization
-          </a>
-        </li>
-      </ul>
-      <div class="row"></div>
-      <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-        <div class="tab-pane active" id="tab-browse" role="tabpanel"
-          aria-labelledby="nav-profile-tab">
-          <div class="row d-none session_notice">
-            <div class="alert alert-warning alert-dismissible fade show col-12"
-              role="alert">
-              Showing papers for <span id="session_name"
-                style="font-weight: bold;"></span>.
-              <!-- To navigate all papers close this message. -->
-              <button type="button" class="close remove_session"
-                data-dismiss="alert"
-                aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12 col-sm-12 col-md-6 col-lg-4">
-              <div class="input-group mb-3">
-                <input type="text" class="form-control typeahead_all"
-                  placeholder="Search">
-                <div class="input-group-append">
-                  <button class="btn btn-outline-secondary typeahead_all_clear"
-                    type="button">&times;
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-md-6 col-lg-4 text-center"
-              style="margin-bottom: 10px;">
-              <div class="btn-group btn-group-toggle filter_option">
-                <label class="btn btn-outline-secondary"
-                  data-tippy-content="Search for papers titles">
-                <input type="radio" name="options"
-                  value="titles"
-                  autocomplete="off" checked> title
-                </label>
-                <label class="btn btn-outline-secondary"
-                  data-tippy-content="Search for papers with specific keywords">
-                <input type="radio" name="options"
-                  value="keywords"
-                  autocomplete="off" > keyword
-                </label>
-                <label class="btn btn-outline-secondary active"
-                  data-tippy-content="Search for papers from specific authors">
-                <input type="radio" name="options"
-                  value="authors"
-                  autocomplete="off" > author
-                </label>
-                <!-- <label class="btn btn-outline-secondary" -->
-                <!--        data-tippy-content="Search for papers closest related to authors or other papers"> -->
-                <!--     <input type="radio" name="options" value="recs" -->
-                <!--            autocomplete="off"> similar -->
-                <!-- </label> -->
-              </div>
-            </div>
-            <div class="col-12 col-lg-4">
-              <button class="btn btn-outline-secondary reshuffle"> shuffle
-              </button>
-              <div class="float-right">
-                <div class="btn-group btn-group-toggle render_option"
-                  data-toggle="buttons">
-                  <label class="btn btn-outline-secondary active">
-                  <input type="radio" name="options" value="list"
-                    autocomplete="off"> list
-                  </label>
-                  <label class="btn btn-outline-secondary active">
-                  <input type="radio" name="options"
-                    value="compact"
-                    autocomplete="off" checked> compact
-                  </label>
-                  <label class="btn btn-outline-secondary">
-                  <input type="radio" name="options"
-                    value="detail"
-                    autocomplete="off"> detail
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="cards row">
-          </div>
-        </div>
-        <div class="tab-pane fade" id="tab-vis" role="tabpanel"
-          aria-labelledby="nav-profile-tab">
-          <div class="row">
-            <div class="col-12 col-sm-6 col-lg-4">
-              <div class="input-group mb-3">
-                <input type="text" class="form-control typeahead_all"
-                  placeholder="Search">
-                <div class="input-group-append">
-                  <button class="btn btn-outline-secondary typeahead_all_clear"
-                    type="button">&times;
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4"
-              style="margin-bottom: 10px;">
-              {#
-              <div class="float-right">
-                #}
-                <div class="btn-group btn-group-toggle filter_option">
-                  <label class="btn btn-outline-secondary active"
-                    data-tippy-content="Search for papers from specific authors">
-                  <input type="radio" name="options"
-                    value="authors"
-                    autocomplete="off" checked> author
-                  </label>
-                  <label class="btn btn-outline-secondary"
-                    data-tippy-content="Search for papers with specific keywords">
-                  <input type="radio" name="options"
-                    value="keywords"
-                    autocomplete="off"> keyword
-                  </label>
-                  <label class="btn btn-outline-secondary"
-                    data-tippy-content="Search for papers titles">
-                  <input type="radio" name="options"
-                    value="titles"
-                    autocomplete="off"> title
-                  </label>
-                  <label class="btn btn-outline-secondary"
-                    data-tippy-content="Search for papers closest related to authors or other papers">
-                  <input type="radio" name="options" value="recs"
-                    autocomplete="off"> similar
-                  </label>
-                  {#
-                </div>
-                #}
-              </div>
-            </div>
-            {#
-            <div class="col-12 col-lg-4">
-              #}
-              {##}
-              {#
-              <button class="btn btn-outline-secondary reshuffle">
-              re-shuffle#}
-              {#
-              </button>
-              #}
-              {##}
-              {#
-              <div class="float-right">#}
-                {#
-                <div class="btn-group btn-group-toggle render_option" #}
-                {# data-toggle="buttons">#}
-                {# <label class="btn btn-outline-secondary active">#}
-                {# <input type="radio" name="options"
-                value="compact" #}
-                {# autocomplete="off" checked>
-                compact#}
-                {# </label>#}
-                {# <label class="btn btn-outline-secondary">#}
-                {# <input type="radio" name="options"
-                value="detail" #}
-                {# autocomplete="off"> detail#}
-                {# </label>#}
-                {#
-              </div>
-              #}
-              {#
-            </div>
-            #}
-            {#
-          </div>
-          #}
-          {#
-          <div class="col-4">#}
-            {# T:<input class="typeahead_title" type="text" #}
-            {# placeholder="title" width=400px>#}
-            {#
-          </div>
-          #}
-        </div>
-        <div class="row " style="margin-top: 10px; text-align: center;">
-          <div class="card" style="margin-right: -40px">
-            <div class="card-header">
-              <div id='outer_svg'
-                style="display: inline-block; vertical-align: top;">
-                <svg class="plot"
-                  style="display: block; "></svg>
-              </div>
-              <div class="results"
-                style="display: inline-block; width:200px;vertical-align: top; text-align: left;">
-                <div style="display: block; overflow-y: auto;"
-                  id="table_info">
-                  <div id="explain_text_plot">
-                    <p>If you <b>hover</b> over a dot, you see
-                      the
-                      related
-                      paper.
-                    </p>
-                    <p>If you <b>click</b> on a dot, you go to
-                      the
-                      related paper page.
-                    </p>
-                    <p>You can <b>search</b> for papers by
-                      author,
-                      keyword, or title
-                    </p>
-                    <p><b>Drag a rectangle </b> to summarize an
-                      area
-                      of the plot.
-                    </p>
-                  </div>
-                  <div id="summary_selection" style="">
-                  </div>
-                  <div style="overflow-y: auto; bottom: 0;margin-top:5pt;">
-                    <div id="sel_papers">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+    <script src="static/js/icons.js"></script>
+<script src="static/js/typeahead_tools.js"></script>
+<script src="static/js/papers.js"></script>
+<script>
+  $(document).ready(function () {
+  tippy('[data-tippy-content]', {trigger: 'mouseenter focus'});
+  start();
+  })  
+</script>
+{% endblock %}
+
+{% block tabs %}
+<ul class="nav nav-pills justify-content-center">
+  <li class="nav-item active">
+    <a class="nav-link text-muted active " data-toggle="tab"
+       href="#tab-browse" role="tab" aria-controls="nav-home"
+       aria-selected="true">Browse
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-muted" href="paper_vis.html">Visualization</a>
+  </li>
+</ul>
+{% endblock %}
+
+{% block content %}
+<div class="row p-3" ></div>
+
+<!-- Session -->
+<div class="row d-none session_notice">
+  <div class="alert alert-warning alert-dismissible fade show col-12"
+       role="alert">
+    Showing papers for <span id="session_name"
+                             style="font-weight: bold;"></span>.
+    <button type="button" class="close remove_session"
+            data-dismiss="alert"
+            aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+</div>
+
+<!-- Buttons -->
+<div class="row">
+  <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control typeahead_all"
+             placeholder="Search">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary typeahead_all_clear"
+                type="button">&times;
+        </button>
       </div>
     </div>
+  </div>
+  <div class="col-12 col-sm-6 col-md-6 col-lg-4 text-center"
+       style="margin-bottom: 10px;">
+    <div class="btn-group btn-group-toggle filter_option">
+      <label class="btn btn-outline-secondary"
+             data-tippy-content="Search for papers titles">
+        <input type="radio" name="options"
+               value="titles"
+               autocomplete="off" checked> title
+      </label>
+      <label class="btn btn-outline-secondary"
+             data-tippy-content="Search for papers with specific keywords">
+        <input type="radio" name="options"
+               value="keywords"
+               autocomplete="off" > keyword
+      </label>
+      <label class="btn btn-outline-secondary active"
+             data-tippy-content="Search for papers from specific authors">
+        <input type="radio" name="options"
+               value="authors"
+               autocomplete="off" > author
+      </label>
     </div>
-    <script src="static/js/icons.js"></script>
-    <script src="static/js/typeahead_tools.js"></script>
-    <script src="static/js/papers.js"></script>
-    <script>
-      $(document).ready(function () {
-          tippy('[data-tippy-content]', {trigger: 'mouseenter focus'});
-          start();
-      })
+  </div>
+  <div class="col-12 col-lg-4">
+    <button class="btn btn-outline-secondary reshuffle"> shuffle
+    </button>
+    <div class="float-right">
+      <div class="btn-group btn-group-toggle render_option"
+           data-toggle="buttons">
+        <label class="btn btn-outline-secondary active">
+          <input type="radio" name="options" value="list"
+                 autocomplete="off"> list
+        </label>
+        <label class="btn btn-outline-secondary active">
+          <input type="radio" name="options"
+                 value="compact"
+                 autocomplete="off" checked> compact
+        </label>
+        <label class="btn btn-outline-secondary">
+          <input type="radio" name="options"
+                 value="detail"
+                 autocomplete="off"> detail
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
 
-    </script>
-    {% include 'pages/footer.html' %}
-  </body>
-</html>
+<!-- Cards -->
+<div class="cards row"> </div>
+
+{% endblock %}

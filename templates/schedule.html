@@ -1,24 +1,22 @@
-<!doctype html>
-<html lang="en">
-  {% set page_title = "Calendar" %}
-  {% include 'pages/head.html' %}  
-  <body>
-    <!-- Calendar Includes -->
-    {% include 'pages/cal_head.html' %}
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+{% include 'cal_head.html' %}
+{% endblock %}
 
-    <!-- NAV -->
-    {% include 'pages/header.html' %}
+{% block tabs %}
+{{tabs([("calendar", "Calendar", "active"),
+        ("day", "Example Day", "")])}}
+{% endblock %}
 
-    <div class="container">
-      <div id="calendar">            
-      </div>
-    </div>
-    
+
+{% block content %}
+<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+  <div class="tab-pane active" id="tab-calendar" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <div id="calendar"> </div>
     <script type='text/javascript'>
-      make_cal("static/basic.ics")
+      make_cal("static/calendars/basic.ics")
     </script>
-    
-    
-    {% include 'pages/footer.html' %}
-  </body>
-</html>
+  </div>
+</div>
+{% endblock %}

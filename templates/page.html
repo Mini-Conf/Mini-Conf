@@ -1,87 +1,49 @@
-<!doctype html>
-<html lang="en">
-  {% set page_title = paper.content.title %}
-  {% include 'head.html' %}
+{% extends "base.html" %}
+{% block content %}
 
-  <body >
-    <!-- NAV -->
-    {% include 'pages/header.html' %}
-    <div class="container">
-      <!-- Title -->
-      <div class="pp-card m-3" style="">
-        <div class="card-header">
-          <h2 class="card-title main-title text-center" style="">
-            {{paper.content.title}}
-          </h2>
-          <h3 class="card-subtitle mb-2 text-muted text-center">
-            {% for author in paper.content.authors %}
-            <a href="papers.html?filter=authors&search={{author}}" class="text-muted">{{author}}</a>{{ "," if not loop.last }}
-            {% endfor %}
-          </h3>
-          <p class="card-text text-center"><span class="">Keywords:</span>
-            {% for keyword in paper.content.keywords %}
-            <a href="papers.html?filter=keywords&search={{keyword}}" class="text-secondary text-decoration-none">{{keyword}}</a>{{ "," if not loop.last }}
-            {% endfor %}
-          </p>
-          <div class="text-center p-3">
-            <a class="card-link" data-toggle="collapse" role="button" href="#details">
-            Abstract
-            </a>
-            <a class="card-link"  target="_blank" href="{{paper.link}}">
-            Paper
-            </a>
-            {% if paper.content.code != blank %}
-            <a href="{{paper.content.code}}" target="_blank"  class="card-link">
-            Code
-            </a>
-            {% endif %}
-          </div>
-        </div>
-      </div>
-      <div id="details" class="pp-card m-3 collapse">
-        <div class="card-body">
-          <p class="card-text">
-          <div id="abstractExample">
-            <span class="font-weight-bold">Abstract:</span>
-            {{paper.content.abstract}}
-          </div>
-          </p>
-          <p></p>
-        </div>
-      </div>
+<!-- Title -->
+<div class="pp-card m-3" style="">
+  <div class="card-header">
+    <h2 class="card-title main-title text-center" style="">
+      {{paper.content.title}}
+    </h2>
+    <h3 class="card-subtitle mb-2 text-muted text-center">
+      {% for author in paper.content.authors %}
+      <a href="papers.html?filter=authors&search={{author}}" class="text-muted">{{author}}</a>{{ "," if not loop.last }}
+      {% endfor %}
+    </h3>
+    <p class="card-text text-center"><span class="">Keywords:</span>
+      {% for keyword in paper.content.keywords %}
+      <a href="papers.html?filter=keywords&search={{keyword}}" class="text-secondary text-decoration-none">{{keyword}}</a>{{ "," if not loop.last }}
+      {% endfor %}
+    </p>
+    <div class="text-center p-3">
+      <a class="card-link" data-toggle="collapse" role="button" href="#details">
+        Abstract
+      </a>
+      <a class="card-link"  target="_blank" href="{{paper.link}}">
+        Paper
+      </a>
+      {% if paper.content.code != blank %}
+      <a href="{{paper.content.code}}" target="_blank"  class="card-link">
+        Code
+      </a>
+      {% endif %}
     </div>
-    <!-- SlidesLive -->
-    <div class="container" style="background-color:white; padding: 0px;">
-      <div class="row m-2">
-        <div class="col-md-12 col-xs-12 my-auto p-2" >
-
-          <div id="presentation-embed-{{paper.content.slides}}" class="slp my-auto"></div>
-          <script src='https://slideslive.com/embed_presentation.js'></script>
-          <script>
-            embed = new SlidesLiveEmbed('presentation-embed-{{paper.content.slides}}', {
-            presentationId: '{{paper.content.slides}}',
-            autoPlay: false, // change to true to autoplay the embedded presentation
-            verticalEnabled: true,
-            allowHiddenControlsWhenPaused: true,
-            hideTitle: true
-            });
-          </script>
-        </div>
+  </div>
+</div>
+<div id="details" class="pp-card m-3 collapse">
+  <div class="card-body">
+    <p class="card-text">
+      <div id="abstractExample">
+        <span class="font-weight-bold">Abstract:</span>
+        {{paper.content.abstract}}
       </div>
-    </div>
-
-    <!-- Recs -->
+    </p>
     <p></p>
-    <div  class="container" style="padding-bottom: 30px; padding-top:30px">
-      <center>
-        <h2> Similar Papers </h2>
-      </center>
-    </div>
-    <p></p>
-    <div  class="container" >
-      <div class="row">
-      </div>
-    </div>
-    {% include 'pages/footer.html' %}
-  </body>
-</html>
+  </div>
+</div>
+
+<!-- Presentation Embed -->
+
+{% endblock %}
