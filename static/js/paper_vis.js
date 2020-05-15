@@ -240,7 +240,7 @@ const tooltip_template = (d) => `
     <div>
         <div class="tt-title">${d.content.title}</div>
         <p>${d.content.authors.join(', ')}</p>
-        <img src="https://iclr.github.io/iclr-images/${d.content.iclr_id}.png" width=100%/>
+        <img src="https://iclr.github.io/iclr-images/${d.id}.png" width=100%/>
      </div>   
 `
 
@@ -248,7 +248,7 @@ const tooltip_template = (d) => `
 const start = () => {
     Promise.all([
         d3.json('papers.json'),
-        d3.json('embeddings_tsne.json')
+        d3.json('static/embeddings/embeddings.json')
     ]).then(([papers, proj]) => {
         // all_proj = proj;
 

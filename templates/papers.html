@@ -3,16 +3,9 @@
 {{ super() }}
 <script src="https://unpkg.com/@popperjs/core@2"></script>
 <script src="https://unpkg.com/tippy.js@6"></script>
-    <script src="static/js/icons.js"></script>
-<script src="static/js/typeahead_tools.js"></script>
-<script src="static/js/papers.js"></script>
-<script>
-  $(document).ready(function () {
-  tippy('[data-tippy-content]', {trigger: 'mouseenter focus'});
-  start();
-  })  
-</script>
+<script src="static/js/icons.js"></script>
 {% endblock %}
+
 
 {% block tabs %}
 <ul class="nav nav-pills justify-content-center">
@@ -108,5 +101,13 @@
 
 <!-- Cards -->
 <div class="cards row"> </div>
+<script src="static/js/typeahead_tools.js"></script>
+<script src="static/js/papers.js"></script>
+<script>
+  $(document).ready(function () {
+  tippy('[data-tippy-content]', {trigger: 'mouseenter focus'});
+  start();
+  })  
+</script>
 
 {% endblock %}

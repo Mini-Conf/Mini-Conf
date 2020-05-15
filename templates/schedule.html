@@ -5,18 +5,41 @@
 {% endblock %}
 
 {% block tabs %}
-{{tabs([("calendar", "Calendar", "active"),
+{{components.tabs([("calendar", "Calendar", "active"),
         ("day", "Example Day", "")])}}
 {% endblock %}
 
 
 {% block content %}
 <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+  <!-- Calender tab -->
   <div class="tab-pane active" id="tab-calendar" role="tabpanel" aria-labelledby="nav-profile-tab">
     <div id="calendar"> </div>
     <script type='text/javascript'>
       make_cal("static/calendars/basic.ics")
     </script>
   </div>
+  
+  <!-- Day Tab -->
+
+  
+
+  <div class="tab-pane fade" id="tab-day" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <div id="day">
+      <!-- Speakers -->
+      {{ components.section("Speakers") }}
+      <div class="speakers">
+        {{ components.speakergroup(day.speakers) }}
+      </div>
+      {{ components.section("Highlighted Papers") }}
+      <div class="papers">
+      {{ components.highlightgroup(day.highlighted, 1) }}
+      </div>
+    </div>
+
+  </div>
+ 
+  
+  
 </div>
 {% endblock %}

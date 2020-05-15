@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Title -->
+<div class="pp-card m-3" style="">
+  <div class="card-header">
+    <h2 class="card-title main-title text-center" style="">
+      {{speaker.title}}
+    </h2>
+    <h3 class="card-subtitle mb-2 text-muted text-center">
+      {{speaker.speaker}} / {{speaker.institution}}
+    </h3>
+    <div class="text-center p-3">
+      <a class="card-link" data-toggle="collapse" role="button" href="#details">
+        Abstract & Bio
+      </a>
+    </div>
+  </div>
+</div>
+<div id="details" class="pp-card m-3 collapse">
+  <div class="card-body">
+    <p class="card-text">
+      <div id="abstractExample">
+        <span class="font-weight-bold">Abstract:</span>
+        {{speaker.abstract|safe}} <br><br>
+        
+        <span class="font-weight-bold">Bio:</span>
+        {{speaker.bio|safe}}
+      </div>
+    </p>
+    <p></p>
+  </div>
+</div>
+
+<!-- Presentation Embed -->
+
+{% endblock %}

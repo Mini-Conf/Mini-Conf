@@ -6,9 +6,10 @@ import os, sys, argparse
 import glob
 
 site_data = {}
-
+papers_by_uid = {}
+speakers_by_uid = {}
 def main(site_data_path):
-    global site_data
+    global site_data, papers_by_uid, speakers_by_ud
 
     # Load all for your sitedata one time.
     for f in glob.glob(site_data_path +"/*"):
@@ -24,7 +25,11 @@ def main(site_data_path):
     """
     Fill-in: Any data preprocessing
     """
-            
+    for p in site_data["papers"]:
+        papers_by_uid[p["UID"]] = p
+    for p in site_data["speakers"]:
+        speakers_by_uid[p["UID"]] = p
+        
     print("Data Successfully Loaded")
 
 
@@ -32,7 +37,7 @@ def main(site_data_path):
 
 app = Flask(__name__)
 app.config.from_object(__name__)
-
+freezer = Freezer(app, with_no_argument_rules=False, log_url_for=False)
 
 # MAIN PAGES
 
@@ -72,6 +77,9 @@ def paperVis():
 @app.route('/calendar.html')
 def schedule():
     data = _data()
+    data["day"] = {"speakers": site_data["speakers"],
+                   "highlighted": [format_paper(papers_by_uid[h["UID"]])
+                                   for h in site_data["highlighted"]]}
     return render_template('schedule.html', **data)
 
 
@@ -90,11 +98,19 @@ def format_paper(v):
 
 @app.route('/poster_<poster>.html')
 def poster(poster):
-    uid = int(poster) - 1
-    v = site_data["papers"][uid]
+    uid = poster
+    v = papers_by_uid[uid]
     data = _data()
     data["paper"] =  format_paper(v)
-    return render_template('page.html', **data)
+    return render_template('poster.html', **data)
+
+@app.route('/speaker_<speaker>.html')
+def speaker(speaker):
+    uid = speaker
+    v = speakers_by_uid[uid]
+    data = _data()
+    data["speaker"] =  v
+    return render_template('speaker.html', **data)
 
 @app.route('/papers.json')
 def paper_json():
@@ -103,12 +119,6 @@ def paper_json():
         json.append(format_paper(v))
     return jsonify(json)
 
-@app.route('/embeddings_<emb>.json')
-def embeddings(emb):
-    try:
-        return send_from_directory('static', 'embeddings_' + emb + '.json')
-    except FileNotFoundError:
-        return ""
 
 @app.route('/static/<path:path>')
 def send_static(path):
@@ -117,29 +127,17 @@ def send_static(path):
 
 # --------------- DRIVER CODE -------------------------->
 # Code to turn it all static
-freezer = Freezer(app, with_no_argument_rules=False, log_url_for=False)
+
 
 @freezer.register_generator
 def generator():
-    yield "home", {}
-    yield "index", {}
-    yield "about", {}
-    yield "papers", {}
-    yield "schedule", {}
-    yield "paperVis", {}
-    yield "paper_json", {}
-    yield "schedule", {}
-    yield "embeddings", {"emb":"tsne"}
-
     for i in site_data["papers"].keys():
         yield "poster", {"poster": str(i)}
 
 
 
-
-
 def parse_arguments():
-    parser = argparse.ArgumentParser(description="ICLR Portal Command Line")
+    parser = argparse.ArgumentParser(description="MiniConf Portal Command Line")
 
     parser.add_argument('--build', action='store_true', default=False,
                         help="Convert the site to static assets")

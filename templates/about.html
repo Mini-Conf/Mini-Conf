@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block tabs %}
-{{tabs([("faq", "FAQ", "active")])}}
+{{ components.tabs([("faq", "FAQ", "active")]) }}
 {% endblock %}
 
 {% block content %}
@@ -9,34 +9,8 @@
   
   <!-- FAQ -->
   <div class="tab-pane active" id="tab-faq" role="tabpanel" aria-labelledby="nav-profile-tab">
-    {{ section("Frequently Asked Questions") }}
-
-    {% for section in FAQ %}
-    {{ subsection(section.Section) }}
-    
-    {% set rowloop = loop.index %}
-    {% for qa in section.QA %}
-    <div class="row">
-      <div class="col-12" id="accordionExample">
-        <div class=" card m-2">
-          <div class="card-header" >
-            <a class="" href="#" data-toggle="collapse"
-               data-target="#collapse{{rowloop}}-{{loop.index}}"
-               aria-expanded="true" aria-controls="collapse{{rowloop}}-{{loop.index}}">
-              {{qa.Question}}
-            </a>
-          </div>
-          <div id="collapse{{rowloop}}-{{loop.index}}" class="collapse"
-               aria-labelledby="headingOne" data-parent="#accordionExample">
-            <div class="card-body">
-              {{qa.Answer}}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    {% endfor %}
-    {% endfor %}
+    {{ components.section("Frequently Asked Questions") }}
+    {{ components.faqgroup(FAQ) }}
   </div>
 </div>
 {% endblock %}

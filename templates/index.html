@@ -1,20 +1,37 @@
 {% extends "base.html" %}
 
 {% block top %}
+  <style>
+    .back {
+    background: url('static/images/main.jpg') no-repeat center;
+    background-size: cover;
+    }
+    .back h2 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 900;
+    }
+  </style>
+
+
 <div class="jumbotron jumbotron-fluid back" style="padding-bottom:20px">    
-  <div class="row mx-auto text-center" >      
+  <div class=" row header p-6 m-5">
+    <div class="p-1 mx-auto text-center text-white col-md-9 col-sm-12" >
+      <h2>
+        {{config.tagline|safe}}
+      </h2>
+      <h2 class="p-5" >
+        {{config.date}}
+      </h2>
+    </div>
   </div>
 </div>
 {% endblock %}
 
 {% block content %}
-<!-- Sponsor -->
-{{ section("Sponsors") }}
-{% include 'sponsors.html' %}
 
 <!-- Organizers -->
-{{ section("Organizers") }}
-{% include 'organizers.html' %}
+{{ components.section("Organizers") }}
+{{ components.organizergroup(committee) }}
 
 
 {% endblock %}

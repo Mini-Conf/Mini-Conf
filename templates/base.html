@@ -1,31 +1,5 @@
-{% macro tabs(tab_group) -%}
-<ul class="nav nav-pills justify-content-center">
-  {% for tab in tab_group %}
-  <li class="nav-item">
-    <a class="nav-link {{tab[2]}} text-muted " data-toggle="tab" href="#tab-{{tab[0]}}" role="tab" aria-controls="nav-home" aria-selected="true">{{tab[1]}}
-    </a>
-  </li>
-  {% endfor %}
-</ul>
-{%- endmacro %}
-
-
-{% macro section(name) -%}
-    <div class="border-top my-3"></div>
-    <div class="row p-4" id="faq">
-      <div class="col-12 bd-content ">
-        <h2 class="text-center">{{name}}</h2>
-      </div>
-    </div>
-{%- endmacro %}
-{% macro subsection(name) -%}
-    <div class="row p-3">
-      <div class="col-12 bd-content">
-        <h3>{{name}}</h3>
-      </div>
-    </div>
-{%- endmacro %}
-
+{% import 'components.html' as components %}
+    
 <!doctype html>
 <html lang="en">
   <head>
@@ -61,9 +35,8 @@
             integrity="sha256-IWYg4uIC8/erItNXYvLtyYHioRi2zT1TFva8qaAU/ww="
             crossorigin="anonymous"></script>
 
-    <<!-- Library libs -->
+    <!-- Library libs -->
     <script src="static/js/typeahead.bundle.js"></script>
-    <script src="static/js/lazy_load.js"></script>
         
     <!-- External CSS -->
     <link rel="stylesheet"
@@ -166,8 +139,8 @@
       
       });  
     </script>
-
+    <script src="static/js/lazy_load.js"></script>
     {% endblock %}
-    
+
   </body>
 </html>
