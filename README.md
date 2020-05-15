@@ -1,6 +1,6 @@
 # MiniConf
 
-<img src="static/images/Logo">
+<img src="https://github.com/Mini-Conf/Mini-Conf/raw/master/static/images/MiniConf.png">
 
 MiniConf is a set of tools and templates for designing a virtual conference portal based on the work of ICLR 2020 (https://iclr.cc/virtual_2020)
 
