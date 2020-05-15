@@ -1,45 +1,48 @@
 # MiniConf
 
-MiniConf is a set of tools and templates for designing a virtual conference portal based on the work of ICLR 2020. 
+<img src="static/images/Logo">
+
+MiniConf is a set of tools and templates for designing a virtual conference portal based on the work of ICLR 2020 (https://iclr.cc/virtual_2020)
+
+The out-of-the box MiniConf setting is viewable here: https://mini-conf.github.io/index.html
 
 The design goals are:
 
-* Completely s
-* Easy to 
+* Completely static: everything is HTML / JS.
+* No database: everything is generated from CSV / YAML / ICS 
+* Super easy to modify: move and change components directly. 
+
+Under the hood the system is written in Flask, with < 100 lines of python code. 
 
 
+### Quickstart
 
-### Installation
+Install:
 ```
 pip install -r requirements.txt
 ```
-Replace `pip` with `pip3` according to your system.
+
+Run locally
+```
+bash run.sh 
+```
+
+After starting the server => goto http://localhost:5000
 
 
 ## Files
 
-* Static files js/css/image `static/`
-* Site and configuration data files yaml/json `sitedata/`
-* HTML Template files `templates/pages`
+The main files to edit to control the configuration are: 
+
+* "Database": `sitedata/`
+* "Routing": `main.py`
+* "Templates": `templates/`
+* "Frontend": `static/`
 
 
-### Test
+
+### Deploy
 ```
-bash run.sh or sh run.sh
+bash freeze.sh 
 ```
-For Starting the server => goto http://localhost:5000
-
-
-### Make static pages
-```
-bash freeze.sh or sh freeze.sh
-```
-Puts the static pages in `build/`
-
-### Code
-
-Code is all in `main.py`
-
-###  Html Pages
-
-Main Html pages are included in `templates/pages/`
+Puts the static pages in `build/`. This is the whole site, you can just copy to your server or deploy to github pages.
