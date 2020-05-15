@@ -1,6 +1,12 @@
-# Mini Conf
+# MiniConf
 
-Template for a miniature virtual conference portal.  
+MiniConf is a set of tools and templates for designing a virtual conference portal based on the work of ICLR 2020. 
+
+The design goals are:
+
+* Completely s
+* Easy to 
+
 
 
 ### Installation
