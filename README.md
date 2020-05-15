@@ -1,4 +1,3 @@
-# MiniConf
 
 <img src="https://github.com/Mini-Conf/Mini-Conf/raw/master/static/images/MiniConf.png">
 
