@@ -37,7 +37,7 @@ def main(site_data_path):
 
 app = Flask(__name__)
 app.config.from_object(__name__)
-freezer = Freezer(app, with_no_argument_rules=False, log_url_for=False)
+freezer = Freezer(app)
 
 # MAIN PAGES
 
@@ -131,8 +131,11 @@ def send_static(path):
 
 @freezer.register_generator
 def generator():
-    for i in site_data["papers"].keys():
-        yield "poster", {"poster": str(i)}
+
+    for paper in site_data["papers"]:
+        yield "poster", {"poster": str(paper["UID"])}
+    for speaker in site_data["speakers"]:
+        yield "speaker", {"speaker": str(speaker["UID"])}
 
 
 
