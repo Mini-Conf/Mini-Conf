@@ -126,6 +126,10 @@ def paper_json():
 def send_static(path):
     return send_from_directory('static', path)
 
+@app.route('/serve_<path>.json')
+def serve(path):    
+    return jsonify(site_data[path])
+
 
 # --------------- DRIVER CODE -------------------------->
 # Code to turn it all static
@@ -138,6 +142,8 @@ def generator():
         yield "poster", {"poster": str(paper["UID"])}
     for speaker in site_data["speakers"]:
         yield "speaker", {"speaker": str(speaker["UID"])}
+    for key in site_data:
+        yield "serve", {"path": key}
 
 
 
