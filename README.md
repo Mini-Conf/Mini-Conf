@@ -15,26 +15,26 @@ To get started just `pip install -r requirements.txt` and run `./run.sh `. When 
 
 1) *Datastore* <a href="https://github.com/Mini-Conf/Mini-Conf/tree/master/sitedata">`sitedata/`</a>
 
-This is a collection of CSV files representing the papers, speakers, workshops, and other important information for the conference.
+Collection of CSV files representing the papers, speakers, workshops, and other important information for the conference.
 
 2) *Routing* <a href="https://github.com/Mini-Conf/Mini-Conf/tree/master/main.py">`main.py`</a>
 
-This flask files handles simple data preprocessing and site navigation. Add new pages here. 
+One file flask-server handles simple data preprocessing and site navigation. 
 
 3) *Templates* <a href="https://github.com/Mini-Conf/Mini-Conf/tree/master/templates">`templates/`</a>
 
-This directory contains all the pages for the site. See `base.html` for the master page and `components.html` for core components.
+Contains all the pages for the site. See `base.html` for the master page and `components.html` for core components.
 
 4) *Frontend* <a href="https://github.com/Mini-Conf/Mini-Conf/tree/master/static">`static/`</a>
 
-This directory contains frontend components like the default css, images, and javascript libs.
+Contains frontend components like the default css, images, and javascript libs.
 
 5) *Scripts* <a href="https://github.com/Mini-Conf/Mini-Conf/tree/master/scripts">`scripts/`</a>
 
-This directory contains additional preprocessing to add visualizations and recommendations to the conference. 
+Contains additional preprocessing to add visualizations and recommendations to the conference. 
 
 
 ### Example
 
-Mini-Conf was used to run <a href="https://iclr.cc/virtual_2020">ICLR 2020</a> a virtual conference with 6000 participants. 
+Mini-Conf successfully hosted <a href="https://iclr.cc/virtual_2020">ICLR 2020</a> a virtual conference with 6000 participants. 
 
