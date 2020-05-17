@@ -61,12 +61,15 @@
     ('index.html', 'Home'),
     ('calendar.html', 'Schedule'),
     ('papers.html', 'Papers'),
+    ('workshops.html', 'Workshops'),
     ('about.html', 'Help'),
     ] -%}
+
+    
     <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light mr-auto " id="main-nav" >
       <div class="container">
         <a class="navbar-brand" href="index.html">
-          <img class="logo" style='visibility: {% if active_page == 'Home_old' %}hidden;{% endif %}' src="{{config.logo}}"  width="180px" />
+          <img class="logo" src="{{config.logo}}"  width="180px" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>

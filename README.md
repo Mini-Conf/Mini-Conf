@@ -1,47 +1,40 @@
+## Mini-Conf
 
-<img src="https://github.com/Mini-Conf/Mini-Conf/raw/master/static/images/MiniConf.png">
+<a href="https://mini-conf.github.io/index.html">MiniConf</a> is a virtual conference in a box. It is:
 
-MiniConf is a set of tools and templates for designing a virtual conference portal based on the work of ICLR 2020 (https://iclr.cc/virtual_2020)
+* Completely static
+* Requires no database.
+* Trivial to modify.
 
-The out-of-the box MiniConf setting is viewable here: https://mini-conf.github.io/index.html
-
-The design goals are:
-
-* Completely static: everything is HTML / JS.
-* No database: everything is generated from CSV / YAML / ICS 
-* Super easy to modify: move and change components directly. 
-
-Under the hood the system is written in Flask, with < 100 lines of python code. 
+To get started just `pip install -r requirements.txt` and run `./run.sh `. When you are ready to deploy run
+`./freeze.sh` to get a static version of the site. 
 
 
-### Quickstart
-
-Install:
-```
-pip install -r requirements.txt
-```
-
-Run locally
-```
-bash run.sh 
-```
-
-After starting the server => goto http://localhost:5000
+### Tour
 
 
-## Files
+1) *Datastore* <a href="https://github.com/Mini-Conf/Mini-Conf/tree/master/sitedata">`sitedata/`</a>
 
-The main files to edit to control the configuration are: 
+This is a collection of CSV files representing the papers, speakers, workshops, and other important information for the conference.
 
-* "Database": `sitedata/`
-* "Routing": `main.py`
-* "Templates": `templates/`
-* "Frontend": `static/`
+2) *Routing* <a href="https://github.com/Mini-Conf/Mini-Conf/tree/master/main.py">`main.py`</a>
+
+This flask files handles simple data preprocessing and site navigation. Add new pages here. 
+
+3) *Templates* <a href="https://github.com/Mini-Conf/Mini-Conf/tree/master/templates">`templates/`</a>
+
+This directory contains all the pages for the site. See `base.html` for the master page and `components.html` for core components.
+
+4) *Frontend* <a href="https://github.com/Mini-Conf/Mini-Conf/tree/master/static">`static/`</a>
+
+This directory contains frontend components like the default css, images, and javascript libs.
+
+5) *Scripts* <a href="https://github.com/Mini-Conf/Mini-Conf/tree/master/scripts">`scripts/`</a>
+
+This directory contains additional preprocessing to add visualizations and recommendations to the conference. 
 
 
+### Example
 
-### Deploy
-```
-bash freeze.sh 
-```
-Puts the static pages in `build/`. This is the whole site, you can just copy to your server or deploy to github pages.
+Mini-Conf was used to run <a href="https://iclr.cc/virtual_2020">ICLR 2020</a> a virtual conference with 6000 participants. 
+

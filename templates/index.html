@@ -1,3 +1,4 @@
+{% set active_page = "Home" %}
 {% extends "base.html" %}
 
 {% block top %}
@@ -28,6 +29,8 @@
 {% endblock %}
 
 {% block content %}
+
+{{ readme | markdown }}
 
 <!-- Organizers -->
 {{ components.section("Organizers") }}

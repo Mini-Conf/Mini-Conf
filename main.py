@@ -4,14 +4,14 @@ from flask_frozen import Freezer
 import pickle, json, yaml, csv
 import os, sys, argparse
 import glob
+from flaskext.markdown import Markdown
 
 site_data = {}
-papers_by_uid = {}
-speakers_by_uid = {}
+by_uid = {}
 
 def main(site_data_path):
-    global site_data, papers_by_uid, speakers_by_ud, extra_files
-    extra_files = []
+    global site_data, extra_files
+    extra_files = ["README.md"]
     # Load all for your sitedata one time.
     for f in glob.glob(site_data_path +"/*"):
         extra_files.append(f)
@@ -27,10 +27,10 @@ def main(site_data_path):
     """
     Fill-in: Any data preprocessing
     """
-    for p in site_data["papers"]:
-        papers_by_uid[p["UID"]] = p
-    for p in site_data["speakers"]:
-        speakers_by_uid[p["UID"]] = p
+    for typ in ["papers", "speakers", "workshops"]:
+        by_uid[typ] = {}
+        for p in site_data[typ]:
+            by_uid[typ][p["UID"]] = p
         
     print("Data Successfully Loaded")
     return extra_files
@@ -40,6 +40,7 @@ def main(site_data_path):
 app = Flask(__name__)
 app.config.from_object(__name__)
 freezer = Freezer(app)
+markdown = Markdown(app)
 
 # MAIN PAGES
 
@@ -52,9 +53,13 @@ def _data():
 def index():
     return redirect('/index.html')
 
+
+# TOP LEVEL PAGES
+
 @app.route('/index.html')
 def home():
     data = _data()
+    data["readme"] = open("README.md").read()
     data["committee"] = site_data["committee"]["committee"]
     return render_template('index.html', **data)
 
@@ -80,9 +85,15 @@ def paperVis():
 def schedule():
     data = _data()
     data["day"] = {"speakers": site_data["speakers"],
-                   "highlighted": [format_paper(papers_by_uid[h["UID"]])
+                   "highlighted": [format_paper(by_uid["papers"][h["UID"]])
                                    for h in site_data["highlighted"]]}
     return render_template('schedule.html', **data)
+
+@app.route('/workshops.html')
+def workshops():
+    data = _data()
+    data["workshops"] = site_data["workshops"]
+    return render_template('workshops.html', **data)
 
 
 def format_paper(v):
@@ -98,10 +109,12 @@ def format_paper(v):
                         "session": v.get("session", "").split("|"),
             }}
 
+# ITEM PAGES
+
 @app.route('/poster_<poster>.html')
 def poster(poster):
     uid = poster
-    v = papers_by_uid[uid]
+    v = by_uid["papers"][uid]
     data = _data()
     data["paper"] =  format_paper(v)
     return render_template('poster.html', **data)
@@ -109,10 +122,21 @@ def poster(poster):
 @app.route('/speaker_<speaker>.html')
 def speaker(speaker):
     uid = speaker
-    v = speakers_by_uid[uid]
+    v = by_uid["speakers"][uid]
     data = _data()
     data["speaker"] =  v
     return render_template('speaker.html', **data)
+
+@app.route('/workshop_<workshop>.html')
+def workshop(workshop):
+    uid = workshop
+    v = by_uid["workshops"][uid]
+    data = _data()
+    data["workshop"] =  v
+    return render_template('workshop.html', **data)
+
+
+# FRONT END SERVING
 
 @app.route('/papers.json')
 def paper_json():
@@ -142,6 +166,10 @@ def generator():
         yield "poster", {"poster": str(paper["UID"])}
     for speaker in site_data["speakers"]:
         yield "speaker", {"speaker": str(speaker["UID"])}
+    for workshop in site_data["workshops"]:
+        yield "workshop", {"workshop": str(workshop["UID"])}
+
+
     for key in site_data:
         yield "serve", {"path": key}
 
