@@ -8,11 +8,13 @@ import glob
 site_data = {}
 papers_by_uid = {}
 speakers_by_uid = {}
-def main(site_data_path):
-    global site_data, papers_by_uid, speakers_by_ud
 
+def main(site_data_path):
+    global site_data, papers_by_uid, speakers_by_ud, extra_files
+    extra_files = []
     # Load all for your sitedata one time.
     for f in glob.glob(site_data_path +"/*"):
+        extra_files.append(f)
         name, typ = f.split("/")[-1].split(".")
         if typ == "json":
             site_data[name] = json.load(open(f))
@@ -31,7 +33,7 @@ def main(site_data_path):
         speakers_by_uid[p["UID"]] = p
         
     print("Data Successfully Loaded")
-
+    return extra_files
 
 # ------------- SERVER CODE -------------------->
 
@@ -158,7 +160,7 @@ if __name__ == "__main__":
     args = parse_arguments()
 
     site_data_path = args.path
-    main(site_data_path)
+    extra_files = main(site_data_path)
 
     if args.build:
         freezer.freeze()
@@ -167,4 +169,4 @@ if __name__ == "__main__":
         if(os.getenv("FLASK_DEBUG") == "True"):
             debug_val = True
 
-        app.run(port=5000, debug=debug_val)
+        app.run(port=5000, debug=debug_val, extra_files=extra_files)
