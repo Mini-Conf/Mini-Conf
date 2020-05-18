@@ -72,12 +72,6 @@ const brushed = () => {
 function brush_ended() {
     currentTippy.forEach(t => t.enable());
 
-    if (ga) {
-        ga('send', 'event', 'PaperVis', 'brushend', d3.event.selection);
-    }
-
-
-
     const all_sel = []
     l_main.selectAll('.dot.rect_selected').each(d => all_sel.push(d));
 
@@ -300,11 +294,6 @@ d3.selectAll('.filter_option input').on('click', function () {
 
     const filter_mode = me.property('value');
     updateFilterSelectionBtn(filter_mode);
-
-    if (ga) {
-        ga('send', 'event', 'PaperVis', 'filtermode', filter_mode);
-    }
-
 
     setTypeAhead(filter_mode, allKeys, filters, render);
     render();
