@@ -1,5 +1,5 @@
 FAQ:
-  - Section: Test Section
+  - Section: Conference Advice
     QA:
-      - Question: What is a good question?
-        Answer: "Here are the answers"
+      - Question: What should I put on the paper pages?
+        Answer: "Depending on your conference, you might want to consider having embeded videos, chat rooms, or rendered posters. For ICLR, we used SlidesLive and Rocket.Chat. In another conference we used PDF.js to render posters."
