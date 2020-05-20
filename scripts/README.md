@@ -17,5 +17,5 @@ python embeddings.py ../sitedata/papers.csv
 
 
 ```
-python embeddings.py ../sitedata/papers.csv embeddings.torch > embeddings.json
+python embeddings.py ../sitedata/papers.csv embeddings.torch > ../sitedata/papers_projection.json
 ```
