@@ -1,0 +1,22 @@
+{
+  "name": "acl-2020-virtual-conference",
+  "version": "1.0.0",
+  "description": "ACL2020 Virtual Conference Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acl-org/acl-2020-virtual-conference.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/acl-org/acl-2020-virtual-conference/issues"
+  },
+  "homepage": "https://github.com/acl-org/acl-2020-virtual-conference#readme",
+  "dependencies": {
+    "eslint": "^7.0.0"
+  }
+}
