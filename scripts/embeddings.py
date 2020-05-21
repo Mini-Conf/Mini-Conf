@@ -1,6 +1,5 @@
 import argparse
 import csv
-import gc
 
 import torch
 import transformers
