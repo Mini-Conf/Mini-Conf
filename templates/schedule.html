@@ -16,9 +16,20 @@
         <!-- Calender tab -->
         <div class="tab-pane active" id="tab-calendar" role="tabpanel"
              aria-labelledby="nav-profile-tab">
+
+            <div class="form-group col">
+                <label for="tzOptions">Timezone:</label>
+                <select id="tzOptions" class="selectpicker"
+                        data-live-search="true">
+                </select>
+            </div>
+
+            <!-- full cal for browser-->
             <div id="calendar" class="d-none d-sm-block"></div>
 
+            <!-- small cal for smart phones-->
             <div id="calendar_small" class="d-sm-none"></div>
+
             <script type='text/javascript'>
                 make_cal("serve_main_calendar.json")
             </script>

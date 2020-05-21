@@ -11,5 +11,5 @@ calendar:
     qa: '#4FCAEB'
     talk: '#ccc'
   #  Include Sunday and Saturday ?
-  sunday_saturday: true
+  sunday_saturday: false
 

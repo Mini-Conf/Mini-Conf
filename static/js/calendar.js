@@ -2,6 +2,26 @@ function make_cal(name) {
 
     // console.log(location.search, "--- location.search");
 
+    const current_tz = getUrlParameter('tz') || moment.tz.guess();
+    const tzNames = [...moment.tz.names()];
+
+    const setupTZSelector = () => {
+        const tzOptons = d3.select('#tzOptions')
+        tzOptons.selectAll('option').data(tzNames)
+          .join('option')
+          .attr('data-tokens', d => d.split("/").join(" "))
+          .text(d => d)
+        $('.selectpicker')
+          .selectpicker('val', current_tz)
+          .on('changed.bs.select',
+            function (e, clickedIndex, isSelected, previousValue) {
+                new_tz = tzNames[clickedIndex]
+                window.open(window.location.pathname+'?tz='+new_tz, '_self');
+            })
+    }
+
+    setupTZSelector();
+
     // requires moments.js
     const enumerateDaysBetweenDates = function (startDate, endDate) {
         const dates = [];
@@ -26,12 +46,7 @@ function make_cal(name) {
         $.get(name).then(events => {
 
             const all_cals = [];
-            // console.log((config.calendar["sunday_saturday"]),"--- config.calendar[sunday_saturday]");
-
-            const timezoneName = moment.tz.guess();
-            // const timezoneName = 'Europe/Berlin'
-
-            // console.log(timezoneName, "--- timezoneName");
+            const timezoneName = current_tz;
 
             const min_date = d3.min(events.map(e => e.start));
             // console.log(min_date, "--- min_date");
@@ -165,16 +180,16 @@ function make_cal(name) {
             // console.log(week_dates.map(d => d.format()), "--- week_dates ");
 
 
-            const resize = async function(cal){
-                await cal.render();
-                d3.selectAll('.tui-full-calendar-vlayout-area').attr('style',null);
+            const resize = async function (cal) {
+                await cal.render(true);
+                // d3.selectAll('.tui-full-calendar-vlayout-area').attr('style',null);
             }
 
             $(window).on('resize', _.debounce(function () {
                 all_cals.forEach(c => resize(c));
             }, 100));
 
-            d3.selectAll('.tui-full-calendar-vlayout-area').attr('style',null);
+            // d3.selectAll('.tui-full-calendar-vlayout-area').attr('style',null);
 
         })
 
