@@ -1,3 +1,4 @@
+# pylint: disable=global-statement,redefined-outer-name
 import argparse
 import csv
 import glob
@@ -5,13 +6,7 @@ import json
 import os
 
 import yaml
-from flask import (
-    Flask,
-    jsonify,
-    redirect,
-    render_template,
-    send_from_directory,
-)
+from flask import Flask, jsonify, redirect, render_template, send_from_directory
 from flask_frozen import Freezer
 from flaskext.markdown import Markdown
 
@@ -28,14 +23,14 @@ def main(site_data_path):
         name, typ = f.split("/")[-1].split(".")
         if typ == "json":
             site_data[name] = json.load(open(f))
-        elif typ == "csv" or typ == "tsv":
+        elif typ in {"csv", "tsv"}:
             site_data[name] = list(csv.DictReader(open(f)))
         elif typ == "yml":
             site_data[name] = yaml.load(open(f).read(), Loader=yaml.BaseLoader)
 
-    """
-    Fill-in: Any data preprocessing
-    """
+    #############
+    # Fill-in: Any data preprocessing
+    #############
     for typ in ["papers", "speakers", "workshops"]:
         by_uid[typ] = {}
         for p in site_data[typ]:

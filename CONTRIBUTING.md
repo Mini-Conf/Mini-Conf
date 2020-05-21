@@ -20,10 +20,20 @@
     ```bash
     npm install
     ```
+* Run `make` to execute all tests.
     
 ### IDE Setup
-- Setup the Python Interpreter
+* Setup the Python Interpreter
     - For PyCharm, go to `Settings -> Project Settings -> Project Interpreter`.
     - For IntelliJ, go to `File -> Project Structure -> Project -> Project SDK`.
     - Add a `Virtualenv Environment` from an `Existing environment` and set the Interpreter to `YOUR_REPO_ROOT/venv/bin/python`.
 
+### Pull Request
+* We force the following checks in before changes can be merged into master:
+  [isort](https://pypi.org/project/isort/),
+  [black](https://black.readthedocs.io/en/stable/),
+  [pylint](https://www.pylint.org/),
+  [mypy](http://mypy-lang.org/).
+    * You can run `make` to executes all checks.
+    * To fix any formatting or import errors, you can simply run `make format`.
+    * For more details, see the `test` task in the [Makefile](./Makefile)

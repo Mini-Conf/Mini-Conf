@@ -1,22 +1,22 @@
+PYTHON_FILES = main.py scripts/
+
 .PHONY: format check
 
 all: mypy
 
+# format code
 format:
-	# Format frontend code
 	prettier templates/ --write
-	# Format python code
-	isort -rc main.py scripts/ --multi-line=3 --trailing-comma --force-grid-wrap=0 --use-parentheses --line-width=88
-	black -t py37 main.py scripts/
+	isort -rc $(PYTHON_FILES) --multi-line=3 --trailing-comma --force-grid-wrap=0 --use-parentheses --line-width=88
+	black -t py37 $(PYTHON_FILES)
 
+# check code format
 format-check:
-	# Check frontend code
 	prettier templates/ --check
-	# Check python code
-	(isort -rc main.py scripts/--check-only --multi-line=3 --trailing-comma --force-grid-wrap=0 --use-parentheses --line-width=88) && (black -t py37 --check src/ tests/) || (echo "run \"make format\" to format the code"; exit 1)
+	(isort -rc $(PYTHON_FILES) --check-only --multi-line=3 --trailing-comma --force-grid-wrap=0 --use-parentheses --line-width=88) && (black -t py37 --check $(PYTHON_FILES)) || (echo "run \"make format\" to format the code"; exit 1)
 
 pylint: format-check
-	pylint -j0 main.py scripts/
+	pylint -j0 $(PYTHON_FILES)
 
 mypy: pylint
-	mypy --show-error-codes main.py scripts/
+	mypy --show-error-codes $(PYTHON_FILES)
