@@ -1,5 +1,5 @@
 HTML_FILES = $(shell find templates/ -name "*.html")
-JS_FILES = $(shell find static/js -name "*.js")
+JS_FILES = $(shell find static/js -name "*.js" ! -iname "ical.js" ! -iname "typeahead.bundle.js")
 CSS_FILES = $(shell find static/css -name "*.css")
 PYTHON_FILES = main.py scripts/
 

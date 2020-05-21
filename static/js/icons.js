@@ -1,11 +1,15 @@
+// eslint-disable-next-line camelcase,no-unused-vars
 const icon_video = (size) => {
+  // eslint-disable-next-line no-param-reassign
   size = size || 32;
   return `<svg class="icon_video" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" 
 viewBox="0 0 32 32" aria-hidden="true"><path d="M21,26H4a2,2,0,0,1-2-2V8A2,2,0,0,1,4,6H21a2,2,0,0,1,2,2v4.06l5.42-3.87A1,1,0,0,1,30,9V23a1,1,0,0,1-1.58.81L23,19.94V24A2,2,0,0,1,21,26Z"></path>
 <title>Live</title></svg>`;
 };
 
+// eslint-disable-next-line camelcase,no-unused-vars
 const icon_cal = (size) => {
+  // eslint-disable-next-line no-param-reassign
   size = size || 32;
   return `<svg class="icon_cal" focusable="false" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" 
 viewBox="0 0 32 32" aria-hidden="true">
