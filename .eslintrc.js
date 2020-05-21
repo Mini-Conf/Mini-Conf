@@ -4,6 +4,9 @@ module.exports = {
     es6: true,
     jquery: true,
   },
+  plugins: [
+    "eslint-plugin-html",
+  ],
   extends: [
     'airbnb-base',
     'plugin:prettier/recommended',

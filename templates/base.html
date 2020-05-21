@@ -139,6 +139,7 @@
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
+        // eslint-disable-next-line no-undef,prefer-rest-params
         dataLayer.push(arguments);
       }
       gtag("js", new Date());
@@ -155,19 +156,27 @@
 
     <!-- Code for hash tags -->
     <script type="text/javascript">
+      // eslint-disable-next-line func-names
       $(document).ready(function () {
+        // eslint-disable-next-line no-restricted-globals
         if (location.hash !== "") {
-          $('a[href="' + location.hash + '"]').tab("show");
+          // eslint-disable-next-line no-restricted-globals
+          $(`a[href="${location.hash}"]`).tab("show");
         }
 
-        $("a[data-toggle='tab']").on("shown.bs.tab", function (e) {
-          var hash = $(e.target).attr("href");
-          if (hash.substr(0, 1) == "#") {
-            var position = $(window).scrollTop();
-            location.replace("#" + hash.substr(1));
-            $(window).scrollTop(position);
-          }
-        });
+        // eslint-disable-next-line no-restricted-globals
+        if (location.hash !== "") {
+          // eslint-disable-next-line func-names
+          $("a[data-toggle='tab']").on("shown.bs.tab", function (e) {
+            const hash = $(e.target).attr("href");
+            if (hash.substr(0, 1) === "#") {
+              const position = $(window).scrollTop();
+              // eslint-disable-next-line no-restricted-globals
+              location.replace(`#${hash.substr(1)}`);
+              $(window).scrollTop(position);
+            }
+          });
+        }
       });
     </script>
     <script src="static/js/lazy_load.js"></script>
