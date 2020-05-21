@@ -22,8 +22,8 @@ def main(site_data_path):
             site_data[name] = list(csv.DictReader(open(f)))
         elif typ == "yml":
             site_data[name] = yaml.load(open(f).read(),
-                                        Loader=yaml.BaseLoader)
-    
+                                        Loader=yaml.SafeLoader)
+
     """
     Fill-in: Any data preprocessing
     """
@@ -31,7 +31,7 @@ def main(site_data_path):
         by_uid[typ] = {}
         for p in site_data[typ]:
             by_uid[typ][p["UID"]] = p
-        
+
     print("Data Successfully Loaded")
     return extra_files
 
@@ -151,7 +151,7 @@ def send_static(path):
     return send_from_directory('static', path)
 
 @app.route('/serve_<path>.json')
-def serve(path):    
+def serve(path):
     return jsonify(site_data[path])
 
 
