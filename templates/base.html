@@ -1,80 +1,108 @@
 {% import 'components.html' as components %}
-    
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
   <head>
     {% block head %}
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
+    <link rel="stylesheet" href="static/css/main.css" />
+    <link rel="stylesheet" href="static/css/lazy_load.css" />
+    <link rel="stylesheet" href="static/css/typeahead.css" />
 
-    <link rel="stylesheet" href="static/css/main.css">
-    <link rel="stylesheet" href="static/css/lazy_load.css">
-    <link rel="stylesheet" href="static/css/typeahead.css">    
-        
     <!-- External Javascript libs  -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.3/handlebars.min.js"
-            integrity="sha256-/PJBs6QWvXijOFIX04kZpLb6ZtSQckdOIavLWKKOgXU="
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-            crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-            crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"
-            integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ="
-            crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.28/moment-timezone-with-data.min.js"
-            integrity="sha256-IWYg4uIC8/erItNXYvLtyYHioRi2zT1TFva8qaAU/ww="
-            crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.3/handlebars.min.js"
+      integrity="sha256-/PJBs6QWvXijOFIX04kZpLb6ZtSQckdOIavLWKKOgXU="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"
+      integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.28/moment-timezone-with-data.min.js"
+      integrity="sha256-IWYg4uIC8/erItNXYvLtyYHioRi2zT1TFva8qaAU/ww="
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Library libs -->
     <script src="static/js/typeahead.bundle.js"></script>
-        
+
     <!-- External CSS -->
-    <link rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-          crossorigin="anonymous">
-        
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+
     <!-- External Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Exo" rel='stylesheet'>
-    <link href="https://fonts.googleapis.com/css?family=Cuprum" rel='stylesheet'>
-    
-    
-    <title> {{config.page_title}} </title>    
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:400,900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Cuprum"
+      rel="stylesheet"
+    />
+
+    <title>{{config.page_title}}</title>
     {% endblock %}
   </head>
-  
+
   <body>
     <!-- NAV -->
-    {% block header %}
-    {% set navigation_bar = [
-    ('index.html', 'Home'),
-    ('calendar.html', 'Schedule'),
-    ('papers.html', 'Papers'),
-    ('workshops.html', 'Workshops'),
-    ('about.html', 'Help'),
-    ] -%}
+    {% block header %} {% set navigation_bar = [ ('index.html', 'Home'),
+    ('calendar.html', 'Schedule'), ('papers.html', 'Papers'), ('workshops.html',
+    'Workshops'), ('about.html', 'Help'), ] -%}
 
-    
-    <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light mr-auto " id="main-nav" >
+    <nav
+      class="navbar sticky-top navbar-expand-lg navbar-light bg-light mr-auto"
+      id="main-nav"
+    >
       <div class="container">
         <a class="navbar-brand" href="index.html">
-          <img class="logo" src="{{config.logo}}"  width="180px" />
+          <img class="logo" src="{{config.logo}}" width="180px" />
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse text-right flex-grow-1" id="navbarNav">
+        <div
+          class="collapse navbar-collapse text-right flex-grow-1"
+          id="navbarNav"
+        >
           <ul class="navbar-nav ml-auto">
             {% for href, id in navigation_bar %}
             <li class="nav-item {% if id == active_page %}active{% endif %}">
@@ -87,15 +115,13 @@
     </nav>
     {% endblock %}
 
-
-
     <!-- User Overrides -->
     {% block top %} {% endblock %}
- 
+
     <div class="container">
       <!-- Tabs -->
       <div class="tabs">
-         {% block tabs %} {% endblock %}
+        {% block tabs %} {% endblock %}
       </div>
       <!-- Content -->
       <div class="content">
@@ -104,14 +130,19 @@
     </div>
 
     {% block footer %}
-    
+
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id={{config.analytics}}"></script>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id={{config.analytics}}"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '{{config.analytics}}');
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "{{config.analytics}}");
     </script>
 
     <!-- Footer -->
@@ -122,28 +153,24 @@
       </div>
     </footer>
 
-
     <!-- Code for hash tags -->
     <script type="text/javascript">
       $(document).ready(function () {
-      
-      if (location.hash !== '') {
-      $('a[href="' + location.hash + '"]').tab('show');
-      }
-      
-      $("a[data-toggle='tab']").on("shown.bs.tab", function (e) {
-      var hash = $(e.target).attr("href");
-      if (hash.substr(0,1) == "#") {
-      var position = $(window).scrollTop();
-      location.replace("#" + hash.substr(1));
-      $(window).scrollTop(position);
-      }
+        if (location.hash !== "") {
+          $('a[href="' + location.hash + '"]').tab("show");
+        }
+
+        $("a[data-toggle='tab']").on("shown.bs.tab", function (e) {
+          var hash = $(e.target).attr("href");
+          if (hash.substr(0, 1) == "#") {
+            var position = $(window).scrollTop();
+            location.replace("#" + hash.substr(1));
+            $(window).scrollTop(position);
+          }
+        });
       });
-      
-      });  
     </script>
     <script src="static/js/lazy_load.js"></script>
     {% endblock %}
-
   </body>
 </html>

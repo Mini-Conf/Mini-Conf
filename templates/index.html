@@ -1,40 +1,29 @@
-{% set active_page = "Home" %}
-{% extends "base.html" %}
-
-{% block top %}
-  <style>
-    .back {
-    background: url('static/images/main.jpg') no-repeat center;
+{% set active_page = "Home" %} {% extends "base.html" %} {% block top %}
+<style>
+  .back {
+    background: url("static/images/main.jpg") no-repeat center;
     background-size: cover;
-    }
-    .back h2 {
-    font-family: 'Lato', sans-serif;
+  }
+  .back h2 {
+    font-family: "Lato", sans-serif;
     font-weight: 900;
-    }
-  </style>
+  }
+</style>
 
-
-<div class="jumbotron jumbotron-fluid back" style="padding-bottom:20px">    
-  <div class=" row header p-6 m-5">
-    <div class="p-1 mx-auto text-center text-white col-md-9 col-sm-12" >
+<div class="jumbotron jumbotron-fluid back" style="padding-bottom: 20px;">
+  <div class="row header p-6 m-5">
+    <div class="p-1 mx-auto text-center text-white col-md-9 col-sm-12">
       <h2>
         {{config.tagline|safe}}
       </h2>
-      <h2 class="p-5" >
+      <h2 class="p-5">
         {{config.date}}
       </h2>
     </div>
   </div>
 </div>
-{% endblock %}
-
-{% block content %}
-
-{{ readme | markdown }}
+{% endblock %} {% block content %} {{ readme | markdown }}
 
 <!-- Organizers -->
-{{ components.section("Organizers") }}
-{{ components.organizergroup(committee) }}
-
-
-{% endblock %}
+{{ components.section("Organizers") }} {{ components.organizergroup(committee)
+}} {% endblock %}
