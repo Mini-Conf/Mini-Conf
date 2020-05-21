@@ -1,12 +1,15 @@
+// eslint-disable-next-line camelcase,no-unused-vars
 function make_cal(name) {
+  // eslint-disable-next-line func-names
   $.get(name).then(function (data) {
     // parse the ics data
-    const jcalData = ICAL.parse(data.trim());
-    const comp = new ICAL.Component(jcalData);
+    const jcalData = ICAL.parse(data.trim()); // eslint-disable-line no-undef
+    const comp = new ICAL.Component(jcalData); // eslint-disable-line no-undef
     const eventComps = comp.getAllSubcomponents("vevent");
     // map them to FullCalendar events
+    // eslint-disable-next-line func-names
     const events = $.map(eventComps, function (item) {
-      if (item.getFirstPropertyValue("class") == "PRIVATE") {
+      if (item.getFirstPropertyValue("class") === "PRIVATE") {
         return null;
       }
       const toreturn = {
@@ -40,6 +43,7 @@ function make_cal(name) {
     });
 
     const calEl = document.getElementById("calendar");
+    // eslint-disable-next-line no-undef
     const cal = new FullCalendar.Calendar(calEl, {
       plugins: ["timeGrid", "googleCalendar"],
       defaultView: "timeGridWeek",
@@ -68,8 +72,8 @@ function make_cal(name) {
         // console.log(info.event);
         // append location
         if (
-          info.event.extendedProps.location != null &&
-          info.event.extendedProps.location != ""
+          info.event.extendedProps.location !== null &&
+          info.event.extendedProps.location !== ""
         ) {
           info.el.append(info.event.extendedProps.location);
         }
