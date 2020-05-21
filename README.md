@@ -6,7 +6,7 @@
 * Requires no database.
 * Trivial to modify.
 
-To get started just 
+## Get Started
 ```bash
 # Create and activate a virtualenv
 virtualenv --python=python3.7 venv
