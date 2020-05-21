@@ -16,7 +16,9 @@
     "url": "https://github.com/acl-org/acl-2020-virtual-conference/issues"
   },
   "homepage": "https://github.com/acl-org/acl-2020-virtual-conference#readme",
-  "dependencies": {
-    "eslint": "^7.0.0"
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.0.0",
+    "prettier": "^2.0.5"
   }
 }
