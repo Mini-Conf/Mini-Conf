@@ -2,7 +2,6 @@ import argparse
 import csv
 import json
 
-import numpy
 import sklearn.manifold
 import torch
 
