@@ -15,9 +15,6 @@ source venv/bin/activate
 # Install Python packages
 pip install -r requirements.txt
 
-# Install NodeJS dependencies
-npm install
-
 # Run the main script
 ./run.sh
 ````
