@@ -2,8 +2,6 @@
 {% macro tabs(tab_group) -%}
 <ul class="nav nav-pills justify-content-center">
   <!-- prettier-ignore -->
-  {% macro tabs(tab_group) -%}
-  <!-- prettier-ignore -->
   {% for tab in tab_group %}
   <li class="nav-item">
     <a
@@ -98,9 +96,8 @@
         </div>
         <div>
           <h6 class="card-subtitle text-muted m-1" align="center">
-            {{org.aff}}
             <!-- prettier-ignore -->
-            {% if org.tw %} /
+            {{org.aff}}{% if org.tw %} /
             <a class="text-muted" href="http://twitter.com/{{org.tw}}"
               >@{{org.tw}}</a
             >
@@ -190,7 +187,12 @@
                 </h5>
               </a>
               <h6 class="card-subtitle text-muted" align="center">
-                {% for a in openreview.content.authors %} {{a}}, {% endfor %}
+                <!-- prettier-ignore -->
+                {% for a in openreview.content.authors %}
+                <!-- prettier-ignore -->
+                {{a}},
+                <!-- prettier-ignore -->
+                {% endfor %}
               </h6>
               <center>
                 <img
@@ -204,7 +206,10 @@
         </div>
         {% if loop.index % 3 == 0 or loop.index == loop.length %}
       </div>
-      {% endif %} {% endfor %}
+      <!-- prettier-ignore -->
+      {% endif %}
+      <!-- prettier-ignore -->
+      {% endfor %}
     </div>
     <a
       class="carousel-control-prev"
@@ -226,7 +231,10 @@
     </a>
   </div>
 </div>
-{%- endmacro %} {% macro workshopgroup(workshops) -%}
+<!-- prettier-ignore -->
+{%- endmacro %}
+<!-- prettier-ignore -->
+{% macro workshopgroup(workshops) -%}
 <div class="cards row">
   {% for workshop in workshops %}
   <div class="col-md-6 col-sm-12 p-3" style="box-sizing: border-box;">
