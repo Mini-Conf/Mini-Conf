@@ -4,3 +4,10 @@ data: May 2020
 analytics: UA-
 logo: static/images/MiniConf.png
 organization: MiniConf Organization Committee
+calendar:
+  colors: #  Colors for the different event hashtags:
+    ---: '#bed972'
+    qa: '#4FCAEB'
+    talk: '#ccc'
+  sunday_saturday: false  #  Include Sunday and Saturday
+
