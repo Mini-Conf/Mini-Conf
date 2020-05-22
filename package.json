@@ -1,7 +1,7 @@
 {
-  "name": "acl-2020-virtual-conference",
+  "name": "mini-conf",
   "version": "1.0.0",
-  "description": "ACL2020 Virtual Conference Website",
+  "description": "mini-conf for virtual conference",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,9 +13,9 @@
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/acl-org/acl-2020-virtual-conference/issues"
+    "url": "https://github.com/Mini-Conf/Mini-Conf/issues"
   },
-  "homepage": "https://github.com/acl-org/acl-2020-virtual-conference#readme",
+  "homepage": "https://github.com/Mini-Conf/Mini-Conf#readme",
   "dependencies": {},
   "devDependencies": {
     "eslint": "^7.0.0",
