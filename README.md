@@ -6,8 +6,20 @@
 * Requires no database.
 * Trivial to modify.
 
-To get started just `pip install -r requirements.txt` and run `./run.sh `. When you are ready to deploy run
-`./freeze.sh` to get a static version of the site. 
+## Get Started
+```bash
+# Create and activate a virtualenv
+virtualenv --python=python3.7 venv
+source venv/bin/activate
+
+# Install Python packages
+pip install -r requirements.txt
+
+# Run the main script
+./run.sh
+````
+
+When you are ready to deploy run `./freeze.sh` to get a static version of the site. 
 
 
 ### Tour
