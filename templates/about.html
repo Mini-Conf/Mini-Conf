@@ -1,6 +1,15 @@
-{% set active_page = "Help" %} {% extends "base.html" %} {% block tabs %} {{
-components.tabs([("faq", "FAQ", "active")]) }} {% endblock %} {% block content
-%}
+<!-- prettier-ignore -->
+{% set active_page = "Help" %}
+<!-- prettier-ignore -->
+{% extends "base.html" %}
+
+<!-- prettier-ignore -->
+{% block tabs %}
+<!-- prettier-ignore -->
+{{ components.tabs([("faq", "FAQ", "active")]) }}
+<!-- prettier-ignore -->
+{% endblock %}
+{% block content %}
 <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
   <!-- FAQ -->
   <div
