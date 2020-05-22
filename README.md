@@ -10,15 +10,12 @@
 
 
 ```
-
-
 pip install -r requirements.txt
 
 make run
-
 ```
 
-When you are ready to deploy run `make freeze` to get a static version of the site. 
+When you are ready to deploy run `make freeze` to get a static version of the site in the `build` folder. 
 
 
 ### Tour
