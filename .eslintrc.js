@@ -23,5 +23,12 @@ module.exports = {
     "camelcase": "off",
     "no-unused-vars": "off",
     "no-undef": "off",
+    "func-names": "off",
+    "no-param-reassign": "off",
+    "no-console": "off",
+    "no-use-before-define": "off",
+    "no-nested-ternary": "off",
+    "no-restricted-globals": "off",
+    "no-unused-expressions": "off",
   },
 };
