@@ -1,15 +1,15 @@
 .dot {
     fill: rgb(43, 113, 255);
-    opacity: .5;
+    fill-opacity: .5;
     transition-duration: .2s;
 }
 
 .dot:hover{
-    opacity: 1;
+    fill-opacity: 1;
 }
 
 .dot.highlight{
-    opacity: 1;
+    fill-opacity: 1;
     fill: rgb(255, 54, 72);
 }
 .dot.non-highlight{
@@ -21,8 +21,16 @@
 }
 
 .dot.highlight_sel{
-    opacity: 1;
+    fill-opacity: 1;
     fill: rgb(255, 54, 72);
+}
+
+.dot.read{
+    /*opacity: 1;*/
+    fill: gray;
+    stroke: rgb(103, 137, 6);
+    stroke-width: 2;
+    stroke-opacity: 1;
 }
 
 .tt-title {

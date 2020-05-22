@@ -194,3 +194,17 @@ body .carousel-control-next, body .carousel-control-prev {
 .icon_video:hover, .icon_cal:hover {
     fill: #000000;
 }
+
+.checkbox-paper {
+    opacity: .2;
+    color: gray;
+    font-size: 18pt;
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+.checkbox-paper.selected {
+    opacity: 1;
+    color: green;
+}
