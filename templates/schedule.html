@@ -1,7 +1,25 @@
-{% set active_page = "Schedule" %} {% extends "base.html" %} {% block head %} {{
-super() }} {% include 'cal_head.html' %} {% endblock %} {% block tabs %}
-{{components.tabs([("calendar", "Calendar", "active"), ("day", "Example Day",
-"")])}} {% endblock %} {% block content %}
+<!-- prettier-ignore -->
+{% set active_page = "Schedule" %}
+<!-- prettier-ignore -->
+{% extends "base.html" %}
+<!-- prettier-ignore -->
+{% block head %}
+<!-- prettier-ignore -->
+{{ super() }}
+<!-- prettier-ignore -->
+{% include 'cal_head.html' %}
+<!-- prettier-ignore -->
+{% endblock %}
+
+<!-- prettier-ignore -->
+{% block tabs %}
+<!-- prettier-ignore -->
+{{components.tabs([("calendar", "Calendar", "active"), ("day", "Example Day", "")])}}
+<!-- prettier-ignore -->
+{% endblock %}
+
+<!-- prettier-ignore -->
+{% block content %}
 <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
   <!-- Calender tab -->
   <div
