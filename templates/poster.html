@@ -12,6 +12,7 @@
     <h3 class="card-subtitle mb-2 text-muted text-center">
       <!-- prettier-ignore -->
       {% for author in paper.content.authors %}
+      <!-- prettier-ignore -->
       <a href="papers.html?filter=authors&search={{author}}" class="text-muted">{{author}}</a>
       <!-- prettier-ignore -->
       {{ "," if not loop.last }}
