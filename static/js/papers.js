@@ -14,14 +14,48 @@ const filters = {
 
 let render_mode = 'compact';
 
+// const persistor = new Persistor('mitibmposter');
 
 const updateCards = (papers) => {
+    const storedPapers = Cookies.getJSON('papers-selected') || {};
+    // const allSelected = Object.keys(storedPapers).filter(k => storedPapers[k])
+    papers.forEach(
+      openreview => {
+          openreview.content.read = storedPapers[openreview.id] || false
+      })
+
+    const readCard = (iid, new_value) => {
+        storedPapers[iid] = new_value ? 1 : null;
+        Cookies.set('papers-selected', storedPapers, {expires: 365});
+    }
+
     const all_mounted_cards = d3.select('.cards')
       .selectAll('.myCard', openreview => openreview.id)
       .data(papers, d => d.number)
       .join('div')
       .attr('class', 'myCard col-xs-6 col-md-4')
       .html(card_html)
+
+    all_mounted_cards.select('.card-title')
+      .on('click', function (d) {
+          const iid = d.id;
+          all_mounted_cards.filter(d => d.id === iid)
+            .select(".checkbox-paper").classed('selected', function () {
+              const new_value = true;//!d3.select(this).classed('not-selected');
+              readCard(iid, new_value);
+              return new_value;
+          })
+      })
+
+    all_mounted_cards.select(".checkbox-paper")
+      .on('click', function (d) {
+          const iid = d.id;
+          const new_value = !d3.select(this).classed('selected');
+          readCard(iid, new_value);
+          d3.select(this).classed('selected', new_value)
+      })
+
+
     lazyLoader();
 }
 
@@ -221,7 +255,9 @@ const card_cal = (openreview, i) => `<a class="text-muted" href="webcal://iclr.g
 const card_html = openreview => `
         <div class="pp-card pp-mode-` + render_mode + ` ">
             <div class="pp-card-header">
+            <div class="checkbox-paper ${openreview.content.read ? 'selected' : ''}" style="display: block;position: absolute; bottom:35px;left: 35px;">✓</div>    
                 <a href="poster_${openreview.id}.html"
+                target="_blank"
                    class="text-muted">
                    <h5 class="card-title" align="center"> ${openreview.content.title} </h5></a>
                 <h6 class="card-subtitle text-muted" align="center">

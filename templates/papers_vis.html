@@ -22,6 +22,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/tgdwyer/WebCola/WebCola/cola.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
 {% endblock %}
 {% block tabs %}
     <ul class="nav nav-pills justify-content-center">
@@ -125,4 +126,16 @@
         })
 
     </script>
+{% endblock %}
+
+{% block footer %}
+
+    <div class="gdpr bg-dark text-light"
+         style="padding: 10pt;position: fixed; bottom: 0; display: none;">
+        We use cookies to store which papers have been visited.
+        <div class="gdpr-btn btn btn-sm btn-info" style="margin-left: 15pt;"> I agree
+        </div>
+    </div>
+    <script src="static/js/gdpr_cookies.js"></script>
+
 {% endblock %}
