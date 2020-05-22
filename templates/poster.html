@@ -21,12 +21,14 @@
     </h3>
     <p class="card-text text-center">
       <span class="">Keywords:</span>
+      <!-- prettier-ignore -->
       {% for keyword in paper.content.keywords %}
-      <a
-        href="papers.html?filter=keywords&search={{keyword}}"
-        class="text-secondary text-decoration-none"
-        >{{keyword}}</a
-      >{{ "," if not loop.last }} {% endfor %}
+      <!-- prettier-ignore -->
+      <a href="papers.html?filter=keywords&search={{keyword}}" class="text-secondary text-decoration-none">{{keyword}}</a>
+      <!-- prettier-ignore -->
+      {{ "," if not loop.last }}
+      <!-- prettier-ignore -->
+      {% endfor %}
     </p>
     <div class="text-center p-3">
       <a class="card-link" data-toggle="collapse" role="button" href="#details">
