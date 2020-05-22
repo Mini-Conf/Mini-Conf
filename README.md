@@ -7,13 +7,16 @@
 * Easy to extend to fit any backend or additional frontend tools. 
 
 ## Get Started
-```bash
-# Install Python packages (first time)
+
+
+```
+
+
 pip install -r requirements.txt
 
-# Run the main script
 ./run.sh
-````
+
+```
 
 When you are ready to deploy run `./freeze.sh` to get a static version of the site. 
 
