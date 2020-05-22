@@ -5,4 +5,5 @@ cache: pip
 install:
   - pip install -r requirements.txt
 script:
-  - make run
+  - eslint
+  - prettier isort, black, pylint, mypy
