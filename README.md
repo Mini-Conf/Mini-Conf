@@ -14,11 +14,11 @@
 
 pip install -r requirements.txt
 
-./run.sh
+make run
 
 ```
 
-When you are ready to deploy run `./freeze.sh` to get a static version of the site. 
+When you are ready to deploy run `make freeze` to get a static version of the site. 
 
 
 ### Tour
