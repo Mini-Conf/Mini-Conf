@@ -2,53 +2,56 @@
 <ul class="nav nav-pills justify-content-center">
   {% for tab in tab_group %}
   <li class="nav-item">
-    <a class="nav-link {{tab[2]}} text-muted " data-toggle="tab" href="#tab-{{tab[0]}}" role="tab" aria-controls="nav-home" aria-selected="true">{{tab[1]}}
+    <a
+      class="nav-link {{tab[2]}} text-muted "
+      data-toggle="tab"
+      href="#tab-{{tab[0]}}"
+      role="tab"
+      aria-controls="nav-home"
+      aria-selected="true"
+      >{{tab[1]}}
     </a>
   </li>
   {% endfor %}
 </ul>
-{%- endmacro %}
-
-{% macro section(name) -%}
-    <div class="border-top my-3"></div>
-    <div class="row p-4" id="faq">
-      <div class="col-12 bd-content ">
-        <h2 class="text-center">{{name}}</h2>
-      </div>
-    </div>
-{%- endmacro %}
-
-{% macro subsection(name) -%}
-    <div class="row p-3">
-      <div class="col-12 bd-content">
-        <h3>{{name}}</h3>
-      </div>
-    </div>
-{%- endmacro %}
-
-
-{% macro speakergroup(speakers) -%}
-{% for speaker in speakers %}
+{%- endmacro %} {% macro section(name) -%}
+<div class="border-top my-3"></div>
+<div class="row p-4" id="faq">
+  <div class="col-12 bd-content">
+    <h2 class="text-center">{{name}}</h2>
+  </div>
+</div>
+{%- endmacro %} {% macro subsection(name) -%}
+<div class="row p-3">
+  <div class="col-12 bd-content">
+    <h3>{{name}}</h3>
+  </div>
+</div>
+{%- endmacro %} {% macro speakergroup(speakers) -%} {% for speaker in speakers
+%}
 <div class="row p-4">
   <div class="col-md-12">
     <div class="card">
       <div class="card-header">
         <div class="row">
           <div class="col-md-2 col-sm-5">
-            <img src="static/images/{{speaker.UID}}.jpg" width="100%"
-                 class="img-thumbnail">
+            <img
+              src="static/images/{{speaker.UID}}.jpg"
+              width="100%"
+              class="img-thumbnail"
+            />
           </div>
           <div class="col-md-10 col-sm-6">
-            <div class="m-3 text-muted ">
+            <div class="m-3 text-muted">
               <h3>
                 <a href="speaker_{{speaker.UID}}.html" class="main-title">
                   {{speaker.title}}
                 </a>
               </h3>
             </div>
-            <div class="m-3 text-muted ">
-              <span class="card-title h3 " >
-                {{speaker.speaker}}  /  {{speaker.institution}}
+            <div class="m-3 text-muted">
+              <span class="card-title h3">
+                {{speaker.speaker}} / {{speaker.institution}}
               </span>
             </div>
             <div class="m-3">
@@ -60,14 +63,11 @@
     </div>
   </div>
 </div>
-{% endfor %}
-{%- endmacro %}
-
-{% macro organizergroup(committee) -%}
+{% endfor %} {%- endmacro %} {% macro organizergroup(committee) -%}
 <div class="row">
   {% for org in committee %}
   <div class="col-md-4 col-xs-6">
-    <div class="pp-card" >
+    <div class="pp-card">
       <div class="pp-card-header" class="text-muted">
         <h5 class="card-title" align="center">{{org.name}}</h5>
         <div>
@@ -78,38 +78,43 @@
         <div>
           <h6 class="card-subtitle text-muted m-1" align="center">
             {{org.aff}}{% if org.tw %} /
-            <a class="text-muted"
-               href="http://twitter.com/{{org.tw}}">@{{org.tw}}</a>{% endif %}
+            <a class="text-muted" href="http://twitter.com/{{org.tw}}"
+              >@{{org.tw}}</a
+            >{% endif %}
           </h6>
         </div>
         <center>
-          <img src="{{org.im}}" class="rounded" style="height:150px" />
+          <img src="{{org.im}}" class="rounded" style="height: 150px;" />
         </center>
       </div>
     </div>
   </div>
   {% endfor %}
 </div>
-{%- endmacro %}
-
-{% macro faqgroup(FAQ) -%}
-{% for section in FAQ %}
-{{ subsection(section.Section) }}
-
-{% set rowloop = loop.index %}
-{% for qa in section.QA %}
+{%- endmacro %} {% macro faqgroup(FAQ) -%} {% for section in FAQ %} {{
+subsection(section.Section) }} {% set rowloop = loop.index %} {% for qa in
+section.QA %}
 <div class="row">
   <div class="col-12" id="accordionExample">
-    <div class=" card m-2">
-      <div class="card-header" >
-        <a class="" href="#" data-toggle="collapse"
-           data-target="#collapse{{rowloop}}-{{loop.index}}"
-           aria-expanded="true" aria-controls="collapse{{rowloop}}-{{loop.index}}">
+    <div class="card m-2">
+      <div class="card-header">
+        <a
+          class=""
+          href="#"
+          data-toggle="collapse"
+          data-target="#collapse{{rowloop}}-{{loop.index}}"
+          aria-expanded="true"
+          aria-controls="collapse{{rowloop}}-{{loop.index}}"
+        >
           {{qa.Question}}
         </a>
       </div>
-      <div id="collapse{{rowloop}}-{{loop.index}}" class="collapse"
-           aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div
+        id="collapse{{rowloop}}-{{loop.index}}"
+        class="collapse"
+        aria-labelledby="headingOne"
+        data-parent="#accordionExample"
+      >
         <div class="card-body">
           {{qa.Answer}}
         </div>
@@ -117,61 +122,75 @@
     </div>
   </div>
 </div>
-{% endfor %}
-{% endfor %}
-{%- endmacro %}
-
-{% macro highlightgroup(papers, id) -%}
-<div class ="row my-auto mx-auto">
-  <div id="carouselExample{{id}}" class="carousel slide d-none d-md-block" data-interval="false">
+{% endfor %} {% endfor %} {%- endmacro %} {% macro highlightgroup(papers, id)
+-%}
+<div class="row my-auto mx-auto">
+  <div
+    id="carouselExample{{id}}"
+    class="carousel slide d-none d-md-block"
+    data-interval="false"
+  >
     <div class="carousel-inner cards" role="listbox">
-      {% for openreview in papers %}
-      {% if loop.index % 3 == 1 %}
+      {% for openreview in papers %} {% if loop.index % 3 == 1 %}
       <div class="carousel-item {% if loop.index == 1%} active{% endif %}">
         {% endif %}
-        <div class="col-md-4 col-xs-6  fluid">
+        <div class="col-md-4 col-xs-6 fluid">
           <div class="pp-card">
             <div class="pp-card-header">
-              <a href="poster_{{openreview.content.iclr_id}}.html"
-                 class="text-muted">
-                <h5 class="card-title" align="center"> {{openreview.content.title}} </h5>
+              <a
+                href="poster_{{openreview.content.iclr_id}}.html"
+                class="text-muted"
+              >
+                <h5 class="card-title" align="center">
+                  {{openreview.content.title}}
+                </h5>
               </a>
               <h6 class="card-subtitle text-muted" align="center">
-                {% for a in openreview.content.authors %}
-                {{a}},
-                {% endfor %}
+                {% for a in openreview.content.authors %} {{a}}, {% endfor %}
               </h6>
-              <center><img class="cards_img lazy-load-img" data-src="https://iclr.github.io/iclr-images/{{openreview.id}}.png" width="80%"/></center>
+              <center>
+                <img
+                  class="cards_img lazy-load-img"
+                  data-src="https://iclr.github.io/iclr-images/{{openreview.id}}.png"
+                  width="80%"
+                />
+              </center>
             </div>
           </div>
         </div>
         {% if loop.index % 3 == 0 or loop.index == loop.length %}
       </div>
-      {% endif %}
-      {% endfor %}
+      {% endif %} {% endfor %}
     </div>
-    <a class="carousel-control-prev" href="#carouselExample{{id}}" role="button" data-slide="prev">
+    <a
+      class="carousel-control-prev"
+      href="#carouselExample{{id}}"
+      role="button"
+      data-slide="prev"
+    >
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="carousel-control-next" href="#carouselExample{{id}}" role="button" data-slide="next">
+    <a
+      class="carousel-control-next"
+      href="#carouselExample{{id}}"
+      role="button"
+      data-slide="next"
+    >
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>
   </div>
 </div>
-{%- endmacro %}
-
-
-{% macro workshopgroup(workshops) -%}
+{%- endmacro %} {% macro workshopgroup(workshops) -%}
 <div class="cards row">
   {% for workshop in workshops %}
-  <div class="col-md-6 col-sm-12 p-3"
-       style="box-sizing: border-box;">
-    <div class="card"
-         style="display:block; overflow:hidden; width:100%;">
-      <div class="card-header text-center"
-           style="min-height: 200px; width:100%;">
+  <div class="col-md-6 col-sm-12 p-3" style="box-sizing: border-box;">
+    <div class="card" style="display: block; overflow: hidden; width: 100%;">
+      <div
+        class="card-header text-center"
+        style="min-height: 200px; width: 100%;"
+      >
         <a class="text-muted" href="workshop_{{workshop.UID}}.html">
           <h3 class="card-title main-title">
             {{workshop.title}}
