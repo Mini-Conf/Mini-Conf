@@ -1,9 +1,18 @@
-{% set active_page = "Papers" %} {% extends "base.html" %} {% block head %} {{
-super() }}
+<!-- prettier-ignore -->
+{% set active_page = "Papers" %}
+<!-- prettier-ignore -->
+{% extends "base.html" %}
+<!-- prettier-ignore -->
+{% block head %}
+<!-- prettier-ignore -->
+{{ super() }}
 <script src="https://unpkg.com/@popperjs/core@2"></script>
 <script src="https://unpkg.com/tippy.js@6"></script>
 <script src="static/js/icons.js"></script>
-{% endblock %} {% block tabs %}
+<!-- prettier-ignore -->
+{% endblock %}
+<!-- prettier-ignore -->
+{% block tabs %}
 <ul class="nav nav-pills justify-content-center">
   <li class="nav-item active">
     <a
@@ -20,7 +29,10 @@ super() }}
     <a class="nav-link text-muted" href="paper_vis.html">Visualization</a>
   </li>
 </ul>
-{% endblock %} {% block content %}
+<!-- prettier-ignore -->
+{% endblock %}
+<!-- prettier-ignore -->
+{% block content %}
 <div class="row p-3"></div>
 
 <!-- Session -->
