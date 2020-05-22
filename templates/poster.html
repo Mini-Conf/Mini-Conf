@@ -1,4 +1,7 @@
-{% extends "base.html" %} {% block content %}
+<!-- prettier-ignore -->
+{% extends "base.html" %}
+<!-- prettier-ignore -->
+{% block content %}
 
 <!-- Title -->
 <div class="pp-card m-3" style="">
@@ -7,10 +10,13 @@
       {{paper.content.title}}
     </h2>
     <h3 class="card-subtitle mb-2 text-muted text-center">
+      <!-- prettier-ignore -->
       {% for author in paper.content.authors %}
-      <a href="papers.html?filter=authors&search={{author}}" class="text-muted"
-        >{{author}}</a
-      >{{ "," if not loop.last }} {% endfor %}
+      <a href="papers.html?filter=authors&search={{author}}" class="text-muted">{{author}}</a>
+      <!-- prettier-ignore -->
+      {{ "," if not loop.last }}
+      <!-- prettier-ignore -->
+      {% endfor %}
     </h3>
     <p class="card-text text-center">
       <span class="">Keywords:</span>
@@ -55,4 +61,5 @@
   Add content for posters. This could be a video, embedded pdf, chat room ....
 </h5>
 
+<!-- prettier-ignore -->
 {% endblock %}
