@@ -182,7 +182,7 @@ const updateVis = () => {
       .classed('highlight', d => d.is_selected)
       .classed('non-highlight', d => !d.is_selected && is_filtered)
       .on('click',
-        d => window.open(`poster_${d.content.iclr_id}.html`, '_blank'))
+        d => window.open(`poster_${d.id}.html`, '_blank'))
 
     if (!currentTippy) {
         currentTippy = tippy('.dot', {
@@ -242,7 +242,7 @@ const tooltip_template = (d) => `
 const start = () => {
     Promise.all([
         d3.json('papers.json'),
-        d3.json('static/embeddings/embeddings.json')
+        d3.json('serve_papers_projection.json')
     ]).then(([papers, proj]) => {
         // all_proj = proj;
 
