@@ -1,9 +1,9 @@
 ## Mini-Conf
 
-<a href="https://mini-conf.github.io/index.html">MiniConf</a> is a virtual conference in a box. It is designed to:
+<a href="https://mini-conf.github.io/index.html">MiniConf</a> is a virtual conference in a box. It is designed to be:
 
 * Run based on static files hosted by any server. 
-* Be modifiable without a database using CSV files.
+* Modifiable without a database using CSV files.
 * Easy to extend to fit any backend or additional frontend tools. 
 
 To get started just `pip install -r requirements.txt` and run `./run.sh `. When you are ready to deploy run
