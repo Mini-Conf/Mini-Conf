@@ -14,19 +14,19 @@ const filters = {
 
 let render_mode = 'compact';
 
-// const persistor = new Persistor('mitibmposter');
+const persistor = new Persistor('Mini-Conf-Papers');
 
 const updateCards = (papers) => {
-    const storedPapers = Cookies.getJSON('papers-selected') || {};
-    // const allSelected = Object.keys(storedPapers).filter(k => storedPapers[k])
+    const storedPapers = persistor.getAll();
     papers.forEach(
       openreview => {
           openreview.content.read = storedPapers[openreview.id] || false
       })
 
     const readCard = (iid, new_value) => {
-        storedPapers[iid] = new_value ? 1 : null;
-        Cookies.set('papers-selected', storedPapers, {expires: 365});
+        persistor.set(iid, new_value);
+        // storedPapers[iid] = new_value ? 1 : null;
+        // Cookies.set('papers-selected', storedPapers, {expires: 365});
     }
 
     const all_mounted_cards = d3.select('.cards')

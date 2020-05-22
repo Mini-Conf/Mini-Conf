@@ -24,6 +24,8 @@ const explain_text_plot = d3.select('#explain_text_plot');
 const summary_selection = d3.select('#summary_selection');
 const sel_papers = d3.select('#sel_papers');
 
+const persistor = new Persistor('Mini-Conf-Papers');
+
 
 const plot_size = () => {
     const cont = document.getElementById('container');
@@ -151,6 +153,12 @@ function brush_ended() {
 
 const updateVis = () => {
 
+    const storedPapers = persistor.getAll();
+    all_papers.forEach(
+      openreview => {
+          openreview.content.read = storedPapers[openreview.id] || false
+      })
+
     const is_filtered = filters.authors || filters.keywords || filters.titles;
 
     const [pW, pH] = plot_size();
@@ -179,10 +187,15 @@ const updateVis = () => {
       .attr('r', d => d.is_selected ? 8 : 6)
       .attr('cx', (d, i) => all_pos[i].cx())
       .attr('cy', (d, i) => all_pos[i].cy())
+      .classed('read', d => d.content.read)
       .classed('highlight', d => d.is_selected)
       .classed('non-highlight', d => !d.is_selected && is_filtered)
       .on('click',
-        d => window.open(`poster_${d.id}.html`, '_blank'))
+        function(d) {
+            window.open(`poster_${d.id}.html`, '_blank');
+            persistor.set(d.id, true);
+            d3.select(this).classed('read', true);
+        })
 
     if (!currentTippy) {
         currentTippy = tippy('.dot', {

@@ -5,11 +5,9 @@ analytics: UA-
 logo: static/images/MiniConf.png
 organization: MiniConf Organization Committee
 calendar:
-  #  Colors for the different event hashtags:
-  colors:
+  colors: #  Colors for the different event hashtags:
     ---: '#bed972'
     qa: '#4FCAEB'
     talk: '#ccc'
-  #  Include Sunday and Saturday ?
-  sunday_saturday: false
+  sunday_saturday: false  #  Include Sunday and Saturday
 
