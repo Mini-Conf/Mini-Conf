@@ -8,11 +8,7 @@
 
 ## Get Started
 ```bash
-# Create and activate a virtualenv
-virtualenv --python=python3.7 venv
-source venv/bin/activate
-
-# Install Python packages
+# Install Python packages (first time)
 pip install -r requirements.txt
 
 # Run the main script
