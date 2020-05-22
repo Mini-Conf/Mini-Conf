@@ -1,6 +1,6 @@
 PYTHON_FILES = main.py scripts/
 CSS_FILES = $(shell find static/css -name "*.css")
-.PHONY: format check
+.PHONY: format format-web run freeze format-check
 
 all: format-check
 
@@ -16,7 +16,6 @@ run:
 	export FLASK_DEBUG=True
 	export FLASK_DEVELOPMENT=True
 	python3 main.py sitedata/
-
 
 freeze:
 	python3 main.py sitedata/ --build
