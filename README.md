@@ -50,6 +50,8 @@ Mini-Conf was design to host <a href="https://iclr.cc/virtual_2020">ICLR 2020</a
 
 ### Acknowledgements
 
+MiniConf was built by Hendrik Strobelt and Sasha Rush.
+
 Thanks to Darren Nelson for the original design sketches. Shakir Mohamed, Martha White, Kyunghyun Cho, Lee Campbell, and Adam White for planning and feedback. Junaid Rahim, Jake Tae, Yasser Souri, Soumya Chatterjee, and Ankshita Gupta for contributions. 
 
 ### Authors

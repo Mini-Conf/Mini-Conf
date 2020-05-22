@@ -8,7 +8,7 @@
       {{workshop.title}}
     </h2>
     <h3 class="card-subtitle mb-2 text-muted text-center">
-      {{workshop.authors}} 
+      {{workshop.authors}}
     </h3>
     <div class="text-center p-3">
       <a class="card-link" data-toggle="collapse" role="button" href="#details">
@@ -19,13 +19,12 @@
 </div>
 <div id="details" class="pp-card m-3 collapse">
   <div class="card-body">
-    <p class="card-text">
+    <div class="card-text">
       <div id="abstractExample">
         <span class="font-weight-bold">Abstract:</span>
-        {{workshop.abstract|safe}} <br><br>
-        
+        {{workshop.abstract|safe}} <br /><br />
       </div>
-    </p>
+    </div>
     <p></p>
   </div>
 </div>
