@@ -42,7 +42,7 @@ Contains frontend components like the default css, images, and javascript libs.
 
 Contains additional preprocessing to add visualizations, recommendations, schedules to the conference. 
 
-6) For importing calendars as schedule see [scripts/README_Schedule.md](scripts/README_Schedule.md)
+6) For importing calendars as schedule see [scripts/README_Schedule.md](https://github.com/Mini-Conf/Mini-Conf/blob/master/scripts/README_Schedule.md)
 
 ### Example
 
@@ -50,11 +50,10 @@ Mini-Conf was design to host <a href="https://iclr.cc/virtual_2020">ICLR 2020</a
 
 ### Acknowledgements
 
-MiniConf was built by Hendrik Strobelt and Sasha Rush.
+MiniConf was built by [Hendrik Strobelt](http://twitter.com/hen_str) and [Sasha Rush](http://twitter.com/srush_nlp).
 
 Thanks to Darren Nelson for the original design sketches. Shakir Mohamed, Martha White, Kyunghyun Cho, Lee Campbell, and Adam White for planning and feedback. Junaid Rahim, Jake Tae, Yasser Souri, Soumya Chatterjee, and Ankshita Gupta for contributions. 
 
-### Authors
 
-[Alexander M. Rush](http://twitter.com/srush_nlp), [Hendrik Strobelt](http://twitter.com/hen_str)
+
 
