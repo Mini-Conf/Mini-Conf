@@ -72,6 +72,7 @@
     />
 
     <title>{{config.page_title}}</title>
+    <!-- prettier-ignore -->
     {% endblock %}
   </head>
 
@@ -113,31 +114,38 @@
           id="navbarNav"
         >
           <ul class="navbar-nav ml-auto">
+            <!-- prettier-ignore -->
             {% for href, id in navigation_bar %}
             <li class="nav-item {% if id == active_page %}active{% endif %}">
               <a class="nav-link" href="{{href}}">{{id}}</a>
             </li>
+            <!-- prettier-ignore -->
             {% endfor %}
           </ul>
         </div>
       </div>
     </nav>
+    <!-- prettier-ignore -->
     {% endblock %}
 
     <!-- User Overrides -->
+    <!-- prettier-ignore -->
     {% block top %} {% endblock %}
 
     <div class="container">
       <!-- Tabs -->
       <div class="tabs">
+        <!-- prettier-ignore -->
         {% block tabs %} {% endblock %}
       </div>
       <!-- Content -->
       <div class="content">
+        <!-- prettier-ignore -->
         {% block content %} {% endblock %}
       </div>
     </div>
 
+    <!-- prettier-ignore -->
     {% block footer %}
 
     <!-- Google Analytics -->
