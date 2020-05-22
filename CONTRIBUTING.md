@@ -38,4 +38,4 @@
   [mypy](http://mypy-lang.org/).
     * You can run `make` to executes all checks.
     * To fix any formatting or import errors, you can simply run `make format`.
-    * For more details, see the `test` task in the [Makefile](./Makefile)
+    * For more details, see the `format` and `format-check` tasks in the [Makefile](./Makefile)
