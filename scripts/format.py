@@ -15,7 +15,7 @@ for f in glob.glob(sys.argv[1]):
 
         print(l, end="", file=out)
     out.close()
-    os.system("nodejs node_modules/prettier/bin-prettier.js %s  --write"%outfile)
+    os.system("prettier %s  --write"%outfile)
     
     orig = open(f, "w")
     for l in open(outfile):
