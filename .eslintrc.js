@@ -19,5 +19,9 @@ module.exports = {
     ecmaVersion: 2018,
   },
   rules: {
+    // disable rules from base configurations
+    "camelcase": "off",
+    "no-unused-vars": "off",
+    "no-undef": "off",
   },
 };
