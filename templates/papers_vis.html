@@ -1,143 +1,184 @@
 {% extends "base.html" %}
 {% block head %}
-    {{ super() }}
-    <link rel="stylesheet" href="static/css/typeahead.css">
-    <link rel="stylesheet" href="static/css/paper_vis.css">
-    <link rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-          crossorigin="anonymous">
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    {#<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.3/handlebars.min.js"#}
-    {#        integrity="sha256-/PJBs6QWvXijOFIX04kZpLb6ZtSQckdOIavLWKKOgXU="#}
-    {#        crossorigin="anonymous"></script>#}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-            crossorigin="anonymous"></script>
+{{ super() }}
+<link rel="stylesheet" href="static/css/typeahead.css" />
+<link rel="stylesheet" href="static/css/paper_vis.css" />
+<link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+  crossorigin="anonymous"
+/>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+{#
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.3/handlebars.min.js"
+  #}
+  {#
+  integrity="sha256-/PJBs6QWvXijOFIX04kZpLb6ZtSQckdOIavLWKKOgXU="
+  #}
+  {#
+  crossorigin="anonymous"
+></script>
+#}
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"
+></script>
 
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://unpkg.com/tippy.js@6"></script>
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
 
-    <script src="static/js/typeahead.bundle.js"></script>
+<script src="static/js/typeahead.bundle.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/tgdwyer/WebCola/WebCola/cola.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/tgdwyer/WebCola/WebCola/cola.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
 {% endblock %}
 {% block tabs %}
-    <ul class="nav nav-pills justify-content-center">
-        <li class="nav-item">
-            <a class="nav-link text-muted " href="papers.html">Browse
-            </a>
-        </li>
-        <li class="nav-item active" style="background-color: #bed972;">
-            <a class="nav-link text-muted " data-toggle="tab" href="#"
-               role="tab" aria-controls="nav-home" aria-selected="true">Visualization
-            </a>
-        </li>
-    </ul>
+<ul class="nav nav-pills justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link text-muted" href="papers.html">Browse </a>
+  </li>
+  <li class="nav-item active" style="background-color: #bed972;">
+    <a
+      class="nav-link text-muted"
+      data-toggle="tab"
+      href="#"
+      role="tab"
+      aria-controls="nav-home"
+      aria-selected="true"
+      >Visualization
+    </a>
+  </li>
+</ul>
 {% endblock %}
 
 {% block content %}
-    <div class="container-lg" id="container" style="padding-top: 20px;">
-        <div class="row py-3">
-            <div class="col-12 col-sm-6 col-lg-4">
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control typeahead_all"
-                           placeholder="Search">
-                    <div class="input-group-append">
-                        <button class="btn btn-outline-secondary typeahead_all_clear"
-                                type="button">&times;
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-sm-6 col-lg-4 text-center"
-                 style="margin-bottom: 10px;">
-                <div class="btn-group btn-group-toggle filter_option">
-                    <label class="btn btn-outline-secondary"
-                           data-tippy-content="Search for papers titles">
-                        <input type="radio" name="options" value="titles"
-                               autocomplete="off"> title
-                    </label>
-                    <label class="btn btn-outline-secondary active"
-                           data-tippy-content="Search for papers from specific authors">
-                        <input type="radio" name="options" value="authors"
-                               autocomplete="off" checked> author
-                    </label>
-                    <label class="btn btn-outline-secondary"
-                           data-tippy-content="Search for papers with specific keywords">
-                        <input type="radio" name="options" value="keywords"
-                               autocomplete="off"> keyword
-                    </label>
-                </div>
-            </div>
+<div class="container-lg" id="container" style="padding-top: 20px;">
+  <div class="row py-3">
+    <div class="col-12 col-sm-6 col-lg-4">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control typeahead_all"
+          placeholder="Search"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary typeahead_all_clear"
+            type="button"
+          >
+            &times;
+          </button>
         </div>
-        <div class="row py-3" style="margin-top: 10px; text-align: center;">
-            <div class="card" style="margin-right: -40px">
-                <div class="card-header">
-                    <div id='outer_svg'
-                         style="display: inline-block; vertical-align: top;">
-                        <svg class="plot"
-                             style="display: block; "></svg>
-                    </div>
-                    <div class="results"
-                         style="display: inline-block; vertical-align: top; text-align: left;">
-                        <div style="display: block; overflow-y: auto;"
-                             id="table_info">
-                            <div id="explain_text_plot">
-                                <p>Each dot represents a paper. They are
-                                    arranged by
-                                    a measure of similarity.
-                                </p>
-                                <p>If you <b>hover</b> over a dot, you see the
-                                    related
-                                    paper.
-                                </p>
-                                <p>If you <b>click</b> on a dot, you go to the
-                                    related paper page.
-                                </p>
-                                <p>You can <b>search</b> for papers by author,
-                                    keyword, or title
-                                </p>
-                                <p><b>Drag a rectangle </b> to summarize an area
-                                    of the plot.
-                                </p>
-                            </div>
-                            <div id="summary_selection" style="">
-                            </div>
-                            <div style="overflow-y: auto; bottom: 0;margin-top:5pt;">
-                                <div id="sel_papers">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      </div>
+    </div>
+    <div
+      class="col-12 col-sm-6 col-lg-4 text-center"
+      style="margin-bottom: 10px;"
+    >
+      <div class="btn-group btn-group-toggle filter_option">
+        <label
+          class="btn btn-outline-secondary"
+          data-tippy-content="Search for papers titles"
+        >
+          <input
+            type="radio"
+            name="options"
+            value="titles"
+            autocomplete="off"
+          />
+          title
+        </label>
+        <label
+          class="btn btn-outline-secondary active"
+          data-tippy-content="Search for papers from specific authors"
+        >
+          <input
+            type="radio"
+            name="options"
+            value="authors"
+            autocomplete="off"
+            checked
+          />
+          author
+        </label>
+        <label
+          class="btn btn-outline-secondary"
+          data-tippy-content="Search for papers with specific keywords"
+        >
+          <input
+            type="radio"
+            name="options"
+            value="keywords"
+            autocomplete="off"
+          />
+          keyword
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="row py-3" style="margin-top: 10px; text-align: center;">
+    <div class="card" style="margin-right: -40px;">
+      <div class="card-header">
+        <div id="outer_svg" style="display: inline-block; vertical-align: top;">
+          <svg class="plot" style="display: block;"></svg>
         </div>
+        <div
+          class="results"
+          style="display: inline-block; vertical-align: top; text-align: left;"
+        >
+          <div style="display: block; overflow-y: auto;" id="table_info">
+            <div id="explain_text_plot">
+              <p>
+                Each dot represents a paper. They are arranged by a measure of
+                similarity.
+              </p>
+              <p>If you <b>hover</b> over a dot, you see the related paper.</p>
+              <p>
+                If you <b>click</b> on a dot, you go to the related paper page.
+              </p>
+              <p>
+                You can <b>search</b> for papers by author, keyword, or title
+              </p>
+              <p><b>Drag a rectangle </b> to summarize an area of the plot.</p>
+            </div>
+            <div id="summary_selection" style=""></div>
+            <div style="overflow-y: auto; bottom: 0; margin-top: 5pt;">
+              <div id="sel_papers"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    </div>
-    <script src="static/js/little_helpers.js"></script>
-    <script src="static/js/persistor.js"></script>
-    <script src="static/js/paper_vis.js"></script>
+  </div>
+</div>
 
-    <script>
-        $(document).ready(function () {
-            start();
-            tippy('[data-tippy-content]', {trigger: 'mouseenter focus'});
-        })
+<script src="static/js/little_helpers.js"></script>
+<script src="static/js/persistor.js"></script>
+<script src="static/js/paper_vis.js"></script>
 
-    </script>
+<script>
+  $(document).ready(function () {
+    start();
+    tippy("[data-tippy-content]", { trigger: "mouseenter focus" });
+  });
+</script>
 {% endblock %}
 
 {% block footer %}
 
-    <div class="gdpr bg-dark text-light"
-         style="padding: 10pt;position: fixed; bottom: 0; display: none;">
-        We use cookies to store which papers have been visited.
-        <div class="gdpr-btn btn btn-sm btn-info" style="margin-left: 15pt;"> I agree
-        </div>
-    </div>
-    <script src="static/js/gdpr_cookies.js"></script>
+<div
+  class="gdpr bg-dark text-light"
+  style="padding: 10pt; position: fixed; bottom: 0; display: none;"
+>
+  We use cookies to store which papers have been visited.
+  <div class="gdpr-btn btn btn-sm btn-info" style="margin-left: 15pt;">
+    I agree
+  </div>
+</div>
+<script src="static/js/gdpr_cookies.js"></script>
 
 {% endblock %}
