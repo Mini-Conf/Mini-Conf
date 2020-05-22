@@ -12,6 +12,7 @@ To get started just `pip install -r requirements.txt` and run `./run.sh `. When 
 
 ### Tour
 
+The <a href="https://github.com/Mini-Conf/Mini-Conf">MiniConf</a> repo:
 
 1) *Datastore* <a href="https://github.com/Mini-Conf/Mini-Conf/tree/master/sitedata">`sitedata/`</a>
 
