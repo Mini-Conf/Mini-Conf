@@ -1,4 +1,10 @@
-{% set active_page = "Home" %} {% extends "base.html" %} {% block top %}
+<!-- prettier-ignore -->
+{% set active_page = "Home" %}
+<!-- prettier-ignore -->
+{% extends "base.html" %}
+
+<!-- prettier-ignore -->
+{% block top %}
 <style>
   .back {
     background: url("static/images/main.jpg") no-repeat center;
@@ -22,8 +28,21 @@
     </div>
   </div>
 </div>
-{% endblock %} {% block content %} {{ readme | markdown }}
+<!-- prettier-ignore -->
+{% endblock %}
+
+<!-- prettier-ignore -->
+{% block content %}
+
+<!-- prettier-ignore -->
+{{ readme | markdown }}
 
 <!-- Organizers -->
-{{ components.section("Organizers") }} {{ components.organizergroup(committee)
-}} {% endblock %}
+<!-- prettier-ignore -->
+{{ components.section("Organizers") }}
+<!-- prettier-ignore -->
+{{ components.organizergroup(committee) }}
+
+
+<!-- prettier-ignore -->
+{% endblock %}
