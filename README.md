@@ -31,8 +31,9 @@ Contains frontend components like the default css, images, and javascript libs.
 
 5) *Scripts* <a href="https://github.com/Mini-Conf/Mini-Conf/tree/master/scripts">`scripts/`</a>
 
-Contains additional preprocessing to add visualizations and recommendations to the conference. 
+Contains additional preprocessing to add visualizations, recommendations, schedules to the conference. 
 
+6) For importing calendars as schedule see [scripts/README_Schedule.md](scripts/README_Schedule.md)
 
 ### Example
 
