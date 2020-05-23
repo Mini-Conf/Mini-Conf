@@ -7,3 +7,4 @@ install:
   - pip install -r requirements-dev.txt
 script:
   - make format-check
+  - pylint --output-format=text main.py
