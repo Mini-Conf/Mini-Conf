@@ -1,17 +1,24 @@
 ## Mini-Conf
 
-<a href="https://mini-conf.github.io/index.html">MiniConf</a> is a virtual conference in a box. It is:
+<a href="https://mini-conf.github.io/index.html">MiniConf</a> is a virtual conference in a box. It is designed to be:
 
-* Completely static
-* Requires no database.
-* Trivial to modify.
+* Run based on static files hosted by any server. 
+* Modifiable without a database using CSV files.
+* Easy to extend to fit any backend or additional frontend tools. 
 
-To get started just `pip install -r requirements.txt` and run `./run.sh `. When you are ready to deploy run
-`./freeze.sh` to get a static version of the site. 
+## Get Started
+
+<pre>
+> pip install -r requirements.txt
+> make run
+</pre>
+
+When you are ready to deploy run `make freeze` to get a static version of the site in the `build` folder. 
 
 
 ### Tour
 
+The <a href="https://github.com/Mini-Conf/Mini-Conf">MiniConf</a> repo:
 
 1) *Datastore* <a href="https://github.com/Mini-Conf/Mini-Conf/tree/master/sitedata">`sitedata/`</a>
 
@@ -31,10 +38,20 @@ Contains frontend components like the default css, images, and javascript libs.
 
 5) *Scripts* <a href="https://github.com/Mini-Conf/Mini-Conf/tree/master/scripts">`scripts/`</a>
 
-Contains additional preprocessing to add visualizations and recommendations to the conference. 
+Contains additional preprocessing to add visualizations, recommendations, schedules to the conference. 
 
+6) For importing calendars as schedule see [scripts/README_Schedule.md](https://github.com/Mini-Conf/Mini-Conf/blob/master/scripts/README_Schedule.md)
 
 ### Example
 
-Mini-Conf successfully hosted <a href="https://iclr.cc/virtual_2020">ICLR 2020</a> a virtual conference with 6000 participants. 
+Mini-Conf was design to host <a href="https://iclr.cc/virtual_2020">ICLR 2020</a> a virtual conference with 6000 participants. 
+
+### Acknowledgements
+
+MiniConf was built by [Hendrik Strobelt](http://twitter.com/hen_str) and [Sasha Rush](http://twitter.com/srush_nlp).
+
+Thanks to Darren Nelson for the original design sketches. Shakir Mohamed, Martha White, Kyunghyun Cho, Lee Campbell, and Adam White for planning and feedback. Hao Fang, Junaid Rahim, Jake Tae, Yasser Souri, Soumya Chatterjee, and Ankshita Gupta for contributions. 
+
+
+
 
