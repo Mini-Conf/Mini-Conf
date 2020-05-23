@@ -19,8 +19,6 @@ jobs:
       with:
         python-version: 3.7
         node-version: 10.x
-    - name: Install NPM dependencies
-      run: npm install
     - name: Install Python dependencies
       run: |
         python -m pip install --upgrade pip
