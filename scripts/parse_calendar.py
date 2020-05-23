@@ -25,6 +25,7 @@ def parse_arguments():
     return parser.parse_args()
 
 
+# pylint: disable=redefined-outer-name
 def convert(args):
     file_ics: str = args.ics
     if not file_ics.startswith("http"):
@@ -36,12 +37,12 @@ def convert(args):
     collector = []
     for e in c.events:
         title = e.name
-        type = "---"
+        tpe = "---"
 
         # check for starting hashtag
         parts = title.split(" ")
         if parts[0].startswith("#"):
-            type = parts[0][1:]
+            tpe = parts[0][1:]
             title = " ".join(parts[1:])
 
         # // const
@@ -62,7 +63,7 @@ def convert(args):
             "location": e.location,
             "link": e.location,
             "category": "time",
-            "calendarId": type,
+            "calendarId": tpe,
         }
         collector.append(json_event)
         print(json_event)

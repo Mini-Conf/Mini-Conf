@@ -7,6 +7,7 @@ for f in glob.glob(sys.argv[1]):
     out = open(outfile, "w")
     for l in open(f):
         if l.strip().startswith("{{") or l.strip().startswith("{%"):
+            # pylint: disable=consider-using-enumerate
             for j in range(len(l)):
                 if l[j] != " ":
                     break
@@ -19,6 +20,7 @@ for f in glob.glob(sys.argv[1]):
 
     orig = open(f, "w")
     for l in open(outfile):
+        # pylint: disable=no-else-condition
         if l.strip().startswith("<!-- prettier-ignore -->"):
             continue
         else:
