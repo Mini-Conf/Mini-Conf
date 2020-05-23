@@ -20,7 +20,7 @@ for f in glob.glob(sys.argv[1]):
 
     orig = open(f, "w")
     for l in open(outfile):
-        # pylint: disable=no-else-condition
+        # pylint: disable=no-else-continue
         if l.strip().startswith("<!-- prettier-ignore -->"):
             continue
         else:
