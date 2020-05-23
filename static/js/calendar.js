@@ -1,84 +1,198 @@
 function make_cal(name) {
-    $.get(name).then(function (data) {
-        // parse the ics data
-    var jcalData = ICAL.parse(data.trim());
-              var comp = new ICAL.Component(jcalData);
-    var eventComps = comp.getAllSubcomponents("vevent");
-    // map them to FullCalendar events
-    var events = $.map(eventComps, function (item) {
 
-        if (item.getFirstPropertyValue("class") == "PRIVATE") {
-            return null;
+    // console.log(location.search, "--- location.search");
+
+    const current_tz = getUrlParameter('tz') || moment.tz.guess();
+    const tzNames = [...moment.tz.names()];
+
+    const setupTZSelector = () => {
+        const tzOptons = d3.select('#tzOptions')
+        tzOptons.selectAll('option').data(tzNames)
+          .join('option')
+          .attr('data-tokens', d => d.split("/").join(" "))
+          .text(d => d)
+        $('.selectpicker')
+          .selectpicker('val', current_tz)
+          .on('changed.bs.select',
+            function (e, clickedIndex, isSelected, previousValue) {
+                new_tz = tzNames[clickedIndex]
+                window.open(window.location.pathname+'?tz='+new_tz, '_self');
+            })
+    }
+
+    setupTZSelector();
+
+    // requires moments.js
+    const enumerateDaysBetweenDates = function (startDate, endDate) {
+        const dates = [];
+
+        // console.log(startDate, endDate, "--- startDate, endDate");
+
+        const currDate = moment(startDate);
+        const lastDate = moment(endDate);
+
+        dates.push(currDate.clone());
+        while (currDate.add(1, 'days').diff(lastDate) < 0) {
+            // console.log(currDate, "--- currDate");
+            dates.push(currDate.clone());
         }
-        else  {
-            var toreturn = {
-                "title": item.getFirstPropertyValue("summary"),
-                "location": "",
-            };
-            var rrule=item.getFirstPropertyValue("rrule");
-            if(rrule!= null){ //event recurs
-                toreturn.rrule={};
-              if(rrule.freq) toreturn.rrule.freq=rrule.freq;
-                if(rrule.parts.BYDAY) toreturn.rrule.byweekday=rrule.parts.BYDAY;
-                if(rrule.until) toreturn.rrule.until=rrule.until.toString();
-                if(rrule.until) toreturn.rrule.until=rrule.until.toString();
-                if(rrule.interval) toreturn.rrule.interval=rrule.interval;
-                var dtstart=item.getFirstPropertyValue("dtstart").toString();
-                var dtend=item.getFirstPropertyValue("dtend").toString();
-                toreturn.rrule.dtstart=dtstart;
-                //count duration ms
-                var startdate=new Date(dtstart);
-                var enddate=new Date(dtend);
-                toreturn.duration = enddate - startdate;
-            }else{
-                if (item.getFirstPropertyValue("dtstart") == null)
-                    return null;
-                if (item.getFirstPropertyValue("dtend") == null)
-                    return null;
 
-                toreturn.start=item.getFirstPropertyValue("dtstart").toString();
-                toreturn.end=item.getFirstPropertyValue("dtend").toString();
+        dates.push(lastDate);
+        return dates;
+    };
+
+
+    $.get('serve_config.json').then(config => {
+        $.get(name).then(events => {
+
+            const all_cals = [];
+            const timezoneName = current_tz;
+
+            const min_date = d3.min(events.map(e => e.start));
+            // console.log(min_date, "--- min_date");
+            const Calendar = tui.Calendar;
+            const calendar = new Calendar('#calendar', {
+                defaultView: 'week',
+                isReadOnly: true,
+                // useDetailPopup: true,
+                taskView: false,
+                scheduleView: ['time'],
+                usageStatistics: false,
+                week: {
+                    workweek: !config.calendar["sunday_saturday"]
+                },
+                timezones: [{
+                    timezoneOffset: -moment.tz.zone(timezoneName)
+                      .utcOffset(moment(min_date)),
+                    displayLabel: timezoneName,
+                    tooltip: timezoneName
+                }],
+                // timezones: [{
+                //     getTimezoneOffset: 540,
+                //     displayLabel: 'a',
+                //     tooltip: timezoneName
+                // }],
+                template: {
+                    monthDayname: function (dayname) {
+                        return '<span class="calendar-week-dayname-name">' + dayname.label + '</span>';
+                    },
+                    time: function (schedule) {
+                        return '<strong>' + moment(schedule.start.getTime())
+                          .tz(timezoneName)
+                          .format('hh:mm') + '</strong> ' + schedule.title;
+                    },
+                    milestone: function (schedule) {
+                        return '<span class="calendar-font-icon ic-milestone-b"></span> <span style="background-color: ' + schedule.bgColor + '"> M: ' + schedule.title + '</span>';
+                    },
+                    weekDayname: function (model) {
+                        const parts = model.renderDate.split('-');
+                        return '<span class="tui-full-calendar-dayname-name"> ' + parts[1] + '/' + parts[2] + '</span>&nbsp;&nbsp;<span class="tui-full-calendar-dayname-name">' + model.dayName + '</span>';
+                    },
+                },
+            });
+            calendar.setDate(Date.parse(min_date));
+            calendar.createSchedules(events);
+            calendar.on({
+                'clickSchedule': function (e) {
+                    const s = e.schedule
+                    if (s.location.length > 0) {
+                        window.open(s.location, '_blanket');
+                    }
+                },
+            })
+
+            all_cals.push(calendar);
+
+            const cols = config.calendar.colors;
+            if (cols) {
+                const cals = [];
+                Object.keys(cols).forEach(k => {
+                    const v = cols[k];
+                    cals.push({
+                        id: k,
+                        name: k,
+                        bgColor: v,
+                    })
+                })
+
+                calendar.setCalendars(cals);
+
             }
-            return toreturn;
-        }});
 
-        var calEl = document.getElementById('calendar');
-        var cal = new FullCalendar.Calendar(calEl,
-                                            {
-                                                plugins: [ 'timeGrid', 'googleCalendar' ],
-                                                defaultView: 'timeGridWeek',
-                                                views: {
-                                                    listDay: { buttonText: 'list day' }
-                                                },
-                                                header :{left:'', center:'', right: ''},
-                                                eventTimeFormat: { // like '14:30:00'
-                                                    hour: '2-digit',
-                                                    minute: '2-digit',
-                                                    meridiem: false,
-                                                    hour12: false,
-                                                    timeZoneName: "long"
-                                                },
-                                                height: 1000,
-                                                events: events,
-                                                eventClick: function(info) {
-                                                    $(window).scrollTop($("#" +info.event.title.split(" ").join("_").replace('?','')).position().top - 100);
-                                                },
-                                                eventRender: function (info) {
-                                                    // console.log(info.event);
-                                                    // append location
-                                                    if (info.event.extendedProps.location != null && info.event.extendedProps.location != "") {
-                                                        info.el.append(info.event.extendedProps.location );
-                                                    }}
-                                            });
 
-        cal.gotoDate("2020-04-26");
-        cal.render();
+            const week_dates = enumerateDaysBetweenDates(
+              calendar.getDateRangeStart().toDate(),
+              calendar.getDateRangeEnd().toDate())
 
-        const  days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-        const today = new Date()
-        const dayOfWeek = days[today.getUTCDay()];
-        $(".fc-scroller").scrollTop($(`.fc-widget-header:contains('${dayOfWeek}')`).position().top);
+            const c_sm = d3.select('#calendar_small')
+            let i = 0
+            for (const day of week_dates) {
+                c_sm.append('div').attr('id', 'cal__' + i);
+                const cal = new Calendar('#cal__' + i, {
+                    defaultView: 'day',
+                    isReadOnly: true,
+                    // useDetailPopup: true,
+                    taskView: false,
+                    scheduleView: ['time'],
+                    usageStatistics: false,
 
-    });
+                    timezones: [{
+                        timezoneOffset: -moment.tz.zone(timezoneName)
+                          .utcOffset(moment(min_date)),
+                        displayLabel: timezoneName,
+                        tooltip: timezoneName
+                    }],
+                })
+
+                cal.setDate(day.toDate());
+                cal.createSchedules(events);
+                cal.on({
+                    'clickSchedule': function (e) {
+                        const s = e.schedule
+                        if (s.location.length > 0) {
+                            window.open(s.location, '_blanket');
+                        }
+                    },
+                })
+
+                all_cals.push(cal);
+                const cols = config.calendar.colors;
+                if (cols) {
+                    const cals = [];
+                    Object.keys(cols).forEach(k => {
+                        const v = cols[k];
+                        cals.push({
+                            id: k,
+                            name: k,
+                            bgColor: v,
+                        })
+                    })
+
+                    cal.setCalendars(cals);
+
+                }
+
+                i++;
+
+                // console.log(day.format(), "--- day");
+            }
+
+            // console.log(week_dates.map(d => d.format()), "--- week_dates ");
+
+
+            const resize = async function (cal) {
+                await cal.render(true);
+                // d3.selectAll('.tui-full-calendar-vlayout-area').attr('style',null);
+            }
+
+            $(window).on('resize', _.debounce(function () {
+                all_cals.forEach(c => resize(c));
+            }, 100));
+
+            // d3.selectAll('.tui-full-calendar-vlayout-area').attr('style',null);
+
+        })
+
+    })
 
 }

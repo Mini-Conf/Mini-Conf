@@ -127,4 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-.\#*
+
+# IntelliJ
+.idea/
+
+# node
+node_modules/
