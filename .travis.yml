@@ -10,3 +10,4 @@ script:
   - black
   - pylint
   - mypy
+  - make test
