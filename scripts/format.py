@@ -1,6 +1,6 @@
 import glob
-import sys
 import os
+import sys
 
 for f in glob.glob(sys.argv[1]):
     outfile = f + ".html"
