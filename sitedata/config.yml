@@ -6,7 +6,7 @@ logo:
   image: static/images/MiniConf.png
   width: 180px
   height: auto
-# uncomment the following line if show the site title next to the logo image
+# uncomment the following line to show the site title next to the logo image
 # site_title: MiniConf
 background_image: static/images/main.jpg
 organization: MiniConf Organization Committee
