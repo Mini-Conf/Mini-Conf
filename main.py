@@ -7,7 +7,6 @@ import os
 
 import yaml
 from flask import Flask, jsonify, redirect, render_template, send_from_directory
-
 from flask_bootstrap import Bootstrap
 from flask_frozen import Freezer
 from flask_wtf import FlaskForm
