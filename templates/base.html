@@ -91,7 +91,15 @@
     >
       <div class="container">
         <a class="navbar-brand" href="index.html">
-          <img class="logo" src="{{config.logo.image}}" height="{{config.logo.height}}" />
+          <img
+             class="logo" src="{{config.logo.image}}"
+             {% if config.logo.height %}
+             height="{{config.logo.height}}"
+             {% endif%}
+             {% if config.logo.width %}
+             width="{{config.logo.width}}"
+             {% endif%}
+          />
         </a>
         {% if config.site_title %}
         <a class="navbar-brand" href="index.html">{{config.site_title}}</a>
