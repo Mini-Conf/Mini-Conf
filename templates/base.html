@@ -93,12 +93,8 @@
         <a class="navbar-brand" href="index.html">
           <img
              class="logo" src="{{config.logo.image}}"
-             {% if config.logo.height %}
-             height="{{config.logo.height}}"
-             {% endif%}
-             {% if config.logo.width %}
-             width="{{config.logo.width}}"
-             {% endif%}
+             height={{config.logo.height | default("auto")}}
+             width={{config.logo.width | default("auto")}}
           />
         </a>
         {% if config.site_title %}
