@@ -93,8 +93,8 @@
         <a class="navbar-brand" href="index.html">
           <img
              class="logo" src="{{config.logo.image}}"
-             height={{config.logo.height | default("auto")}}
-             width={{config.logo.width | default("auto")}}
+             height={{config.logo.height | default("auto") | tojson}}
+             width={{config.logo.width | default("auto") | tojson}}
           />
         </a>
         {% if config.site_title %}
