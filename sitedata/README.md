@@ -10,7 +10,12 @@ the required data fields are provided.
 - tagline: `<long name>`
 - data: `<Date of conference>`
 - analytics: `<Google analytics ID starting with UA... >`
-- logo: `<link to logo>`
+- logo: 
+    - image: `<link to logo>`
+    - width: `<width of the image> or "auto"`
+    - height: `<height of the image> or "auto"`
+- site_title: `<name of the site>`
+- background_image: `<link to background image>`
 - organization: `<conference committee name>`
 
 ## Detail Pages
