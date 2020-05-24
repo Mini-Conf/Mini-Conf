@@ -91,8 +91,15 @@
     >
       <div class="container">
         <a class="navbar-brand" href="index.html">
-          <img class="logo" src="{{config.logo}}" width="180px" />
+          <img
+             class="logo" src="{{config.logo.image}}"
+             height={{config.logo.height | default("auto") | tojson}}
+             width={{config.logo.width | default("auto") | tojson}}
+          />
         </a>
+        {% if config.site_title %}
+        <a class="navbar-brand" href="index.html">{{config.site_title}}</a>
+        {% endif %}
         <button
           class="navbar-toggler"
           type="button"
