@@ -6,10 +6,13 @@ import json
 import os
 
 import yaml
-
 from flask import Flask, jsonify, redirect, render_template, send_from_directory
+from flask_bootstrap import Bootstrap
 from flask_frozen import Freezer
+from flask_wtf import FlaskForm
 from flaskext.markdown import Markdown
+from wtforms import BooleanField, PasswordField, StringField
+from wtforms.validators import InputRequired, Length
 
 site_data = {}
 by_uid = {}
@@ -42,8 +45,10 @@ def main(site_data_path):
 
 app = Flask(__name__)
 app.config.from_object(__name__)
+app.config["SECRET_KEY"] = "secretkey"
 freezer = Freezer(app)
 markdown = Markdown(app)
+bootstrap = Bootstrap(app)
 
 # MAIN PAGES
 
@@ -153,6 +158,23 @@ def workshop(workshop):
     data = _data()
     data["workshop"] = v
     return render_template("workshop.html", **data)
+
+
+class LoginForm(FlaskForm):
+    username = StringField(
+        "Username", validators=[InputRequired(), Length(min=4, max=15)]
+    )
+    password = PasswordField(
+        "Password", validators=[InputRequired(), Length(min=8, max=80)]
+    )
+    remember = BooleanField("Remember Me")
+
+
+@app.route("/login.html", methods=["GET", "POST"])
+def login():
+    form = LoginForm()
+
+    return render_template("login.html", form=form)
 
 
 # FRONT END SERVING
