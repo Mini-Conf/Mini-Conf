@@ -6,7 +6,17 @@ import json
 import os
 
 import yaml
-from flask import Flask, jsonify, redirect, render_template, send_from_directory
+from flask import (
+    Flask,
+    flash,
+    jsonify,
+    redirect,
+    render_template,
+    request,
+    send_from_directory,
+    session,
+    url_for,
+)
 from flask_frozen import Freezer
 from flaskext.markdown import Markdown
 
@@ -41,9 +51,12 @@ def main(site_data_path):
 
 app = Flask(__name__)
 app.config.from_object(__name__)
+app.config["SECRET_KEY"] = "secretkey"
+app.config["TEMPLATES_AUTO_RELOAD"] = True
+app.config["EXPLAIN_TEMPLATE_LOADING"] = True
 freezer = Freezer(app)
 markdown = Markdown(app)
-
+app.jinja_env.add_extension("jinja2.ext.do")
 # MAIN PAGES
 
 
@@ -152,6 +165,52 @@ def workshop(workshop):
     data = _data()
     data["workshop"] = v
     return render_template("workshop.html", **data)
+
+
+class User:
+    def __init__(self, Id, username, password):
+        self.id = Id
+        self.username = username
+        self.password = password
+
+
+users = []
+users.append(User(Id=1, username="admin", password="admin"))
+users.append(User(Id=2, username="Becca", password="secret"))
+
+
+@app.route("/logout.html")
+# @login_required
+def logout():
+    session.clear()
+    flash("Successfully logged out")
+    return redirect(url_for("index"))
+
+
+@app.route("/login.html", methods=["GET", "POST"])
+def login():
+    error = ""
+    try:
+        if request.method == "POST":
+            session.pop("user_id", None)
+
+            username = request.form["username"]
+            password = request.form["password"]
+
+            user = [x for x in users if x.username == username][0]
+            if user and user.password == password:
+                session["logged_in"] = True
+                session["user_id"] = user.id
+                flash("Successfully logged in")
+                return redirect(url_for("index"))
+            else:
+                error = "invalid Credentials"
+
+        return render_template("login.html", error=error)
+    except IndexError:
+        error = "Invalid Credentials. Try Again."
+        flash(error)
+        return render_template("login.html", error=error)
 
 
 # FRONT END SERVING

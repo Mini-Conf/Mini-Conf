@@ -76,16 +76,41 @@
 
   <body>
     <!-- NAV -->
+    
     {% block header %}
+    
     {% set navigation_bar = [
-    ('index.html', 'Home'),
-    ('calendar.html', 'Schedule'),
-    ('papers.html', 'Papers'),
-    ('workshops.html', 'Workshops'),
-    ('about.html', 'Help'),
-    ] -%}
+      ('index.html', 'Home'),
+      ('calendar.html', 'Schedule'),
+      ('papers.html', 'Papers'),
+      ('workshops.html', 'Workshops'),
+      ('about.html', 'Help'),
+      ] -%}
 
-    <nav
+    {% if session.logged_in %}
+    
+    {% do navigation_bar.append(('logout.html', 'Logout')) %}
+    
+    {% else %}
+    
+    {% do navigation_bar.append(('login.html', 'Login')) %}
+    
+      {% endif %}
+
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          
+          {% for message in messages %}
+          <div class="alert alert-success alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>{{ message }}</strong>
+          </div> 
+          {% endfor %}
+        
+        {% endif %}
+      {% endwith %}
+
+      <nav
       class="navbar sticky-top navbar-expand-lg navbar-light bg-light mr-auto"
       id="main-nav"
     >

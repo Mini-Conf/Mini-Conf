@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.2/css/bulma.min.css" integrity="sha256-qS+snwBgqr+iFVpBB58C9UCxKFhyL03YHpZfdNUhSEw=" crossorigin="anonymous" />
+<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+{% endblock %}
+  
+    <section class="hero is-info mb-5 is-fullheight" style="background-image: url('../static/images/main.jpg'); background-size: cover;">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-half">
+            <form method="POST">
+              <div class="field">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %} 
+                  {% for message in messages %}
+                  <div class="alert alert-success alert-dismissible">
+                    <strong style="color:white">{{ message }}</strong>
+                  </div> 
+                  {% endfor %}
+                  {% endif %}
+                {% endwith %}
+                <label class="label" style="color:white">Username</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input" type="text" name="username" placeholder="Username">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="field">
+                <label class="label" style="color:white">Password</label>
+                <p class="control has-icons-left">
+                  <input class="input" type="password" name="password" placeholder="Password">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                  </span>
+                </p>
+              </div>
+              <div class="field">
+                <p class="control">
+                  <button type="submit" class="button is-success">
+                    Login
+                  </button>
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {% endblock %}
