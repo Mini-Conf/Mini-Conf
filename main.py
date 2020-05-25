@@ -6,13 +6,19 @@ import json
 import os
 
 import yaml
-from flask import Flask, jsonify, redirect, render_template, send_from_directory
-from flask_bootstrap import Bootstrap
+from flask import (
+    Flask,
+    flash,
+    jsonify,
+    redirect,
+    render_template,
+    request,
+    send_from_directory,
+    session,
+    url_for,
+)
 from flask_frozen import Freezer
-from flask_wtf import FlaskForm
 from flaskext.markdown import Markdown
-from wtforms import BooleanField, PasswordField, StringField
-from wtforms.validators import InputRequired, Length
 
 site_data = {}
 by_uid = {}
@@ -48,8 +54,6 @@ app.config.from_object(__name__)
 app.config["SECRET_KEY"] = "secretkey"
 freezer = Freezer(app)
 markdown = Markdown(app)
-bootstrap = Bootstrap(app)
-
 # MAIN PAGES
 
 
@@ -160,21 +164,50 @@ def workshop(workshop):
     return render_template("workshop.html", **data)
 
 
-class LoginForm(FlaskForm):
-    username = StringField(
-        "Username", validators=[InputRequired(), Length(min=4, max=15)]
-    )
-    password = PasswordField(
-        "Password", validators=[InputRequired(), Length(min=8, max=80)]
-    )
-    remember = BooleanField("Remember Me")
+class User:
+    def __init__(self, Id, username, password):
+        self.id = Id
+        self.username = username
+        self.password = password
+
+
+users = []
+users.append(User(Id=1, username="admin", password="admin"))
+users.append(User(Id=2, username="Becca", password="secret"))
+
+
+@app.route("/logout.html")
+# @login_required
+def logout():
+    session.clear()
+    flash("Successfully logged out")
+    return redirect(url_for("index"))
 
 
 @app.route("/login.html", methods=["GET", "POST"])
 def login():
-    form = LoginForm()
+    error = ""
+    try:
+        if request.method == "POST":
+            session.pop("user_id", None)
 
-    return render_template("login.html", form=form)
+            username = request.form["username"]
+            password = request.form["password"]
+
+            user = [x for x in users if x.username == username][0]
+            if user and user.password == password:
+                session["logged_in"] = True
+                session["user_id"] = user.id
+                flash("Successfully logged in")
+                return redirect(url_for("index"))
+            else:
+                error = "invalid Credentials"
+
+        return render_template("login.html", error=error)
+    except IndexError:
+        error = "Invalid Credentials. Try Again."
+        flash(error)
+        return render_template("login.html", error=error)
 
 
 # FRONT END SERVING

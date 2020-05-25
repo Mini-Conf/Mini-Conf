@@ -1,22 +1,73 @@
-{% set active_page = "Login" %}
-{% extends "base.html" %}
-{% import "bootstrap/wtf.html" as wtf %} 
-{%block title %} 
-Login 
-{% endblock %}
- {% block styles %} 
- {{super()}}
-<link rel="stylesheet" href="{{url_for('.static', filename='signin.css')}}" />
-{% endblock %} {% block content %}
-<div class="container">
-  <form class="form-signin" method="POST" action="/login">
-    <h2 class="form-signin-heading">Please sign in</h2>
-    {{ form.hidden_tag() }} {{ wtf.form_field(form.username) }} {{
-    wtf.form_field(form.password) }} {{ wtf.form_field(form.remember) }}
-    <button class="btn mb-5 btn-lg btn-primary btn-block" type="submit">
-      Sign in
-    </button>
-  </form>
-</div>
-<!-- /container -->
-{% endblock %}
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
+  
+  
+  <nav
+      class="navbar sticky-top navbar-expand-lg navbar-light bg-light mr-auto"
+      id="main-nav"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img class="logo" src="../static/images/MiniConf.png" width="180px" />
+        </a>
+      </div>
+    </nav>  
+    <section class="hero is-info is-fullheight" style="background-image: url('../static/images/main.jpg'); background-size: cover;">
+    <div class="hero-body">
+      <div class="container">
+        <div class="columns is-centered">
+          <div class="column is-half">
+            <form method="POST">
+              <div class="field">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %} 
+                  {% for message in messages %}
+                  <div class="alert alert-success alert-dismissible">
+                    <strong style="color:white">{{ message }}</strong>
+                  </div> 
+                  {% endfor %}
+                  {% endif %}
+                {% endwith %}
+                <label class="label" style="color:white">Username</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input" type="text" name="username" placeholder="Username">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="field">
+                <label class="label" style="color:white">Password</label>
+                <p class="control has-icons-left">
+                  <input class="input" type="password" name="password" placeholder="Password">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                  </span>
+                </p>
+              </div>
+              <div class="field">
+                <p class="control">
+                  <button type="submit" class="button is-success">
+                    Login
+                  </button>
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>

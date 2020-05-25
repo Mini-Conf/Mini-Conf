@@ -77,22 +77,51 @@
   <body>
     <!-- NAV -->
     {% block header %}
+    
+    {% if session.logged_in %}
+    
     {% set navigation_bar = [
-    ('login.html', 'Login'),
+    ('logout.html', 'Logout'),
     ('index.html', 'Home'),
     ('calendar.html', 'Schedule'),
     ('papers.html', 'Papers'),
     ('workshops.html', 'Workshops'),
     ('about.html', 'Help'),
     ] -%}
+    
+    {% else %}
+    
+    {% set navigation_bar = [
+      ('login.html', 'Login'),
+      ('index.html', 'Home'),
+      ('calendar.html', 'Schedule'),
+      ('papers.html', 'Papers'),
+      ('workshops.html', 'Workshops'),
+      ('about.html', 'Help'),
+      ] -%}
+    
+      {% endif %}
 
-    <nav
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          
+          {% for message in messages %}
+          <div class="alert alert-success alert-dismissible">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+            <strong>{{ message }}</strong>
+          </div> 
+          {% endfor %}
+        
+        {% endif %}
+      {% endwith %}
+
+      <nav
       class="navbar sticky-top navbar-expand-lg navbar-light bg-light mr-auto"
       id="main-nav"
     >
       <div class="container">
         <a class="navbar-brand" href="index.html">
-          <img class="logo" src="{{config.logo}}" width="180px" />
+          <img class="logo" src="../static/images/MiniConf.png" width="180px" />
         </a>
         <button
           class="navbar-toggler"
