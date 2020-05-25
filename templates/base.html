@@ -76,29 +76,24 @@
 
   <body>
     <!-- NAV -->
+    
     {% block header %}
     
-    {% if session.logged_in %}
-    
     {% set navigation_bar = [
-    ('logout.html', 'Logout'),
-    ('index.html', 'Home'),
-    ('calendar.html', 'Schedule'),
-    ('papers.html', 'Papers'),
-    ('workshops.html', 'Workshops'),
-    ('about.html', 'Help'),
-    ] -%}
-    
-    {% else %}
-    
-    {% set navigation_bar = [
-      ('login.html', 'Login'),
       ('index.html', 'Home'),
       ('calendar.html', 'Schedule'),
       ('papers.html', 'Papers'),
       ('workshops.html', 'Workshops'),
       ('about.html', 'Help'),
       ] -%}
+
+    {% if session.logged_in %}
+    
+    {% do navigation_bar.append(('logout.html', 'Logout')) %}
+    
+    {% else %}
+    
+    {% do navigation_bar.append(('login.html', 'Login')) %}
     
       {% endif %}
 

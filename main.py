@@ -52,8 +52,11 @@ def main(site_data_path):
 app = Flask(__name__)
 app.config.from_object(__name__)
 app.config["SECRET_KEY"] = "secretkey"
+app.config["TEMPLATES_AUTO_RELOAD"] = True
+app.config["EXPLAIN_TEMPLATE_LOADING"] = True
 freezer = Freezer(app)
 markdown = Markdown(app)
+app.jinja_env.add_extension("jinja2.ext.do")
 # MAIN PAGES
 
 

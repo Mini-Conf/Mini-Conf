@@ -1,28 +1,14 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
+{% block content %}
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Login</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-</head>
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.8.2/css/bulma.min.css" integrity="sha256-qS+snwBgqr+iFVpBB58C9UCxKFhyL03YHpZfdNUhSEw=" crossorigin="anonymous" />
+<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
-<body>
+{% endblock %}
   
-  
-  <nav
-      class="navbar sticky-top navbar-expand-lg navbar-light bg-light mr-auto"
-      id="main-nav"
-    >
-      <div class="container">
-        <a class="navbar-brand" href="index.html">
-          <img class="logo" src="../static/images/MiniConf.png" width="180px" />
-        </a>
-      </div>
-    </nav>  
-    <section class="hero is-info is-fullheight" style="background-image: url('../static/images/main.jpg'); background-size: cover;">
+    <section class="hero is-info mb-5 is-fullheight" style="background-image: url('../static/images/main.jpg'); background-size: cover;">
     <div class="hero-body">
       <div class="container">
         <div class="columns is-centered">
@@ -68,6 +54,4 @@
       </div>
     </div>
   </section>
-</body>
-
-</html>
+  {% endblock %}
