@@ -7,8 +7,8 @@
 {% for author in paper.content.authors %}
 <meta name="citation_author" content="{{author}}" />
 {% endfor %}
-<meta name="citation_publication_date" content="{{config.data}}" />
 <meta name="citation_conference_title" content="{{config.name}}" />
+<meta name="citation_publication_date" content="{{config.date}}" />
 <meta name="citation_abstract" content="{{paper.content.abstract}}" />
 {% for keyword in paper.content.keywords %}
 <meta name="citation_keywords" content="{{keyword}}" />

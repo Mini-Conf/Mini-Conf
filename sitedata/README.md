@@ -8,7 +8,7 @@ the required data fields are provided.
 
 - name: `<short name>`
 - tagline: `<long name>`
-- data: `<Date of conference>`
+- date: `<Date of conference>`
 - analytics: `<Google analytics ID starting with UA... >`
 - logo: `<link to logo>`
 - organization: `<conference committee name>`
