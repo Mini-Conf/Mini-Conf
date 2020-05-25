@@ -54,9 +54,10 @@ app.config.from_object(__name__)
 app.config["SECRET_KEY"] = "secretkey"
 app.config["TEMPLATES_AUTO_RELOAD"] = True
 app.config["EXPLAIN_TEMPLATE_LOADING"] = True
+app.jinja_options["extensions"].append("jinja2.ext.do")
 freezer = Freezer(app)
 markdown = Markdown(app)
-app.jinja_env.add_extension("jinja2.ext.do")
+
 # MAIN PAGES
 
 
@@ -189,6 +190,7 @@ def logout():
 
 @app.route("/login.html", methods=["GET", "POST"])
 def login():
+    data = _data()
     error = ""
     try:
         if request.method == "POST":
@@ -205,12 +207,11 @@ def login():
                 return redirect(url_for("index"))
             else:
                 error = "invalid Credentials"
-
-        return render_template("login.html", error=error)
+        return render_template("login.html", **data, error=error)
     except IndexError:
         error = "Invalid Credentials. Try Again."
         flash(error)
-        return render_template("login.html", error=error)
+        return render_template("login.html", **data, error=error)
 
 
 # FRONT END SERVING

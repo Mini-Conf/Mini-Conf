@@ -1,3 +1,4 @@
+{% set active_page = "Login" %}
 {% extends "base.html" %}
 {% block content %}
 
@@ -7,8 +8,17 @@
 <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
 
 {% endblock %}
-  
-    <section class="hero is-info mb-5 is-fullheight" style="background-image: url('../static/images/main.jpg'); background-size: cover;">
+{% block top %}
+<style>
+  .hero {
+    background: url("{{config.background_image}}") no-repeat center;
+    background-size: cover;
+  }
+</style>
+{% endblock %}
+
+
+  <section class="hero is-info mb-5 is-fullheight" >
     <div class="hero-body">
       <div class="container">
         <div class="columns is-centered">
@@ -54,4 +64,5 @@
       </div>
     </div>
   </section>
-  {% endblock %}
+ 
+{% endblock %}
