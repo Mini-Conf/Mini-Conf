@@ -1,9 +1,15 @@
 name: MiniConf
 tagline: MINICONF <br> CONFERENCE <br> MANAGEMENT
-data: May 2020
+date: May 2020
 proceedings_title: Proceedings of the First MiniCon Conference
 analytics: UA-
-logo: static/images/MiniConf.png
+logo:
+  image: static/images/MiniConf.png
+  width: 180px
+  height: auto
+# uncomment the following line to show the site title next to the logo image
+# site_title: MiniConf
+background_image: static/images/main.jpg
 organization: MiniConf Organization Committee
 calendar:
   colors: #  Colors for the different event hashtags:
