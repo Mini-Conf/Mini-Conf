@@ -10,7 +10,6 @@ format-python:
 
 format-web:
 	prettier $(CSS_FILES) --write
-	prettier-eslint $(CSS_FILES) --write
 
 format: format-python format-web
 
