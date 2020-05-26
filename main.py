@@ -110,14 +110,19 @@ def workshops():
     return render_template("workshops.html", **data)
 
 
+def extract_list_field(v, key):
+    value = v.get(key, "")
+    if isinstance(value, list):
+        return value
+    else:
+        return value.split("|")
+
+
 def format_paper(v):
     list_keys = ["authors", "keywords", "session"]
     list_fields = {}
     for key in list_keys:
-        if isinstance(v.get(key, ""), list):
-            list_fields[key] = v.get(key, "")
-        else:
-            list_fields[key] = v.get(key, "").split("|")
+        list_fields[key] = extract_list_field(v, key)
 
     return {
         "id": v["UID"],
@@ -139,10 +144,7 @@ def format_workshop(v):
     list_keys = ["authors"]
     list_fields = {}
     for key in list_keys:
-        if isinstance(v.get(key, ""), list):
-            list_fields[key] = v.get(key, "")
-        else:
-            list_fields[key] = v.get(key, "").split("|")
+        list_fields[key] = extract_list_field(v, key)
 
     return {
         "id": v["UID"],
