@@ -2,7 +2,7 @@ static/js/typeahead.bundle.js
 static/js/ical.js
 static/js/calendar.js
 static/js/lazy_load.js
-static/js/little_helper.js
+static/js/little_helpers.js
 static/js/paper_vis.js
 static/js/papers.js
 static/js/persistor.js
