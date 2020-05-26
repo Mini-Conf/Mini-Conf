@@ -104,7 +104,7 @@ def schedule():
 @app.route("/workshops.html")
 def workshops():
     data = _data()
-    data["workshops"] = site_data["workshops"]
+    data["workshops"] = [format_workshop(workshop) for workshop in site_data["workshops"]]
     return render_template("workshops.html", **data)
 
 
@@ -122,6 +122,23 @@ def format_paper(v):
             "session": v.get("session", "").split("|"),
             "pdf_url": v.get("pdf_url", ""),
         },
+    }
+
+
+def format_workshop(v):
+    list_keys = ["authors"]
+    list_fields = {}
+    for key in list_keys:
+        if type(v.get(key, "")) == list:
+            list_fields[key] = v.get(key, "")
+        else:
+            list_fields[key] = v.get(key, "").split("|")
+
+    return {
+        "id": v["UID"],
+        "title": v["title"],
+        "organizers": list_fields["authors"],
+        "abstract": v["abstract"],
     }
 
 
@@ -151,7 +168,7 @@ def workshop(workshop):
     uid = workshop
     v = by_uid["workshops"][uid]
     data = _data()
-    data["workshop"] = v
+    data["workshop"] = format_workshop(v)
     return render_template("workshop.html", **data)
 
 

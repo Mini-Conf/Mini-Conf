@@ -9,7 +9,9 @@
       {{workshop.title}}
     </h2>
     <h3 class="card-subtitle mb-2 text-muted text-center">
-      {{workshop.authors}}
+      {% for organizer in workshop.organizers %}
+        {{ organizer }}{{ "," if not loop.last }}
+      {% endfor %}
     </h3>
     <div class="text-center p-3">
       <a class="card-link" data-toggle="collapse" role="button" href="#details">
