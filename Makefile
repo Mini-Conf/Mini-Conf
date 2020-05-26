@@ -32,3 +32,4 @@ format-check:
 	mypy --show-error-codes $(PYTHON_FILES)
 	npx prettier $(JS_FILES) $(CSS_FILES) --check
 	npx eslint $(JS_FILES)
+	@echo "format-check passed"
