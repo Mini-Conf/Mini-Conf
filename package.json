@@ -1,0 +1,22 @@
+{
+  "name": "mini-conf",
+  "version": "1.0.0",
+  "description": "mini-conf for virtual conference",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mini-Conf/Min-Conf.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Mini-Conf/Mini-Conf/issues"
+  },
+  "homepage": "https://github.com/Mini-Conf/Mini-Conf#readme",
+  "devDependencies": {
+    "prettier": "^2.0.5"
+  }
+}

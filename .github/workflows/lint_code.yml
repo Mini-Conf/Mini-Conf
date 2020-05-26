@@ -22,5 +22,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install -r requirements-dev.txt
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - name: Install NPM dependencies
+      run: npm install
     - name: Format check
       run: make format-check
