@@ -104,7 +104,9 @@ def schedule():
 @app.route("/workshops.html")
 def workshops():
     data = _data()
-    data["workshops"] = [format_workshop(workshop) for workshop in site_data["workshops"]]
+    data["workshops"] = [
+        format_workshop(workshop) for workshop in site_data["workshops"]
+    ]
     return render_template("workshops.html", **data)
 
 
