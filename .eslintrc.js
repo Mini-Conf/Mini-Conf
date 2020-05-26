@@ -16,9 +16,9 @@ module.exports = {
   rules: {
     // disable rules from base configurations
     "camelcase": "off",
+    "func-names": "off",
     "no-unused-vars": "off",
     "no-undef": "off",
-    "func-names": "off",
     "no-param-reassign": "off",
   },
 };
