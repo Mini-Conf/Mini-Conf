@@ -109,17 +109,25 @@ def workshops():
 
 
 def format_paper(v):
+    list_keys = ["authors", "keywords", "session"]
+    list_fields = {}
+    for key in list_keys:
+        if type(v.get(key, "")) == list:
+            list_fields[key] = v.get(key, "")
+        else:
+            list_fields[key] = v.get(key, "").split("|")
+
     return {
         "id": v["UID"],
         "forum": v["UID"],
         "content": {
             "title": v["title"],
-            "authors": v["authors"].split("|"),
-            "keywords": v["keywords"].split("|"),
+            "authors": list_fields["authors"],
+            "keywords": list_fields["keywords"],
             "abstract": v["abstract"],
             "TLDR": v["abstract"],
             "recs": [],
-            "session": v.get("session", "").split("|"),
+            "session": list_fields["session"],
             "pdf_url": v.get("pdf_url", ""),
         },
     }
