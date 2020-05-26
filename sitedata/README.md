@@ -15,6 +15,9 @@ the required data fields are provided.
     - width: `<width of the image> or "auto"`
     - height: `<height of the image> or "auto"`
 - site_title: `<name of the site>`
+- page_title:
+    - prefix: `<text to include in title of every page>`
+    - separator: `<characters between prefix and name of the current page>`
 - background_image: `<link to background image>`
 - organization: `<conference committee name>`
 
