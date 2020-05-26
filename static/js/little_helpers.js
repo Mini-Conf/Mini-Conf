@@ -29,7 +29,7 @@ const initTypeAhead = (list, css_sel, name, callback) => {
     },
   });
   function bhDefaults(q, sync) {
-    if (q === "" && name == "session") {
+    if (q === "" && name === "session") {
       sync(bh.all()); // This is the only change needed to get 'ALL' items as the defaults
     } else {
       bh.search(q, sync);
