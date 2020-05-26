@@ -213,9 +213,7 @@
           </h3>
         </a>
         <div class="card-subtitle text-muted">
-          {% for organizer in workshop.organizers %}
-            {{ organizer }}{{ "," if not loop.last }}
-          {% endfor %}
+          {{ workshop.organizers | join(", ") }}
         </div>
         <div class="m-3 text-left card-subtitle font-italic">
           {{workshop.abstract|safe}}
