@@ -27,6 +27,6 @@ jobs:
       with:
         node-version: '12.x'
     - name: Install NPM dependencies
-      - run: npm install
+      run: npm install
     - name: Format check
       run: make format-check
