@@ -114,7 +114,7 @@ def format_paper(v):
     list_keys = ["authors", "keywords", "session"]
     list_fields = {}
     for key in list_keys:
-        if type(v.get(key, "")) == list:
+        if isinstance(v.get(key, ""), list):
             list_fields[key] = v.get(key, "")
         else:
             list_fields[key] = v.get(key, "").split("|")
@@ -139,7 +139,7 @@ def format_workshop(v):
     list_keys = ["authors"]
     list_fields = {}
     for key in list_keys:
-        if type(v.get(key, "")) == list:
+        if isinstance(v.get(key, ""), list):
             list_fields[key] = v.get(key, "")
         else:
             list_fields[key] = v.get(key, "").split("|")
