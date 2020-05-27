@@ -134,6 +134,7 @@ def format_paper(v):
             "TLDR": v["abstract"],
             "recs": [],
             "session": v.get("session", "").split("|"),
+            "pdf_url": v.get("pdf_url", ""),
         },
     }
 
