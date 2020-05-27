@@ -169,18 +169,6 @@ def workshop(workshop):
     return render_template("workshop.html", **data)
 
 
-class User:
-    def __init__(self, Id, username, password):
-        self.id = Id
-        self.username = username
-        self.password = password
-
-
-users = []
-users.append(User(Id=1, username="admin", password="admin"))
-users.append(User(Id=2, username="Becca", password="secret"))
-
-
 @app.route("/logout.html")
 # @login_required
 def logout():
@@ -192,27 +180,11 @@ def logout():
 @app.route("/login.html", methods=["GET", "POST"])
 def login():
     data = _data()
-    error = ""
-    try:
-        if request.method == "POST":
-            session.pop("user_id", None)
-
-            username = request.form["username"]
-            password = request.form["password"]
-
-            user = [x for x in users if x.username == username][0]
-            if user and user.password == password:
-                session["logged_in"] = True
-                session["user_id"] = user.id
-                flash("Successfully logged in")
-                return redirect(url_for("index"))
-            else:
-                error = "invalid Credentials"
-        return render_template("login.html", **data, error=error)
-    except IndexError:
-        error = "Invalid Credentials. Try Again."
-        flash(error)
-        return render_template("login.html", **data, error=error)
+    if request.method == "POST":
+        session["logged_in"] = True
+        flash("Successfully logged in")
+        return redirect(url_for("index"))
+    return render_template("login.html", **data)
 
 
 # FRONT END SERVING
