@@ -1,4 +1,24 @@
+{% set page_title = paper.content.title %}
 {% extends "base.html" %}
+
+{% block head %}
+
+{{ super() }}
+<meta name="citation_title" content="{{paper.content.title}}" />
+{% for author in paper.content.authors %}
+<meta name="citation_author" content="{{author}}" />
+{% endfor %}
+<meta name="citation_publication_date" content="{{config.date}}" />
+<meta name="citation_conference_title" content="{{config.tagline|striptags|title}}" />
+<meta name="citation_inbook_title" content="{{config.proceedings_title}}" />
+<meta name="citation_abstract" content="{{paper.content.abstract}}" />
+{% for keyword in paper.content.keywords %}
+<meta name="citation_keywords" content="{{keyword}}" />
+{% endfor %}
+<meta name="citation_pdf_url" content="{{paper.content.pdf_url | default("")}}" />
+
+{% endblock %}
+
 {% block content %}
 
 <!-- Title -->

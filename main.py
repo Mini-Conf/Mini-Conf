@@ -6,7 +6,6 @@ import json
 import os
 
 import yaml
-
 from flask import Flask, jsonify, redirect, render_template, send_from_directory
 from flask_frozen import Freezer
 from flaskext.markdown import Markdown
@@ -121,6 +120,7 @@ def format_paper(v):
             "TLDR": v["abstract"],
             "recs": [],
             "session": v.get("session", "").split("|"),
+            "pdf_url": v.get("pdf_url", ""),
         },
     }
 
