@@ -1,23 +1,20 @@
-name: MiniConf
-tagline: MINICONF <br> CONFERENCE <br> MANAGEMENT
-date: May 2020
-proceedings_title: Proceedings of the First MiniCon Conference
+name: ACL2020
+tagline: The 58th Annual Meeting of <br> the Association for Computational Linguistics
+date: July 5 &ndash; 10 <br> 2020
+proceedings_title: Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics
 analytics: UA-
 logo:
-  image: static/images/MiniConf.png
-  width: 180px
-  height: auto
-# uncomment the following line to show the site title next to the logo image
-# site_title: MiniConf
+  image: static/images/acl-logo.png
+  height: 45px
+site_title: ACL2020
 page_title:
-  prefix: 'MiniConf 2020'
+  prefix: 'ACL2020'
   separator: ': '
-background_image: static/images/main.jpg
-organization: MiniConf Organization Committee
+background_image: static/images/unsplash.jpg
+organization: Association for Computational Linguistics
 calendar:
   colors: #  Colors for the different event hashtags:
     ---: '#bed972'
     qa: '#4FCAEB'
     talk: '#ccc'
   sunday_saturday: false  #  Include Sunday and Saturday
-
