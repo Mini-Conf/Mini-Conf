@@ -1,3 +1,4 @@
+{% set page_title = workshop.title %}
 {% extends "base.html" %}
 {% block content %}
 
@@ -8,7 +9,7 @@
       {{workshop.title}}
     </h2>
     <h3 class="card-subtitle mb-2 text-muted text-center">
-      {{workshop.authors}}
+      {{ workshop.organizers | join(", ") }}
     </h3>
     <div class="text-center p-3">
       <a class="card-link" data-toggle="collapse" role="button" href="#details">

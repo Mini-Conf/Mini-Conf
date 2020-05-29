@@ -52,7 +52,7 @@
       rel="stylesheet"
     />
 
-    <title>{{config.page_title}}</title>
+    <title>{{config.page_title.prefix}}{% if page_title %}{{config.page_title.separator}}{{page_title}}{% endif %}</title>
     {% endblock %}
   </head>
 
