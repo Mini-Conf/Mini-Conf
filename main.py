@@ -118,24 +118,53 @@ def schedule():
 @app.route("/workshops.html")
 def workshops():
     data = _data()
-    data["workshops"] = site_data["workshops"]
+    data["workshops"] = [
+        format_workshop(workshop) for workshop in site_data["workshops"]
+    ]
     return render_template("workshops.html", **data)
 
 
+def extract_list_field(v, key):
+    value = v.get(key, "")
+    if isinstance(value, list):
+        return value
+    else:
+        return value.split("|")
+
+
 def format_paper(v):
+    list_keys = ["authors", "keywords", "session"]
+    list_fields = {}
+    for key in list_keys:
+        list_fields[key] = extract_list_field(v, key)
+
     return {
         "id": v["UID"],
         "forum": v["UID"],
         "content": {
             "title": v["title"],
-            "authors": v["authors"].split("|"),
-            "keywords": v["keywords"].split("|"),
+            "authors": list_fields["authors"],
+            "keywords": list_fields["keywords"],
             "abstract": v["abstract"],
             "TLDR": v["abstract"],
             "recs": [],
-            "session": v.get("session", "").split("|"),
+            "session": list_fields["session"],
             "pdf_url": v.get("pdf_url", ""),
         },
+    }
+
+
+def format_workshop(v):
+    list_keys = ["authors"]
+    list_fields = {}
+    for key in list_keys:
+        list_fields[key] = extract_list_field(v, key)
+
+    return {
+        "id": v["UID"],
+        "title": v["title"],
+        "organizers": list_fields["authors"],
+        "abstract": v["abstract"],
     }
 
 
@@ -165,7 +194,7 @@ def workshop(workshop):
     uid = workshop
     v = by_uid["workshops"][uid]
     data = _data()
-    data["workshop"] = v
+    data["workshop"] = format_workshop(v)
     return render_template("workshop.html", **data)
 
 

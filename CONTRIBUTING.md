@@ -31,7 +31,7 @@
 ### Pull Request
 * We force the following checks in before changes can be merged into master:
   [eslint](https://eslint.org/),
-  [prettier](https://prettier.io/)
+  [prettier](https://prettier.io/),
   [isort](https://pypi.org/project/isort/),
   [black](https://black.readthedocs.io/en/stable/),
   [pylint](https://www.pylint.org/),
