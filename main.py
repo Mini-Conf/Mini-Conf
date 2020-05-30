@@ -198,14 +198,6 @@ def workshop(workshop):
     return render_template("workshop.html", **data)
 
 
-@app.route("/logout.html")
-# @login_required
-def logout():
-    session.clear()
-    flash("Successfully logged out")
-    return redirect(url_for("index"))
-
-
 @app.route("/login.html", methods=["GET", "POST"])
 def login():
     data = _data()

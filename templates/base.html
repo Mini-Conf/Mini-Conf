@@ -69,15 +69,11 @@
       ('about.html', 'Help'),
       ] -%}
 
-    {% if session.logged_in %}
-    
-    {% do navigation_bar.append(('logout.html', 'Logout')) %}
-    
-    {% else %}
+    {% if not session.logged_in %}
     
     {% do navigation_bar.append(('login.html', 'Login')) %}
     
-      {% endif %}
+    {% endif %}
 
       {% with messages = get_flashed_messages() %}
         {% if messages %}
