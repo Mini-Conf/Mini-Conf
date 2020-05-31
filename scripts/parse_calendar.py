@@ -2,6 +2,7 @@ import argparse
 import json
 
 import requests
+
 from ics.icalendar import Calendar
 
 # import ics

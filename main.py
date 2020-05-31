@@ -6,7 +6,6 @@ import json
 import os
 
 import yaml
-
 from flask import Flask, jsonify, redirect, render_template, send_from_directory
 from flask_frozen import Freezer
 from flaskext.markdown import Markdown
@@ -185,10 +184,11 @@ def workshop(workshop):
     return render_template("workshop.html", **data)
 
 
-@app.route('/chat.html')
+@app.route("/chat.html")
 def chat():
     data = _data()
-    return render_template('chat.html', **data)
+    return render_template("chat.html", **data)
+
 
 # FRONT END SERVING
 
