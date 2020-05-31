@@ -14,6 +14,7 @@ page_title:
   separator: ': '
 background_image: static/images/main.jpg
 organization: MiniConf Organization Committee
+chat_server: 35.232.236.127:3000
 calendar:
   colors: #  Colors for the different event hashtags:
     ---: '#bed972'

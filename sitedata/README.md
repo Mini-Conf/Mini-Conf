@@ -21,6 +21,7 @@ the required data fields are provided.
     - separator: `<characters between prefix and name of the current page>`
 - background_image: `<link to background image>`
 - organization: `<conference committee name>`
+- chat_server: `<url of rocket chat server, if used>`
 
 ## Detail Pages
 

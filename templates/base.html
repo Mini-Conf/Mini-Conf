@@ -65,6 +65,7 @@
     ('calendar.html', 'Schedule'),
     ('papers.html', 'Papers'),
     ('workshops.html', 'Workshops'),
+    ('chat.html', 'Chat'),
     ('about.html', 'Help'),
     ] -%}
 
@@ -110,6 +111,7 @@
     </nav>
     {% endblock %}
 
+    {% block body %}
     <!-- User Overrides -->
     {% block top %} {% endblock %}
 
@@ -123,7 +125,7 @@
         {% block content %} {% endblock %}
       </div>
     </div>
-
+    {% endblock %}
     {% block footer %}
 
     <!-- Google Analytics -->
