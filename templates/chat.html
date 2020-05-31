@@ -4,37 +4,41 @@
 
 {% block body %}
 <div class="slp">
-  <iframe id="frame" width="100%" src="http://www.google.com">
-  </iframe>
+  <iframe id="frame" width="100%" src="http://www.google.com"> </iframe>
 </div>
 <script type="text/javascript">
   function getUrlParameter(name) {
-  name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-  var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-  var results = regex.exec(location.search);
-  return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-  };
-  
-  
-  $( document ).ready(function() {
-  console.log("run");
-  var win_height;
-  var frm_height;
-  var oFrame = $("#frame");
-  console.log(oFrame);
-  // Get page height Firefox/IE
-  if(window.innerHeight) win_height = window.innerHeight;
-  else if(document.body.clientHeight) win_height = document.body.clientHeight;
-  
-  // Dtermine new height
-  frm_height = win_height - oFrame.offset().top - 15; // replace 15 accordingly
-  
-  // Set iframe height
-  console.log(frm_height)
-  oFrame.attr("height", frm_height + "px");
-  console.log("https://iclr.rocket.chat/" + getUrlParameter("room"));
-  
-  oFrame.attr("src", "http://{{config.chat_server}}/" + getUrlParameter("room"));
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+    var results = regex.exec(location.search);
+    return results === null
+      ? ""
+      : decodeURIComponent(results[1].replace(/\+/g, " "));
+  }
+
+  $(document).ready(function () {
+    console.log("run");
+    var win_height;
+    var frm_height;
+    var oFrame = $("#frame");
+    console.log(oFrame);
+    // Get page height Firefox/IE
+    if (window.innerHeight) win_height = window.innerHeight;
+    else if (document.body.clientHeight)
+      win_height = document.body.clientHeight;
+
+    // Dtermine new height
+    frm_height = win_height - oFrame.offset().top - 15; // replace 15 accordingly
+
+    // Set iframe height
+    console.log(frm_height);
+    oFrame.attr("height", frm_height + "px");
+    console.log("https://iclr.rocket.chat/" + getUrlParameter("room"));
+
+    oFrame.attr(
+      "src",
+      "http://{{config.chat_server}}/" + getUrlParameter("room")
+    );
   });
 </script>
 {% endblock %}
