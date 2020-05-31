@@ -16,7 +16,9 @@ format-web:
 format: format-python format-web
 
 run:
-	export FLASK_DEBUG=True; export FLASK_DEVELOPMENT=True;python3 main.py sitedata/
+	export FLASK_DEBUG=True
+	export FLASK_DEVELOPMENT=True
+	python3 main.py sitedata/
 
 freeze:
 	python3 main.py sitedata/ --build
