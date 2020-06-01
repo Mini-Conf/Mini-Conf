@@ -2,6 +2,7 @@ PYTHON_FILES = main.py scripts/
 JS_FILES = $(shell find static/js -name "*.js")
 CSS_FILES = $(shell find static/css -name "*.css")
 .PHONY: format-python format-web format run freeze format-check
+TEMP_DEPLOY_BRANCH = "temp-gh-pages"
 
 all: format-check
 
@@ -33,14 +34,14 @@ format-check:
 	@echo "format-check passed"
 
 deploy: freeze
-	# Switch to master before switching to gh-pages
-	git branch -D gh-pages  || true
-	git branch -D temp-gh-pages  || true
-	git checkout -b temp-gh-pages
+	git branch -D gh-pages
+	git branch -D $(TEMP_DEPLOY_BRANCH)
+	git checkout -b $(TEMP_DEPLOY_BRANCH)
 	git add -f build
 	git commit -am "Deploy on gh-pages"
 	git subtree split --prefix build -b gh-pages
 	# git push --force "https://${GH_TOKEN}@${GH_REF}.git" gh-pages:gh-pages
 	git push --force origin gh-pages
-	@echo "Deployed to gh-pages🚀"
+	git checkout @{-1}
+	@echo "Deployed to gh-pages 🚀"
 
