@@ -22,6 +22,8 @@ the required data fields are provided.
 - background_image: `<link to background image>`
 - organization: `<conference committee name>`
 - chat_server: `<url of rocket chat server, if used>`
+- default_presentation_id: `<default slideslive id, if used>`
+- default_poster_pdf: `<default poster pdf, if used>`
 
 ## Detail Pages
 
