@@ -184,6 +184,12 @@ def workshop(workshop):
     return render_template("workshop.html", **data)
 
 
+@app.route("/chat.html")
+def chat():
+    data = _data()
+    return render_template("chat.html", **data)
+
+
 # FRONT END SERVING
 
 
