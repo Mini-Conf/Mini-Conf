@@ -31,3 +31,16 @@ format-check:
 	npx prettier $(JS_FILES) $(CSS_FILES) --check
 	npx eslint $(JS_FILES)
 	@echo "format-check passed"
+
+deploy: freeze
+	# Switch to master before switching to gh-pages
+	git branch -D gh-pages  || true
+	git branch -D temp-gh-pages  || true
+	git checkout -b temp-gh-pages
+	git add -f build
+	git commit -am "Deploy on gh-pages"
+	git subtree split --prefix build -b gh-pages
+	# git push --force "https://${GH_TOKEN}@${GH_REF}.git" gh-pages:gh-pages
+	git push --force origin gh-pages
+	@echo "Deployed to gh-pages🚀"
+
