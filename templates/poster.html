@@ -78,4 +78,21 @@
   Add content for posters. This could be a video, embedded pdf, chat room ....
 </h5>
 
+    <h4> Example Poster (using pdf.js): </h4>
+<div role="main" id="pdf_view"></div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.3.200/build/pdf.min.js"></script>
+<script src="static/js/pdf_render.js"></script>
+<script>
+    $(document).ready(() => {
+
+        // render first page of PDF to div
+        // PDF name can be bound to variable -- e.g. paper.content.poster_link
+        initPDFViewer("/static/images/GLTR_poster.pdf",'#pdf_view');
+
+
+    })
+</script>
+
 {% endblock %}
