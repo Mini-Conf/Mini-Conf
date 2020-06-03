@@ -1,0 +1,3 @@
+[submodule "sitedata"]
+	path = sitedata
+	url = git@github.com:acl-org/acl-2020-virtual-conference-sitedata.git
