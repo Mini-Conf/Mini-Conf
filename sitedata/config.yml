@@ -12,6 +12,13 @@ page_title:
   separator: ': '
 background_image: static/images/unsplash.jpg
 organization: Association for Computational Linguistics
+
+# Remove or change to your chat server.
+chat_server: acl2020.rocket.chat
+default_presentation_id: 38922815
+default_poster_pdf: /static/images/GLTR_poster.pdf
+
+
 calendar:
   colors: #  Colors for the different event hashtags:
     ---: '#bed972'
