@@ -4,7 +4,12 @@
 {% block top %}
 <style>
   .back {
-    background: url("{{config.background_image}}") no-repeat center;
+    background: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.30), 
+      rgba(0, 0, 0, 0.01)
+    ),
+    url("{{config.background_image}}") no-repeat center;
     background-size: cover;
   }
   .back h2 {
