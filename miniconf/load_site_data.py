@@ -14,15 +14,16 @@ def load_site_data(
     Populates the `site_data` and `by_uid` using files under `site_data_path`.
     """
     extra_files = ["README.md"]
-    for f in glob.glob(site_data_path + "/*"):
-        extra_files.append(f)
-        name, typ = f.split("/")[-1].split(".")
-        if typ == "json":
-            site_data[name] = json.load(open(f))
-        elif typ in {"csv", "tsv"}:
-            site_data[name] = list(csv.DictReader(open(f)))
-        elif typ == "yml":
-            site_data[name] = yaml.load(open(f).read(), Loader=yaml.SafeLoader)
+    for path in glob.glob(site_data_path + "/*"):
+        extra_files.append(path)
+        name, typ = path.split("/")[-1].split(".")
+        with open(path) as file:
+            if typ == "json":
+                site_data[name] = json.load(file)
+            elif typ in {"csv", "tsv"}:
+                site_data[name] = list(csv.DictReader(file))
+            elif typ == "yml":
+                site_data[name] = yaml.load(file.read(), Loader=yaml.SafeLoader)
 
     for typ in ["papers", "speakers", "workshops"]:
         by_uid[typ] = {}
