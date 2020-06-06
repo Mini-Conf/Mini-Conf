@@ -17,10 +17,10 @@ format-web:
 format: format-python format-web
 
 run:
-	FLASK_DEBUG=True FLASK_DEVELOPMENT=True python3 main.py sitedata/
+	FLASK_DEBUG=True FLASK_DEVELOPMENT=True python3 main.py sitedata_acl2020/
 
 freeze:
-	python3 main.py sitedata/ --build
+	python3 main.py sitedata_acl2020/ --build
 
 # check code format
 format-check:

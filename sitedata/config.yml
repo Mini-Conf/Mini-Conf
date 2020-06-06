@@ -1,0 +1,30 @@
+name: MiniConf
+tagline: MINICONF <br> CONFERENCE <br> MANAGEMENT
+date: May 2020
+proceedings_title: Proceedings of the First MiniCon Conference
+analytics: UA-
+logo:
+  image: static/images/MiniConf.png
+  width: 180px
+  height: auto
+# uncomment the following line to show the site title next to the logo image
+# site_title: MiniConf
+page_title:
+  prefix: 'MiniConf 2020'
+  separator: ': '
+background_image: static/images/main.jpg
+organization: MiniConf Organization Committee
+
+# Remove or change to your chat server.
+chat_server: 35.232.236.127:3000
+default_presentation_id: 38922815
+default_poster_pdf: /static/images/GLTR_poster.pdf
+
+
+calendar:
+  colors: #  Colors for the different event hashtags:
+    ---: '#bed972'
+    qa: '#4FCAEB'
+    talk: '#ccc'
+  sunday_saturday: false  #  Include Sunday and Saturday
+
