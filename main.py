@@ -1,11 +1,7 @@
-# pylint: disable=global-statement,redefined-outer-name
 import argparse
-import csv
-import glob
-import json
 import os
+from typing import Any, Dict
 
-import yaml
 from flask import Flask, jsonify, redirect, render_template, send_from_directory
 from flask_frozen import Freezer
 from flaskext.markdown import Markdown
@@ -13,8 +9,8 @@ from flaskext.markdown import Markdown
 from miniconf.load_site_data import load_site_data
 from miniconf.utils import format_paper, format_workshop
 
-site_data = {}
-by_uid = {}
+site_data: Dict[str, Any] = {}
+by_uid: Dict[str, Any] = {}
 
 # ------------- SERVER CODE -------------------->
 
@@ -27,9 +23,7 @@ markdown = Markdown(app)
 
 
 def _data():
-    data = {}
-    data["config"] = site_data["config"]
-    return data
+    return {"config": site_data["config"]}
 
 
 @app.route("/")
@@ -63,7 +57,7 @@ def papers():
 
 
 @app.route("/paper_vis.html")
-def paperVis():
+def paper_vis():
     data = _data()
     return render_template("papers_vis.html", **data)
 
@@ -92,27 +86,24 @@ def workshops():
 # ITEM PAGES
 
 
-@app.route("/poster_<poster>.html")
-def poster(poster):
-    uid = poster
+@app.route("/poster_<uid>.html")
+def poster(uid):
     v = by_uid["papers"][uid]
     data = _data()
     data["paper"] = format_paper(v)
     return render_template("poster.html", **data)
 
 
-@app.route("/speaker_<speaker>.html")
-def speaker(speaker):
-    uid = speaker
+@app.route("/speaker_<uid>.html")
+def speaker(uid):
     v = by_uid["speakers"][uid]
     data = _data()
     data["speaker"] = v
     return render_template("speaker.html", **data)
 
 
-@app.route("/workshop_<workshop>.html")
-def workshop(workshop):
-    uid = workshop
+@app.route("/workshop_<uid>.html")
+def workshop(uid):
     v = by_uid["workshops"][uid]
     data = _data()
     data["workshop"] = format_workshop(v)
@@ -155,9 +146,9 @@ def generator():
 
     for paper in site_data["papers"]:
         yield "poster", {"poster": str(paper["UID"])}
-    for speaker in site_data["speakers"]:
+    for speaker in site_data["speakers"]:  # pylint: disable=redefined-outer-name
         yield "speaker", {"speaker": str(speaker["UID"])}
-    for workshop in site_data["workshops"]:
+    for workshop in site_data["workshops"]:  # pylint: disable=redefined-outer-name
         yield "workshop", {"workshop": str(workshop["UID"])}
 
     for key in site_data:
@@ -184,8 +175,7 @@ def parse_arguments():
 
     parser.add_argument("path", help="Pass the JSON data path and run the server")
 
-    args = parser.parse_args()
-    return args
+    return parser.parse_args()
 
 
 if __name__ == "__main__":

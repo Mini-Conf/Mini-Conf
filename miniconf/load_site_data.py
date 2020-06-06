@@ -9,7 +9,10 @@ import yaml
 def load_site_data(
     site_data_path: str, site_data: Dict[str, Any], by_uid: Dict[str, Any]
 ) -> List[str]:
-    """Load all for your sitedata one time."""
+    """Loads all site data at once.
+
+    Populates the `site_data` and `by_uid` using files under `site_data_path`.
+    """
     extra_files = ["README.md"]
     for f in glob.glob(site_data_path + "/*"):
         extra_files.append(f)
