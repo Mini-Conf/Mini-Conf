@@ -10,32 +10,11 @@ from flask import Flask, jsonify, redirect, render_template, send_from_directory
 from flask_frozen import Freezer
 from flaskext.markdown import Markdown
 
+from miniconf.load_site_data import load_site_data
+from miniconf.utils import format_paper, format_workshop
+
 site_data = {}
 by_uid = {}
-
-
-def main(site_data_path):
-    global site_data, extra_files
-    extra_files = ["README.md"]
-    # Load all for your sitedata one time.
-    for f in glob.glob(site_data_path + "/*"):
-        extra_files.append(f)
-        name, typ = f.split("/")[-1].split(".")
-        if typ == "json":
-            site_data[name] = json.load(open(f))
-        elif typ in {"csv", "tsv"}:
-            site_data[name] = list(csv.DictReader(open(f)))
-        elif typ == "yml":
-            site_data[name] = yaml.load(open(f).read(), Loader=yaml.SafeLoader)
-
-    for typ in ["papers", "speakers", "workshops"]:
-        by_uid[typ] = {}
-        for p in site_data[typ]:
-            by_uid[typ][p["UID"]] = p
-
-    print("Data Successfully Loaded")
-    return extra_files
-
 
 # ------------- SERVER CODE -------------------->
 
@@ -108,50 +87,6 @@ def workshops():
         format_workshop(workshop) for workshop in site_data["workshops"]
     ]
     return render_template("workshops.html", **data)
-
-
-def extract_list_field(v, key):
-    value = v.get(key, "")
-    if isinstance(value, list):
-        return value
-    else:
-        return value.split("|")
-
-
-def format_paper(v):
-    list_keys = ["authors", "keywords", "session"]
-    list_fields = {}
-    for key in list_keys:
-        list_fields[key] = extract_list_field(v, key)
-
-    return {
-        "id": v["UID"],
-        "forum": v["UID"],
-        "content": {
-            "title": v["title"],
-            "authors": list_fields["authors"],
-            "keywords": list_fields["keywords"],
-            "abstract": v["abstract"],
-            "TLDR": v["abstract"],
-            "recs": [],
-            "session": list_fields["session"],
-            "pdf_url": v.get("pdf_url", ""),
-        },
-    }
-
-
-def format_workshop(v):
-    list_keys = ["authors"]
-    list_fields = {}
-    for key in list_keys:
-        list_fields[key] = extract_list_field(v, key)
-
-    return {
-        "id": v["UID"],
-        "title": v["title"],
-        "organizers": list_fields["authors"],
-        "abstract": v["abstract"],
-    }
 
 
 # ITEM PAGES
@@ -257,7 +192,7 @@ if __name__ == "__main__":
     args = parse_arguments()
 
     site_data_path = args.path
-    extra_files = main(site_data_path)
+    extra_files = load_site_data(site_data_path, site_data, by_uid)
 
     if args.build:
         freezer.freeze()
