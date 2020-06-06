@@ -1,20 +1,20 @@
-name: MiniConf
-tagline: MINICONF <br> CONFERENCE <br> MANAGEMENT
-date: May 2020
-citation_date: May 2020
-proceedings_title: Proceedings of the First MiniCon Conference
+name: ACM-CHIL 2020
+tagline: ACM Conference on <br> Health, Inference, and Learning
+# date: July 2020
+citation_date: July 2020
+proceedings_title: Proceedings of ACM-CHIL 2020
 analytics: UA-
 logo:
-  image: static/images/MiniConf.png
-  width: 180px
+  image: static/images/acm_92x192.png
+  width: 50px
   height: auto
 # uncomment the following line to show the site title next to the logo image
-# site_title: MiniConf
+site_title: ACM-CHIL 2020
 page_title:
-  prefix: 'MiniConf 2020'
+  prefix: 'ACM-CHIL'
   separator: ': '
 background_image: static/images/main.jpg
-organization: MiniConf Organization Committee
+organization: ACM-CHIL Organization Committee
 
 # Remove or change to your chat server.
 chat_server: miniconf.sloppy.zone
