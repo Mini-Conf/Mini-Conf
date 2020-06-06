@@ -26,10 +26,7 @@ def load_site_data(
                 site_data[name] = yaml.load(file.read(), Loader=yaml.SafeLoader)
 
     for typ in ["papers", "speakers", "workshops"]:
-        by_uid[typ] = {
-            p["UID"]: p
-            for p in site_data[typ]
-        }
+        by_uid[typ] = {p["UID"]: p for p in site_data[typ]}
 
     print("Data Successfully Loaded")
     return extra_files
