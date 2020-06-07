@@ -65,7 +65,6 @@ def index():
 def home():
     data = _data()
     data["index"] = open("index.md").read()
-    data["committee"] = site_data["committee"]["committee"]
     return render_template("index.html", **data)
 
 
@@ -81,6 +80,13 @@ def papers():
     data = _data()
     data["papers"] = site_data["papers"]
     return render_template("papers.html", **data)
+
+
+@app.route("/committee.html")
+def committee():
+    data = _data()
+    data["committee"] = site_data["committee"]["committee"]
+    return render_template("committee.html", **data)
 
 
 @app.route("/paper_vis.html")
