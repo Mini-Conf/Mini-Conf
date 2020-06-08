@@ -201,7 +201,7 @@ const keyword = kw => `<a href="papers.html?filter=keywords&search=${kw}"
                        class="text-secondary text-decoration-none">${kw.toLowerCase()}</a>`
 
 const card_image = (openreview, show) => {
-    if (show) return ` <center><img class="lazy-load-img cards_img" data-src="https://iclr.github.io/iclr-images/small/${openreview.id}.jpg" width="80%"/></center>`
+    if (show) return ` <center><img class="lazy-load-img cards_img" data-src="static/images/papers/${openreview.id}.png" width="80%"/></center>`
     else return ''
 }
 
