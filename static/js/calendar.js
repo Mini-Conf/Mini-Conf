@@ -49,7 +49,13 @@ function make_cal(name) {
             const timezoneName = current_tz;
 
             const min_date = d3.min(events.map(e => e.start));
-            // console.log(min_date, "--- min_date");
+            const min_hours = d3.min(events.map(e => moment(e.start).tz(timezoneName).hours())) -1;
+            const max_hours = d3.max(events.map(e => moment(e.end).tz(timezoneName).hours())) +1;
+            if(min_hours < 0 || max_hours > 24) {
+                min_hours = 0;
+                max_hours = 24;
+            }
+            // console.log(min_hours, max_hours);
             const Calendar = tui.Calendar;
             const calendar = new Calendar('#calendar', {
                 defaultView: 'week',
@@ -59,7 +65,9 @@ function make_cal(name) {
                 scheduleView: ['time'],
                 usageStatistics: false,
                 week: {
-                    workweek: !config.calendar["sunday_saturday"]
+                    workweek: !config.calendar["sunday_saturday"],
+                    hourStart: min_hours,
+                    hourEnd: max_hours
                 },
                 timezones: [{
                     timezoneOffset: -moment.tz.zone(timezoneName)
