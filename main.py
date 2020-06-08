@@ -89,6 +89,12 @@ def committee():
     return render_template("committee.html", **data)
 
 
+@app.route("/sponsor.html")
+def sponsor():
+    data = _data()
+    return render_template("sponsor.html", **data)
+
+
 @app.route("/paper_vis.html")
 def paper_vis():
     data = _data()
