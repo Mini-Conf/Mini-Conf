@@ -79,8 +79,9 @@ class Paper:
                             for x in self.author_list])
         abstract = f'{self.abstract}'
         keywords = "|".join([x for x in self.topics])
+        pdf_url = "static/pdf/" + uid + ".pdf"
 
-        return [uid, title, authors, abstract, keywords]
+        return [uid, title, authors, abstract, keywords, pdf_url]
 
     def _get_metadata_crossref(self):
         """
@@ -136,7 +137,7 @@ def convert(args):
         papers[doi].get_metadata()
 
     # write to CSV
-    header = ["UID", "title", "authors", "abstract", "keywords"]
+    header = ["UID", "title", "authors", "abstract", "keywords", "pdf_url"]
     with open(output_fn, 'w') as f:
         writer = csv.writer(f)
         writer.writerow(header)
