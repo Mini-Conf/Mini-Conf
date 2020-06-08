@@ -7,8 +7,11 @@
 {% endblock %}
 
 {% block tabs %}
-{{ components.tabs([("calendar", "Calendar", "active"),
-        ("day", "Example Day", "")]) }}
+{{ components.tabs([("calendar", "Calendar", ""),
+                    ("day", "Thursday", "active"),
+                    ("day", "Friday", ""),
+                    ("day", "Saturday", ""),
+                    ]) }}
 {% endblock %}
 
 {% block content %}
@@ -47,7 +50,7 @@
   >
     <div id="day">
       <!-- Speakers -->
-      {{ components.section("Speakers") }}
+      {{ components.section("Keynote speakers") }}
       <div class="speakers">
         {{ components.speakergroup(day.speakers) }}
       </div>
