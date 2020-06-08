@@ -1,0 +1,18 @@
+{% set active_page = "Sponsors" %}
+{% set page_title = "Sponsors" %}
+{% extends "base.html" %}
+
+{% block content %}
+<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+    <div id="day">
+      <!-- Sponsors -->
+      {{ components.section("Sponsors") }}
+      <p class="text-center font-weight-bold">
+        Click on logos to visit Virtual Exhibit Spaces
+      </p>
+      <div class="sponsors">
+      {{ components.sponsorgroup(sponsors) }}
+      </div>
+    </div>
+</div>
+{% endblock %}

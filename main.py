@@ -33,6 +33,13 @@ def main(site_data_path):
         for p in site_data[typ]:
             by_uid[typ][p["UID"]] = p
 
+    # TODO: should assign UID by sponsor name? What about sponsors with multiple levels?
+    by_uid["sponsors"] = {
+        sponsor["UID"]: sponsor
+        for sponsors_at_level in site_data["sponsors"]
+        for sponsor in sponsors_at_level["sponsors"]
+    }
+
     print("Data Successfully Loaded")
     return extra_files
 
@@ -48,8 +55,7 @@ markdown = Markdown(app)
 
 
 def _data():
-    data = {}
-    data["config"] = site_data["config"]
+    data = {"config": site_data["config"]}
     return data
 
 
@@ -84,7 +90,7 @@ def papers():
 
 
 @app.route("/paper_vis.html")
-def paperVis():
+def paper_vis():
     data = _data()
     return render_template("papers_vis.html", **data)
 
@@ -101,6 +107,18 @@ def schedule():
     return render_template("schedule.html", **data)
 
 
+@app.route("/livestream.html")
+def livestream():
+    data = _data()
+    return render_template("livestream.html", **data)
+
+
+@app.route("/tutorials.html")
+def tutorials():
+    data = _data()
+    return render_template("tutorials.html", **data)
+
+
 @app.route("/workshops.html")
 def workshops():
     data = _data()
@@ -108,6 +126,13 @@ def workshops():
         format_workshop(workshop) for workshop in site_data["workshops"]
     ]
     return render_template("workshops.html", **data)
+
+
+@app.route("/sponsors.html")
+def sponsors():
+    data = _data()
+    data["sponsors"] = site_data["sponsors"]
+    return render_template("sponsors.html", **data)
 
 
 def extract_list_field(v, key):
@@ -184,6 +209,15 @@ def workshop(workshop):
     return render_template("workshop.html", **data)
 
 
+@app.route("/sponsor_<sponsor>.html")
+def sponsor(sponsor):
+    uid = sponsor
+    v = by_uid["sponsors"][uid]
+    data = _data()
+    data["sponsor"] = v
+    return render_template("sponsor.html", **data)
+
+
 @app.route("/chat.html")
 def chat():
     data = _data()
@@ -225,20 +259,22 @@ def generator():
     for workshop in site_data["workshops"]:
         yield "workshop", {"workshop": str(workshop["UID"])}
 
+    for sponsors_at_level in site_data["sponsors"]:
+        for sponsor in sponsors_at_level["sponsors"]:
+            yield "sponsor", {"sponsor": str(sponsor["UID"])}
+
     for key in site_data:
         yield "serve", {"path": key}
 
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description="MiniConf Portal Command Line")
-
     parser.add_argument(
         "--build",
         action="store_true",
         default=False,
         help="Convert the site to static assets",
     )
-
     parser.add_argument(
         "-b",
         action="store_true",
@@ -246,18 +282,15 @@ def parse_arguments():
         dest="build",
         help="Convert the site to static assets",
     )
-
     parser.add_argument("path", help="Pass the JSON data path and run the server")
 
-    args = parser.parse_args()
-    return args
+    return parser.parse_args()
 
 
 if __name__ == "__main__":
     args = parse_arguments()
 
-    site_data_path = args.path
-    extra_files = main(site_data_path)
+    extra_files = main(args.path)
 
     if args.build:
         freezer.freeze()

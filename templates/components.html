@@ -224,3 +224,22 @@
   {% endfor %}
 </div>
 {%- endmacro %}
+
+{% macro sponsorgroup(sponsors) -%}
+  <div class="cards row">
+  {% for sponsor_level in sponsors %}
+    <div class="col-md-12 col-sm-12" style="border-bottom:1px solid; bottom: 15px">
+      <h1>{{ sponsor_level.level }}</h1>
+    </div>
+    {% for sponsor in sponsor_level.sponsors %}
+    <div class="col-md-4 col-sm-6 p3" style="box-sizing: border-box;">
+      <div class="card" style="display: block; min-height:100px; width: 100%;">
+        <a class="text-muted" href="sponsor_{{sponsor.UID}}.html">
+          <img class="card-img-top" src="{{ sponsor.logo }}" alt="{{ sponsor.name }}">
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+  {% endfor %}
+  </div>
+{%- endmacro %}

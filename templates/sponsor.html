@@ -1,0 +1,85 @@
+{% set page_title = sponsor.name %}
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Title -->
+<div class="pp-card m-3" style="">
+  <div class="card-header">
+    <h2 class="card-title main-title text-center" style="">
+      {{sponsor.name}}
+    </h2>
+    <div class="text-center p-3">
+      <a class="card-link" data-toggle="collapse" role="button" href="#details">
+        Visit Website
+      </a>
+    </div>
+  </div>
+</div>
+
+<div id="details" class="pp-card m-3">
+  <div class="card-body">
+    <div class="card-text">
+      <div id="abstractExample">
+      <p>
+        We’re a diverse collection of people, reimagining what’s possible to help us do what we love in new ways. The people who work here have reinvented entire industries with the Mac, iPhone, iPad, and Apple Watch, and with services, including iTunes, the App Store, Apple Music, and Apple Pay.
+        Employees in machine learning and AI are building amazing experiences into every Apple product, allowing millions to do what they never imagined. Because Apple fully integrates hardware and software across every device, these researchers and engineers collaborate more effectively to improve the user experience while protecting user data. Come make an impact with the products you create and the research you publish.
+
+        If you’re interested, we encourage you to apply at: <a href="bit.ly/apple-acl2020">bit.ly/apple-acl2020</a>
+        for full-time roles or
+        <a href="bit.ly/apple-aiml-intern">bit.ly/apple-aiml-intern</a> for intern roles.
+      </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-12 col-xs-12 row">
+  <div class="col-md-6 col-xs-6">
+    <iframe width="525" height="301" src="https://www.youtube.com/embed/vfkOZTjD06Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+  <div class="col-md-6 col-xs-6">
+    <div class="card">
+      <div class="card-title main-title text-center" style="">
+      Contact
+      </div>
+      <div class="card-body">
+      <div class="card-text">
+        <li>Name: xxx</li>
+        <li>Email: xxx@xxx.com</li>
+      </div>
+      </div>
+    </div>
+    <br>
+    <div class="card">
+      <div class="card-title main-title text-center" style="">
+        Zoom Rooms
+      </div>
+      <div class="card-body">
+      <div class="card-text">
+        <li>Room 1 [6:00am -- 12:00pm PST]</li>
+        <li>Room 2 [1:00pm -- 6:00pm PST]</li>
+      </div>
+    </div>
+    <br>
+    <div class="card">
+      <div class="card-title main-title text-center" style="">
+      Download
+      </div>
+      <div class="card-body">
+      <div class="card-text">
+        <li>Job Opportunities [download] </li>
+        <li>Publications at ACL2020 [download] </li>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Chat -->
+<div class="col-md-12 col-xs-12 p-2">
+  <div id="gitter" class="slp">
+    <iframe frameborder="0" src="http://{{config.chat_server}}/channel/example_sponsor?layout=embedded" height="700px" width="100%" ></iframe>
+  </div>
+</div>
+
+{% endblock %}
