@@ -16,7 +16,7 @@ def parse_arguments():
 
 
 def read_papers(fname):
-    name, typ = fname.split("/")[-1].split(".")
+    _name, typ = fname.split("/")[-1].split(".")
     if typ == "json":
         res = json.load(open(fname))
     elif typ in {"csv", "tsv"}:
@@ -47,11 +47,11 @@ if __name__ == "__main__":
             if not args.test:
                 created = rocket.channels_create(channel_name).json()
                 print(channel_name, created)
-            id = rocket.channels_info(channel=channel_name).json()["channel"]["_id"]
+            channel_id = rocket.channels_info(channel=channel_name).json()["channel"]["_id"]
 
             # Change to topic of papers.
             topic = "%s - %s" % (paper["title"], paper["authors"],)
             if not args.test:
-                rocket.channels_set_topic(id, topic).json()
+                rocket.channels_set_topic(channel_id, topic).json()
 
             print("Creating " + channel_name + " topic " + topic)
