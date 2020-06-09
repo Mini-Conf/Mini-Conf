@@ -7,6 +7,7 @@ from requests import sessions
 from pprint import pprint
 from rocketchat_API.rocketchat import RocketChat
 import yaml
+import json
 
 def parse_arguments():
     parser = argparse.ArgumentParser(description="MiniConf Portal Command Line")
@@ -15,13 +16,24 @@ def parse_arguments():
     parser.add_argument("--test", action='store_true')
     return parser.parse_args()
 
+def read_papers(fname):
+    name, typ = fname.split("/")[-1].split(".")
+    if typ == "json":
+        res = json.load(open(fname))
+    elif typ in {"csv", "tsv"}:
+        res = list(csv.DictReader(open(fname)))
+    elif typ == "yml":
+        res = yaml.load(open(fname).read(), Loader=yaml.SafeLoader)
+    else:
+        raise ValueError("file not supported: " + fname)
+    return res
 
 if __name__ == "__main__":
     args = parse_arguments()
 
 
     config = yaml.load(open(args.config))
-    papers = list(csv.DictReader(open(args.papers)))
+    papers = read_papers(args.papers)
 
     with sessions.Session() as session:
         rocket = RocketChat(config["username"],
