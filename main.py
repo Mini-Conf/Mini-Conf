@@ -104,8 +104,21 @@ def paper_vis():
 @app.route("/calendar.html")
 def schedule():
     data = _data()
-    data["day"] = {
-        "speakers": site_data["speakers"],
+    # Hacky hardcoding of days
+    data["thu"] = {
+        "speakers": [x for x in site_data['speakers'] if x['day'] == 'thu'],
+        "highlighted": [
+            format_paper(by_uid["papers"][h["UID"]]) for h in site_data["highlighted"]
+        ],
+    }
+    data["fri"] = {
+        "speakers": [x for x in site_data['speakers'] if x['day'] == 'fri'],
+        "highlighted": [
+            format_paper(by_uid["papers"][h["UID"]]) for h in site_data["highlighted"]
+        ],
+    }
+    data["sat"] = {
+        "speakers": [x for x in site_data['speakers'] if x['day'] == 'sat'],
         "highlighted": [
             format_paper(by_uid["papers"][h["UID"]]) for h in site_data["highlighted"]
         ],
