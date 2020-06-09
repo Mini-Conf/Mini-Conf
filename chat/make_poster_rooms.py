@@ -1,9 +1,6 @@
 import argparse
 import csv
 import json
-import random
-import string
-from pprint import pprint
 
 import yaml
 from requests import sessions
