@@ -53,10 +53,10 @@ The list of papers.
 
 - UID: `<Unique ID>`
 - title: `<paper title>`
-- authors: `<list of authors>` -- (seperated by `|` in CSV)
+- authors: `<list of authors>` -- (separated by `|` in CSV)
 - abstract: `<abstract text>`
-- keywords: `<list of keywords>` -- (seperated by `|` in CSV)  
-- sessions: `<list of session IDs>` --  (seperated by `|` in CSV) 
+- keywords: `<list of keywords>` -- (separated by `|` in CSV)  
+- sessions: `<list of session IDs>` --  (separated by `|` in CSV) 
 
 Example (.csv):
 ```csv
