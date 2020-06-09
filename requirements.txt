@@ -3,3 +3,4 @@ frozen-flask
 Flask-Markdown
 tqdm
 PyYAML
+beautifulsoup4
