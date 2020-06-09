@@ -33,6 +33,14 @@
 </div>
 {%- endmacro %}
 
+{% macro subsubsection(name) -%}
+<div class="row p-3">
+  <div class="col-12 bd-content">
+    <h4>{{name}}</h4>
+  </div>
+</div>
+{%- endmacro %}
+
 {% macro speakergroup(speakers) -%}
 {% for speaker in speakers %}
 <div class="row p-4">
