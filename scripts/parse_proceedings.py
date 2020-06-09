@@ -4,8 +4,8 @@ import json
 import re
 import subprocess
 
-from bs4 import BeautifulSoup
 import requests
+from bs4 import BeautifulSoup
 
 
 def parse_arguments():
