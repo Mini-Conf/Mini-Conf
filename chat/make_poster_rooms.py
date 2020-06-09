@@ -47,7 +47,9 @@ if __name__ == "__main__":
             if not args.test:
                 created = rocket.channels_create(channel_name).json()
                 print(channel_name, created)
-            channel_id = rocket.channels_info(channel=channel_name).json()["channel"]["_id"]
+            channel_id = rocket.channels_info(channel=channel_name).json()["channel"][
+                "_id"
+            ]
 
             # Change to topic of papers.
             topic = "%s - %s" % (paper["title"], paper["authors"],)
