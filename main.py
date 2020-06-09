@@ -84,7 +84,7 @@ def papers():
 
 
 @app.route("/paper_vis.html")
-def paperVis():
+def paper_vis():
     data = _data()
     return render_template("papers_vis.html", **data)
 
