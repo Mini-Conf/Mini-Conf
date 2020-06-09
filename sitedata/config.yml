@@ -36,4 +36,6 @@ calendar:
     ---: '#bed972'
     qa: '#4FCAEB'
     talk: '#ccc'
+
   sunday_saturday: false  #  Include Sunday and Saturday
+  
