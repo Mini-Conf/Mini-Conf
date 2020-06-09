@@ -55,6 +55,7 @@ function make_cal(name) {
                 min_hours = 0;
                 max_hours = 24;
             }
+
             // console.log(min_hours, max_hours);
             const Calendar = tui.Calendar;
             const calendar = new Calendar('#calendar', {
@@ -66,8 +67,7 @@ function make_cal(name) {
                 usageStatistics: false,
                 week: {
                     workweek: !config.calendar["sunday_saturday"],
-                    hourStart: min_hours,
-                    hourEnd: max_hours
+                    hourStart: 8
                 },
                 timezones: [{
                     timezoneOffset: -moment.tz.zone(timezoneName)
