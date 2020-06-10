@@ -16,7 +16,7 @@ background_image: static/images/main.jpg
 organization: MiniConf Organization Committee
 
 # Remove or change to your chat server.
-chat_server: 35.232.236.127:3000
+chat_server: miniconf.sloppy.zone
 default_presentation_id: 38922815
 default_poster_pdf: /static/images/GLTR_poster.pdf
 
@@ -27,4 +27,3 @@ calendar:
     qa: '#4FCAEB'
     talk: '#ccc'
   sunday_saturday: false  #  Include Sunday and Saturday
-

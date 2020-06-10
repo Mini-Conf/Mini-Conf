@@ -1,0 +1,66 @@
+{
+  "project": "rocketchater",
+  "services": [
+    {
+      "id": "mongo",
+      "apps": [
+        {
+          "id": "mongodb",
+          "image": "harvardnlp/miniconf-mongo",
+          "instances": 1,
+          "mem": 512,
+          "ssl": false,
+          "volumes": [
+            {
+              "container_path": "/data/db",
+              "size": "8GB"
+            },
+            {
+              "container_path": "/data/configdb",
+              "size": "8GB"
+            }
+          ],
+          "health_checks": [
+          ],
+          "logging": null
+        }
+      ]
+    },
+    {
+      "id": "rocket",
+      "apps": [
+        {
+          "id": "rocket",
+          "image": "rocketchat/rocket.chat:3.3.0",
+          "instances": 1,
+          "mem": 1024,
+          "domain": {
+            "uri": "miniconf.sloppy.zone"
+          },
+          "ssl": false,
+          "port_mappings": [
+            {
+              "container_port": 3000
+            }
+          ],
+          "env": {
+            "MONGO_URL": "mongodb://mongodb.mongo.rocketchater/rocketchat?replicaSet=rs0",
+            "ROOT_URL": "https://miniconf.sloppy.zone",
+            "MONGO_OPLOG_URL": "mongodb://mongodb.mongo.rocketchater/local?replicaSet=rs0"
+          },
+          "volumes": [
+            {
+              "container_path": "/app/uploads",
+              "size": "8GB"
+            }
+          ],
+          "health_checks": [
+          ],
+          "dependencies": [
+          ],
+          "logging": null
+        }
+      ]
+    }
+  ]
+}
