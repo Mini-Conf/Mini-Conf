@@ -31,7 +31,7 @@
       "apps": [
         {
           "id": "rocket",
-          "image": "rocketchat/rocket.chat:3.3.0",
+          "image": "rocketchat/rocket.chat:3.2.0",
           "instances": 1,
           "mem": 1024,
           "domain": {
@@ -45,8 +45,9 @@
           ],
           "env": {
             "MONGO_URL": "mongodb://mongodb.mongo.rocketchater/rocketchat?replicaSet=rs0",
-            "ROOT_URL": "https://miniconf.sloppy.zone",
-            "MONGO_OPLOG_URL": "mongodb://mongodb.mongo.rocketchater/local?replicaSet=rs0"
+            "ROOT_URL": "https://miniconf.sloppy.zone/",
+            "MONGO_OPLOG_URL": "mongodb://mongodb.mongo.rocketchater/local?replicaSet=rs0",
+            "PORT": "3000"
           },
           "volumes": [
             {
