@@ -4,6 +4,7 @@ import json
 
 import yaml
 from requests import sessions
+
 from rocketchat_API.rocketchat import RocketChat
 
 
