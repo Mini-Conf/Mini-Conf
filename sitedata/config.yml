@@ -21,6 +21,15 @@ default_presentation_id: 38922815
 default_poster_pdf: /static/images/GLTR_poster.pdf
 
 
+# Configuration for auth
+#Test user
+#user: miniconf@miniconf.com
+#pass: mIniconf1_
+
+use_auth0: 1
+auth0_client_id : JIdr6wi0z27LyLgwkJF0fpk700aj7MNH
+auth0_domain : miniconf.auth0.com
+
 calendar:
   colors: #  Colors for the different event hashtags:
     ---: '#bed972'
