@@ -48,7 +48,7 @@ Contains additional preprocessing to add visualizations, recommendations, schedu
 
 ### Extensions
 
-Miniconf can be used with any third-party extensions. However it is designed to integrate with well with the following providers: 
+Miniconf is designed to be a completely static solution. However it is designed to integrate well with dynamic third-party solutions. We directly support the following providers: 
 
 * Rocket.Chat: The `chat/` directory contains descriptions for setting up a hosted Rocket.Chat instance and for embedding chat rooms on individual paper pages. You can either buy a hosted setting from Rocket.chat or we include instructions for running your own scalable instance through sloppy.io. 
 
