@@ -9,10 +9,15 @@ window.onload = async () => {
     if (error.error !== "login_required") {
       throw error;
     }
-    await auth0.loginWithRedirect({});
+    if (window.location.href.includes("index.html")) {
+      await auth0.loginWithRedirect({
+        redirect_uri: window.location.href,
+      });
+    } else {
+      window.location.href = "index.html";
+    }
   }
 
-  console.log(await auth0.getUser());
   // NEW - check for the code and state parameters
   const query = window.location.search;
   if (query.includes("code=") && query.includes("state=")) {
