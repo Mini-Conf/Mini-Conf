@@ -61,7 +61,7 @@ Miniconf is designed to be a completely static solution. However it is designed 
 
 ### Example
 
-Mini-Conf was design to host <a href="https://iclr.cc/virtual_2020">ICLR 2020</a> a virtual conference with 6000 participants. 
+Mini-Conf was originally built to host <a href="https://iclr.cc/virtual_2020">ICLR 2020</a> a virtual conference with 6000 participants. 
 
 ### Acknowledgements
 
