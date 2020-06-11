@@ -1,0 +1,6 @@
+@font-face {
+  font-family: 'Exo';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/exo/v10/4UaZrEtFpBI4f1ZSIK9d4LjJ4lM3OwRmPg.ttf) format('truetype');
+}
