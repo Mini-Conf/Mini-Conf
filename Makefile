@@ -1,4 +1,4 @@
-PYTHON_FILES = main.py scripts/
+PYTHON_FILES = main.py scripts/ chat/
 JS_FILES = $(shell find static/js -name "*.js")
 CSS_FILES = $(shell find static/css -name "*.css")
 .PHONY: format-python format-web format run freeze format-check
@@ -17,7 +17,7 @@ format-web:
 format: format-python format-web
 
 run:
-	FLASK_DEBUG=True FLASK_DEVELOPMENT=True python3 main.py sitedata/
+	export FLASK_DEBUG=True; export FLASK_DEVELOPMENT=True; python3 main.py sitedata/
 
 freeze:
 	python3 main.py sitedata/ --build
