@@ -49,8 +49,8 @@ function make_cal(name) {
             const timezoneName = current_tz;
 
             const min_date = d3.min(events.map(e => e.start));
-            const min_hours = d3.min(events.map(e => moment(e.start).tz(timezoneName).hours())) -1;
-            const max_hours = d3.max(events.map(e => moment(e.end).tz(timezoneName).hours())) +1;
+            var min_hours = d3.min(events.map(e => moment(e.start).tz(timezoneName).hours())) -1;
+            var max_hours = d3.max(events.map(e => moment(e.end).tz(timezoneName).hours())) +1;
             if(min_hours < 0 || max_hours > 24) {
                 min_hours = 0;
                 max_hours = 24;
