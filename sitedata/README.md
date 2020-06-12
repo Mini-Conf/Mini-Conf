@@ -10,6 +10,7 @@ the required data fields are provided.
 - tagline: `<long name>`
 - date: `<Date of conference>`
 - proceedings_title: `<proceedings name for citation>`
+- citation_date: `<date for citation export (no HTML)>`
 - analytics: `<Google analytics ID starting with UA... >`
 - logo: 
     - image: `<link to logo>`
