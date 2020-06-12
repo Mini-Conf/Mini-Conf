@@ -35,20 +35,30 @@
 
     <script src="https://cdn.jsdelivr.net/npm/moment-timezone@0.5.28/builds/moment-timezone-with-data.min.js" integrity="sha256-IWYg4uIC8/erItNXYvLtyYHioRi2zT1TFva8qaAU/ww=" crossorigin="anonymous"></script>
 
+
     <!-- Library libs -->
     <script src="static/js/typeahead.bundle.js"></script>
+
+    {% if config.use_auth0 %}
+    <script>
+      var auth0_domain = "{{config.auth0_domain}}";
+      var auth0_client_id = "{{config.auth0_client_id}}";
+    </script>
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/1.7/auth0-spa-js.production.js"></script>
+    <script src="static/js/app.js"></script>
+    {% endif %}
 
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY=" crossorigin="anonymous">
 
-    <!-- External Fonts -->
+    <!-- External Fonts (no google for china) -->
     <link
-      href="https://fonts.googleapis.com/css?family=Lato:400,900&display=swap"
+      href="static/css/Lato.css"
       rel="stylesheet"
     />
-    <link href="https://fonts.googleapis.com/css?family=Exo" rel="stylesheet" />
+    <link href="static/css/Exo.css" rel="stylesheet" />
     <link
-      href="https://fonts.googleapis.com/css?family=Cuprum"
+      href="static/css/Cuprum.css"
       rel="stylesheet"
     />
 
