@@ -25,6 +25,7 @@ run:
 freeze:
 	rm -rf build/
 	python3 main.py sitedata_acl2020/ --build
+	python3 scripts/generate_version.py build/version.json
 
 # check code format
 format-check:

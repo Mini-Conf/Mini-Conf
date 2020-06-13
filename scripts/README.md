@@ -8,6 +8,12 @@ These include:
 python embeddings.py ../sitedata/papers.csv
 ```
 
+* `generate_version.py` : Generate version file for version tracking.  This script is used in [../Makefile](../Makefile)
+
+```bash
+python3 scripts/generate_version.py build/version.json
+```
+
 * `reduce.py` : For creating two-dimensional representations of the embeddings.
 
 ```bash
