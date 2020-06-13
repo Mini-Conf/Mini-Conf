@@ -100,9 +100,10 @@ def schedule():
     data = _data()
     data["day"] = {
         "speakers": site_data["speakers"],
-        "highlighted": [
-            format_paper(by_uid["papers"][h["UID"]]) for h in site_data["highlighted"]
-        ],
+        # There is no "Highlighted Papers" for ACL2020.
+        # "highlighted": [
+        #     format_paper(by_uid["papers"][h["UID"]]) for h in site_data["highlighted"]
+        # ],
     }
     return render_template("schedule.html", **data)
 
