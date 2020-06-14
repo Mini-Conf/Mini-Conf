@@ -55,6 +55,11 @@
         Code
       </a>
       {% endif %}
+      {% if paper.content.demo_url %}
+      <a href="{{paper.content.demo_url}}" target="_blank" class="card-link">
+        Demo
+      </a>
+      {% endif %}
     </div>
 
     <div class=" text-center text-muted text-monospace ">
