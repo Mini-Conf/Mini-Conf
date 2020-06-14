@@ -134,7 +134,7 @@ const start = () => {
 
 
     d3.json('papers.json').then(papers => {
-        console.log(papers, "--- papers");
+        // console.log(papers, "--- papers");
 
         shuffleArray(papers);
 
@@ -220,6 +220,7 @@ const card_detail = (openreview, show) => {
 
 const card_time_small = (openreview, show) => {
     const cnt = openreview.content;
+    // FIXME: there is no "session_links" anymore.
     return show ? `
 <!--    <div class="pp-card-footer">-->
     <div class="text-center" style="margin-top: 10px;">

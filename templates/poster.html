@@ -16,7 +16,6 @@
 <meta name="citation_keywords" content="{{keyword}}" />
 {% endfor %}
 <meta name="citation_pdf_url" content="{{paper.content.pdf_url | default("")}}" />
-
 {% endblock %}
 
 {% block content %}
@@ -57,6 +56,18 @@
       </a>
       {% endif %}
     </div>
+
+    <div class=" text-center text-muted text-monospace ">
+    {% for session in paper.content.sessions %}
+      <div>
+      {{paper.content.track}}
+      <span class="session_times">{{session.time}}</span>
+      [<a href="{{session.zoom_link}}" target="_blank"  class="card-link">Live QA</a>]
+      [<a target="_blank" href="{{session.ical_link}}">Cal</a>]
+      </div>
+    {% endfor %}
+    </div>
+
   </div>
 </div>
 <div id="details" class="pp-card m-3 collapse">
