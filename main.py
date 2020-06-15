@@ -21,6 +21,10 @@ def main(site_data_path):
     for f in glob.glob(site_data_path + "/*"):
         extra_files.append(f)
         name, typ = f.split("/")[-1].split(".")
+
+        if name == "acl2020_accepted_papers":
+            continue
+
         if typ == "json":
             site_data[name] = json.load(open(f))
         elif typ in {"csv", "tsv"}:
