@@ -1,5 +1,8 @@
 This directory contains extensions to help support the mini-conf library.
 
+For the updated procedure on getting similar papers + recommendations refer to README.recommendations.md
+
+
 These include:
 
 * `embeddings.py` : For turning abstracts into embeddings. Creates an `embeddings.torch` file. 
@@ -17,7 +20,7 @@ python3 scripts/generate_version.py build/version.json
 * `reduce.py` : For creating two-dimensional representations of the embeddings.
 
 ```bash
-python embeddings.py ../sitedata/papers.csv embeddings.torch > ../sitedata/papers_projection.json
+python reduce.py ../sitedata/papers.csv embeddings.torch > ../sitedata/papers_projection.json --projection-method umap
 ```
 
 * `parse_calendar.py` : to convert a local or remote ICS file to JSON. -- more on importing calendars see [README_Schedule.md](README_Schedule.md)
