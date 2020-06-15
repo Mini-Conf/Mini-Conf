@@ -8,7 +8,7 @@
 
 {% block tabs %}
 {{ components.tabs([("calendar", "Calendar", "active"),
-        ("day", "Example Day", "")]) }}
+        ("day", "Keynotes", "")]) }}
 {% endblock %}
 
 {% block content %}
@@ -50,10 +50,6 @@
       {{ components.section("Speakers") }}
       <div class="speakers">
         {{ components.speakergroup(day.speakers) }}
-      </div>
-      {{ components.section("Highlighted Papers") }}
-      <div class="papers">
-        {{ components.highlightgroup(day.highlighted, 1) }}
       </div>
     </div>
 
