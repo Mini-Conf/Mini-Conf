@@ -5,6 +5,7 @@ Here are additional instructions for working on the ACL2020 fork.
     ```bash
     git submodule update --init --recursive
     ```
+   *You may need to clone with SSH instead of HTTPS to get the git submodule working.
    * All ACL2020 sitedate are stored in this folder.
 2. All images should be saved under [static/images/acl2020](./static/images/acl2020) folder.
 
