@@ -4,3 +4,4 @@ umap-learn
 openreview-py
 torch==1.4.0
 ics
+pandas

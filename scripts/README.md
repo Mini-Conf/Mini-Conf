@@ -31,3 +31,14 @@ python parse_calendar.py --in sample_cal.ics
 
 * Image-Extraction: https://github.com/Mini-Conf/image-extraction for pulling images from PDF files. 
 
+* `paper_import.py` : For creating `papers.csv` from conference sources
+
+```bash
+python paper_import.py --volume 1
+```
+
+* `qa_schedule_import.py` : For creating `poster_schedule.yml` 
+
+```bash
+python qa_schedule_import.py --volume 1
+```
