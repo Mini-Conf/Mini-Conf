@@ -95,6 +95,12 @@ def sponsor():
     return render_template("sponsor.html", **data)
 
 
+@app.route("/register.html")
+def register():
+    data = _data()
+    return render_template("register.html", **data)
+
+
 @app.route("/paper_vis.html")
 def paper_vis():
     data = _data()

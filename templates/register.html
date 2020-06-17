@@ -1,0 +1,119 @@
+{% set active_page = "Registration" %}
+{% set page_title = "Registration" %}
+{% extends "base.html" %}
+
+{% block tabs %}
+
+{{ components.tabs([("register", "Registration", "active"),
+                    ("support", "Financial support", "")]) }}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+
+  <!-- Registration tab -->
+  <div
+    class="tab-pane active"
+    id="tab-register"
+    role="tabpanel"
+    aria-labelledby="nav-profile-tab"
+  >
+
+    {{ components.section("Registration") }}
+
+    <p>The 2020 ACM Conference on Health, Inference, and Learning will be held online. Registration will remain open until <b>July 24, 2020</b>. Click here to register: <a href="http://www.cvent.com/d/knqpjz">http://www.cvent.com/d/knqpjz</a></p>
+
+    {{ components.subsubsection("Online conference pricing") }}
+
+    <table style="width:100%">
+      <tr>
+        <th>Registration Type</th>
+        <th>Amount (USD)</th>
+      </tr>
+      <tr>
+        <td>ACM Member</td>
+        <td>25</td>
+      </tr>
+      <tr>
+        <td>Non-ACM Member</td>
+        <td>30</td>
+      </tr>
+    </table>
+
+    <br />
+
+    <p>*Note there are only 2 types of ACM membership types: Student and Professional. If you are an academic or member of government AND an ACM Professional Member, then you should select "Academic/Government Full Conference".</p>
+
+    {{ components.subsubsection("In-person to online") }}
+
+    <p>If you have previously registered, you do <em>not</em> need to register again. We will refund the difference between the prices using the original method of payment. 
+
+    <p>If you are not able to attend online, email <a href="mailto:registration@chilconference.org">registration@chilconference.org</a> to request a refund. Please include your registration number in the subject line.</p>
+    <p>Refunds will be issued starting <em>June 22, 2020</em> and may take up to 2 weeks before they are reflected on your bank or credit card statements.</p>
+    <p>Please cancel any travel and accommodation arrangements if you have not already done so. If you booked accommodation at the Sheraton Hotel, we have cancelled the reservation on your behalf and no further action is required. </p>
+
+    </div> <!-- End registration tab -->
+
+    <!-- Financial support tab -->
+
+    <div
+    class="tab-pane fade"
+    id="tab-support"
+    role="tabpanel"
+    aria-labelledby="nav-profile-tab"
+    >
+
+    {{ components.section("Financial support") }}
+
+    <p>Those who lack the means to pay for registration or who cannot afford to travel to attend the conference may apply for financial support, which consists of (1) a registration fee waiver and/or (2) a travel grant of a maximum of $1000.</p>
+
+    <p>Travel grants will be extremely limited and only offered to those in the most financially precarious positions. Please only apply for a travel grant if there is no other way for you to attend the conference. Applicants must declare explicitly they will not be able to attend without financial support from some source external to their own institute. Please try to get funding from other sources whenever possible, and apply for the minimum amount that you would require to come to the conference (considering travel, hotel, and subsistence costs).</p>
+
+    <p>Travel grants are offered in two modalities, of which you can choose one (if you are unsure, we recommend modality A):</p>
+
+    <ul>
+        <li>In modality A: Expense reimbursement paid after the conference. You will be provided a link to an ACM page for uploading your receipts for flight, hotel, ground transportation, meals, and you will be reimbursed for eligible expenses.</li>
+        <li>In modality B: Lump sum paid after the conference. You will be provided a link to an ACM page for indicating your mailing address, permanent address, and national tax ID number; you will be transferred the requested amount and this will be considered as taxable income that you will need to report to your national tax authority.</li>
+    </ul>
+
+    <p>Applicants for financial support must justify their need in their application. Among applicants who justify their need for support, priority will be given to those actively contributing to the conference. Any attendee who needs a travel grant to attend the conference will be eligible. Required application materials:</p>
+
+    <ul>
+        <li>A statement of interest in attending the conference, or in the case of active participation at the conference:</li>
+        <ul>
+            <li>Acceptance e-mail from tutorial or workshop chairs (proposal ID)-or-</li>
+            <li>Acceptance e-mail from program chairs (paper ID)-or-</li>
+            <li>Acceptance e-mail from doctoral colloquium chairs -or-</li>
+            <li>Application as a student volunteer (fee waiver only).
+        </ul>
+        <li>Letter from advisor if enrolled in a graduate studies program, such as a master or doctorate.</li>
+        <li>Justification of the need for financial support.</li>
+        <li>Estimated cost of trip and requested amount divided in four groups (plane ticket, bus/train ticket, hotel, meals).</li>
+        <li>Declaration that the applicant will not be able to attend without financial support from some source external to their own institution.</li>
+    </ul>
+
+    <p>Possible outcomes are:</p>
+
+    <ul>
+        <li>No support.</li>
+        <li>Deferred decision.</li>
+        <li>Registration fee waiver.</li>
+        <li>Travel grant.</li>
+        <li>Registration fee waiver and travel grant.</li>
+    </ul>
+
+    <p>To apply for financial support, please <a href="https://forms.gle/v5o4LDmun2qce9cWA">fill out this form</a>. If you are enrolled in a graduate program, please send your letters of support from your advisor and other relevant material to registration@chilconference.org.</p>
+
+    {{ components.subsection("Information for grantees") }}
+
+    <p>After receiving a travel grant, grantees will have to provide proof by e-mail to registration@chilconference.org that they will attend the conference. This can be a flight/hotel reservation, a visa appointment or a visa, or similar materials. Not providing this proof will void the grant.</p>
+
+    <p>The travel grant cannot be advanced but is instead paid as a reimbursement or a lump sum after the conference takes place, as per ACM rules. Forms, instructions, and a contact e-mail address at ACM will be provided to all grantees.</p>
+
+    </div> <!-- End financial support tab -->
+
+</div>
+
+{% endblock %}
