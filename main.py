@@ -4,6 +4,7 @@ import csv
 import glob
 import json
 import os
+from collections import OrderedDict
 from datetime import datetime, timedelta
 
 import pytz
@@ -78,6 +79,22 @@ def main(site_data_path):
         for sponsors_at_level in site_data["sponsors"]
         for sponsor in sponsors_at_level["sponsors"]
     }
+
+    # Format the session start and end times
+    for sponsor in by_uid["sponsors"].values():
+        sponsor["zoom_times"] = OrderedDict()
+        for zoom in sponsor.get("zooms", []):
+            start = zoom["start"].astimezone(pytz.timezone("GMT"))
+            end = start + timedelta(hours=zoom["duration"])
+            day = start.strftime("%A")
+            start_time = start.strftime(display_time_format)
+            end_time = end.strftime(display_time_format)
+            time_string = "{} ({}-{} GMT)".format(day, start_time, end_time)
+
+            if day not in sponsor["zoom_times"]:
+                sponsor["zoom_times"][day] = []
+
+            sponsor["zoom_times"][day].append((time_string, zoom["label"]))
 
     print("Data Successfully Loaded")
     return extra_files
