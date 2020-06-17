@@ -101,6 +101,12 @@ def register():
     return render_template("register.html", **data)
 
 
+@app.route("/call_papers.html")
+def callpapers():
+    data = _data()
+    return render_template("callpapers.html", **data)
+
+
 @app.route("/paper_vis.html")
 def paper_vis():
     data = _data()
