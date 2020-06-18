@@ -221,11 +221,10 @@ def format_paper(v):
             "authors": list_fields["authors"],
             "keywords": list_fields["keywords"],
             "abstract": v["abstract"],
-            "TLDR": v["abstract"],
+            "TLDR": v["abstract"][:250] + "...",
             "pdf_url": v.get("pdf_url", ""),
             "demo_url": by_uid["demos"].get(v["UID"], {}).get("demo_url", ""),
             "track": v.get("track", ""),
-            # TODO: Fill this info in `main(sitedata)` using an external file.
             "sessions": v["sessions"],
             "recs": [],
         },
