@@ -198,6 +198,31 @@
 </div>
 {%- endmacro %}
 
+{% macro tutorialgroup(tutorials) -%}
+<div class="cards row">
+  {% for tutorial in tutorials %}
+  <div class="col-md-6 col-sm-12 p-3" style="box-sizing: border-box;">
+    <div class="card" style="display: block; overflow: hidden; width: 100%;">
+      <div
+        class="card-header text-center"
+        style="min-height: 100px; width: 100%;"
+      >
+        <a class="text-muted" href="tutorial_{{tutorial.id}}.html">
+          <h3 class="card-title main-title">
+            {{tutorial.id}}: {{tutorial.title}}
+          </h3>
+        </a>
+        <div class="card-subtitle text-muted">
+          {{ tutorial.organizers | join(", ") }}
+        </div>        
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{%- endmacro %}
+
+
 {% macro workshopgroup(workshops) -%}
 <div class="cards row">
   {% for workshop in workshops %}

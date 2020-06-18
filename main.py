@@ -46,7 +46,7 @@ def main(site_data_path):
         elif typ == "yml":
             site_data[name] = yaml.load(open(f).read(), Loader=yaml.SafeLoader)
 
-    for typ in ["papers", "speakers", "workshops", "demos"]:
+    for typ in ["papers", "speakers", "tutorials", "workshops", "demos"]:
         by_uid[typ] = {}
         for p in site_data[typ]:
             by_uid[typ][p["UID"]] = p
@@ -199,6 +199,9 @@ def livestream():
 @app.route("/tutorials.html")
 def tutorials():
     data = _data()
+    data["tutorials"] = [
+        format_tutorial(tutorial) for tutorial in site_data["tutorials"]
+    ]
     return render_template("tutorials.html", **data)
 
 
@@ -254,6 +257,21 @@ def format_paper(v):
             "sessions": v["sessions"],
             "recs": [],
         },
+    }
+
+
+def format_tutorial(v):
+    list_keys = ["organizers"]
+    list_fields = {}
+    for key in list_keys:
+        list_fields[key] = extract_list_field(v, key)
+
+    return {
+        "id": v["UID"],
+        "title": v["title"],
+        "organizers": list_fields["organizers"],
+        "abstract": v["abstract"],
+        "material": v["material"],
     }
 
 
@@ -333,6 +351,15 @@ def speaker(speaker):
     return render_template("speaker.html", **data)
 
 
+@app.route("/tutorial_<tutorial>.html")
+def tutorial(tutorial):
+    uid = tutorial
+    v = by_uid["tutorials"][uid]
+    data = _data()
+    data["tutorial"] = format_tutorial(v)
+    return render_template("tutorial.html", **data)
+
+
 @app.route("/workshop_<workshop>.html")
 def workshop(workshop):
     uid = workshop
@@ -389,6 +416,8 @@ def generator():
         yield "poster", {"poster": str(paper["UID"])}
     for speaker in site_data["speakers"]:
         yield "speaker", {"speaker": str(speaker["UID"])}
+    for tutorial in site_data["tutorials"]:
+        yield "tutorial", {"tutorial": str(tutorial["UID"])}
     for workshop in site_data["workshops"]:
         yield "workshop", {"workshop": str(workshop["UID"])}
 
