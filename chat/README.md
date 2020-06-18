@@ -58,9 +58,10 @@ https://forums.rocket.chat/t/anyone-auth0-sso-experience/2060/6
 
 ## Chat Server Configuration (config.yml - Don't check in)
 
+You can generate personal access tokens at https://acl2020.rocket.chat/account/tokens
 
 ```
-username: `<admin username>`
-password: `<password>`
+user_id: `<user id for token>`
+auth_token: `<auth token>`
 server: `<server url>`
 ```

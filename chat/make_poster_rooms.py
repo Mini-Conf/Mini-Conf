@@ -38,26 +38,26 @@ if __name__ == "__main__":
 
     with sessions.Session() as session:
         rocket = RocketChat(
-            config["username"],
-            config["password"],
+            user_id=config["user_id"],
+            auth_token=config["auth_token"],
             server_url=config["server"],
             session=session,
         )
 
         for paper in papers:
-            channel_name = "paper_" + paper["UID"]
+            channel_name = "paper-" + paper["UID"]
             channel_name = channel_name.replace(".", "-")
             if not args.test:
                 created = rocket.channels_create(channel_name).json()
                 print(channel_name, created)
-            channel_id = rocket.channels_info(channel=channel_name).json()["channel"][
-                "_id"
-            ]
 
             # Change to topic of papers.
             author_string = paper["authors"].replace("|", ", ")
             topic = "%s - %s" % (paper["title"], author_string,)
             if not args.test:
+                channel_id = rocket.channels_info(channel=channel_name).json()[
+                    "channel"
+                ]["_id"]
                 rocket.channels_set_topic(channel_id, topic).json()
                 rocket.channels_set_description(channel_id, paper["abstract"]).json()
 
