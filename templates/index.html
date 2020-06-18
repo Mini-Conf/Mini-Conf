@@ -36,7 +36,7 @@
     <script src='https://slideslive.com/embed_presentation.js'></script>
     <script>
       embed = new SlidesLiveEmbed('presentation-embed', {
-      presentationId: '38926792',
+      presentationId: '{{config.default_presentation_id}}',
       autoPlay: false, // change to true to autoplay the embedded presentation
       verticalEnabled: true,
       verticalWhenWidthLte: 2000,
@@ -53,7 +53,7 @@
     <div class="col-md-12 col-xs-12 p-2">
     <div id="gitter" class="slp">
     <center>
-      <iframe frameborder="0" src="https://{{config.chat_server}}/channel/announcements?layout=embedded" height="700px" width="100%" ></iframe>
+      <iframe frameborder="0" src="https://{{config.chat_server}}/channel/announcements?layout=embedded" height="250px" width="100%" ></iframe>
     </center>
     </div>
     </div>
@@ -62,7 +62,6 @@
 </div>
 <br/>
 <div class="row">
-  <!--<div class="col-md-6 col-sm-12">-->
     <p>Welcome to ACL2020! The conference comprises the following elements:</p>
     <dl>
       <dt>Schedule</dt>
@@ -96,39 +95,14 @@
       <dt> Social Media</dt>
       <dd> Share papers,  workshops, and demos by using the hashtag  <span style="font-weight: bold; font-family: 'Consolas', 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', monospace;">#ACL2020</span></dd>
     </dl>
-  <!--</div>-->
-  <!--
-    <div id="presentation-embed" class="col-md-5 col-sm-12 slp embed-responsive embed-responsive-16by9"></div>
-    <script src='https://slideslive.com/embed_presentation.js'></script>
-    <script>
-      embed = new SlidesLiveEmbed('presentation-embed', {
-      presentationId: '38926792',
-      autoPlay: false, // change to true to autoplay the embedded presentation
-      verticalEnabled: true,
-      verticalWhenWidthLte: 2000,
-      allowHiddenControlsWhenPaused: true,
-      hideTitle: true
-      });
-    </script>
-    <div id="presentation-embed" class="col-md-5 col-sm-12 slp embed-responsive embed-responsive-16by9"></div>
-    <script src='https://slideslive.com/embed_presentation.js'></script>
-    <script>
-      embed = new SlidesLiveEmbed('presentation-embed', {
-      presentationId: '38926792',
-      autoPlay: false, // change to true to autoplay the embedded presentation
-      verticalEnabled: true,
-      verticalWhenWidthLte: 2000,
-      allowHiddenControlsWhenPaused: true,
-      hideTitle: true
-      });
-    </script>
-  -->
 </div>
-
-<!-- {{ readme | markdown }} -->
 
 <!-- Organizers -->
 {{ components.section("Organizers") }}
 {{ components.organizergroup(committee) }}
 
+<!-- Volunteers who contributed to https://github.com/acl-org/acl-2020-virtual-conference 
+The ACL2020 organizers would like to acknowledge the following contributors and volunteers who provided valuable additional severce to the conference: Nitin Madnani, Jan-Christoph Klie, Guy Aglionby, Giorgos Paraskevopoulos,
+Hendrik Strobelt, Patrick Wu, Salma El Anigri, Prabhat Agarwal, Chandrahas.
+-->
 {% endblock %}
