@@ -29,7 +29,7 @@ def parse_arguments():
         "--volume",
         help="Volume in the ACL Anthology that these papers are part of",
         action="store",
-        type=int,
+        type=str,
         required=True,
     )
     parser.add_argument(

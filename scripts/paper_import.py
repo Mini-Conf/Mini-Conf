@@ -23,6 +23,9 @@ re_multi_space = re.compile(r"\s+")
 re_superscript = re.compile(r"\\textsuperscript{(\d+)}")
 re_subscript = re.compile(r"\\textsubscript{(\d+)}")
 
+re_session_extract = re.compile(
+    r"\w+ \w+ \d+, \d+ \d+\w ([\w\d\s:\-.,()]+)-\d+ \d+:\d\d UTC.*"
+)
 
 direct_replacements = {
     "\\%": "%",
@@ -107,6 +110,10 @@ def parse_authors(author_string):
     return re_author_split.split(author_string)
 
 
+def extract_slot(qa_session_info):
+    return re_session_extract.match(qa_session_info)[1]
+
+
 def parse_arguments():
     parser = argparse.ArgumentParser(
         description="Format paper details into MiniConf format"
@@ -115,7 +122,7 @@ def parse_arguments():
         "--volume",
         help="Volume in the ACL Anthology that these papers are part of",
         action="store",
-        type=int,
+        type=str,
         required=True,
     )
     parser.add_argument(
@@ -154,6 +161,12 @@ def main():
     papers["paper_type"] = papers["Submission Type"]
     papers.rename(columns={"Abstract": "abstract"}, inplace=True)
     papers["keywords"] = ""
+
+    track_slot1 = papers["slot 1"].apply(extract_slot)
+    track_slot2 = papers["slot2"].apply(extract_slot)
+    assert track_slot1.equals(track_slot2)
+    papers["track"] = track_slot1
+
     papers = papers.loc[
         :,
         [
