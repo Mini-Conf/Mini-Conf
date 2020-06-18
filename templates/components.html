@@ -243,3 +243,50 @@
   {% endfor %}
   </div>
 {%- endmacro %}
+
+{% macro socialgroup(socials) -%}
+  <div class="cards row">
+    {% for social in socials %}
+    <div class="col-md-6 col-sm-12 p-3"
+        id='{{social.name|replace(" ", "_")|replace("?", "")}}'
+        style="box-sizing: border-box;">
+        <div class="card"
+            style="display:block; overflow:hidden; width:100%;">
+            <div class="card-header text-center"
+                style="min-height: 400px; width:100%;">
+                    <h3 class="card-title">
+                        {{social.name}}
+                    </h3>
+                <div class="card-subtitle text-muted">
+                    {{social.organizers|join(" & ")}}
+                </div>
+                {% if social.image %}
+                <div class="m-4">
+                    <img height="100"
+                        src="{{social.image}}"/>
+                </div>
+                {% endif %}
+                <div class="p-3 text-left card-subtitle text-muted">
+
+                    <p>{{social.description|safe}}</p>
+                    <br/>
+                    <div class="text-center text-muted text-monospace">
+                        {% for schedule in social.schedules %}
+
+                        <p>{{schedule.day}}  <span class="session_times"> ({{schedule.time}})</span> [<a href="{{schedule.link}}" target="_blank">Live</a>] </p>
+                        {% endfor %}
+                    </div>
+
+                    <p class="text-center text-muted card-title">
+                        <a href="chat.html?room=channel/social_{{social.chat_id}}" target="_blank"> Chat </a>
+                        {% if social.website %}
+                        | <a href="{{social.website}}" target="_blank"> Website </a>
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+  </div>
+{%- endmacro %}

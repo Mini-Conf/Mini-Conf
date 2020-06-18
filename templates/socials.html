@@ -1,0 +1,15 @@
+{% set active_page = "Socials" %}
+{% set page_title = "Socials" %}
+{% extends "base.html" %}
+
+{% block content %}
+<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+  <div id="day">
+    <!-- Socials -->
+    {{ components.section("Socials") }}
+    <div class="speakers">
+      {{ components.socialgroup(socials) }}
+    </div>
+  </div>
+</div>
+{% endblock %}
