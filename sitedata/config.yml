@@ -19,7 +19,7 @@ organization: ACM-CHIL Organization Committee
 # Remove or change to your chat server.
 chat_server: miniconf.sloppy.zone
 default_presentation_id: 38922815
-default_poster_pdf: /static/images/GLTR_poster.pdf
+default_poster_pdf: static/images/GLTR_poster.pdf
 
 
 # Configuration for auth
