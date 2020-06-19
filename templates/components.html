@@ -230,7 +230,7 @@
     <div class="card" style="display: block; overflow: hidden; width: 100%;">
       <div
         class="card-header text-center"
-        style="min-height: 200px; width: 100%;"
+        style="min-height: 100px; width: 100%;"
       >
         <a class="text-muted" href="workshop_{{workshop.id}}.html">
           <h3 class="card-title main-title">
@@ -239,9 +239,6 @@
         </a>
         <div class="card-subtitle text-muted">
           {{ workshop.organizers | join(", ") }}
-        </div>
-        <div class="m-3 text-left card-subtitle font-italic">
-          {{workshop.abstract|safe}}
         </div>
       </div>
     </div>
