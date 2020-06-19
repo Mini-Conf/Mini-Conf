@@ -10,6 +10,7 @@
 {{ components.tabs([("calendar", "Calendar", "active"),
                     ("thu", "Thursday", ""),
                     ("fri", "Friday", ""),
+                    ("tutorial", "Tutorials", ""),
                     ]) }}
 {% endblock %}
 
@@ -81,6 +82,28 @@
       <div class="papers">
         {{ components.highlightgroup(fri.highlighted, 1) }}
       </div>
+    </div>
+
+    <script type="text/javascript">
+      lazyLoader();
+    </script>
+  </div>
+
+<!-- Tutorials -->
+  <div
+    class="tab-pane fade"
+    id="tab-tutorial"
+    role="tabpanel"
+    aria-labelledby="nav-profile-tab"
+  >
+    <div id="tutorial">
+      <!-- Speakers -->
+      {{ components.section("Tutorials") }}
+
+    <div class="speakers">
+      {{ components.workshopgroup(workshops) }}
+    </div>
+
     </div>
 
     <script type="text/javascript">

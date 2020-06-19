@@ -212,16 +212,19 @@ def schedule():
             format_paper(by_uid["papers"][h["UID"]]) for h in site_data["highlighted"]
         ],
     }
-    return render_template("schedule.html", **data)
-
-
-@app.route("/workshops.html")
-def workshops():
-    data = _data()
     data["workshops"] = [
         format_workshop(workshop) for workshop in site_data["workshops"]
     ]
-    return render_template("workshops.html", **data)
+    return render_template("schedule.html", **data)
+
+
+# @app.route("/workshops.html")
+# def workshops():
+#     data = _data()
+#     data["workshops"] = [
+#         format_workshop(workshop) for workshop in site_data["workshops"]
+#     ]
+#     return render_template("workshops.html", **data)
 
 
 def extract_list_field(v, key):
