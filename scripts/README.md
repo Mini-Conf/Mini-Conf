@@ -42,3 +42,6 @@ python paper_import.py --volume 1
 ```bash
 python qa_schedule_import.py --volume 1
 ```
+
+* Image-Extraction: https://github.com/Mini-Conf/image-extraction for pulling images from PDF files. 
+
