@@ -49,7 +49,7 @@ body {
 }
 
 .pp-card {
-  font-family: "Exo";
+  font-family: "Lato";
   box-shadow: 0 0 14px 0 rgba(204, 204, 204, 1);
   margin-bottom: 1em;
   display: block;
@@ -58,7 +58,7 @@ body {
 
 .pp-card-header {
   border: 4px solid #eee;
-  font-family: "Exo";
+  font-family: "Lato";
   height: 340px;
   padding-top: 10px;
   padding-left: 15px;
@@ -96,15 +96,15 @@ body .nav-pills .nav-link.active {
 }
 
 .card {
-  font-family: "Exo";
+  font-family: "Lato";
 }
 
 .card-header {
-  font-family: "Exo";
+  font-family: "Lato";
 }
 
 .card-header .card-title {
-  font-family: "Exo";
+  font-family: "Lato";
 }
 
 .cards.myCard {
@@ -141,7 +141,7 @@ h3.card-subtitle.text-muted {
 .main-title {
   font-weight: 700;
   color: #2294e0;
-  font-family: "Exo";
+  font-family: "Lato";
 }
 
 .myAccordion {

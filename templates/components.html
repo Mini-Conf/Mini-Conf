@@ -240,6 +240,11 @@
         <div class="card-subtitle text-muted">
           {{ workshop.organizers | join(", ") }}
         </div>
+        <!--
+        <div class="m-3 text-left card-subtitle">
+          {{workshop.abstract|safe}}
+        </div>
+        -->
       </div>
     </div>
   </div>
@@ -277,7 +282,7 @@
             style="display:block; overflow:hidden; width:100%;">
             <div class="card-header text-center"
                 style="min-height: 400px; width:100%;">
-                    <h3 class="card-title">
+                    <h3 class="card-title main-title">
                         {{social.name}}
                     </h3>
                 <div class="card-subtitle text-muted">
@@ -289,7 +294,7 @@
                         src="{{social.image}}"/>
                 </div>
                 {% endif %}
-                <div class="p-3 text-left card-subtitle text-muted">
+                <div class="m-3 text-left card-subtitle">
 
                     <p>{{social.description|safe}}</p>
                     <br/>
