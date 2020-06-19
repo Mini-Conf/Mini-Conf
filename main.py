@@ -58,6 +58,83 @@ def index():
     return redirect("/index.html")
 
 
+# REDIRECTS TO SUPPORT EARLIER LINKS
+
+@app.route("/agenda")
+def agenda():
+    return redirect("/calendar.html", code=302)
+
+
+@app.route("/toc")
+def toc():
+    return redirect("/papers.html", code=302)
+
+
+@app.route("/keynote")
+def keynote():
+    return redirect("/calendar.html", code=302)
+
+
+@app.route("/registration")
+def registration():
+    return redirect("/register.html", code=302)
+
+
+@app.route("/acm-chil-track-1-cfp")
+def track1():
+    return redirect("/call_papers.html", code=302)
+
+
+@app.route("/acm-chil-track-2-cfp")
+def track2():
+    return redirect("/call_papers.html", code=302)
+
+
+@app.route("/acm-chil-track-3-cfp")
+def track3():
+    return redirect("/call_papers.html", code=302)
+
+
+@app.route("/acm-chil-track-4-cfp")
+def track4():
+    return redirect("/call_papers.html", code=302)
+
+
+@app.route("/call-for-tutorials")
+def call_tutorials():
+    return redirect("/call_papers.html", code=302)
+
+
+@app.route("/doctoral-consortium-call-for-phd-students")
+def call_doctoral():
+    return redirect("/call_papers.html", code=302)
+
+
+@app.route("/financial-support")
+def financial_support():
+    return redirect("/register.html#tab-support", code=302)
+
+
+@app.route("/acm-chil-2020-sponsorship-policy")
+def sponsorship_policy():
+    return redirect("/sponsor.html", code=302)
+
+
+@app.route("/organizing-committees")
+def organizing_committee():
+    return redirect("/committee.html", code=302)
+
+
+@app.route("/reviewers")
+def reviewers():
+    return redirect("/committee.html#tab-reviewers", code=302)
+
+
+@app.route("/faqs")
+def faqs():
+    return redirect("/about.html", code=302)
+
+
 # TOP LEVEL PAGES
 
 
