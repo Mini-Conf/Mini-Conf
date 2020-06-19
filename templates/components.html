@@ -298,17 +298,14 @@
                     <br/>
                     <div class="text-center text-muted text-monospace">
                         {% for schedule in social.schedules %}
-
-                        <p>{{schedule.day}}  <span class="session_times"> ({{schedule.time}})</span> [<a href="{{schedule.link}}" target="_blank">Live</a>] </p>
+                        <p>
+                          {{schedule.day}}  <span class="session_times"> ({{schedule.time}})</span>
+                          {% if schedule.link %}
+                          [<a href="{{schedule.link}}" target="_blank">Live</a>]
+                          {% endif %}
+                        </p>
                         {% endfor %}
                     </div>
-
-                    <p class="text-center text-muted card-title">
-                        <a href="chat.html?room=channel/social_{{social.chat_id}}" target="_blank"> Chat </a>
-                        {% if social.website %}
-                        | <a href="{{social.website}}" target="_blank"> Website </a>
-                        {% endif %}
-                    </p>
                 </div>
             </div>
         </div>
