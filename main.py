@@ -236,6 +236,10 @@ def extract_list_field(v, key):
         return value.split("|")
 
 
+def get_paper_rocketchat(paper_id):
+    return "paper-" + paper_id.replace(".", "-")
+
+
 def format_paper(v):
     list_keys = ["authors", "keywords"]
     list_fields = {}
@@ -245,6 +249,7 @@ def format_paper(v):
     return {
         "id": v["UID"],
         "forum": v["UID"],
+        "rocketchat_channel": get_paper_rocketchat(v["UID"]),
         "content": {
             "title": v["title"],
             "authors": list_fields["authors"],
