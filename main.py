@@ -253,6 +253,8 @@ def format_paper(v):
             "recs": [],
             "session": list_fields["session"],
             "pdf_url": v.get("pdf_url", ""),
+            "acm_pdf_url": v.get("acm_pdf_url", ""),
+            "acm_html_url": v.get("acm_html_url", ""),
         },
     }
 

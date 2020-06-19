@@ -15,7 +15,7 @@
 {% for keyword in paper.content.keywords %}
 <meta name="citation_keywords" content="{{keyword}}" />
 {% endfor %}
-<meta name="citation_pdf_url" content="{{paper.content.pdf_url | default("")}}" />
+<meta name="citation_pdf_url" content="{{paper.content.acm_pdf_url | default("")}}" />
 
 {% endblock %}
 
@@ -48,8 +48,11 @@
       <a class="card-link" data-toggle="collapse" role="button" href="#details">
         Abstract
       </a>
-      <a class="card-link" target="_blank" href="{{paper.content.pdf_url}}">
+      <a class="card-link" target="_blank" href="{{paper.content.acm_pdf_url}}">
         View Full Paper (PDF)
+      </a>
+      <a class="card-link" target="_blank" href="{{paper.content.acm_html_url}}">
+        View Full Paper (HTML)
       </a>
       {% if paper.content.code != blank %}
       <a href="{{paper.content.code}}" target="_blank" class="card-link">
