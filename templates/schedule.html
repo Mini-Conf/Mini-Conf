@@ -10,7 +10,6 @@
 {{ components.tabs([("calendar", "Calendar", "active"),
                     ("thu", "Thursday", ""),
                     ("fri", "Friday", ""),
-                    ("sat", "Saturday", ""),
                     ]) }}
 {% endblock %}
 
@@ -81,30 +80,6 @@
       {{ components.section("Highlighted Papers") }}
       <div class="papers">
         {{ components.highlightgroup(fri.highlighted, 1) }}
-      </div>
-    </div>
-
-    <script type="text/javascript">
-      lazyLoader();
-    </script>
-  </div>
-
-<!-- TODO: Loop instead of hardcoding days -->
-  <div
-    class="tab-pane fade"
-    id="tab-sat"
-    role="tabpanel"
-    aria-labelledby="nav-profile-tab"
-  >
-    <div id="sat">
-      <!-- Speakers -->
-      {{ components.section("Keynote speakers") }}
-      <div class="speakers">
-        {{ components.speakergroup(sat.speakers) }}
-      </div>
-      {{ components.section("Highlighted Papers") }}
-      <div class="papers">
-        {{ components.highlightgroup(sat.highlighted, 1) }}
       </div>
     </div>
 
