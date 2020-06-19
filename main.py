@@ -291,6 +291,7 @@ def format_workshop(v):
         "title": v["title"],
         "organizers": list_fields["organizers"],
         "abstract": v["abstract"],
+        "material": v["material"],
     }
 
 
