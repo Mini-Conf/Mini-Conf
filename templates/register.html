@@ -4,8 +4,33 @@
 
 {% block tabs %}
 
-{{ components.tabs([("register", "Registration", "active"),
-                    ("support", "Financial support", "")]) }}
+<ul class="nav nav-pills justify-content-center">
+  <li class="nav-item active">
+    <a
+      class="nav-link text-muted active"
+      data-toggle="tab"
+      href="#tab-register"
+      role="tab"
+      aria-controls="nav-home"
+      aria-selected="true"
+      >Registration
+    </a>
+  </li>
+<li class="nav-item active">
+    <a
+      class="nav-link text-muted"
+      data-toggle="tab"
+      href="#tab-support"
+      role="tab"
+      aria-controls="nav-home"
+      aria-selected="true"
+      >Financial support
+    </a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-muted" href="sponsor.html">Sponsorship</a>
+  </li>
+</ul>
 
 {% endblock %}
 

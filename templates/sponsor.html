@@ -1,8 +1,28 @@
 {% set active_page = "Sponsorship" %}
-{% set page_title = "Sponsorship" %}
+<!-- {% set page_title = "Sponsorship" %} -->
 {% extends "base.html" %}
 
 {% block tabs %}
+
+<ul class="nav nav-pills justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link text-muted" href="register.html">Registration</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link text-muted" href="register.html#tab-support">Financial support</a>
+  </li>
+  <li class="nav-item active">
+    <a
+      class="nav-link text-muted active"
+      data-toggle="tab"
+      href="#tab-register"
+      role="tab"
+      aria-controls="nav-home"
+      aria-selected="true"
+      >Sponsorship
+    </a>
+  </li>
+</ul>
 
 
 {% endblock %}
