@@ -18,9 +18,9 @@
 
 {% macro section(name) -%}
 <div class="border-top my-3"></div>
-<div class="row p-4" id="faq">
+<div class="row p-4">
   <div class="col-12 bd-content">
-    <h2 class="text-center">{{name}}</h2>
+    <h1 class="text-center">{{name}}</h1>
   </div>
 </div>
 {%- endmacro %}
@@ -255,12 +255,13 @@
 {% macro sponsorgroup(sponsors) -%}
   <div class="cards row">
   {% for sponsor_level in sponsors %}
-    <div class="col-md-12 col-sm-12 sponsorLevel">
-      <h2 class='card-title'>{{ sponsor_level.level }}</h2>
+    <div class="col-12">
+      <h2>{{ sponsor_level.level }}</h2>
+      <hr />
     </div>
 
     {% for sponsor in sponsor_level.sponsors %}
-    <div class="col-md-4 col-sm-6 p3" style="box-sizing: border-box;">
+    <div class="col-md-3 col-sm-6">
       <div class="sponsorLogo">
         <a class="text-muted" href="sponsor_{{sponsor.UID}}.html">
           <span class="sponsorHelper"></span><img class="card-img-top sponsorImg" src="{{ sponsor.logo }}" alt="{{ sponsor.name }}" />

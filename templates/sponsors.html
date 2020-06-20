@@ -3,16 +3,27 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-    <div id="day">
-      <!-- Sponsors -->
-      {{ components.section("Sponsors") }}
-      <h5 class="text-center font-weight-bold sponsorSubtitle">
-        Click on logos to visit Virtual Exhibit Spaces
-      </h5>
-      <div class="sponsors">
-      {{ components.sponsorgroup(sponsors) }}
-      </div>
-    </div>
+<div class="tab-content pt-3 px-3 px-sm-0" id="nav-tabContent">
+  <!-- Sponsors -->
+  {{ components.section("Sponsors") }}
+</div>
+
+<div class="row">
+  <div class="col-12 pb-4">
+    <p class="lead">
+      ACL 2020 is grateful to all its sponsors, who are listed below. We simply
+      couldn't run the conference without the help of these generous companies. We
+      thank them sincerely for their ongoing support of the NLP/CL community.
+      <br >
+      <span class="font-weight-bold">Click on sponsor logos to visit their Virtual Exhibit Spaces!</span>
+    </p>
+  </div>
+
+</div>
+
+<div class="">
+  <div class="sponsors">
+  {{ components.sponsorgroup(sponsors) }}
+  </div>
 </div>
 {% endblock %}

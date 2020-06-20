@@ -19,7 +19,6 @@ label:text-muted,
 
 body {
   font-family: "Lato", sans-serif;
-  background-color: rgba(236, 241, 246, 1);
 }
 
 .container a:hover {
@@ -29,14 +28,6 @@ body {
 .jumbotron {
   font-family: "Lato", sans-serif;
   background-color: rgba(236, 241, 246, 1);
-}
-
-.btn-group {
-  background-color: white;
-}
-
-.btn {
-  background-color: white;
 }
 
 #main-nav {
@@ -167,15 +158,15 @@ h3.card-subtitle.text-muted {
 }
 
 .sponsorLogo {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   vertical-align: middle;
   margin-left: auto;
   margin-right: auto;
   margin-top: 15px;
   margin-bottom: 15px;
   white-space: nowrap;
-  text-align: center;
+  background: white;
 }
 
 .sponsorHelper {

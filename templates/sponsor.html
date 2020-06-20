@@ -2,75 +2,38 @@
 {% set page_title = sponsor.name %}
 {% block content %}
 
-<div class="shadow rounded m-5">
-  <!-- Title -->
-  <div class="row justify-content-md-center pt-5">
-    <div class="col-10 text-center">
-        <h2>{{sponsor.name}}</h2>
-    </div>
-  </div>
-  <div class="row justify-content-md-center py-3">
-    <div class="col-10 text-center">
-        <a href="{{sponsor.website}}" target="_blank">Visit Website</a>
-    </div>
-  </div>
-
-  <!-- Description -->
-  <div class="row justify-content-md-center">
-      <div class="col-10">
-          {{ sponsor.description|markdown }}
-      </div>
+<div class="tab-content pt-3 px-3 px-sm-0" id="nav-tabContent">
+  {{ components.section(sponsor.name) }}
+</div>
+<div class="row justify-content-md-center mt-n3 pb-3">
+  <div class="col-6 text-center lead">
+      <a href="{{sponsor.website}}" target="_blank">Visit Website</a>
   </div>
 </div>
 
+<!-- Description -->
 <div class="row justify-content-md-center">
-<div id="accordion" class="col-10">
-
-  <!-- Youtube -->
-  {% if sponsor.youtube is defined %}
-  <div class="card">
-    <div class="card-header" id="headingYoutube">
-      <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseYoutube" aria-expanded="true" aria-controls="collapseYoutube">
-          Video
-        </button>
-      </h5>
+    <div class="col-10">
+        <span  class="lead">
+          {{ sponsor.description|markdown }}</span>
     </div>
+</div>
 
-    <div id="collapseYoutube" class="collapse show" aria-labelledby="headingYoutube" data-parent="#accordion">
-      <div class="card-body">
-        <iframe width="525" height="301" src="{{ sponsor.youtube }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-    </div>
-  </div>
-  {% endif %}
+<!-- Youtube -->
+{% if sponsor.youtube is defined %}
+<div class="row justify-content-md-center pt-3">
+  <iframe width="525" height="301" src="{{ sponsor.youtube }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+{% endif %}
 
-  <!-- Contact -->
-  <div class="card">
-    <div class="card-header" id="headingContact">
-      <h5 class="mb-0">
-        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseContact" aria-expanded="true" aria-controls="collapseContact">
-            Contact
-        </button>
-      </h5>
-    </div>
-    <div id="collapseContact" class="collapse show" aria-labelledby="headingContact" data-parent="#accordion">
-      <div class="card-body">
-        <ul>
-        {% for contact in sponsor.contacts %}
-          <li>{{ contact.name }} &lt;<a href="mailto:{{ contact.email }}">{{ contact.email }}</a>&gt;</li>
-        {% endfor %}
-        </ul>
-      </div>
-    </div>
-  </div>
-
+<div class="row justify-content-md-center py-5">
+<div id="accordion" class="col-10 lead">
   <!-- Zooms -->
   <div class="card">
     <div class="card-header" id="headingZooms">
       <h5 class="mb-0">
         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseZooms" aria-expanded="true" aria-controls="collapseZooms">
-          Schedule
+          <h5>Schedule</h5>
         </button>
       </h5>
     </div>
@@ -94,7 +57,7 @@
     <div class="card-header" id="headingResources">
       <h5 class="mb-0">
         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseResources" aria-expanded="true" aria-controls="collapseResources">
-          Resources
+          <h5>Resources</h5>
         </button>
       </h5>
     </div>
@@ -110,12 +73,32 @@
   </div>
   {% endif %}
 
+  <!-- Contact -->
+  <div class="card">
+    <div class="card-header" id="headingContact">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseContact" aria-expanded="true" aria-controls="collapseContact">
+            <h5>Contact</h5>
+        </button>
+      </h5>
+    </div>
+    <div id="collapseContact" class="collapse show" aria-labelledby="headingContact" data-parent="#accordion">
+      <div class="card-body">
+        <ul class="list-unstyled px-4">
+        {% for contact in sponsor.contacts %}
+          <li>{{ contact.name }} &lt;<a href="mailto:{{ contact.email }}">{{ contact.email }}</a>&gt;</li>
+        {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
   <!-- Chat -->
   <div class="card">
     <div class="card-header" id="headingChat">
       <h5 class="mb-0">
         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseChat" aria-expanded="true" aria-controls="collapseChat">
-          Chat
+          <h5>Chat</h5>
         </button>
       </h5>
     </div>
@@ -132,7 +115,6 @@
 
 </div>
 </div>
-
 
 <script src="static/js/time-extend.js"></script>
 <script>
