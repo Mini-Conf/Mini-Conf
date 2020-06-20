@@ -158,6 +158,7 @@ def home():
 def about():
     data = _data()
     data["FAQ"] = site_data["faq"]["FAQ"]
+    data["CodeOfConduct"] = site_data["code_of_conduct"]["CodeOfConduct"]
     return render_template("about.html", **data)
 
 
