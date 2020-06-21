@@ -133,3 +133,6 @@ dmypy.json
 
 # node
 node_modules/
+
+# MacOS
+.DS_Store
