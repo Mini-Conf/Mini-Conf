@@ -134,5 +134,8 @@ dmypy.json
 # node
 node_modules/
 
+# MacOS
+.DS_Store
+
 # RocketChat credentials
 chat/config.yml
