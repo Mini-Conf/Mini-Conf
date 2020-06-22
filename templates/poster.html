@@ -39,9 +39,11 @@
       <a class="card-link" data-toggle="collapse" role="button" href="#details">
         Abstract
       </a>
-      <a class="card-link" target="_blank" href="{{paper.link}}">
+      {% if paper.content.pdf_url %}
+      <a class="card-link" target="_blank" href="{{paper.content.pdf_url}}">
         Paper
       </a>
+      {% endif %}
       {% if paper.content.code != blank %}
       <a href="{{paper.content.code}}" target="_blank" class="card-link">
         Code

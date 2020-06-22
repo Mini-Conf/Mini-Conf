@@ -151,6 +151,7 @@ def main():
     papers = papers.merge(right=track_details, left_on="Submission ID", right_on="ID")
 
     acl_id_stub = str(args.volume) + "."
+    acl_url_stub = "https://www.aclweb.org/anthology/2020.acl-"
 
     papers["authors"] = papers["Authors"].apply(
         lambda x: miniconf_join_list(parse_authors(x))
@@ -158,6 +159,7 @@ def main():
     papers["Abstract"] = papers["Abstract"].apply(clean_abstract)
     papers["title"] = papers["title"].apply(clean_title)
     papers["UID"] = papers["Line order"].apply(lambda x: acl_id_stub + str(x))
+    papers["pdf_url"] = papers["UID"].apply(lambda x: acl_url_stub + x + ".pdf")
     papers["paper_type"] = papers["Submission Type"]
     papers.rename(columns={"Abstract": "abstract"}, inplace=True)
     papers["keywords"] = ""
@@ -178,6 +180,7 @@ def main():
             "keywords",
             "track",
             "paper_type",
+            "pdf_url",
         ],
     ]
     papers.sort_values(by="Line order", axis=0, inplace=True)
