@@ -226,26 +226,22 @@
 {% macro workshopgroup(workshops) -%}
 <div class="cards row">
   {% for workshop in workshops %}
-  <div class="col-md-6 col-sm-12 p-3" style="box-sizing: border-box;">
-    <div class="card" style="display: block; overflow: hidden; width: 100%;">
-      <div
-        class="card-header text-center"
-        style="min-height: 150px; width: 100%;"
-      >
-        <a class="text-muted" href="workshop_{{workshop.id}}.html">
-          <h3 class="card-title main-title">
+  <div class="col-md-6 col-sm-12 p-2">
+    <div class="card p-1 text-center bg-light" style="box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    height:100%;">
+        <a class="card-title main-title" href="workshop_{{workshop.id}}.html">
             {{workshop.title}}
-          </h3>
         </a>
-        <div class="card-subtitle text-muted">
-          {{ workshop.organizers | join(", ") }}
-        </div>
+      <div class="align-bottom card-body">
+        <h6 class="text-muted font-weight-light font-italic">
+            {{ workshop.organizers | join(", ") }}
+        </h6>
+      </div>
         <!--
         <div class="m-3 text-left card-subtitle">
           {{workshop.abstract|safe}}
         </div>
         -->
-      </div>
     </div>
   </div>
   {% endfor %}
@@ -277,26 +273,23 @@
   <div class="cards row">
     {% for social in socials %}
     <div class="col-md-6 col-sm-12 p-3"
-        id='{{social.name|replace(" ", "_")|replace("?", "")}}'
-        style="box-sizing: border-box;">
-        <div class="card"
-            style="display:block; overflow:hidden; width:100%;">
-            <div class="card-header text-center"
-                style="min-height: 400px; width:100%;">
-                    <h3 class="card-title main-title">
-                        {{social.name}}
-                    </h3>
-                <div class="card-subtitle text-muted">
+        id='{{social.name|replace(" ", "_")|replace("?", "")}}'>
+        <div class="card p-3 text-center bg-light" 
+        style="box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+        height:100%;">
+                <h3 class="card-title main-title">
+                    {{social.name}}
+                </h3>
+                <h6 class="text-muted font-italic">
                     {{social.organizers|join(" & ")}}
-                </div>
+                </h6>
                 {% if social.image %}
                 <div class="m-4">
                     <img height="100"
                         src="{{social.image}}"/>
                 </div>
                 {% endif %}
-                <div class="m-3 text-left card-subtitle">
-
+                <div class="mx-4 text-left card-subtitle">
                     <p>{{social.description|safe}}</p>
                     <br/>
                     <div class="text-center text-muted text-monospace">
@@ -311,7 +304,6 @@
                     </div>
                 </div>
             </div>
-        </div>
     </div>
     {% endfor %}
   </div>
