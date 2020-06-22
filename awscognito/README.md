@@ -15,3 +15,21 @@ reset their passwords.
 ```
 ./verify_user_email.sh username@example.com
 ```
+
+* Create user(s) from .xlsx or .csv file.  This will set `email_verified` to true as well
+```bash
+python cognito_users.py user.csv aws_profile.yml
+```
+
+* To disable user(s) from .xlsx or .csv file.
+
+```bash
+python cognito_users.py -d user.csv aws_profile.yml
+```
+
+* Get help message of using cognito_users.py
+
+```bash
+python cognito_users.py -h
+```
+.

@@ -1,0 +1,7 @@
+# Required for using AWS CognitoIdentityProvider service
+boto3
+
+# Required for handling both xlsx and csv file
+dataclasses
+pandas
+xlrd >= 1.0.0
