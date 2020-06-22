@@ -5,3 +5,4 @@ tqdm
 PyYAML
 icalendar
 pytz
+jsons
