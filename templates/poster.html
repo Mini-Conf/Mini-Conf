@@ -24,30 +24,17 @@
 <!-- Title -->
 <div class="pp-card m-3" style="">
   <div class="card-header">
-    <h2 class="card-title main-title text-center" style="">
+    <h2 class="card-title main-title text-center" style="color: black">
       {{paper.content.title}}
     </h2>
     <h3 class="card-subtitle mb-2 text-muted text-center">
       {% for author in paper.content.authors %}
-      <a href="papers.html?filter=authors&search={{author}}" class="text-muted"
+      <a href="papers.html?filter=authors&search={{author}}" class="text-primary"
         >{{author}}</a
       >{{ "," if not loop.last }}
       {% endfor %}
     </h3>
-    <p class="card-text text-center">
-      <span class="">Keywords:</span>
-      {% for keyword in paper.content.keywords %}
-      <a
-        href="papers.html?filter=keywords&search={{keyword}}"
-        class="text-secondary text-decoration-none"
-        >{{keyword}}</a
-      >{{ "," if not loop.last }}
-      {% endfor %}
-    </p>
-    <p class="card-text text-center">
-      <span class="">Track:</span>
-      {{ paper.content.track }}
-    </p>
+   
     <div class="text-center p-3">
       <a class="card-link" data-toggle="collapse" role="button" href="#details">
         Abstract
@@ -66,6 +53,10 @@
       </a>
       {% endif %}
     </div>
+     <p class="card-text text-center h5">
+    
+      {{ paper.content.track }}
+    </p>
 
     <div class=" text-center text-muted text-monospace ">
     {% for session in paper.content.sessions %}
@@ -91,11 +82,6 @@
     <p></p>
   </div>
 </div>
-
-<h5 style="color: red;">
-  Add content for posters. This could be a video, embedded pdf, chat room ....
-</h5>
-
 
 <div class="container" style="background-color:white; padding: 0px;">
   <div class="row m-2">
@@ -170,7 +156,6 @@
     add_local_tz('.session_times');
   })
 </script>
-
 
 
 
