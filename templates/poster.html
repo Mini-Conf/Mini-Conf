@@ -96,59 +96,51 @@
   Add content for posters. This could be a video, embedded pdf, chat room ....
 </h5>
 
-<!-- Chat -->
-{{ components.section("Example Chat") }}
 
-<div class="col-md-12 col-xs-12 p-2">
-  <div id="gitter" class="slp">
-    <center>
-      <iframe frameborder="0" src="https://{{config.chat_server}}/channel/{{paper.rocketchat_channel}}?layout=embedded" height="700px" width="100%" ></iframe>
-    </center>
+<div class="container" style="background-color:white; padding: 0px;">
+  <div class="row m-2">
+    <!-- Slides Live-->
+    <div class="col-md-7 col-xs-12 my-auto p-2" >
+      <div id="presentation-embed" class="slp my-auto"></div>
+      <script src='https://slideslive.com/embed_presentation.js'></script>
+      <script>
+        embed = new SlidesLiveEmbed('presentation-embed', {
+        presentationId: '{{paper.presentation_id | default(config.default_presentation_id)}}',
+        autoPlay: false, // change to true to autoplay the embedded presentation
+        verticalEnabled: true,
+        verticalWhenWidthLte: 500,
+        allowHiddenControlsWhenPaused: true,
+        hideTitle: true
+        });
+      </script>
+    </div>
+
+    <!-- Chat -->
+    <div class="col-md-5 col-xs-12 p-2">
+      <div id="gitter" class="slp">
+        <iframe frameborder="0" src="https://{{config.chat_server}}/channel/{{paper.rocketchat_channel}}?layout=embedded" height="700px" width="100%" ></iframe>
+      </div>
+    </div>
   </div>
 </div>
 
-<!-- Slides Live-->
 
-{{ components.section("Example SlidesLive") }}
-
-<div class="col-md-12 col-xs-12 my-auto p-2" >
-  <div id="presentation-embed" class="slp my-auto"></div>
-  <script src='https://slideslive.com/embed_presentation.js'></script>
-  <script>
-    embed = new SlidesLiveEmbed('presentation-embed', {
-    presentationId: '{{paper.presentation_id | default(config.default_presentation_id)}}',
-    autoPlay: false, // change to true to autoplay the embedded presentation
-    verticalEnabled: true,
-    verticalWhenWidthLte: 500,
-    allowHiddenControlsWhenPaused: true,
-    hideTitle: true
-    });
-  </script>
-</div>
-
-
-<!-- Chat -->
-
+{% if paper.poster_pdf %}
 {{ components.section("Example Poster") }}
 
 <div role="main" id="pdf_view"></div>
-
-
 <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.3.200/build/pdf.min.js"></script>
 <script src="static/js/pdf_render.js"></script>
 <script>
     $(document).ready(() => {
         // render first page of PDF to div
         // PDF name can be bound to variable -- e.g. paper.content.poster_link
-        initPDFViewer("{{paper.poster_pdf | default(config.default_poster_pdf)}}",'#pdf_view');
+        initPDFViewer("{{paper.poster_pdf}}",'#pdf_view');
     })
 </script>
+{% endif %}
 
-<div class="container" style="padding-bottom: 30px; padding-top:30px">
-  <center>
-    <h2> Similar Papers </h2>
-  </center>
-</div>
+{{ components.section("Similar Papers") }}
 <p></p>
 <div  class="container" >
   <div class="row">
