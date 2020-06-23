@@ -1,7 +1,6 @@
 import csv
 import glob
 import json
-import os
 from collections import OrderedDict, defaultdict
 from datetime import datetime, timedelta
 from typing import Any, DefaultDict, Dict, List
@@ -44,11 +43,11 @@ def load_site_data(
         "tutorials",
         # papers.html
         "main_papers",
+        "slideslive_id_mapping",
         "paper_recs",
         "papers_projection",
         "paper_schedule",
-        "demo_papers",
-        "srw_papers",
+        # "srw_papers",
         # socials.html
         "socials",
         # workshops.html
@@ -66,10 +65,7 @@ def load_site_data(
     extra_files = ["README.md"]
     # Load all for your sitedata one time.
     for f in glob.glob(site_data_path + "/*"):
-        filename = os.path.basename(f)
-        if filename == "inbox":
-            continue
-        name, typ = filename.split(".")
+        name, typ = f.split("/")[-1].split(".")
         if name not in registered_sitedata:
             continue
 
@@ -103,30 +99,18 @@ def load_site_data(
 
     # papers.{html,json}
     papers = build_papers(
-        raw_papers=site_data["main_papers"]
-        + site_data["demo_papers"]
-        + site_data["srw_papers"],
+        raw_papers=site_data["main_papers"],
         paper_schedule=site_data["paper_schedule"],
         qa_session_length_hr=qa_session_length_hr,
         # TODO: Should add a `webcal_url` to config instead? Is there a better way?
         calendar_stub=site_data["config"]["site_url"].replace("https", "webcal"),
         paper_recs=site_data["paper_recs"],
+        slideslive_id_mapping=site_data["slideslive_id_mapping"],
     )
     del site_data["main_papers"]
-    del site_data["demo_papers"]
-    del site_data["srw_papers"]
     site_data["papers"] = papers
-    demo_and_srw_tracks = ["Demo", "Student Research Workshop"]
-    site_data["tracks"] = list(
-        sorted(
-            [
-                track
-                for track in {paper.content.track for paper in papers}
-                if track not in demo_and_srw_tracks
-            ]
-        )
-    )
-    site_data["tracks"] += demo_and_srw_tracks
+    site_data["tracks"] = list(sorted(list({paper.content.track for paper in papers})))
+    site_data["tracks"] += ["Demo", "Student Research Workshop"]
     # paper_<uid>.html
     by_uid["papers"] = {paper.id: paper for paper in papers}
 
@@ -169,18 +153,13 @@ def build_plenary_sessions(
     }
 
 
-def normalize_track_name(track_name: str) -> str:
-    if track_name == "SRW":
-        return "Student Research Workshop"
-    return track_name
-
-
 def build_papers(
     raw_papers: List[Dict[str, str]],
     paper_schedule: Dict[str, Dict[str, Any]],
     qa_session_length_hr: int,
     calendar_stub: str,
     paper_recs: Dict[str, List[str]],
+    slideslive_id_mapping: List[Dict[str, str]],
 ) -> List[Paper]:
     """Builds the site_data["papers"].
 
@@ -233,36 +212,25 @@ def build_papers(
                 )
             )
 
-    papers = [
+    return [
         Paper(
             id=item["UID"],
             forum=item["UID"],
+            presentation_id=slideslive_id_mapping[item["UID"]],
             content=PaperContent(
                 title=item["title"],
                 authors=extract_list_field(item, "authors"),
                 keywords=extract_list_field(item, "keywords"),
                 abstract=item["abstract"],
-                tldr=item["abstract"][:250] + "...",
                 pdf_url=item.get("pdf_url", ""),
                 demo_url=item.get("demo_url", ""),
-                track=normalize_track_name(item.get("track", "")),
+                track=item.get("track", ""),
                 sessions=sessions_for_paper[item["UID"]],
-                similar_paper_uids=paper_recs.get(item["UID"], [item["UID"]]),
+                similar_paper_uids=paper_recs[item["UID"]],
             ),
         )
         for item in raw_papers
     ]
-
-    # throw warnings for missing information
-    for paper in papers:
-        if not paper.content.track:
-            print(f"WARNING: track not set for {paper.id}")
-        if not paper.content.sessions:
-            print(f"WARNING: empty sessions for {paper.id}")
-        if not paper.content.similar_paper_uids:
-            print(f"WARNING: empty similar_paper_uids for {paper.id}")
-
-    return papers
 
 
 def build_tutorials(raw_tutorials: List[Dict[str, Any]]) -> List[Tutorial]:
