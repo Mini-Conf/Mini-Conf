@@ -1,5 +1,6 @@
 # pylint: disable=global-statement,redefined-outer-name
 import argparse
+import copy
 import os
 from datetime import timedelta
 from typing import Any, Dict
@@ -93,7 +94,9 @@ def track(track_name):
 def schedule():
     data = _data()
     for day, item in site_data["schedule"].items():
-        data[day] = item
+        new_item = copy.deepcopy(item)
+        new_item['speakers'] = sorted(new_item['speakers'], key=lambda i: i['time'])
+        data[day] = new_item
     return render_template("schedule.html", **data)
 
 
