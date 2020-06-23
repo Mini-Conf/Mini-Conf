@@ -252,6 +252,10 @@ def generator():
         yield "paper", {"uid": paper.id}
         for idx in range(len(paper.content.sessions)):
             yield "paper_ics", {"uid": paper.id, "session_idx": str(idx)}
+    for track in site_data["tracks"]:
+        yield "track", {"track_name": track}
+    for track in site_data["tracks"]:
+        yield "track_json", {"track_name": track}
     for speaker in site_data["speakers"]:
         yield "speaker", {"uid": str(speaker["UID"])}
     tutorial: Tutorial
