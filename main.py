@@ -132,12 +132,13 @@ def socials():
 def paper(uid):
     data = _data()
 
-    v: Paper
-    v = by_uid["papers"][uid]
+    v: Paper = by_uid["papers"][uid]
     data["id"] = uid
     data["openreview"] = v
     data["paper"] = v
-    data["paper_recs"] = [by_uid["papers"][n] for n in site_data["paper_recs"][uid]][1:]
+    data["paper_recs"] = [
+        by_uid["papers"][ii] for ii in v.content.similar_paper_uids[1:]
+    ]
 
     return render_template("paper.html", **data)
 

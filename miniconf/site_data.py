@@ -37,15 +37,12 @@ class PaperContent:
     authors: List[str]
     track: str
     abstract: str
+    tldr: str
     keywords: List[str]
     pdf_url: Optional[str]
     demo_url: Optional[str]
     sessions: List[SessionInfo]
     similar_paper_uids: List[str]
-
-    @property
-    def TLDR(self) -> str:
-        return self.abstract[:250] + "..."
 
 
 @dataclass(frozen=True)
