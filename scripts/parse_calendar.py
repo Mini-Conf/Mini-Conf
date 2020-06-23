@@ -1,5 +1,6 @@
 import argparse
 import json
+import re
 
 import requests
 from ics.icalendar import Calendar
@@ -19,6 +20,11 @@ def parse_arguments():
 
     parser.add_argument(
         "--out", default="../sitedata/main_calendar.json", help="ICS file to parse"
+    )
+    parser.add_argument(
+        "--strip-url-domain",
+        action="store_true",
+        help="Whether to strip domain in URLs",
     )
 
     return parser.parse_args()
@@ -55,12 +61,16 @@ def convert(args):
         #                  //
         #                  //};
 
+        link = e.location
+        if args.strip_url_domain:
+            link = re.sub(r"https?://(.*?)/", "./", link)
+
         json_event = {
             "title": title,
             "start": e.begin.for_json(),
             "end": e.end.for_json(),
-            "location": e.location,
-            "link": e.location,
+            "location": link,
+            "link": link,
             "category": "time",
             "calendarId": tpe,
         }
