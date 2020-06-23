@@ -18,41 +18,44 @@
     </div>
   </div>
 </div>
-<div id="details" class="pp-card m-3 collapse">
+<div id="details" class="pp-card m-3 collapse show">
   <div class="card-body">
     <div class="card-text">
       <div id="abstractExample">
         <span class="font-weight-bold">Abstract:</span>
-        {{tutorial.abstract|safe}} <br /><br />
+        {{tutorial.abstract|safe}} <br />
       </div>
     </div>
     <p></p>
   </div>
 </div>
 
-<!-- Presentation Embed -->
+<div class="container" style="background-color:white; padding: 0px;">
+  <div class="row m-2">
+  <!-- Presentation Embed -->
 
-<div class="col-md-12 col-xs-12 my-auto p-2" >
-  <div id="presentation-embed" class="slp my-auto"></div>
-  <script src='https://slideslive.com/embed_presentation.js'></script>
-  <script>
-    embed = new SlidesLiveEmbed('presentation-embed', {
-    presentationId: '{{config.default_presentation_id}}',
-    autoPlay: false, // change to true to autoplay the embedded presentation
-    verticalEnabled: true,
-    verticalWhenWidthLte: 500,
-    allowHiddenControlsWhenPaused: true,
-    hideTitle: true
-    });
-  </script>
-</div>
+  <div class="col-md-7 col-xs-12 my-auto p-2" >
+    <div id="presentation-embed" class="slp my-auto"></div>
+    <script src='https://slideslive.com/embed_presentation.js'></script>
+    <script>
+      embed = new SlidesLiveEmbed('presentation-embed', {
+      presentationId: '{{config.default_presentation_id}}',
+      autoPlay: false, // change to true to autoplay the embedded presentation
+      verticalEnabled: true,
+      verticalWhenWidthLte: 500,
+      allowHiddenControlsWhenPaused: true,
+      hideTitle: true
+      });
+    </script>
+  </div>
 
-<!-- Chat -->
-<br/>
-<h3>Chat on RocketChat channel</h3>
-<div class="col-md-12 col-xs-12 p-2">
-  <div id="gitter" class="slp">
-    <iframe frameborder="0" src="https://{{config.chat_server}}/channel/tutorial-{{tutorial.id}}?layout=embedded" height="700px" width="100%" ></iframe>
+  <!-- Chat -->
+  <br/>
+  <div class="col-md-5 col-xs-12 p-2">
+    <div id="gitter" class="slp">
+      <iframe frameborder="0" src="https://{{config.chat_server}}/channel/tutorial-{{tutorial.id}}?layout=embedded" height="700px" width="100%" ></iframe>
+    </div>
+  </div>
   </div>
 </div>
 
