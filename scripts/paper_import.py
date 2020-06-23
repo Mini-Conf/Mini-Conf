@@ -111,7 +111,26 @@ def parse_authors(author_string):
 
 
 def extract_slot(qa_session_info):
-    return re_session_extract.match(qa_session_info)[1]
+    track = re_session_extract.match(qa_session_info)[1]
+    all_chars = set(track)
+    is_all_upper = all([word.isupper() for word in all_chars])
+    is_all_lower = all([word.islower() for word in all_chars])
+
+    if is_all_upper:
+        print(
+            'Track "{}" is all upper-case; styling as "{}"'.format(
+                track, track.capitalize()
+            )
+        )
+        track = track.capitalize()
+    if is_all_lower:
+        print(
+            'Track "{}" is all lower-case; styling as "{}"'.format(
+                track, track.capitalize()
+            )
+        )
+        track = track.capitalize()
+    return track
 
 
 def parse_arguments():
