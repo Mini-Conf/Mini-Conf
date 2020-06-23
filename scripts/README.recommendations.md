@@ -7,12 +7,10 @@ from [ICLR webpage](https://github.com/ICLR/iclr.github.io/tree/master/recommend
 
 ## Create a visualization based on BERT embeddings
 
-1. Grab ACL2020
-   [papers.csv](https://github.com/acl-org/acl-2020-virtual-conference-sitedata/blob/add_acl2020_accepted_papers_tsv/papers.csv)
-   from this branch or a more recent version and copy it to `sitedata_acl2020`.
-2. Run `python scripts/embeddings.py sitedata_acl2020/papers.csv` to produce the BERT embeddings
+1. Merge main, SRW and demo papers into a single CSV file `python scripts/merge_paper_csvs.py --inp sitedata_acl2020/main_papers.csv sitedata_acl2020/srw_papers.csv sitedata_acl2020/demo_papers.csv --out merged_papers.csv`
+2. Run `python scripts/embeddings.py merged_papers.csv` to produce the BERT embeddings
    for the paper abstracts.
-3. Run `python scripts/reduce.py --projection-method [tsne|umap] sitedata_acl2020/papers.csv embeddings.torch > sitedata_acl2020/papers_projection.json`
+3. Run `python scripts/reduce.py --projection-method [tsne|umap] merged_papers.csv embeddings.torch > sitedata_acl2020/papers_projection.json`
    to produce a 2D projection of the BERT embeddings for visualization. `--projection-method`
    selects which dimensionality reduction technique to use.
 4. Rerun `make run` and go to the paper visualization page
@@ -20,7 +18,7 @@ from [ICLR webpage](https://github.com/ICLR/iclr.github.io/tree/master/recommend
 
 ## Produce similar paper recommendations
 
-1. Run `python scripts/create_recommendations_pickle.py --inp sitedata_acl2020/papers.csv --out cached_or.pkl` to produce `cached_or.pkl`.
+1. Run `python scripts/create_recommendations_pickle.py --inp merged_papers.csv --out cached_or.pkl` to produce `cached_or.pkl`.
    This file is compatible with the inference scripts provided in [https://github.com/ICLR/iclr.github.io/tree/master/recommendations](https://github.com/ICLR/iclr.github.io/tree/master/recommendations)
 2. Clone [https://github.com/ICLR/iclr.github.io](https://github.com/ICLR/iclr.github.io). You will
    need `git-lfs` installed.
