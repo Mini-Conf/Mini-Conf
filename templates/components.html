@@ -151,7 +151,7 @@
         <div class="col-md-4 col-xs-6 fluid">
           <div class="pp-card">
             <div class="pp-card-header">
-              <a href="poster_{{openreview.id}}.html" class="text-muted">
+              <a href="paper_{{openreview.id}}.html" class="text-muted">
                 <h5 class="card-title" align="center">
                   {{openreview.content.title}}
                 </h5>
@@ -164,7 +164,7 @@
               <center>
                 <img
                   class="cards_img lazy-load-img"
-                  data-src="/static/images/acl2020/papers/{{openreview.id}}.png"
+                  data-src="{{ config.paper_images_path }}/{{openreview.id}}.png"
                   width="80%"
                 />
               </center>

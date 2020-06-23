@@ -130,7 +130,7 @@ const updateSession = () => {
 const start = () => {
     const urlFilter = getUrlParameter("filter") || 'keywords';
     setQueryStringParameter("filter", urlFilter);
-    updateFilterSelectionBtn(urlFilter)
+    updateFilterSelectionBtn(urlFilter);
 
 
     d3.json('papers.json').then(papers => {
@@ -142,7 +142,7 @@ const start = () => {
         calcAllKeys(allPapers, allKeys);
         setTypeAhead(urlFilter,
           allKeys, filters, render);
-        updateCards(allPapers)
+        updateCards(allPapers);
 
 
         const urlSearch = getUrlParameter("search");
@@ -162,7 +162,7 @@ const start = () => {
  * **/
 
 d3.selectAll('.filter_option input').on('click', function () {
-    const me = d3.select(this)
+    const me = d3.select(this);
 
     const filter_mode = me.property('value');
     setQueryStringParameter("filter", filter_mode);
@@ -172,20 +172,20 @@ d3.selectAll('.filter_option input').on('click', function () {
 
     setTypeAhead(filter_mode, allKeys, filters, render);
     render();
-})
+});
 
 d3.selectAll('.remove_session').on('click', () => {
     setQueryStringParameter("session", '');
     render();
 
-})
+});
 
 d3.selectAll('.render_option input').on('click', function () {
     const me = d3.select(this);
     render_mode = me.property('value');
 
     render();
-})
+});
 
 d3.select('.reshuffle').on('click', () => {
     shuffleArray(allPapers);
@@ -257,7 +257,7 @@ const card_html = openreview => `
         <div class="pp-card pp-mode-` + render_mode + ` ">
             <div class="pp-card-header">
             <div class="checkbox-paper ${openreview.content.read ? 'selected' : ''}" style="display: block;position: absolute; bottom:35px;left: 35px;">✓</div>    
-                <a href="poster_${openreview.id}.html"
+                <a href="paper_${openreview.id}.html"
                 target="_blank"
                    class="text-muted">
                    <h5 class="card-title" align="center"> ${openreview.content.title} </h5></a>

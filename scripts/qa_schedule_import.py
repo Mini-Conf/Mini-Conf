@@ -84,7 +84,7 @@ def main():
     for session_info in session_time_map.values():
         session_info["date"] = session_info["date"].strftime("%Y-%m-%d_%H:%M:%S")
 
-    with open("poster_schedule.yml", "w") as f:
+    with open("paper_schedule.yml", "w") as f:
         yaml.dump(ordered_sessions, f, default_flow_style=False, sort_keys=False)
 
 

@@ -1,13 +1,37 @@
 from dataclasses import dataclass
+from datetime import datetime
 from typing import List, Optional
 
 
 @dataclass(frozen=True)
-class PosterContent:
-    """The content of a poster.
+class SessionInfo:
+    """The session information for a paper."""
+
+    session_name: str
+    start_time: datetime
+    end_time: datetime
+    zoom_link: str
+    ical_link: str
+
+    @property
+    def time_string(self) -> str:
+        return "({}-{} GMT)".format(
+            self.start_time.strftime("%H:%M"), self.end_time.strftime("%H:%M")
+        )
+
+    @property
+    def session(self) -> str:
+        start_day = self.start_time.strftime("%a")
+        return f"{start_day} Session {self.session_name}"
+
+
+@dataclass(frozen=True)
+class PaperContent:
+    """The content of a paper.
 
     Needs to be synced with static/js/papers.js and static/js/paper_vis.js.
     """
+
     # needs to be synced with
     title: str
     authors: List[str]
@@ -16,8 +40,8 @@ class PosterContent:
     keywords: List[str]
     pdf_url: Optional[str]
     demo_url: Optional[str]
-    sessions: List[str]
-    recs: List[str]
+    sessions: List[SessionInfo]
+    similar_paper_uids: List[str]
 
     @property
     def TLDR(self) -> str:
@@ -25,10 +49,16 @@ class PosterContent:
 
 
 @dataclass(frozen=True)
-class Poster:
+class Paper:
+    """The paper dataclass.
+
+    This corresponds to an entry in the `papers.json`.
+    See the `start()` method in static/js/papers.js.
+    """
+
     id: str
     forum: str
-    content: PosterContent
+    content: PaperContent
 
     @property
     def rocketchat_channel(self) -> str:

@@ -18,7 +18,7 @@ from flaskext.markdown import Markdown
 from icalendar import Calendar, Event
 
 from miniconf.load_site_data import load_site_data
-from miniconf.site_data import Poster, Tutorial, Workshop
+from miniconf.site_data import Paper, Tutorial, Workshop
 
 site_data: Dict[str, Any] = {}
 by_uid: Dict[str, Any] = {}
@@ -66,13 +66,16 @@ def about():
 @app.route("/papers.html")
 def papers():
     data = _data()
-    data["papers"] = site_data["papers"]
+    # The data will be loaded from `papers.json`.
+    # See the `papers_json()` method and `static/js/papers.js`.
     return render_template("papers.html", **data)
 
 
 @app.route("/paper_vis.html")
 def paper_vis():
     data = _data()
+    # The data will be loaded from `papers.json`.
+    # See the `papers_json()` method and `static/js/papers.js`.
     return render_template("papers_vis.html", **data)
 
 
@@ -115,43 +118,44 @@ def socials():
 # ITEM PAGES
 
 
-@app.route("/poster_<uid>.html")
-def poster(uid):
+@app.route("/paper_<uid>.html")
+def paper(uid):
     data = _data()
 
-    v: Poster
-    v = by_uid["posters"][uid]
+    v: Paper
+    v = by_uid["papers"][uid]
     data["id"] = uid
     data["openreview"] = v
     data["paper"] = v
-    data["paper_recs"] = [by_uid["posters"][n] for n in site_data["paper_recs"][uid]][
-        1:
-    ]
+    data["paper_recs"] = [by_uid["papers"][n] for n in site_data["paper_recs"][uid]][1:]
 
-    return render_template("poster.html", **data)
+    return render_template("paper.html", **data)
 
 
-@app.route("/poster_<poster>.<session>.ics")
-def poster_ics(poster, session):
-    session = int(session)
-    start = by_uid["papers"][poster]["sessions"][session]["time"]
+@app.route("/paper_<uid>.<session_idx>.ics")
+def paper_ics(uid, session_idx):
+    session_idx = int(session_idx)
+    # TODO: should move these to load_site_data
+    paper: Paper
+    paper = by_uid["papers"][uid]
+    start = paper.content.sessions[session_idx].start_time
     start = start.replace(tzinfo=pytz.utc)
 
     cal = Calendar()
     cal.add("prodid", "-//ACL//acl2020.org//")
     cal.add("version", "2.0")
     cal["X-WR-TIMEZONE"] = "GMT"
-    cal["X-WR-CALNAME"] = "ACL: " + by_uid["papers"][poster]["title"]
+    cal["X-WR-CALNAME"] = f"ACL: {paper.content.title}"
 
     event = Event()
     link = (
         '<a href="'
         + site_data["config"]["site_url"]
-        + '/poster_%s.html">Poster Page</a>' % (poster)
+        + '/paper_%s.html">Poster Page</a>' % (uid)
     )
-    event.add("summary", by_uid["papers"][poster]["title"])
+    event.add("summary", paper.content.title)
     event.add("description", link)
-    event.add("uid", "-".join(["ACL2020", poster, str(session)]))
+    event.add("uid", f"ACL2020-{uid}-{session_idx}")
     event.add("dtstart", start)
     event.add("dtend", start + timedelta(hours=qa_session_length_hr))
     event.add("dtstamp", start)
@@ -160,7 +164,7 @@ def poster_ics(poster, session):
     response = make_response(cal.to_ical())
     response.mimetype = "text/calendar"
     response.headers["Content-Disposition"] = (
-        "attachment; filename=poster_" + poster + "." + str(session) + ".ics"
+        "attachment; filename=paper_" + uid + "." + str(session_idx) + ".ics"
     )
     return response
 
@@ -204,7 +208,7 @@ def chat():
 
 @app.route("/papers.json")
 def papers_json():
-    return jsonify(site_data["posters"])
+    return jsonify(site_data["papers"])
 
 
 @app.route("/static/<path:path>")
@@ -224,8 +228,11 @@ def serve(path):
 @freezer.register_generator
 def generator():
 
+    paper: Paper
     for paper in site_data["papers"]:
-        yield "poster", {"uid": str(paper["UID"])}
+        yield "paper", {"uid": paper.id}
+        for idx in range(len(paper.content.sessions)):
+            yield "paper_ics", {"uid": paper.id, "session_idx": str(idx)}
     for speaker in site_data["speakers"]:
         yield "speaker", {"uid": str(speaker["UID"])}
     tutorial: Tutorial
@@ -238,10 +245,6 @@ def generator():
     for sponsors_at_level in site_data["sponsors"]:
         for sponsor in sponsors_at_level["sponsors"]:
             yield "sponsor", {"uid": str(sponsor["UID"])}
-
-    for i in by_uid["papers"].keys():
-        for j in range(2):
-            yield "poster_ics", {"poster": i, "session": str(j)}
 
     for key in site_data:
         yield "serve", {"path": key}

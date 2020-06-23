@@ -1,4 +1,4 @@
-PYTHON_FILES = main.py scripts/ chat/
+PYTHON_FILES = main.py miniconf/ scripts/ chat/ awscognito/
 JS_FILES = $(shell find static/js -name "*.js")
 CSS_FILES = $(shell find static/css -name "*.css")
 TEMP_DEPLOY_BRANCH = "temp-gh-pages"
