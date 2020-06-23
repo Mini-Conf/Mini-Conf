@@ -24,7 +24,7 @@
 {% block tabs %}
 <ul class="nav nav-pills justify-content-center">
   <li class="nav-item">
-    <a class="nav-link text-muted" href="papers.html">Browse </a>
+    <a class="nav-link text-muted" href="papers.html">All Papers</a>
   </li>
   <li class="nav-item active" style="background-color: #bed972;">
     <a
@@ -38,6 +38,15 @@
     </a>
   </li>
 </ul>
+
+<ul class="nav nav-pills justify-content-center">
+  {% for track in tracks %}
+    <li class="nav-item">
+      <a class="nav-link text-muted" href="track_{{ track }}.html">{{ track }}</a>
+    </li>
+  {% endfor %}
+</ul>
+
 {% endblock %}
 
 {% block content %}

@@ -68,6 +68,7 @@ def papers():
     data = _data()
     # The data will be loaded from `papers.json`.
     # See the `papers_json()` method and `static/js/papers.js`.
+    data["tracks"] = site_data["tracks"]
     return render_template("papers.html", **data)
 
 
@@ -76,7 +77,16 @@ def paper_vis():
     data = _data()
     # The data will be loaded from `papers.json`.
     # See the `papers_json()` method and `static/js/papers.js`.
+    data["tracks"] = site_data["tracks"]
     return render_template("papers_vis.html", **data)
+
+
+@app.route("/track_<track_name>.html")
+def track(track_name):
+    data = _data()
+    data["tracks"] = site_data["tracks"]
+    data["current_track"] = track_name
+    return render_template("track.html", **data)
 
 
 @app.route("/schedule.html")
@@ -209,6 +219,15 @@ def chat():
 @app.route("/papers.json")
 def papers_json():
     return jsonify(site_data["papers"])
+
+
+@app.route("/track_<track_name>.json")
+def track_json(track_name):
+    paper: Paper
+    papers_for_track = [
+        paper for paper in site_data["papers"] if paper.content.track == track_name
+    ]
+    return jsonify(papers_for_track)
 
 
 @app.route("/static/<path:path>")

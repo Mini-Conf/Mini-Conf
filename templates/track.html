@@ -1,5 +1,5 @@
-{% set active_page = "Papers" %}
-{% set page_title = "Papers" %}
+{% set active_page = "Demo Papers" %}
+{% set page_title = "Demo Papers" %}
 
 {% extends "base.html" %}
 {% block head %}
@@ -14,16 +14,8 @@
 
 {% block tabs %}
 <ul class="nav nav-pills justify-content-center">
-  <li class="nav-item active">
-    <a
-      class="nav-link text-muted active"
-      data-toggle="tab"
-      href="#tab-browse"
-      role="tab"
-      aria-controls="nav-home"
-      aria-selected="true"
-      >All Papers
-    </a>
+  <li class="nav-item">
+    <a class="nav-link text-muted" href="papers.html">All Papers</a>
   </li>
   <li class="nav-item">
     <a class="nav-link text-muted" href="paper_vis.html">Visualization</a>
@@ -33,13 +25,17 @@
 <ul class="nav nav-pills justify-content-center">
   {% for track in tracks %}
     <li class="nav-item">
-      <a class="nav-link text-muted" href="track_{{ track }}.html">{{ track }}</a>
+      {% if track == current_track %}
+      {% set nav_item_class = "nav-link text-muted active" %}
+      {% else %}
+      {% set nav_item_class = "nav-link text-muted" %}
+      {% endif %}
+      <a class="{{ nav_item_class }}" href="track_{{ track }}.html">{{ track }}</a>
     </li>
   {% endfor %}
 </ul>
 
 {% endblock %}
-
 
 {% block content %}
 <div class="row p-3"></div>
@@ -165,7 +161,7 @@
 <script>
   $(document).ready(function () {
     tippy("[data-tippy-content]", { trigger: "mouseenter focus" });
-    start("papers.json");
+    start("track_{{ current_track }}.json");
   });
 </script>
 

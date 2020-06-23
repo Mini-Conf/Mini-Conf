@@ -127,14 +127,14 @@ const updateSession = () => {
 /**
  * START here and load JSON.
  */
-const start = () => {
+const start = (path_to_papers_json) => {
     const urlFilter = getUrlParameter("filter") || 'keywords';
     setQueryStringParameter("filter", urlFilter);
     updateFilterSelectionBtn(urlFilter);
 
 
-    d3.json('papers.json').then(papers => {
-        // console.log(papers, "--- papers");
+    d3.json(path_to_papers_json).then(papers => {
+        console.log(papers, "--- papers");
 
         shuffleArray(papers);
 

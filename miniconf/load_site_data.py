@@ -107,6 +107,8 @@ def load_site_data(
     )
     del site_data["main_papers"]
     site_data["papers"] = papers
+    site_data["tracks"] = list(sorted(list({paper.content.track for paper in papers})))
+    site_data["tracks"] += ["Demo", "Student Research Workshop"]
     # paper_<uid>.html
     by_uid["papers"] = {paper.id: paper for paper in papers}
 
