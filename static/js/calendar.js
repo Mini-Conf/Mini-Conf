@@ -65,7 +65,7 @@ function make_cal(name) {
                 scheduleView: ['time'],
                 usageStatistics: false,
                 week: {
-                    workweek: !config.calendar["sunday_saturday"],
+                    // workweek: !config.calendar["sunday_saturday"],
                     hourStart: min_hours,
                     hourEnd: max_hours
                 },
@@ -97,6 +97,9 @@ function make_cal(name) {
                         return '<span class="tui-full-calendar-dayname-name"> ' + parts[1] + '/' + parts[2] + '</span>&nbsp;&nbsp;<span class="tui-full-calendar-dayname-name">' + model.dayName + '</span>';
                     },
                 },
+                theme: {
+                    'common.holiday.color': '#333'
+                }
             });
             calendar.setDate(Date.parse(min_date));
             calendar.createSchedules(events);
