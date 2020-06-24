@@ -39,7 +39,7 @@ def load_site_data(
         # index.html
         "committee",
         # schedule.html
-        "main_calendar",
+        "overall_calendar",
         "speakers",
         # tutorials.html
         "tutorial_calendar",
@@ -98,11 +98,7 @@ def load_site_data(
 
     # schedule.html
     site_data["schedule"] = build_plenary_sessions(site_data["speakers"])
-    site_data["calendar"] = build_schedule(
-        site_data["main_calendar"],
-        site_data["tutorial_calendar"],
-        site_data["workshop_calendar"],
-    )
+    site_data["calendar"] = build_schedule(site_data["overall_calendar"])
     # tutorials.html
     tutorials = build_tutorials(site_data["tutorials"])
     site_data["tutorials"] = tutorials
@@ -184,32 +180,36 @@ def build_plenary_sessions(
     }
 
 
-def build_schedule(
-    main_event: List[Dict[str, Any]],
-    tutorials: List[Dict[str, Any]],
-    workshops: List[Dict[str, Any]],
-) -> List[Dict[str, Any]]:
-    result = []
-    tutorials = copy.deepcopy(tutorials)
-    workshops = copy.deepcopy(workshops)
+def build_schedule(overall_calendar: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    events = [
+        copy.deepcopy(event)
+        for event in overall_calendar
+        if event["type"]
+        in {"Plenary Sessions", "Tutorials", "Workshops", "QA Sessions"}
+    ]
 
-    for e in main_event:
-        e["color"] = "#6699ff"
-        e["url"] = e["link"]
+    for event in events:
+        event_type = event["type"]
+        if event_type == "Plenary Sessions":
+            event["color"] = "red"
+            event["url"] = event["link"]
+        elif event_type == "Tutorials":
+            event["color"] = "#BF4E30"
+            event["url"] = event["link"]
+        elif event_type == "Workshops":
+            event["color"] = "#028090"
+            event["url"] = event["link"]
+        elif event_type == "QA Sessions":
+            event["color"] = "brown"
+            event["url"] = event["link"]
+        elif event_type == "Socials":
+            event["color"] = "Bright Green"
+            event["url"] = event["link"]
+        else:
+            event["color"] = "#6699ff"
+            event["url"] = event["link"]
 
-    for t in tutorials:
-        t["color"] = "#BF4E30"
-        t["url"] = t["link"]
-
-    for w in workshops:
-        w["color"] = "#028090"
-        w["url"] = w["link"]
-
-    result.extend(main_event)
-    result.extend(tutorials)
-    result.extend(workshops)
-
-    return result
+    return events
 
 
 def normalize_track_name(track_name: str) -> str:
