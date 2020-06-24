@@ -21,10 +21,12 @@ reset their passwords.
 python cognito_users.py user.csv aws_profile.yml
 ```
 
-* To disable user(s) from .xlsx or .csv file.
+* To check/disable/enable user(s) from .xlsx or .csv file.
 
 ```bash
+python cognito_users.py --check user.csv aws_profile.yml
 python cognito_users.py -d user.csv aws_profile.yml
+python cognito_users.py -e user.csv aws_profile.yml
 ```
 
 * Get help message of using cognito_users.py
@@ -32,4 +34,24 @@ python cognito_users.py -d user.csv aws_profile.yml
 ```bash
 python cognito_users.py -h
 ```
+
+* Create dry run user(s) from .xlsx or .csv file.  This will set `email_verified` to true as well
+```bash
+python dry_run_users.py user.csv aws_profile.yml
+```
+
+* To check/disable/enable user(s) from .xlsx or .csv file.
+
+```bash
+python dry_run_users.py --check user.csv aws_profile.yml
+python dry_run_users.py -d user.csv aws_profile.yml
+python dry_run_users.py -e user.csv aws_profile.yml
+```
+
+* Get help message of using dry_run_users.py
+
+```bash
+python cognito_users.py -h
+```
+
 .

@@ -14,18 +14,13 @@ import yaml
 class User:
     """ Class for AWS Cognito user """
 
-    first_name: str
-    last_name: str
     email: str
-    middle_name: str = ""
-    preferred_name: str = ""
-    affiliation: str = ""
-    timezone: str = ""
-    country: str = ""
+    name: str
+    committee: str = ""
 
-    def name(self) -> str:
-        """ Generate the name field """
-        return f"{self.first_name} {self.last_name}"
+    # def name(self) -> str:
+    #     """ Generate the name field """
+    #     return f"{self.first_name} {self.last_name}"
 
 
 def create_user(client, profile, user):
@@ -37,7 +32,7 @@ def create_user(client, profile, user):
             UserAttributes=[
                 {"Name": "email", "Value": user.email},
                 {"Name": "email_verified", "Value": "true"},
-                {"Name": "custom:name", "Value": user.name()},
+                {"Name": "custom:name", "Value": user.name},
             ],
         )
         if response["ResponseMetadata"]["HTTPStatusCode"] == 200:
@@ -178,11 +173,13 @@ def parse_file(path):
         error_message = f"File {path} is not supported"
 
     if has_error is False:
+        # Change column headers to lowercase
+        dataframe.columns = map(str.lower, dataframe.columns)
+
         # Check invalid rows/records
-        no_last_name = dataframe["last_name"].isnull()
-        no_first_name = dataframe["first_name"].isnull()
         no_email = dataframe["email"].isnull()
-        invalid_rows = dataframe.loc[no_last_name | no_first_name | no_email]
+        no_name = dataframe["name"].isnull()
+        invalid_rows = dataframe.loc[no_name | no_email]
         if len(invalid_rows.index) == 0:
             # No invalid records.  Let's go ahead
             users = [User(**kwargs) for kwargs in dataframe.to_dict(orient="records")]
