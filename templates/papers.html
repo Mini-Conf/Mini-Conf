@@ -16,7 +16,7 @@
 <ul class="nav nav-pills justify-content-center">
   <li class="nav-item active">
     <a
-      class="nav-link text-muted active"
+      class="nav-link active"
       data-toggle="tab"
       href="#tab-browse"
       role="tab"
@@ -26,14 +26,14 @@
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-muted" href="paper_vis.html">Visualization</a>
+    <a class="nav-link" href="paper_vis.html">Visualization</a>
   </li>
 </ul>
 
 <ul class="nav nav-pills justify-content-center">
   {% for track in tracks %}
     <li class="nav-item">
-      <a class="nav-link text-muted" href="track_{{ track }}.html">{{ track }}</a>
+      <a class="nav-link" href="track_{{ track }}.html">{{ track }}</a>
     </li>
   {% endfor %}
 </ul>

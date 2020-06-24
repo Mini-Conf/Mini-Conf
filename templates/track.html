@@ -15,10 +15,10 @@
 {% block tabs %}
 <ul class="nav nav-pills justify-content-center">
   <li class="nav-item">
-    <a class="nav-link text-muted" href="papers.html">All Papers</a>
+    <a class="nav-link" href="papers.html">All Papers</a>
   </li>
   <li class="nav-item">
-    <a class="nav-link text-muted" href="paper_vis.html">Visualization</a>
+    <a class="nav-link" href="paper_vis.html">Visualization</a>
   </li>
 </ul>
 
@@ -26,9 +26,9 @@
   {% for track in tracks %}
     <li class="nav-item">
       {% if track == current_track %}
-      {% set nav_item_class = "nav-link text-muted active" %}
+      {% set nav_item_class = "nav-link active" %}
       {% else %}
-      {% set nav_item_class = "nav-link text-muted" %}
+      {% set nav_item_class = "nav-link" %}
       {% endif %}
       <a class="{{ nav_item_class }}" href="track_{{ track }}.html">{{ track }}</a>
     </li>

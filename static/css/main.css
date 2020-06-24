@@ -331,3 +331,32 @@ body .carousel-control-prev {
     -webkit-text-fill-color: green;
   }
 }
+
+.fc-v-event.calendar-event-plenary {
+  background-color: red;
+  border-color: red;
+}
+
+.fc-v-event.calendar-event-tutorial {
+  background-color: #bf4e30;
+}
+
+.fc-v-event.calendar-event-workshops {
+  background-color: #028090;
+}
+
+.fc-v-event.calendar-event-qa {
+  background-color: brown;
+}
+
+.fc-v-event.calendar-event-socials {
+  background-color: #66ff00;
+}
+
+.fc-v-event.calendar-event-other {
+  background-color: #6699ff;
+}
+
+.fc-v-event.calendar-event {
+  border-color: transparent;
+}

@@ -4,63 +4,79 @@
 
   // We use https://fullcalendar.io/
   document.addEventListener('DOMContentLoaded', function() {
-      var initialTimeZone = 'UTC';
+      var initialTimeZone = moment.tz.guess();
       var timeZoneSelectorEl = document.getElementById('time-zone-selector');
 
       var calendarEl = document.getElementById('calendar');
       var calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'timeGridWeek',
-        initialDate: "2020-07-05",
+        initialDate: '{{ config.calendar.start }}',
         timeZone: initialTimeZone,
         allDaySlot: false,
+        slotLabelFormat: {
+          hour: '2-digit',
+          minute: '2-digit',
+          meridiem: false,
+          hour12: false
+        },
         eventTimeFormat: {
           hour: '2-digit',
           minute: '2-digit',
           meridiem: false,
-          timeZoneName: 'short'
+          timeZoneName: 'short',
+          hour12: false
         },
         visibleRange: {
-          start: '2020-07-05',
-          end: '2020-07-10'
+          start: '{{ config.calendar.start }}',
+          end: '{{ config.calendar.end }}'
         },
         headerToolbar: {
           left: 'prev,next today',
           center: 'title',
-          right: 'timeGridWeek,timeGridDay,listWeek'
+          right: 'timeGridWeek,timeGridDay'
         },
         events: function(info, successCallback, failureCallback) {
             // We need to change the time zone manually,
             // we cannot use static event data
             // Deep copy
+            let tz = info.timeZone;
+            if (tz === "Local") {
+                tz = moment.tz.guess();
+            }
             let zoned_events = JSON.parse(JSON.stringify(events));
               for (var i = 0; i < zoned_events.length; i++){
                 var obj = zoned_events[i];
-                obj["start"] = moment(obj["start"]).tz(info.timeZone).format();
-                obj["end"] = moment(obj["end"]).tz(info.timeZone).format();
-                console.log(obj["start"]);
+                obj["start"] = moment(obj["start"]).tz(tz).format();
+                obj["end"] = moment(obj["end"]).tz(tz).format();
               }
             successCallback(zoned_events);
         },
+        eventClick: function(eventClickInfo) {
+            var e = eventClickInfo.event;
+            // Prevent reloading the current page, as we clicked
+            // on a hyperlink on the current page
+            eventClickInfo.jsEvent.preventDefault();
 
+            if (e.url) {
+                window.open(e.url, "_blank");
+                return false;
+            }
+        },
         // Render HTML from title as HTML
         eventContent: function( arg ) {
  	        return { html: arg.event.title }
         }
       });
 
-      FullCalendar.requestJson('GET', 'https://fullcalendar.io/demo-timezones.json', {}, function(timeZones) {
-        timeZones.forEach(function(timeZone) {
-          var optionEl;
+      moment.tz.names().forEach(function(timeZone) {
+        var optionEl;
 
-          if (timeZone !== 'UTC') { // UTC is already in the list
-            optionEl = document.createElement('option');
-            optionEl.value = timeZone;
-            optionEl.innerText = timeZone;
-            timeZoneSelectorEl.appendChild(optionEl);
-          }
-        });
-      }, function() {
-        // failure
+        if (timeZone !== 'UTC') { // UTC is already in the list
+          optionEl = document.createElement('option');
+          optionEl.value = timeZone;
+          optionEl.innerText = timeZone;
+          timeZoneSelectorEl.appendChild(optionEl);
+        }
       });
 
     // when the timezone selector changes, dynamically change the calendar option
