@@ -1,6 +1,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.0.0/main.css" integrity="sha256-9MlAyIRO5KwspHZOm6FYcUOV7kcRUu+O26UKUP0/LC0=" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.0.0/main.min.js" integrity="sha256-sXsoUUVbxnobZrwPZiGFeJrOUKZBoxXkWl0JXXdQp/o=" crossorigin="anonymous"></script><script>
   var events = JSON.parse('{{ calendar | tojson }}');
+  var initial_view = 'timeGridWeek';
+  window.fc_current_view = initial_view;
 
   // We use https://fullcalendar.io/
   document.addEventListener('DOMContentLoaded', function() {
@@ -9,7 +11,7 @@
 
       var calendarEl = document.getElementById('calendar');
       var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'timeGridWeek',
+        initialView: initial_view,
         initialDate: '{{ config.calendar.start }}',
         timeZone: initialTimeZone,
         allDaySlot: false,
@@ -43,12 +45,20 @@
             if (tz === "Local") {
                 tz = moment.tz.guess();
             }
+
+            let view = window.fc_current_view;
+
             let zoned_events = JSON.parse(JSON.stringify(events));
-              for (var i = 0; i < zoned_events.length; i++){
-                var obj = zoned_events[i];
-                obj["start"] = moment(obj["start"]).tz(tz).format();
-                obj["end"] = moment(obj["end"]).tz(tz).format();
+            for (var i = 0; i < zoned_events.length; i++){
+              var obj = zoned_events[i];
+              obj["start"] = moment(obj["start"]).tz(tz).format();
+              obj["end"] = moment(obj["end"]).tz(tz).format();
+
+              if (obj["view"] === "day" && view !== "timeGridDay" ||
+                  obj["view"] === "week" && view !== "timeGridWeek") {
+                obj["display"] = "none";
               }
+            }
             successCallback(zoned_events);
         },
         eventClick: function(eventClickInfo) {
@@ -65,6 +75,10 @@
         // Render HTML from title as HTML
         eventContent: function( arg ) {
  	        return { html: arg.event.title }
+        },
+        datesSet: function( dateInfo ) {
+            window.fc_current_view = dateInfo.view.type;
+            dateInfo.view.calendar.refetchEvents();
         }
       });
 
@@ -84,6 +98,8 @@
       calendar.setOption('timeZone', this.value);
     });
 
+    // I did not find a better way than using global variables
+    window.fc_current_view = calendar.view.type;
     calendar.render();
   });
 
