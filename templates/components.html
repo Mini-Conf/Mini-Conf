@@ -259,8 +259,13 @@
     {% for sponsor in sponsor_level.sponsors %}
     <div class="col-md-3 col-sm-6">
       <div class="sponsorLogo">
-        <a class="text-muted" href="sponsor_{{sponsor.UID}}.html">
-          <span class="sponsorHelper"></span><img class="card-img-top sponsorImg" src="{{ sponsor.logo }}" alt="{{ sponsor.name }}" />
+        {% if sponsor.landingpage is defined %}
+        <a class="text-muted" href="{{sponsor.landingpage}}" target="_blank">
+        {% else %}
+        <a class="text-muted" href="sponsor_{{sponsor.UID}}.html" target="_blank">
+        {% endif %}
+          <span class="sponsorHelper"></span>
+            <img class="card-img-top sponsorImg" src="{{ sponsor.logo }}" alt="{{ sponsor.name }}" />
         </a>
       </div>
     </div>

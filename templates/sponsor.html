@@ -3,7 +3,11 @@
 {% block content %}
 
 <div class="tab-content pt-3 px-3 px-sm-0" id="nav-tabContent">
+  {% if sponsor.logoontop %}
+  <img class="card-img-top center" src="{{ sponsor.logo }}" alt="{{ sponsor.name }}" style="width: 15%;" />
+  {% else %}
   {{ components.section(sponsor.name) }}
+  {% endif %}
 </div>
 <div class="row justify-content-md-center mt-n3 pb-3">
   <div class="col-6 text-center lead">
@@ -29,6 +33,7 @@
 <div class="row justify-content-md-center py-5">
 <div id="accordion" class="col-10 lead">
   <!-- Zooms -->
+  {% if sponsor.zoom_times|length %}
   <div class="card">
     <div class="card-header" id="headingZooms">
       <h5 class="mb-0">
@@ -50,6 +55,7 @@
       </div>
     </div>
   </div>
+  {% endif %}
 
   <!-- Resources -->
   {% if sponsor.resources is defined %}
@@ -73,7 +79,30 @@
   </div>
   {% endif %}
 
+  <!-- Downloads -->
+  {% if sponsor.downloads is defined %}
+  <div class="card">
+    <div class="card-header" id="headingDownloads">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseDownloads" aria-expanded="true" aria-controls="collapseDownloads">
+          <h5>Downloads</h5>
+        </button>
+      </h5>
+    </div>
+    <div id="collapseDownloads" class="collapse show" aria-labelledby="headingDownloads" data-parent="#accordion">
+      <div class="card-body">
+        <ul>
+        {% for resource in sponsor.downloads%}
+            <li><a href="{{ resource.website }}" target="_blank">{{ resource.label }}</a></li>
+        {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
   <!-- Contact -->
+  {% if sponsor.contacts is defined %}
   <div class="card">
     <div class="card-header" id="headingContact">
       <h5 class="mb-0">
@@ -92,8 +121,10 @@
       </div>
     </div>
   </div>
+  {% endif %}
 
   <!-- Chat -->
+  {% if sponsor.channel is defined %}
   <div class="card">
     <div class="card-header" id="headingChat">
       <h5 class="mb-0">
@@ -112,6 +143,7 @@
       </div>
     </div>
   </div>
+  {% endif %}
 
 </div>
 </div>

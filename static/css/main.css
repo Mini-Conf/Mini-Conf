@@ -174,16 +174,32 @@ h3.card-subtitle.text-muted {
   display: inline-block;
   height: 100%;
   vertical-align: middle;
+  margin-left: -4px;
 }
 
 .sponsorImg {
   padding-left: 10px;
   padding-right: 10px;
+  max-height: 250px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .sponsorLogo:hover {
   background: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
 }
 
 .slp iframe {
