@@ -6,7 +6,7 @@ import pandas as pd
 from scripts.paper_import import clean_abstract, clean_title
 
 
-def main(srw_papers_csv: str, srw_ids_xlsx: str, output_file: str) -> pd.DataFrame:
+def main(srw_papers_csv: str, srw_ids_xlsx: str, output_file: str):
     srw_papers_df = pd.read_csv(
         srw_papers_csv, sep=",", encoding="utf-8", na_values=None, keep_default_na=False
     )

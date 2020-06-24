@@ -11,7 +11,7 @@ from scripts.paper_import import (
 )
 
 
-def main(demo_papers_xlsx: str, demo_ids_xlsx: str, output_file: str) -> pd.DataFrame:
+def main(demo_papers_xlsx: str, demo_ids_xlsx: str, output_file: str):
     demo_papers_df = pd.read_excel(demo_papers_xlsx)
     demo_papers_df.drop_duplicates("UID", inplace=True, keep="first")
     demo_ids_df = pd.read_excel(demo_ids_xlsx)
@@ -26,6 +26,7 @@ def main(demo_papers_xlsx: str, demo_ids_xlsx: str, output_file: str) -> pd.Data
     demo_papers_df["demo_url"] = demo_papers_df.loc[:, "URL"].tolist()
     demo_papers_df["keywords"] = ""
     demo_papers_df["pdf_url"] = demo_ids_df.loc[sub_ids].loc[:, "PDF"].tolist()
+    demo_papers_df["UID"] = demo_papers_df["UID"].apply(lambda x: f"demo.{x}")
 
     colnames = [
         "UID",

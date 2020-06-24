@@ -4,6 +4,7 @@ import json
 import os
 from collections import OrderedDict, defaultdict
 from datetime import datetime, timedelta
+from itertools import chain
 from typing import Any, DefaultDict, Dict, List
 
 import jsons
@@ -44,11 +45,13 @@ def load_site_data(
         "tutorials",
         # papers.html
         "main_papers",
-        "paper_recs",
-        "papers_projection",
-        "paper_schedule",
         "demo_papers",
         "srw_papers",
+        "paper_recs",
+        "papers_projection",
+        "main_paper_sessions",
+        "demo_paper_sessions",
+        "srw_paper_sessions",
         # socials.html
         "socials",
         # workshops.html
@@ -106,7 +109,11 @@ def load_site_data(
         raw_papers=site_data["main_papers"]
         + site_data["demo_papers"]
         + site_data["srw_papers"],
-        paper_schedule=site_data["paper_schedule"],
+        all_paper_sessions=[
+            site_data["main_paper_sessions"],
+            site_data["demo_paper_sessions"],
+            site_data["srw_paper_sessions"],
+        ],
         qa_session_length_hr=qa_session_length_hr,
         # TODO: Should add a `webcal_url` to config instead? Is there a better way?
         calendar_stub=site_data["config"]["site_url"].replace("https", "webcal"),
@@ -115,6 +122,9 @@ def load_site_data(
     del site_data["main_papers"]
     del site_data["demo_papers"]
     del site_data["srw_papers"]
+    del site_data["main_paper_sessions"]
+    del site_data["demo_paper_sessions"]
+    del site_data["srw_paper_sessions"]
     site_data["papers"] = papers
     demo_and_srw_tracks = ["Demo", "Student Research Workshop"]
     site_data["tracks"] = list(
@@ -177,7 +187,7 @@ def normalize_track_name(track_name: str) -> str:
 
 def build_papers(
     raw_papers: List[Dict[str, str]],
-    paper_schedule: Dict[str, Dict[str, Any]],
+    all_paper_sessions: List[Dict[str, Dict[str, Any]]],
     qa_session_length_hr: int,
     calendar_stub: str,
     paper_recs: Dict[str, List[str]],
@@ -194,40 +204,37 @@ def build_papers(
     - pdf_url: str
     - demo_url: str
 
-    The paper_schedule file contains the live QA session slots and corresponding Zoom links for each paper.
-    An example paper_schedule.yml file is shown below.
+    The paper_schedule file contains the live QA session slots for each paper.
+    An example paper_sessions.yml file is shown below.
     ```yaml
     1A:
       date: 2020-07-06_05:00:00
       papers:
-      - id: main.1
-        join_link: https://www.google.com/
-      - id: main.2
-        join_link: https://www.google.com/
+      - main.1
+      - main.2
     2A:
       date: 2020-07-06_08:00:00
       papers:
-      - id: main.17
-        join_link: https://www.google.com/
-      - id: main.19
-        join_link: https://www.google.com/
+      - main.17
+      - main.19
     ```
     """
     # build the lookup from paper to slots
     sessions_for_paper: DefaultDict[str, List[SessionInfo]] = defaultdict(list)
-    for session_name, session_info in paper_schedule.items():
+    for session_name, session_info in chain(
+        *[paper_sessions.items() for paper_sessions in all_paper_sessions]
+    ):
         date = session_info["date"]
-        for item in session_info["papers"]:
-            paper_id = item["id"]
-            start_time = datetime.strptime(date, "%Y-%m-%d_%H:%M:%S")
-            end_time = start_time + timedelta(hours=qa_session_length_hr)
+        start_time = datetime.strptime(date, "%Y-%m-%d_%H:%M:%S")
+        end_time = start_time + timedelta(hours=qa_session_length_hr)
+        for paper_id in session_info["papers"]:
             session_offset = len(sessions_for_paper[paper_id])
             sessions_for_paper[paper_id].append(
                 SessionInfo(
                     session_name=session_name,
                     start_time=start_time,
                     end_time=end_time,
-                    zoom_link=item["join_link"],
+                    zoom_link="https://zoom.com",
                     # TODO: the prefix should be configurable?
                     ical_link=f"{calendar_stub}/paper_{paper_id}.{session_offset}.ics",
                 )
@@ -257,8 +264,10 @@ def build_papers(
     for paper in papers:
         if not paper.content.track:
             print(f"WARNING: track not set for {paper.id}")
-        if not paper.content.sessions:
-            print(f"WARNING: empty sessions for {paper.id}")
+        if len(paper.content.sessions) != 2:
+            print(
+                f"WARNING: found {len(paper.content.sessions)} sessions for {paper.id}"
+            )
         if not paper.content.similar_paper_uids:
             print(f"WARNING: empty similar_paper_uids for {paper.id}")
 
