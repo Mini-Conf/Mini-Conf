@@ -1,6 +1,6 @@
+{% extends "base.html" %}
 {% set active_page = "Schedule" %}
 {% set page_title = "Schedule" %}
-{% extends "base.html" %}
 {% block head %}
 {{ super() }}
 {% include 'cal_head.html' %}
@@ -22,21 +22,16 @@
     role="tabpanel"
     aria-labelledby="nav-profile-tab"
   >
+
     <div class="form-group col">
-      <label for="tzOptions">Timezone:</label>
-      <select id="tzOptions" class="selectpicker" data-live-search="true">
+      <label for="time-zone-selector">Timezone:</label>
+      <select id='time-zone-selector'>
+        <option value='local'>local</option>
+        <option value='UTC' selected>UTC</option>
       </select>
     </div>
 
-    <!-- full cal for browser-->
-    <div id="calendar" class="d-none d-sm-block"></div>
-
-    <!-- small cal for smart phones-->
-    <div id="calendar_small" class="d-sm-none"></div>
-
-    <script type="text/javascript">
-      make_cal("serve_main_calendar.json");
-    </script>
+    <div id='calendar'></div>
   </div>
 
   <!-- Day Tab -->
@@ -54,10 +49,6 @@
         {{ components.speakergroup(Monday.speakers) }}
       </div>
     </div>
-
-    <script type="text/javascript">
-      lazyLoader();
-    </script>
   </div>
 
 

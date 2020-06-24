@@ -97,6 +97,8 @@ def schedule():
         new_item = copy.deepcopy(item)
         new_item["speakers"] = sorted(new_item["speakers"], key=lambda i: i["time"])
         data[day] = new_item
+
+    data["calendar"] = site_data["calendar"]
     return render_template("schedule.html", **data)
 
 

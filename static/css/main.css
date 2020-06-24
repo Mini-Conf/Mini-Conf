@@ -79,7 +79,8 @@ body {
 }
 
 body .nav-pills .nav-link.active {
-  background-color: #bed972;
+  background-color: #ee353a;
+  color: white;
 }
 
 .container {
