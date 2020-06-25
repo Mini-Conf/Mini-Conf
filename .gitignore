@@ -137,5 +137,6 @@ node_modules/
 # MacOS
 .DS_Store
 
-# RocketChat credentials
+# RocketChat credentials and output files
 chat/config.yml
+chat/channels.csv

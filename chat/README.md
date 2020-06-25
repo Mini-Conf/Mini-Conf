@@ -55,6 +55,13 @@ https://forums.rocket.chat/t/anyone-auth0-sso-experience/2060/6
 
 `make_poster_rooms.py` -> for creating a chat room for each poster.
 
+`list_channels.py` -> for exporting channels into a CSV with regex name search and a `featured` filter (see CLI options). For example, for featured channels not containing the word `paper`:
+
+```bash
+python list_channels.py -r '^((?!paper).)*$' -f -o channels.csv 
+```
+
+In order to run the scripts, make sure to create the `chat/config.yml` file as described below.
 
 ## Chat Server Configuration (config.yml - Don't check in)
 
