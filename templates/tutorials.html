@@ -1,57 +1,126 @@
+{% extends "base.html" %}
 {% set active_page = "Tutorials" %}
 {% set page_title = "Tutorials" %}
-{% extends "base.html" %}
 {% block head %}
 {{ super() }}
-{% include 'dayview_cal_head.html' %}
+{{ components.calendar_scripts() }}
+<script>
+  var events = JSON.parse('{{ calendar | tojson }}');
+
+  // We use https://fullcalendar.io/
+  document.addEventListener('DOMContentLoaded', function() {
+      var initialTimeZone = moment.tz.guess();
+      var timeZoneSelectorEl = document.getElementById('time-zone-selector');
+
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'timeGridDay',
+        initialDate: '2020-07-05',
+        timeZone: initialTimeZone,
+        allDaySlot: false,
+        slotLabelFormat: {
+          hour: '2-digit',
+          minute: '2-digit',
+          meridiem: false,
+          hour12: false
+        },
+        eventTimeFormat: {
+          hour: '2-digit',
+          minute: '2-digit',
+          meridiem: false,
+          timeZoneName: 'short',
+          hour12: false
+        },
+        visibleRange: {
+          start: '2020-07-05',
+          end: '2020-07-05'
+        },
+        headerToolbar: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'timeGridWeek,timeGridDay'
+        },
+        height: "auto",
+        events: function(info, successCallback, failureCallback) {
+            // We need to change the time zone manually,
+            // we cannot use static event data
+            // Deep copy
+            let tz = info.timeZone;
+            if (tz === "Local") {
+                tz = moment.tz.guess();
+            }
+            let zoned_events = JSON.parse(JSON.stringify(events));
+              for (var i = 0; i < zoned_events.length; i++){
+                var obj = zoned_events[i];
+                obj["start"] = moment(obj["start"]).tz(tz).format();
+                obj["end"] = moment(obj["end"]).tz(tz).format();
+              }
+            successCallback(zoned_events);
+        },
+        eventClick: function(eventClickInfo) {
+            var e = eventClickInfo.event;
+            // Prevent reloading the current page, as we clicked
+            // on a hyperlink on the current page
+            eventClickInfo.jsEvent.preventDefault();
+
+            if (e.url) {
+                window.open(e.url, "_blank");
+                return false;
+            }
+        },
+        // Render HTML from title as HTML
+        eventContent: function( arg ) {
+ 	        return { html: arg.event.title }
+        }
+      });
+
+      moment.tz.names().forEach(function(timeZone) {
+        var optionEl;
+
+        if (timeZone !== 'UTC') { // UTC is already in the list
+          optionEl = document.createElement('option');
+          optionEl.value = timeZone;
+          optionEl.innerText = timeZone;
+          timeZoneSelectorEl.appendChild(optionEl);
+        }
+      });
+
+    // when the timezone selector changes, dynamically change the calendar option
+    timeZoneSelectorEl.addEventListener('change', function() {
+      calendar.setOption('timeZone', this.value);
+    });
+
+    calendar.render();
+  });
+</script>
 {% endblock %}
 
 
 {% block content %}
-<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-  <div id="day">
-    <!-- Tutorials -->
-    <p>
-      <b>
-      Below is the schedule of the tutorial to be held on Sunday, July 5th, 2020. Click on each tutorial on the schedule to access its material. <br/><br/>
+<div class="tab-content pt-3 px-3 px-sm-0" id="nav-tabContent">
+  <!-- Sponsors -->
+  {{ components.section("Tutorials") }}
+</div>
 
-      Tutorials held in parallel are shown one besides the other in the calendar.  
-      Some tutorials are held twice and some are held once. 
-      Checkout <a href="https://acl2020.org/blog/intro-to-tutorial-infrastructure/">this blog post</a> by tutorial chairs to learn more about the new virtual format of tutorials.
-      
-    </b>
+<div class="row">
+  <div class="col-12 pb-4">
+    <p class="lead">
+    Below is the schedule of the tutorial to be held on Sunday, July 5th, 2020. Click on each tutorial on the schedule to access its material. <br/>
+    Tutorials held in parallel are shown one besides the other in the calendar.
+    Some tutorials are held twice and some are held once.
+    Check out <a href="https://acl2020.org/blog/intro-to-tutorial-infrastructure/">this blog post</a> by tutorial chairs to learn more about the new virtual format of tutorials.
     </p>
-    <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-      <!-- Calender tab -->
-      <div
-        class="tab-pane active"
-        id="tab-calendar"
-        role="tabpanel"
-        aria-labelledby="nav-profile-tab"
-      >
-        <div class="form-group col">
-          <label for="tzOptions">Timezone:</label>
-          <select id="tzOptions" class="selectpicker" data-live-search="true">
-          </select>
-        </div>
-    
-        <!-- full cal for browser-->
-        <div id="calendar" class="d-none d-sm-block"></div>
-    
-        <!-- small cal for smart phones-->
-        <div id="calendar_small" class="d-sm-none"></div>
-    
-        <script type="text/javascript">
-          make_cal("serve_tutorial_calendar.json");
-        </script>
-      </div>
-    </div>
-    <!--
-    <br/>
-    <div class="speakers">
-      {{ components.tutorialgroup(tutorials) }}
-    </div>
-    -->
   </div>
+</div>
+
+<div>
+  <div class="form-group col">
+    <label for="time-zone-selector">Timezone:</label>
+    <select id="time-zone-selector" class="selectpicker" data-live-search="true">
+      <option value="local" selected>Local</option>
+      <option value="UTC">UTC</option>
+    </select>
+  </div>
+  <div id="calendar"></div>
 </div>
 {% endblock %}

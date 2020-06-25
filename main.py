@@ -105,7 +105,7 @@ def schedule():
 @app.route("/tutorials.html")
 def tutorials():
     data = _data()
-    data["tutorials"] = site_data["tutorials"]
+    data["calendar"] = site_data["tutorial_calendar"]
     return render_template("tutorials.html", **data)
 
 

@@ -1,5 +1,5 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.0.0/main.css" integrity="sha256-9MlAyIRO5KwspHZOm6FYcUOV7kcRUu+O26UKUP0/LC0=" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.0.0/main.min.js" integrity="sha256-sXsoUUVbxnobZrwPZiGFeJrOUKZBoxXkWl0JXXdQp/o=" crossorigin="anonymous"></script><script>
+{{ components.calendar_scripts() }}
+<script>
   var events = JSON.parse('{{ calendar | tojson }}');
   var initial_view = 'timeGridWeek';
   window.fc_current_view = initial_view;
@@ -37,6 +37,7 @@
           center: 'title',
           right: 'timeGridWeek,timeGridDay'
         },
+        height: "auto",
         events: function(info, successCallback, failureCallback) {
             // We need to change the time zone manually,
             // we cannot use static event data
@@ -102,8 +103,6 @@
     window.fc_current_view = calendar.view.type;
     calendar.render();
   });
-
-
 
 </script>
 <script src="static/js/lazy_load.js"></script>
