@@ -1,6 +1,3 @@
 black==19.10b0
 pylint==2.4.4
 mypy==0.761
--r scripts/requirements.txt
--r chat/requirements.txt
--r awscognito/requirements.txt

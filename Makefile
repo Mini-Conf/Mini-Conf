@@ -1,4 +1,4 @@
-PYTHON_FILES = main.py miniconf/ scripts/ chat/ awscognito/
+PYTHON_FILES = main.py miniconf/
 JS_FILES = $(shell find static/js -name "*.js")
 CSS_FILES = $(shell find static/css -name "*.css")
 TEMP_DEPLOY_BRANCH = "temp-gh-pages"
@@ -25,7 +25,7 @@ run:
 freeze:
 	rm -rf build/
 	python3 main.py sitedata_acl2020/ --build
-	python3 scripts/generate_version.py build/version.json
+	python3 generate_version.py build/version.json
 
 # check code format
 format-check:
