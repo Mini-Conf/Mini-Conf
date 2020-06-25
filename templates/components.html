@@ -274,7 +274,7 @@
   </div>
 {%- endmacro %}
 
-{% macro socialgroup(socials) -%}
+{% macro socialgroup(socials, config) -%}
   <div class="cards row">
     {% for social in socials %}
     <div class="col-md-6 col-sm-12 p-3"
@@ -308,9 +308,9 @@
                         {% endfor %}
                     </div>
                 </div>
-                {% if social.chat_id %}
+                {% if social.rocketchat_channel %}
                 <p class="text-center text-muted card-title">
-                  <a href="chat.html?room=channel/{{social.chat_id}}" target="_blank"> Chat </a>
+                  <a href="https://{{config.chat_server}}/channel/{{social.rocketchat_channel}}" target="_blank"> Chat </a>
                   {% if social.website %}
                   | <a href="{{social.website}}" target="_blank"> Website </a>
                   {% endif %}
