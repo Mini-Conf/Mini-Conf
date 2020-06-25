@@ -16,23 +16,48 @@
         Abstract & Bio
       </a>
     </div>
-  </div>
-</div>
-<div id="details" class="pp-card m-3 collapse">
-  <div class="card-body">
-    <div class="card-text">
-      <div id="abstractExample">
-        <span class="font-weight-bold">Abstract:</span>
-        {{speaker.abstract|safe}} <br /><br />
-
-        <span class="font-weight-bold">Bio:</span>
-        {{speaker.bio|safe}}
+    <div id="details" class="pp-card m-3 collapse">
+      <div class="card-body">
+        <div class="card-text">
+          <div id="abstractExample">
+            <span class="font-weight-bold">Abstract:</span>
+            {{speaker.abstract|safe}} <br /><br />
+    
+            <span class="font-weight-bold">Bio:</span>
+            {{speaker.bio|safe}}
+          </div>
+        </div>
+        <p></p>
       </div>
     </div>
-    <p></p>
   </div>
 </div>
 
-<!-- Presentation Embed -->
+
+<div class="container" style="background-color:white; padding: 0px;">
+  <div class="row m-2">
+  <!-- Presentation Embed -->
+  <div class="col-md-7 col-xs-12 my-auto p-2" >
+  <div id="presentation-embed-{{speaker.UID}}" class="slp my-auto"></div>
+  <script src='https://slideslive.com/embed_presentation.js'></script>
+  <script>
+    embed = new SlidesLiveEmbed('presentation-embed-{{speaker.UID}}', {
+      presentationId: '{{speaker.presentation_id | default(config.default_presentation_id)}}',
+      autoPlay: false, // change to true to autoplay the embedded presentation
+      verticalEnabled: true,
+      verticalWhenWidthLte: 500,
+      allowHiddenControlsWhenPaused: true,
+      hideTitle: true
+    });
+  </script>
+  </div>
+  <!-- Chat -->
+  <div class="col-md-5 col-xs-12 p-2">
+  <div id="gitter" class="slp">
+  <iframe frameborder="0" src="https://{{config.chat_server}}/channel/{{speaker.rocketchat_channel}}?layout=embedded" height="700px" width="100%" ></iframe>
+  </div>
+  </div>
+  </div>
+</div>
 
 {% endblock %}
