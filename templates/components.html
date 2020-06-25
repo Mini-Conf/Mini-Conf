@@ -53,7 +53,10 @@
             </div>
             <div class="m-3 text-muted">
               <span class="card-title h3">
-                {{speaker.speaker}}  /  {{speaker.institution}}
+                {{speaker.speaker}}
+                {% if speaker.institutino %}
+                /  {{speaker.institution}}
+                {% endif %}
               </span>
             </div>
             <div class="m-3">
