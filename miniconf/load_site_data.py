@@ -185,7 +185,7 @@ def build_schedule(overall_calendar: List[Dict[str, Any]]) -> List[Dict[str, Any
         copy.deepcopy(event)
         for event in overall_calendar
         if event["type"]
-        in {"Plenary Sessions", "Tutorials", "Workshops", "QA Sessions"}
+        in {"Plenary Sessions", "Tutorials", "Workshops", "QA Sessions", "Socials"}
     ]
 
     for event in events:

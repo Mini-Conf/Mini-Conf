@@ -333,24 +333,24 @@ body .carousel-control-prev {
 }
 
 .fc-v-event.calendar-event-plenary {
-  background-color: red;
-  border-color: red;
+  background-color: #82b74b;
+  border-color: #82b74b;
 }
 
 .fc-v-event.calendar-event-tutorial {
-  background-color: #bf4e30;
+  background-color: #feb236;
 }
 
 .fc-v-event.calendar-event-workshops {
-  background-color: #028090;
+  background-color: #f4a688;
 }
 
 .fc-v-event.calendar-event-qa {
-  background-color: brown;
+  background-color: #d64161;
 }
 
 .fc-v-event.calendar-event-socials {
-  background-color: #66ff00;
+  background-color: #00a1f1;
 }
 
 .fc-v-event.calendar-event-other {
