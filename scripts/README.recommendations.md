@@ -30,4 +30,4 @@ from [ICLR webpage](https://github.com/ICLR/iclr.github.io/tree/master/recommend
    file that contains the similar paper recommendations that can be displayed to the website. Make
    sure to modify the filepaths to point to the correct `cached_or.pkl`, `rec.pkl`.
 7. Grab the produced `paper_recs.json` file and copy it to `sitedata_acl2020`. A version of this file
-   produced using this method is [here](https://github.com/acl-org/acl-2020-virtual-conference-sitedata/blob/add_acl2020_accepted_papers_tsv/paper_recs.json)
+   produced using this method is [here](https://github.com/acl-org/acl-2020-virtual-conference-sitedata/blob/9bed1d8d8ddae1f29b5e4d97ba08dd634e7550d4/paper_recs.json)
