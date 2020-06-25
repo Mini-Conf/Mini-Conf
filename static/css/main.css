@@ -360,3 +360,18 @@ body .carousel-control-prev {
 .fc-v-event.calendar-event {
   border-color: transparent;
 }
+
+.deco-none {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.deco-none:link {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.deco-none:hover {
+  color: inherit;
+  text-decoration: inherit;
+}

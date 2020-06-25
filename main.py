@@ -73,21 +73,13 @@ def papers():
     return render_template("papers.html", **data)
 
 
-@app.route("/paper_vis.html")
+@app.route("/papers_vis.html")
 def paper_vis():
     data = _data()
     # The data will be loaded from `papers.json`.
     # See the `papers_json()` method and `static/js/papers.js`.
     data["tracks"] = site_data["tracks"]
     return render_template("papers_vis.html", **data)
-
-
-@app.route("/track_<track_name>.html")
-def track(track_name):
-    data = _data()
-    data["tracks"] = site_data["tracks"]
-    data["current_track"] = track_name
-    return render_template("track.html", **data)
 
 
 @app.route("/schedule.html")
@@ -258,8 +250,6 @@ def generator():
         yield "paper", {"uid": paper.id}
         for idx in range(len(paper.content.sessions)):
             yield "paper_ics", {"uid": paper.id, "session_idx": str(idx)}
-    for track in site_data["tracks"]:
-        yield "track", {"track_name": track}
     for track in site_data["tracks"]:
         yield "track_json", {"track_name": track}
     for speaker in site_data["speakers"]:

@@ -152,7 +152,6 @@ const start = (path_to_papers_json) => {
           allKeys, filters, render);
         updateCards(allPapers);
 
-
         const urlSearch = getUrlParameter("search");
         if ((urlSearch !== '') || updateSession()) {
             filters[urlFilter] = urlSearch;
