@@ -8,6 +8,10 @@
   document.addEventListener('DOMContentLoaded', function() {
       var initialTimeZone = moment.tz.guess();
       var timeZoneSelectorEl = document.getElementById('time-zone-selector');
+      var eventTypeSelectorEl = document.getElementById('event-type-selector');
+      // get event types
+      // var uniqEvents = [...new Set(events.map(x=>x.type))]
+      //  ["Tutorials", "Plenary Sessions", "Workshops", "Socials", "QA Sessions"]
 
       var calendarEl = document.getElementById('calendar');
       var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -37,12 +41,16 @@
           center: 'title',
           right: 'timeGridWeek,timeGridDay'
         },
+        slotEventOverlap: false,
         height: "auto",
         events: function(info, successCallback, failureCallback) {
             // We need to change the time zone manually,
             // we cannot use static event data
             // Deep copy
             let tz = info.timeZone;
+            //get selected event types
+            let eventTypes = [...eventTypeSelectorEl.options].filter(option => option.selected).map(option => option.value);
+
             if (tz === "Local") {
                 tz = moment.tz.guess();
             }
@@ -56,7 +64,8 @@
               obj["end"] = moment(obj["end"]).tz(tz).format();
 
               if (obj["view"] === "day" && view !== "timeGridDay" ||
-                  obj["view"] === "week" && view !== "timeGridWeek") {
+                  obj["view"] === "week" && view !== "timeGridWeek" ||
+                  !eventTypes.includes(obj["type"])) {
                 obj["display"] = "none";
               }
             }
@@ -80,7 +89,8 @@
         datesSet: function( dateInfo ) {
             window.fc_current_view = dateInfo.view.type;
             dateInfo.view.calendar.refetchEvents();
-        }
+        },
+        
       });
 
       moment.tz.names().forEach(function(timeZone) {
@@ -98,6 +108,11 @@
     timeZoneSelectorEl.addEventListener('change', function() {
       calendar.setOption('timeZone', this.value);
     });
+
+    // when eventype changes, refetch and hide unselected events
+    eventTypeSelectorEl.addEventListener('change', function(){
+      calendar.refetchEvents();
+    })
 
     // I did not find a better way than using global variables
     window.fc_current_view = calendar.view.type;
