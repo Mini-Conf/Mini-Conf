@@ -1,15 +1,136 @@
+{% extends "base.html" %}
 {% set active_page = "Workshops" %}
 {% set page_title = "Workshops" %}
-{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+{{ components.calendar_scripts() }}
+<script>
+  var events = JSON.parse('{{ calendar | tojson }}');
+  var initial_view = 'timeGridDay';
+  window.fc_current_view = initial_view;
+
+  // We use https://fullcalendar.io/
+  document.addEventListener('DOMContentLoaded', function() {
+      var initialTimeZone = moment.tz.guess();
+      var timeZoneSelectorEl = document.getElementById('time-zone-selector');
+
+      var calendarEl = document.getElementById('calendar');
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: initial_view,
+        initialDate: '{{ config.calendar.start }}',
+        timeZone: initialTimeZone,
+        allDaySlot: false,
+        slotLabelFormat: {
+          hour: '2-digit',
+          minute: '2-digit',
+          meridiem: false,
+          hour12: false
+        },
+        eventTimeFormat: {
+          hour: '2-digit',
+          minute: '2-digit',
+          meridiem: false,
+          timeZoneName: 'short',
+          hour12: false
+        },
+        visibleRange: {
+          start: '{{ config.calendar.start }}',
+          end: '{{ config.calendar.end }}'
+        },
+        headerToolbar: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'timeGridWeek,timeGridDay'
+        },
+        height: "auto",
+        events: function(info, successCallback, failureCallback) {
+            // We need to change the time zone manually,
+            // we cannot use static event data
+            // Deep copy
+            let tz = info.timeZone;
+            if (tz === "Local") {
+                tz = moment.tz.guess();
+            }
+
+            let view = window.fc_current_view;
+
+            let zoned_events = JSON.parse(JSON.stringify(events));
+              for (var i = 0; i < zoned_events.length; i++){
+                var obj = zoned_events[i];
+                obj["start"] = moment(obj["start"]).tz(tz).format();
+                obj["end"] = moment(obj["end"]).tz(tz).format();
+
+                if (obj["view"] === "week") {
+                  obj["display"] = "none";
+                }
+              }
+            successCallback(zoned_events);
+        },
+        eventClick: function(eventClickInfo) {
+            var e = eventClickInfo.event;
+            // Prevent reloading the current page, as we clicked
+            // on a hyperlink on the current page
+            eventClickInfo.jsEvent.preventDefault();
+
+            if (e.url) {
+                window.open(e.url, "_blank");
+                return false;
+            }
+        },
+        // Render HTML from title as HTML
+        eventContent: function( arg ) {
+ 	        return { html: arg.event.title }
+        },
+        datesSet: function( dateInfo ) {
+            window.fc_current_view = dateInfo.view.type;
+            dateInfo.view.calendar.refetchEvents();
+        }
+      });
+
+      moment.tz.names().forEach(function(timeZone) {
+        var optionEl;
+
+        if (timeZone !== 'UTC') { // UTC is already in the list
+          optionEl = document.createElement('option');
+          optionEl.value = timeZone;
+          optionEl.innerText = timeZone;
+          timeZoneSelectorEl.appendChild(optionEl);
+        }
+      });
+
+    // when the timezone selector changes, dynamically change the calendar option
+    timeZoneSelectorEl.addEventListener('change', function() {
+      calendar.setOption('timeZone', this.value);
+    });
+
+    calendar.render();
+  });
+</script>
+{% endblock %}
+
 
 {% block content %}
-<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-  <div id="day">
-    <!-- Workshops -->
-    {{ components.section("Workshops") }}
-    <div class="speakers">
-      {{ components.workshopgroup(workshops) }}
-    </div>
+<div class="tab-content pt-3 px-3 px-sm-0" id="nav-tabContent">
+  <!-- Workshops -->
+  {{ components.section("Workshops") }}
+</div>
+
+<div class="row">
+  <div class="col-12 pb-4">
+    <p class="lead">
+    Below is the schedule of the workshops to be held on July 5, July 9 and July 10. Click on each workshop on the schedule to access its material. <br/>
+    </p>
   </div>
+</div>
+
+<div>
+  <div class="form-group col">
+    <label for="time-zone-selector">Timezone:</label>
+    <select id="time-zone-selector" class="selectpicker" data-live-search="true">
+      <option value="local" selected>Local</option>
+      <option value="UTC">UTC</option>
+    </select>
+  </div>
+  <div id="calendar"></div>
 </div>
 {% endblock %}

@@ -55,10 +55,6 @@ def load_site_data(
         # socials.html
         "socials",
         # workshops.html
-        "july5_workshop_calendar",
-        "july9_workshop_calendar",
-        "july10_workshop_calendar",
-        "workshop_calendar",
         "workshops",
         # sponsors.html
         "sponsors",
@@ -146,6 +142,9 @@ def load_site_data(
     # workshops.html
     workshops = build_workshops(site_data["workshops"])
     site_data["workshops"] = workshops
+    site_data["workshop_calendar"] = build_workshop_schedule(
+        site_data["overall_calendar"]
+    )
     # workshop_<uid>.html
     by_uid["workshops"] = {workshop.id: workshop for workshop in workshops}
 
@@ -226,6 +225,22 @@ def build_tutorial_schedule(
 
     for event in events:
         event["classNames"] = ["calendar-event-tutorial"]
+        event["url"] = event["link"]
+        event["classNames"].append("calendar-event")
+    return events
+
+
+def build_workshop_schedule(
+    overall_calendar: List[Dict[str, Any]]
+) -> List[Dict[str, Any]]:
+    events = [
+        copy.deepcopy(event)
+        for event in overall_calendar
+        if event["type"] in {"Workshops"}
+    ]
+
+    for event in events:
+        event["classNames"] = ["calendar-event-workshops"]
         event["url"] = event["link"]
         event["classNames"].append("calendar-event")
     return events

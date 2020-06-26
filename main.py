@@ -104,7 +104,7 @@ def tutorials():
 @app.route("/workshops.html")
 def workshops():
     data = _data()
-    data["workshops"] = site_data["workshops"]
+    data["calendar"] = site_data["workshop_calendar"]
     return render_template("workshops.html", **data)
 
 
