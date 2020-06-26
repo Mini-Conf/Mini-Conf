@@ -27,14 +27,6 @@
   >
     <div id="live">
       <div class="plenary_sessions">
-      <!-- Chat -->
-      <div class="row p-4">
-      <div class="col-md-12 col-xs-12 p-2">
-      <div id="chat" class="slp">
-      <iframe frameborder="0" src="https://{{config.chat_server}}/channel/live?layout=embedded" height="300px" width="100%" ></iframe>
-      </div>
-      </div>
-      </div>
 
       <!-- SlidesLive-->
       <div class="row p-4">
@@ -48,11 +40,21 @@
             autoPlay: false, // change to true to autoplay the embedded presentation
             verticalEnabled: true,
             verticalWhenWidthLte: 500,
-            allowHiddenControlsWhenPaused: true,
+            allowHiddenControlsWhenPaused: false,
             hideTitle: true,
           });
         </script>
 
+        <a href="https://us2web.zoom.us/j/89269345289" target="_blank">[Join Zoom link for Live QA]</a>
+
+        </div>
+        <!-- Chat -->
+        <div class="row p-4">
+          <div class="col-md-12 col-xs-12 p-2">
+            <div id="chat" class="slp">
+            <iframe frameborder="0" src="https://{{config.chat_server}}/channel/live?layout=embedded" height="300px" width="100%" ></iframe>
+            </div>
+          </div>
         </div>
       </div>
     </div>
