@@ -31,32 +31,56 @@
 </div>
 
 <div class="container" style="background-color:white; padding: 0px;">
-  <div class="row m-2">
-  <!-- Presentation Embed -->
+  <b>Information about the virtual format of this tutorial: </b> {{tutorial.virtual_format_description}}
+  <br/>
+  <div class="row m-2">    
+    {% if tutorial.prerecorded %}
+    <!-- Presentation Embed -->
+    <div class="col-md-7 col-xs-12 my-auto p-2" >
+      <div id="presentation-embed" class="slp my-auto"></div>
+      <script src='https://slideslive.com/embed_presentation.js'></script>
+      <script>
+        embed = new SlidesLiveEmbed('presentation-embed', {
+        presentationId: '{{config.default_presentation_id}}',
+        autoPlay: false, // change to true to autoplay the embedded presentation
+        verticalEnabled: true,
+        verticalWhenWidthLte: 500,
+        allowHiddenControlsWhenPaused: true,
+        hideTitle: true
+        });
+      </script>
+    </div>
+    {% endif %}
 
-  <div class="col-md-7 col-xs-12 my-auto p-2" >
+    <!-- Chat -->
+    <br/>
+    <div class="col-md-5 col-xs-12 p-2">
+      <div id="gitter" class="slp">
+        <iframe frameborder="0" src="https://{{config.chat_server}}/channel/tutorial-{{tutorial.id}}?layout=embedded" height="700px" width="100%" ></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Livestreaming -->
+  {% if tutorial.livestream %}
+  <div class="row m-2">
+    <div class="col-md-12 col-xs-12 my-auto p-2">
     <div id="presentation-embed" class="slp my-auto"></div>
     <script src='https://slideslive.com/embed_presentation.js'></script>
     <script>
       embed = new SlidesLiveEmbed('presentation-embed', {
-      presentationId: '{{config.default_presentation_id}}',
-      autoPlay: false, // change to true to autoplay the embedded presentation
-      verticalEnabled: true,
-      verticalWhenWidthLte: 500,
-      allowHiddenControlsWhenPaused: true,
-      hideTitle: true
+        presentationId: '{{config.default_presentation_id}}',  // TODO: make this configurable
+        autoPlay: false, // change to true to autoplay the embedded presentation
+        verticalEnabled: true,
+        verticalWhenWidthLte: 500,
+        allowHiddenControlsWhenPaused: true,
+        hideTitle: true
       });
     </script>
-  </div>
-
-  <!-- Chat -->
-  <br/>
-  <div class="col-md-5 col-xs-12 p-2">
-    <div id="gitter" class="slp">
-      <iframe frameborder="0" src="https://{{config.chat_server}}/channel/tutorial-{{tutorial.id}}?layout=embedded" height="700px" width="100%" ></iframe>
     </div>
   </div>
-  </div>
+  {% endif %}
+
 </div>
 
 
