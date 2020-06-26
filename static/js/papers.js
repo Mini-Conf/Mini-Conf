@@ -136,12 +136,18 @@ const updateSession = () => {
 /**
  * START here and load JSON.
  */
-const start = (path_to_papers_json) => {
+const start = (track) => {
     // const urlFilter = getUrlParameter("filter") || 'keywords';
     const urlFilter = getUrlParameter("filter") || 'titles';
     setQueryStringParameter("filter", urlFilter);
     updateFilterSelectionBtn(urlFilter);
 
+    var path_to_papers_json;
+    if (track === "All tracks") {
+      path_to_papers_json = "papers.json";
+    } else {
+      path_to_papers_json = "track_"  + track + ".json";
+    }
 
     d3.json(path_to_papers_json).then(papers => {
         shuffleArray(papers);

@@ -143,16 +143,16 @@
 <script>
   $(document).ready(function () {
     tippy("[data-tippy-content]", { trigger: "mouseenter focus" });
-    start("papers.json");
+    const track = getUrlParameter("track") || "All tracks";
+
+    start(track);
+    $('#track_selector').selectpicker('val', track);
   });
 
   $('#track_selector').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
     let track = e.target.value;
-    if (track === "All tracks") {
-      start("papers.json");
-    } else {
-      start("track_"  + track + ".json");
-    }
+    setQueryStringParameter("track", track);
+    start(track);
   });
 </script>
 
