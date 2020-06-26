@@ -6,7 +6,7 @@
 {{ components.calendar_scripts() }}
 <script>
   var events = JSON.parse('{{ calendar | tojson }}');
-  var initial_view = 'timeGridDay';
+  var initial_view = 'timeGridWeek';
   window.fc_current_view = initial_view;
 
   // We use https://fullcalendar.io/
@@ -60,7 +60,8 @@
                 obj["start"] = moment(obj["start"]).tz(tz).format();
                 obj["end"] = moment(obj["end"]).tz(tz).format();
 
-                if (obj["view"] === "week") {
+                if (obj["view"] === "day" && view !== "timeGridDay" ||
+                    obj["view"] === "week" && view !== "timeGridWeek") {
                   obj["display"] = "none";
                 }
               }
@@ -71,6 +72,18 @@
             // Prevent reloading the current page, as we clicked
             // on a hyperlink on the current page
             eventClickInfo.jsEvent.preventDefault();
+            let view = window.fc_current_view;
+
+            // If we are in week view and click on a generic workshop
+            // block, go to day view for that day.
+            if (view === 'timeGridWeek') {
+                let calendar = eventClickInfo.view.calendar;
+                let e = eventClickInfo.event;
+                console.log(e.start);
+
+                calendar.changeView('timeGridDay', e.start);
+                return;
+            }
 
             if (e.url) {
                 window.open(e.url, "_blank");
