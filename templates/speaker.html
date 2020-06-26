@@ -14,6 +14,19 @@
       / {{speaker.institution}}
       {% endif %}
     </h3>
+
+    {% if speaker.qa_session %}
+    <div class="text-center text-muted text-monospace ">
+      <div>
+      Live QA Session:
+      <span class="session_times">{{speaker.qa_session.time}}</span>
+      [<a href="{{speaker.qa_session.zoom_link}}" target="_blank"  class="card-link">Join Zoom Meeting</a>]
+      <span id="session-cal-link"></span>
+      </div>
+    </div>
+    {% endif %}
+
+    {% if speaker.abstract %}
     <div class="text-center p-3">
       <a class="card-link" data-toggle="collapse" role="button" href="#details">
         Abstract & Bio
@@ -25,7 +38,7 @@
           <div id="abstractExample">
             <span class="font-weight-bold">Abstract:</span>
             {{speaker.abstract|safe}} <br /><br />
-    
+
             <span class="font-weight-bold">Bio:</span>
             {{speaker.bio|safe}}
           </div>
@@ -33,6 +46,8 @@
         <p></p>
       </div>
     </div>
+    {% endif %}
+
   </div>
 </div>
 
@@ -40,11 +55,15 @@
 <div class="container" style="background-color:white; padding: 0px;">
   <div class="row m-2">
   <!-- Presentation Embed -->
+  {% if speaker.rocketchat_channel %}
   <div class="col-md-7 col-xs-12 my-auto p-2" >
-  <div id="presentation-embed-{{speaker.UID}}" class="slp my-auto"></div>
+  {% else %}
+    <div class="col-md-12 col-xs-12 my-auto p-2" >
+  {% endif %}
+  <div id="presentation-embed" class="slp my-auto"></div>
   <script src='https://slideslive.com/embed_presentation.js'></script>
   <script>
-    embed = new SlidesLiveEmbed('presentation-embed-{{speaker.UID}}', {
+    embed = new SlidesLiveEmbed('presentation-embed', {
       presentationId: '{{speaker.presentation_id | default(config.default_presentation_id)}}',
       autoPlay: false, // change to true to autoplay the embedded presentation
       verticalEnabled: true,
@@ -55,11 +74,13 @@
   </script>
   </div>
   <!-- Chat -->
+  {% if speaker.rocketchat_channel %}
   <div class="col-md-5 col-xs-12 p-2">
-  <div id="gitter" class="slp">
-  <iframe frameborder="0" src="https://{{config.chat_server}}/channel/{{speaker.rocketchat_channel}}?layout=embedded" height="700px" width="100%" ></iframe>
+    <div id="gitter" class="slp">
+      <iframe frameborder="0" src="https://{{config.chat_server}}/channel/{{speaker.rocketchat_channel}}?layout=embedded" height="700px" width="100%" ></iframe>
+    </div>
   </div>
-  </div>
+  {% endif %}
   </div>
 </div>
 
