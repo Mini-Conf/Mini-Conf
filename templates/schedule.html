@@ -6,129 +6,18 @@
 {% include 'cal_head.html' %}
 {% endblock %}
 
-{% block tabs %}
-{{ components.tabs([("calendar", "Calendar", "active"),
-                    ("live", "Livestream", ""),
-                    ("mon", "Monday", ""),
-                    ("tue", "Tuesday", ""),
-                    ("wed", "Wednesday", "")]) }}
-{% endblock %}
-
 {% block content %}
-  <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-
-  <!-- Calender tab -->
-  <div
-    class="tab-pane fade show active"
-    id="tab-calendar"
-    role="tabpanel"
-    aria-labelledby="nav-profile-tab"
-  >
-
   <div class="form-group col">
     <label for="time-zone-selector">Timezone:</label>
     <select id="time-zone-selector" class="selectpicker" data-live-search="true">
       <option value="local" selected>Local</option>
       <option value="UTC">UTC</option>
     </select>
-  </div>
-
   <div id='calendar'></div>
 </div>
 
-  <!-- Day Tab -->
-
-  <div
-      class="tab-pane fade"
-      id="tab-live"
-      role="tabpanel"
-      aria-labelledby="nav-profile-tab"
-  >
-    <!-- Chat -->
-    <div class="row p-4">
-      <div class="col-md-12 col-xs-12 p-2">
-        <div id="chat" class="slp">
-          <iframe frameborder="0" src="https://{{config.chat_server}}/channel/live?layout=embedded" height="300px" width="100%" ></iframe>
-        </div>
-      </div>
-    </div>
-
-    <!-- SlidesLive-->
-    <div class="row p-4">
-      <div class="col-md-12 col-xs-12 p-2">
-        <div id="presentation-embed" class="my-auto"></div>
-      </div>
-      <script src='https://slideslive.com/embed_presentation.js'></script>
-      <script>
-        $(document).ready(function () {
-          embed = new SlidesLiveEmbed('presentation-embed', {
-            presentationId: '38931287',  // TODO: make this configurable
-            autoPlay: false, // change to true to autoplay the embedded presentation
-            verticalEnabled: true,
-            verticalWhenWidthLte: 500,
-            allowHiddenControlsWhenPaused: true,
-            hideTitle: true,
-          });
-        });
-      </script>
-
-    </div>
-  </div>
-
-  <div
-      class="tab-pane fade"
-      id="tab-mon"
-      role="tabpanel"
-      aria-labelledby="nav-profile-tab"
-  >
-    <div id="mon">
-      <!-- Speakers -->
-      {{ components.section("Plenary Sessions") }}
-      <div class="speakers">
-        {{ components.speakergroup(Monday.speakers) }}
-      </div>
-    </div>
-  </div>
-
-
-  <div
-    class="tab-pane fade"
-    id="tab-tue"
-    role="tabpanel"
-    aria-labelledby="nav-profile-tab"
-  >
-    <div id="tue">
-      <!-- Speakers -->
-      {{ components.section("Plenary Sessions") }}
-      <div class="speakers">
-        {{ components.speakergroup(Tuesday.speakers) }}
-      </div>
-    </div>
-
-    <script type="text/javascript">
-      lazyLoader();
-    </script>
-  </div>
-
-  <div
-    class="tab-pane fade"
-    id="tab-wed"
-    role="tabpanel"
-    aria-labelledby="nav-profile-tab"
-  >
-    <div id="wed">
-      <!-- Speakers -->
-      {{ components.section("Plenary Sessions") }}
-      <div class="speakers">
-        {{ components.speakergroup(Wednesday.speakers) }}
-      </div>
-    </div>
-
-    <script type="text/javascript">
-      lazyLoader();
-    </script>
-
-  </div>
-</div>
+<script type="text/javascript">
+  lazyLoader();
+</script>
 
 {% endblock %}
