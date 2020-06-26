@@ -54,6 +54,10 @@
                 var obj = zoned_events[i];
                 obj["start"] = moment(obj["start"]).tz(tz).format();
                 obj["end"] = moment(obj["end"]).tz(tz).format();
+
+                if (obj["view"] === "week") {
+                  obj["display"] = "none";
+                }
               }
             successCallback(zoned_events);
         },
