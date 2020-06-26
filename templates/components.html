@@ -53,15 +53,20 @@
             </div>
             <div class="m-3 text-muted">
               <span class="card-title h3">
-                {{speaker.speaker}}
-                {% if speaker.institutino %}
+                {{speaker.speaker | markdown}}
+                {% if speaker.institution %}
                 /  {{speaker.institution}}
                 {% endif %}
               </span>
             </div>
+            <div class="m-3 text-muted">
+              Time: {{speaker.time}}
+            </div>
+            {% if speaker.abstract %}
             <div class="m-3">
               {{speaker.abstract|safe}}
             </div>
+            {% endif %}
           </div>
         </div>
       </div>
