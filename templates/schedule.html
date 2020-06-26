@@ -15,10 +15,11 @@
 {% endblock %}
 
 {% block content %}
-<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+  <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+
   <!-- Calender tab -->
   <div
-    class="tab-pane active"
+    class="tab-pane fade show active"
     id="tab-calendar"
     role="tabpanel"
     aria-labelledby="nav-profile-tab"
@@ -38,7 +39,7 @@
   <!-- Day Tab -->
 
   <div
-      class="tab-pane fade active"
+      class="tab-pane fade"
       id="tab-live"
       role="tabpanel"
       aria-labelledby="nav-profile-tab"
@@ -46,31 +47,32 @@
     <!-- Chat -->
     <div class="row p-4">
       <div class="col-md-12 col-xs-12 p-2">
-        <div id="gitter" class="slp">
-        <iframe frameborder="0" src="https://{{config.chat_server}}/channel/live?layout=embedded" height="300px" width="100%" ></iframe>
+        <div id="chat" class="slp">
+          <iframe frameborder="0" src="https://{{config.chat_server}}/channel/live?layout=embedded" height="300px" width="100%" ></iframe>
         </div>
       </div>
     </div>
 
     <!-- SlidesLive-->
     <div class="row p-4">
-    <div class="col-md-12 col-xs-12 my-auto p-2">
-    <div id="presentation-embed" class="slp my-auto"></div>
-    <script src='https://slideslive.com/embed_presentation.js'></script>
-    <script>
-      embed = new SlidesLiveEmbed('presentation-embed', {
-        presentationId: '38931287',  // TODO: make this configurable
-        autoPlay: false, // change to true to autoplay the embedded presentation
-        verticalEnabled: true,
-        verticalWhenWidthLte: 500,
-        allowHiddenControlsWhenPaused: true,
-        hideTitle: true
-      });
-    </script>
-    </div>
-    </div>
+      <div class="col-md-12 col-xs-12 p-2">
+        <div id="presentation-embed" class="my-auto"></div>
+      </div>
+      <script src='https://slideslive.com/embed_presentation.js'></script>
+      <script>
+        $(document).ready(function () {
+          embed = new SlidesLiveEmbed('presentation-embed', {
+            presentationId: '38931287',  // TODO: make this configurable
+            autoPlay: false, // change to true to autoplay the embedded presentation
+            verticalEnabled: true,
+            verticalWhenWidthLte: 500,
+            allowHiddenControlsWhenPaused: true,
+            hideTitle: true,
+          });
+        });
+      </script>
 
-
+    </div>
   </div>
 
   <div
@@ -125,6 +127,7 @@
     <script type="text/javascript">
       lazyLoader();
     </script>
+
   </div>
 </div>
 
