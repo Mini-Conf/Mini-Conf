@@ -60,11 +60,13 @@
      <a href="papers.html?track={{paper.content.track}}" class ="badge badge-pill badge-primary">{{ paper.content.track }}</a>
     </p>
 
-    <div class="text-center text-muted text-monospace ">
+    <div class="text-center text-muted text-monospace paper-detail-container">
     {% for session in paper.content.sessions %}
-      <div>
+      <div class="paper-session-times">
         {{session.session}}
         <span class="session_times">{{session.time_string}}</span>
+      </div>
+      <div class="paper-cal-links">
         [<a href="{{session.zoom_link}}" target="_blank"  class="card-link">Live QA</a>]
         <span id="session-cal-link-{{loop.index}}"></span>
       </div>
