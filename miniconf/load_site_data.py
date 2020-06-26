@@ -114,8 +114,6 @@ def load_site_data(
             site_data["srw_paper_sessions"],
         ],
         qa_session_length_hr=qa_session_length_hr,
-        # TODO: Should add a `webcal_url` to config instead? Is there a better way?
-        calendar_stub=site_data["config"]["site_url"].replace("https", "webcal"),
         paper_recs=site_data["paper_recs"],
     )
     del site_data["main_papers"]
@@ -256,7 +254,6 @@ def build_papers(
     raw_papers: List[Dict[str, str]],
     all_paper_sessions: List[Dict[str, Dict[str, Any]]],
     qa_session_length_hr: int,
-    calendar_stub: str,
     paper_recs: Dict[str, List[str]],
 ) -> List[Paper]:
     """Builds the site_data["papers"].
@@ -295,15 +292,12 @@ def build_papers(
         start_time = datetime.strptime(date, "%Y-%m-%d_%H:%M:%S")
         end_time = start_time + timedelta(hours=qa_session_length_hr)
         for paper_id in session_info["papers"]:
-            session_offset = len(sessions_for_paper[paper_id])
             sessions_for_paper[paper_id].append(
                 SessionInfo(
                     session_name=session_name,
                     start_time=start_time,
                     end_time=end_time,
                     zoom_link="https://zoom.com",
-                    # TODO: the prefix should be configurable?
-                    ical_link=f"{calendar_stub}/paper_{paper_id}.{session_offset}.ics",
                 )
             )
 

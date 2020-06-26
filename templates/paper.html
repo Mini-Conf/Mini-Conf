@@ -160,50 +160,52 @@
 
 <script src="static/js/add-to-calendar.js"></script>
 <script>
-  let ouicalData;
-  let targetNode;
-  let calendarNodeInner;
-  let calendarNodeSpan;
-  let parser = new DOMParser();
-  let calendarNames = Array("google", "off365", "outlook", "ical");
+  $(document).ready(() => {
+    let ouicalData;
+    let targetNode;
+    let calendarNodeInner;
+    let calendarNodeSpan;
+    let parser = new DOMParser();
+    let calendarNames = Array("google", "off365", "outlook", "ical");
 
-  {% for session in paper.content.sessions %}
-  // create a calendar by hand
-  ouicalData = addToCalendarData({
-    options: {
-      class: 'my-class',
-      id: 'my-id'                               // If you don't pass an id, one will be generated for you.
-    },
-    data: {
-      title: '{{paper.content.title}}',
+    {% for session in paper.content.sessions %}
+      // create a calendar by hand
+      ouicalData = addToCalendarData({
+        options: {
+          class: 'my-class',
+          id: 'my-id'                               // If you don't pass an id, one will be generated for you.
+        },
+        data: {
+          title: '{{paper.content.title}}',
 
-      // Event start date
-      start: new Date('{{session.start_time}}'),
-      end: new Date('{{session.end_time}}'),
-      // duration: 120,                           // Event duration (IN MINUTES)
-      // allday: true,														// Override end time, duration and timezone, triggers 'all day'
+          // Event start date
+          start: new Date('{{session.start_time}}'),
+          end: new Date('{{session.end_time}}'),
+          // duration: 120,                           // Event duration (IN MINUTES)
+          // allday: true,														// Override end time, duration and timezone, triggers 'all day'
 
-      // Event timezone. Will convert the given time to that zone
-      timezone: 'UTC',
-      // Event Address
-      address: '{{session.zoom_link}}',
+          // Event timezone. Will convert the given time to that zone
+          timezone: 'UTC',
+          // Event Address
+          address: '{{session.zoom_link}}',
 
-      // Event Description
-      description: '{{session.zoom_link}}'
-    }
-  });
+          // Event Description
+          description: '{{session.zoom_link}}'
+        }
+      });
 
-  targetNode = document.querySelector('#session-cal-link-{{ loop.index }}');
-  for (const name of calendarNames) {
-    calendarNodeInner = parser.parseFromString(ouicalData[name], "text/html");
-    calendarNodeSpan = document.createElement("span");
-    calendarNodeSpan.setAttribute("style", "padding: 2px");
-    calendarNodeSpan.appendChild(document.createTextNode("["));
-    calendarNodeSpan.appendChild(calendarNodeInner.getElementsByTagName("a")[0]);
-    calendarNodeSpan.appendChild(document.createTextNode("]"));
-    targetNode.appendChild(calendarNodeSpan);
-  }
-  {% endfor %}
+      targetNode = document.querySelector('#session-cal-link-{{ loop.index }}');
+      for (const name of calendarNames) {
+        calendarNodeInner = parser.parseFromString(ouicalData[name], "text/html");
+        calendarNodeSpan = document.createElement("span");
+        calendarNodeSpan.setAttribute("style", "padding: 2px");
+        calendarNodeSpan.appendChild(document.createTextNode("["));
+        calendarNodeSpan.appendChild(calendarNodeInner.getElementsByTagName("a")[0]);
+        calendarNodeSpan.appendChild(document.createTextNode("]"));
+        targetNode.appendChild(calendarNodeSpan);
+      }
+    {% endfor %}
+  })
 </script>
 
 {% endblock %}

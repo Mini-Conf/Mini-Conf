@@ -2,21 +2,11 @@
 import argparse
 import copy
 import os
-from datetime import timedelta
 from typing import Any, Dict
 
-import pytz
-from flask import (
-    Flask,
-    jsonify,
-    make_response,
-    redirect,
-    render_template,
-    send_from_directory,
-)
+from flask import Flask, jsonify, redirect, render_template, send_from_directory
 from flask_frozen import Freezer
 from flaskext.markdown import Markdown
-from icalendar import Calendar, Event
 
 from miniconf.load_site_data import load_site_data
 from miniconf.site_data import Paper, Tutorial, Workshop
@@ -146,43 +136,6 @@ def paper(uid):
     return render_template("paper.html", **data)
 
 
-@app.route("/paper_<uid>.<session_idx>.ics")
-def paper_ics(uid, session_idx):
-    session_idx = int(session_idx)
-    # TODO: should move these to load_site_data
-    paper: Paper
-    paper = by_uid["papers"][uid]
-    start = paper.content.sessions[session_idx].start_time
-    start = start.replace(tzinfo=pytz.utc)
-
-    cal = Calendar()
-    cal.add("prodid", "-//ACL//acl2020.org//")
-    cal.add("version", "2.0")
-    cal["X-WR-TIMEZONE"] = "GMT"
-    cal["X-WR-CALNAME"] = f"ACL: {paper.content.title}"
-
-    event = Event()
-    link = (
-        '<a href="'
-        + site_data["config"]["site_url"]
-        + '/paper_%s.html">Poster Page</a>' % (uid)
-    )
-    event.add("summary", paper.content.title)
-    event.add("description", link)
-    event.add("uid", f"ACL2020-{uid}-{session_idx}")
-    event.add("dtstart", start)
-    event.add("dtend", start + timedelta(hours=qa_session_length_hr))
-    event.add("dtstamp", start)
-    cal.add_component(event)
-
-    response = make_response(cal.to_ical())
-    response.mimetype = "text/calendar"
-    response.headers["Content-Disposition"] = (
-        "attachment; filename=paper_" + uid + "." + str(session_idx) + ".ics"
-    )
-    return response
-
-
 @app.route("/speaker_<uid>.html")
 def speaker(uid):
     data = _data()
@@ -254,8 +207,6 @@ def generator():
     paper: Paper
     for paper in site_data["papers"]:
         yield "paper", {"uid": paper.id}
-        for idx in range(len(paper.content.sessions)):
-            yield "paper_ics", {"uid": paper.id, "session_idx": str(idx)}
     for track in site_data["tracks"]:
         yield "track_json", {"track_name": track}
     for speaker in site_data["speakers"]:

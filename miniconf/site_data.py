@@ -11,7 +11,6 @@ class SessionInfo:
     start_time: datetime
     end_time: datetime
     zoom_link: str
-    ical_link: str
 
     @property
     def time_string(self) -> str:
