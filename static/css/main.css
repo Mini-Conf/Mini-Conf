@@ -361,6 +361,10 @@ body .carousel-control-prev {
   border-color: transparent;
 }
 
+.fc-v-event .fc-event-main {
+  overflow: scroll;
+}
+
 .deco-none {
   color: inherit;
   text-decoration: inherit;
