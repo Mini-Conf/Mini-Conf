@@ -14,8 +14,8 @@
 
 {% block content %}
 <!-- Buttons -->
-<div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
-  <div class="input-group mr-3">
+<div id="papers_options" class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+  <div class="input-group mr-3 flex-fill">
     <input
       type="text"
       class="form-control typeahead_all"
@@ -124,7 +124,7 @@
     </label>
   </div>
 
-  <div>
+  <div class="bootstrap-select">
       <select id="track_selector" class="selectpicker" data-live-search="true" data-style="btn-light">
         <option>All tracks</option>
       {% for track in tracks %}
