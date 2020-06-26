@@ -9,9 +9,9 @@
 
 {% block tabs %}
 {{ components.tabs([("live", "Livestream", "active"),
-                    ("mon", "Monday", ""),
-                    ("tue", "Tuesday", ""),
-                    ("wed", "Wednesday", "")]) }}
+                    ("july6", "July 6", ""),
+                    ("july7", "July 7", ""),
+                    ("july8", "July 8", "")]) }}
 {% endblock %}
 
 {% block content %}
@@ -26,7 +26,7 @@
       aria-labelledby="nav-profile-tab"
   >
     <div id="live">
-      <div class="speakers">
+      <div class="plenary_sessions">
       <!-- Chat -->
       <div class="row p-4">
       <div class="col-md-12 col-xs-12 p-2">
@@ -60,14 +60,14 @@
 
   <div
       class="tab-pane fade"
-      id="tab-mon"
+      id="tab-july6"
       role="tabpanel"
       aria-labelledby="nav-profile-tab"
   >
     {{ components.section("Plenary Sessions") }}
-    <div id="mon">
-      <div class="speakers">
-        {{ components.speakergroup(Monday.speakers) }}
+    <div id="july6">
+      <div class="plenary_sessions">
+        {{ components.plenarysessiongroup(plenary_sessions["July 6"]) }}
       </div>
 
     </div>
@@ -75,28 +75,28 @@
 
   <div
     class="tab-pane fade"
-    id="tab-tue"
+    id="tab-july7"
     role="tabpanel"
     aria-labelledby="nav-profile-tab"
   >
     {{ components.section("Plenary Sessions") }}
-    <div id="tue">
-      <div class="speakers">
-        {{ components.speakergroup(Tuesday.speakers) }}
+    <div id="july7">
+      <div class="plenary_sessions">
+        {{ components.plenarysessiongroup(plenary_sessions["July 7"]) }}
       </div>
     </div>
   </div>
 
   <div
     class="tab-pane fade"
-    id="tab-wed"
+    id="tab-july8"
     role="tabpanel"
     aria-labelledby="nav-profile-tab"
   >
     {{ components.section("Plenary Sessions") }}
-    <div id="wed">
-      <div class="speakers">
-        {{ components.speakergroup(Wednesday.speakers) }}
+    <div id="july8">
+      <div class="plenary_sessions">
+        {{ components.plenarysessiongroup(plenary_sessions["July 8"]) }}
       </div>
     </div>
   </div>

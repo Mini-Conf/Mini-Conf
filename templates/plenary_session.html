@@ -1,32 +1,33 @@
-{% set page_title = speaker.title %}
+{% set page_title = plenary_session.title %}
 {% extends "base.html" %}
 {% block content %}
 
 <!-- Title -->
 <div class="pp-card m-3" style="">
   <div class="card-header">
-    <h2 class="card-title main-title text-center" style="">
-      {{speaker.title}}
+    <h2 class="card-title main-title text-center" style="color:black">
+      {{plenary_session.title}}
     </h2>
     <h3 class="card-subtitle mb-2 text-muted text-center">
-      {{speaker.speaker}}
-      {% if speaker.institution %}
-      / {{speaker.institution}}
+      {{plenary_session.speaker}}
+      {% if plenary_session.institution %}
+      / {{plenary_session.institution}}
       {% endif %}
     </h3>
 
-    {% if speaker.qa_session %}
+    {% if plenary_session.qa_time != none %}
     <div class="text-center text-muted text-monospace ">
       <div>
-      Live QA Session:
-      <span class="session_times">{{speaker.qa_session.time}}</span>
-      [<a href="{{speaker.qa_session.zoom_link}}" target="_blank"  class="card-link">Join Zoom Meeting</a>]
-      <span id="session-cal-link"></span>
+      Live QA:
+      <span class="session_times">{{plenary_session.qa_time}}</span>
+      {% if plenary_session.qa_time != none %}
+      [<a href="{{plenary_session.zoom_link}}" target="_blank"  class="card-link">Join Zoom Meeting</a>]
+      {% endif %}
       </div>
     </div>
     {% endif %}
 
-    {% if speaker.abstract %}
+    {% if plenary_session.abstract %}
     <div class="text-center p-3">
       <a class="card-link" data-toggle="collapse" role="button" href="#details">
         Abstract & Bio
@@ -37,10 +38,10 @@
         <div class="card-text">
           <div id="abstractExample">
             <span class="font-weight-bold">Abstract:</span>
-            {{speaker.abstract|safe}} <br /><br />
+            {{plenary_session.abstract|safe}} <br /><br />
 
             <span class="font-weight-bold">Bio:</span>
-            {{speaker.bio|safe}}
+            {{plenary_session.bio|safe}}
           </div>
         </div>
         <p></p>
@@ -55,7 +56,7 @@
 <div class="container" style="background-color:white; padding: 0px;">
   <div class="row m-2">
   <!-- Presentation Embed -->
-  {% if speaker.rocketchat_channel %}
+  {% if plenary_session.rocketchat_channel %}
   <div class="col-md-7 col-xs-12 my-auto p-2" >
   {% else %}
     <div class="col-md-12 col-xs-12 my-auto p-2" >
@@ -64,7 +65,7 @@
   <script src='https://slideslive.com/embed_presentation.js'></script>
   <script>
     embed = new SlidesLiveEmbed('presentation-embed', {
-      presentationId: '{{speaker.presentation_id | default(config.default_presentation_id)}}',
+      presentationId: '{{plenary_session.presentation_id | default(config.default_presentation_id)}}',
       autoPlay: false, // change to true to autoplay the embedded presentation
       verticalEnabled: true,
       verticalWhenWidthLte: 500,
@@ -74,10 +75,10 @@
   </script>
   </div>
   <!-- Chat -->
-  {% if speaker.rocketchat_channel %}
+  {% if plenary_session.rocketchat_channel %}
   <div class="col-md-5 col-xs-12 p-2">
     <div id="gitter" class="slp">
-      <iframe frameborder="0" src="https://{{config.chat_server}}/channel/{{speaker.rocketchat_channel}}?layout=embedded" height="700px" width="100%" ></iframe>
+      <iframe frameborder="0" src="https://{{config.chat_server}}/channel/{{plenary_session.rocketchat_channel}}?layout=embedded" height="700px" width="100%" ></iframe>
     </div>
   </div>
   {% endif %}

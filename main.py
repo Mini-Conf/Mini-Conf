@@ -1,6 +1,5 @@
 # pylint: disable=global-statement,redefined-outer-name
 import argparse
-import copy
 import os
 from typing import Any, Dict
 
@@ -9,7 +8,7 @@ from flask_frozen import Freezer
 from flaskext.markdown import Markdown
 
 from miniconf.load_site_data import load_site_data
-from miniconf.site_data import Paper, Tutorial, Workshop
+from miniconf.site_data import Paper, PlenarySession, Tutorial, Workshop
 
 site_data: Dict[str, Any] = {}
 by_uid: Dict[str, Any] = {}
@@ -41,7 +40,6 @@ def index():
 @app.route("/index.html")
 def home():
     data = _data()
-    data["readme"] = open("README.md").read()
     data["committee"] = site_data["committee"]
     return render_template("index.html", **data)
 
@@ -79,15 +77,11 @@ def schedule():
     return render_template("schedule.html", **data)
 
 
-@app.route("/plenary.html")
-def plenary():
+@app.route("/plenary_sessions.html")
+def plenary_sessions():
     data = _data()
-    for day, item in site_data["schedule"].items():
-        new_item = copy.deepcopy(item)
-        new_item["speakers"] = sorted(new_item["speakers"], key=lambda i: i["time"])
-        data[day] = new_item
-
-    return render_template("plenary.html", **data)
+    data["plenary_sessions"] = site_data["plenary_sessions"]
+    return render_template("plenary_sessions.html", **data)
 
 
 @app.route("/tutorials.html")
@@ -136,11 +130,11 @@ def paper(uid):
     return render_template("paper.html", **data)
 
 
-@app.route("/speaker_<uid>.html")
-def speaker(uid):
+@app.route("/plenary_session_<uid>.html")
+def plenary_session(uid):
     data = _data()
-    data["speaker"] = by_uid["speakers"][uid]
-    return render_template("speaker.html", **data)
+    data["plenary_session"] = by_uid["plenary_sessions"][uid]
+    return render_template("plenary_session.html", **data)
 
 
 @app.route("/tutorial_<uid>.html")
@@ -209,8 +203,10 @@ def generator():
         yield "paper", {"uid": paper.id}
     for track in site_data["tracks"]:
         yield "track_json", {"track_name": track}
-    for speaker in site_data["speakers"]:
-        yield "speaker", {"uid": str(speaker["UID"])}
+    plenary_session: PlenarySession
+    for _, plenary_sessions_on_date in site_data["plenary_sessions"].items():
+        for plenary_session in plenary_sessions_on_date:
+            yield "plenary_session", {"uid": plenary_session.id}
     tutorial: Tutorial
     for tutorial in site_data["tutorials"]:
         yield "tutorial", {"uid": tutorial.id}

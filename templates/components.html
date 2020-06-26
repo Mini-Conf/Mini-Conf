@@ -33,38 +33,49 @@
 </div>
 {%- endmacro %}
 
-{% macro speakergroup(speakers) -%}
-{% for speaker in speakers %}
+{% macro plenarysessiongroup(plenary_sessions) -%}
+{% for plenary_session in plenary_sessions %}
 <div class="row p-4">
   <div class="col-md-12">
     <div class="card">
       <div class="card-header">
         <div class="row">
           <div class="col-md-2 col-sm-5">
-            <img src="{{speaker.image}}" width="100%" class="img-thumbnail" />
+            <img src="{{plenary_session.image}}" width="100%" class="img-thumbnail" />
           </div>
           <div class="col-md-10 col-sm-6">
             <div class="m-3 text-muted">
               <h3>
-                <a href="speaker_{{speaker.UID}}.html" class="main-title" target="_blank">
-                  {{speaker.title}}
+                <a href="plenary_session_{{plenary_session.id}}.html" class="main-title" target="_blank">
+                  {{plenary_session.title}}
                 </a>
               </h3>
             </div>
             <div class="m-3 text-muted">
               <span class="card-title h3">
-                {{speaker.speaker | markdown}}
-                {% if speaker.institution %}
-                /  {{speaker.institution}}
+                {{plenary_session.speaker}}
+                {% if plenary_session.institution != none %}
+                / {{plenary_session.institution}}
                 {% endif %}
               </span>
             </div>
+
+            {% if plenary_session.time != none %}
             <div class="m-3 text-muted">
-              Time: {{speaker.time}}
+              Time: {{plenary_session.time}}
             </div>
-            {% if speaker.abstract %}
+            {% endif %}
+
+            {% if plenary_session.qa_time != none %}
+            <div class="m-3 text-muted">
+              Live QA: {{plenary_session.qa_time}}
+              [<a href="{{session.zoom_link}}" target="_blank"  class="card-link">Join Zoom</a>]
+            </div>
+            {% endif %}
+
+            {% if plenary_session.abstract != none %}
             <div class="m-3">
-              {{speaker.abstract|safe}}
+              {{plenary_session.abstract|markdown}}
             </div>
             {% endif %}
           </div>

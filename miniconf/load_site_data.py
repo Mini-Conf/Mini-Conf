@@ -16,6 +16,7 @@ from miniconf.site_data import (
     CommitteeMember,
     Paper,
     PaperContent,
+    PlenarySession,
     SessionInfo,
     Tutorial,
     Workshop,
@@ -40,7 +41,7 @@ def load_site_data(
         "committee",
         # schedule.html
         "overall_calendar",
-        "speakers",
+        "plenary_sessions",
         # tutorials.html
         "tutorials",
         # papers.html
@@ -62,7 +63,7 @@ def load_site_data(
         "code_of_conduct",
         "faq",
     }
-    extra_files = ["README.md"]
+    extra_files = []
     # Load all for your sitedata one time.
     for f in glob.glob(site_data_path + "/*"):
         filename = os.path.basename(f)
@@ -81,27 +82,22 @@ def load_site_data(
             site_data[name] = yaml.load(open(f).read(), Loader=yaml.SafeLoader)
     assert set(site_data.keys()) == registered_sitedata
 
-    for typ in ["speakers"]:
-        by_uid[typ] = {}
-        for p in site_data[typ]:
-            by_uid[typ][p["UID"]] = p
-
     display_time_format = "%H:%M"
 
     # index.html
     site_data["committee"] = build_committee(site_data["committee"]["committee"])
 
     # schedule.html
-    site_data["schedule"] = build_plenary_sessions(site_data["speakers"])
     site_data["calendar"] = build_schedule(site_data["overall_calendar"])
-    # tutorials.html
-    tutorials = build_tutorials(site_data["tutorials"])
-    site_data["tutorials"] = tutorials
-    site_data["tutorial_calendar"] = build_tutorial_schedule(
-        site_data["overall_calendar"]
-    )
-    # tutorial_<uid>.html
-    by_uid["tutorials"] = {tutorial.id: tutorial for tutorial in tutorials}
+
+    # plenary_sessions.html
+    plenary_sessions = build_plenary_sessions(site_data["plenary_sessions"])
+    site_data["plenary_sessions"] = plenary_sessions
+    by_uid["plenary_sessions"] = {
+        plenary_session.id: plenary_session
+        for _, plenary_sessions_on_date in plenary_sessions.items()
+        for plenary_session in plenary_sessions_on_date
+    }
 
     # papers.{html,json}
     papers = build_papers(
@@ -137,6 +133,15 @@ def load_site_data(
     # paper_<uid>.html
     by_uid["papers"] = {paper.id: paper for paper in papers}
 
+    # tutorials.html
+    tutorials = build_tutorials(site_data["tutorials"])
+    site_data["tutorials"] = tutorials
+    site_data["tutorial_calendar"] = build_tutorial_schedule(
+        site_data["overall_calendar"]
+    )
+    # tutorial_<uid>.html
+    by_uid["tutorials"] = {tutorial.id: tutorial for tutorial in tutorials}
+
     # workshops.html
     workshops = build_workshops(site_data["workshops"])
     site_data["workshops"] = workshops
@@ -169,14 +174,41 @@ def build_committee(raw_committee: List[Dict[str, Any]]) -> List[CommitteeMember
     return [jsons.load(item, cls=CommitteeMember) for item in raw_committee]
 
 
+def build_qa_session_for_plenary_session(qa_session: Dict[str, Any]) -> SessionInfo:
+    start_time = datetime.strptime(qa_session["start_time"][:-4], "%H:%M")
+    end_time = datetime.strptime(qa_session["end_time"][:-4], "%H:%M")
+    return SessionInfo(
+        session_name="",
+        start_time=start_time,
+        end_time=end_time,
+        zoom_link=qa_session["zoom_link"],
+    )
+
+
 def build_plenary_sessions(
     raw_keynotes: List[Dict[str, Any]]
-) -> Dict[str, Dict[str, List[Dict[str, Any]]]]:
-    # TODO: define a better dataclass and use Keynote
-    return {
-        day: {"speakers": [item for item in raw_keynotes if item["day"] == day]}
-        for day in ["Monday", "Tuesday", "Wednesday"]
-    }
+) -> DefaultDict[str, List[PlenarySession]]:
+    plenary_sessions: DefaultDict[str, List[PlenarySession]] = defaultdict(list)
+    for item in raw_keynotes:
+        plenary_sessions[item["date"]].append(
+            PlenarySession(
+                id=item["UID"],
+                title=item["title"],
+                image=item["image"],
+                date=item["date"],
+                day=item["day"],
+                time=item.get("time"),
+                speaker=item["speaker"],
+                institution=item.get("institution"),
+                abstract=item.get("abstract"),
+                bio=item.get("bio"),
+                presentation_id=item.get("presentation_id"),
+                rocketchat_channel=item.get("rocketchat_channel"),
+                qa_time=item.get("qa_time"),
+                zoom_link=item.get("zoom_link"),
+            )
+        )
+    return plenary_sessions
 
 
 def build_schedule(overall_calendar: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
