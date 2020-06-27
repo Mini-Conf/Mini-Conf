@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% set active_page = "Livestream" %}
+{% set page_title = "Livestream" %}
+{% block head %}
+{{ super() }}
+{% endblock %}
+
+
+{% block content %}
+
+<div id="live">
+    <div class="row p-4">
+      <!-- SlidesLive-->
+      <div class="col-md-12 col-xs-12 p-2">
+        <div id="presentation-embed" class="my-auto slp"></div>
+        <script src='https://slideslive.com/embed_presentation.js'></script>
+        <script>
+          embed = new SlidesLiveEmbed('presentation-embed', {
+            presentationId: '38922815',  // TODO: make this configurable
+            autoPlay: false, // change to true to autoplay the embedded presentation
+            verticalEnabled: true,
+            verticalWhenWidthLte: 500,
+            allowHiddenControlsWhenPaused: true,
+            hideTitle: true,
+          });
+        </script>
+      </div>
+    </div>
+
+    <!-- Chat -->
+    {{ components.section("Live Chat") }}
+    <div class="row p-4">
+      <div class="col-md-12 col-xs-12 p-2">
+        <div id="chat2" class="slp">
+          <iframe frameborder="0" src="https://{{config.chat_server}}/channel/live?layout=embedded" height="600px" width="100%" ></iframe>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script src="static/js/lazy_load.js"></script>
+<script type="text/javascript">
+  lazyLoader();
+</script>
+
+{% endblock %}

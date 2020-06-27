@@ -8,8 +8,7 @@
 
 
 {% block tabs %}
-{{ components.tabs([("live", "Livestream", "active"),
-                    ("july6", "July 6", ""),
+{{ components.tabs([("july6", "July 6", "active"),
                     ("july7", "July 7", ""),
                     ("july8", "July 8", "")]) }}
 {% endblock %}
@@ -21,60 +20,14 @@
   <!-- Day Tab -->
   <div
       class="tab-pane active show"
-      id="tab-live"
-      role="tabpanel"
-      aria-labelledby="nav-profile-tab"
-  >
-    <div id="live">
-      <div class="plenary_sessions">
-
-        <!-- Chat -->
-        <div class="row p-4">
-          <div class="col-md-12 col-xs-12 p-2">
-            <div id="chat2" class="slp">
-              <iframe frameborder="0" src="https://{{config.chat_server}}/channel/live-readonly?layout=embedded" height="200px" width="100%" ></iframe>
-            </div>
-         </div>
-        </div>
-
-        <div class="row p-4">
-          <!-- SlidesLive-->
-          <div class="col-md-12 col-xs-12 p-2">
-            <div id="presentation-embed" class="my-auto slp"></div>
-            <script src='https://slideslive.com/embed_presentation.js'></script>
-            <script>
-              embed = new SlidesLiveEmbed('presentation-embed', {
-                presentationId: '38928985',  // TODO: make this configurable
-                autoPlay: false, // change to true to autoplay the embedded presentation
-                verticalEnabled: true,
-                verticalWhenWidthLte: 500,
-                allowHiddenControlsWhenPaused: true,
-                hideTitle: true,
-              });
-            </script>
-          </div>
-        </div>
-
-        <!-- Chat -->
-        <div class="row p-4">
-          <div class="col-md-12 col-xs-12 p-2">
-            <div id="chat2" class="slp">
-              <iframe frameborder="0" src="https://{{config.chat_server}}/channel/live?layout=embedded" height="600px" width="100%" ></iframe>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <div
-      class="tab-pane fade"
       id="tab-july6"
       role="tabpanel"
       aria-labelledby="nav-profile-tab"
   >
     {{ components.section("Plenary Sessions") }}
+    <div class="col-12 bd-content">
+      <h4 class="text-center">Watch Livestream <a href="livestream.html" target="_blank">Here</a></h4>
+    </div>
     <div id="july6">
       <div class="plenary_sessions">
         {{ components.plenarysessiongroup(plenary_sessions["July 6"]) }}
@@ -90,6 +43,9 @@
     aria-labelledby="nav-profile-tab"
   >
     {{ components.section("Plenary Sessions") }}
+    <div class="col-12 bd-content">
+      <h4 class="text-center">Watch Livestream <a href="livestream.html" target="_blank">Here</a></h4>
+    </div>
     <div id="july7">
       <div class="plenary_sessions">
         {{ components.plenarysessiongroup(plenary_sessions["July 7"]) }}
@@ -104,6 +60,9 @@
     aria-labelledby="nav-profile-tab"
   >
     {{ components.section("Plenary Sessions") }}
+    <div class="col-12 bd-content">
+      <h4 class="text-center">Watch Livestream <a href="livestream.html" target="_blank">Here</a></h4>
+    </div>
     <div id="july8">
       <div class="plenary_sessions">
         {{ components.plenarysessiongroup(plenary_sessions["July 8"]) }}
