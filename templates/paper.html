@@ -66,8 +66,10 @@
         {{session.session}}
         <span class="session_times">{{session.time_string}}</span>
       </div>
-      <div class="paper-cal-links">
+      <div class="paper-zoom-link">
         [<a href="{{session.zoom_link}}" target="_blank"  class="card-link">Live QA</a>]
+      </div>
+      <div class="paper-cal-links">
         <span id="session-cal-link-{{loop.index}}"></span>
       </div>
     {% endfor %}

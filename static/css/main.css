@@ -396,11 +396,15 @@ div#papers_options > div {
   grid-column-start: 2;
 }
 
-.paper-cal-links {
+.paper-zoom-link {
   grid-column-start: 3;
+}
+
+.paper-cal-links {
+  grid-column-start: 4;
 }
 
 .paper-detail-container {
   display: grid;
-  grid-template-columns: 40px auto auto 40px;
+  grid-template-columns: 40px auto auto auto 40px;
 }
