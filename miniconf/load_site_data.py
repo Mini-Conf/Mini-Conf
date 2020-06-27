@@ -119,7 +119,7 @@ def load_site_data(
     del site_data["demo_paper_sessions"]
     del site_data["srw_paper_sessions"]
     site_data["papers"] = papers
-    demo_and_srw_tracks = ["Demo", "Student Research Workshop"]
+    demo_and_srw_tracks = ["System Demonstrations", "Student Research Workshop"]
     site_data["tracks"] = list(
         sorted(
             [
@@ -279,6 +279,8 @@ def build_workshop_schedule(
 def normalize_track_name(track_name: str) -> str:
     if track_name == "SRW":
         return "Student Research Workshop"
+    elif track_name == "Demo":
+        return "System Demonstrations"
     return track_name
 
 

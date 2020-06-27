@@ -43,6 +43,12 @@ class PaperContent:
     sessions: List[SessionInfo]
     similar_paper_uids: List[str]
 
+    def __post_init__(self):
+        if self.pdf_url:
+            assert self.pdf_url.startswith("https://"), self.pdf_url
+        if self.demo_url:
+            assert self.demo_url.startswith("https://"), self.demo_url
+
 
 @dataclass(frozen=True)
 class Paper:
