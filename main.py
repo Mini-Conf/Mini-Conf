@@ -101,6 +101,7 @@ def tutorials():
 def workshops():
     data = _data()
     data["calendar"] = site_data["workshop_calendar"]
+    data["workshops"] = site_data["workshops"]
     return render_template("workshops.html", **data)
 
 
@@ -217,8 +218,9 @@ def generator():
     for tutorial in site_data["tutorials"]:
         yield "tutorial", {"uid": tutorial.id}
     workshop: Workshop
-    for workshop in site_data["workshops"]:
-        yield "workshop", {"uid": workshop.id}
+    for _, workshops in site_data["workshops"].items():
+        for workshop in workshops:
+            yield "workshop", {"uid": workshop.id}
 
     for sponsors_at_level in site_data["sponsors"]:
         for sponsor in sponsors_at_level["sponsors"]:
