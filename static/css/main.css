@@ -408,3 +408,9 @@ div#papers_options > div {
   display: grid;
   grid-template-columns: 40px auto auto auto 40px;
 }
+
+.paper-detail-calendar {
+  position: relative;
+  top: -1px;
+  left: 10px;
+}
