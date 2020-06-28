@@ -351,6 +351,7 @@ def build_papers(
                 pdf_url=item.get("pdf_url", ""),
                 demo_url=item.get("demo_url", ""),
                 track=normalize_track_name(item.get("track", "")),
+                paper_type=item.get("paper_type", ""),
                 sessions=sessions_for_paper[item["UID"]],
                 similar_paper_uids=paper_recs.get(item["UID"], [item["UID"]]),
             ),

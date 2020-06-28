@@ -35,6 +35,7 @@ class PaperContent:
     title: str
     authors: List[str]
     track: str
+    paper_type: str
     abstract: str
     tldr: str
     keywords: List[str]
