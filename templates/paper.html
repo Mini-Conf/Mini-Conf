@@ -61,21 +61,28 @@
      <span class="badge badge-secondary">{{ paper.content.paper_type }} Paper</span>
     </p>
 
-    <div class="text-center text-muted text-monospace paper-detail-container">
     {% for session in paper.content.sessions %}
-      <div class="paper-session-times">
-        {{session.session}}
-        <span class="session_times">{{session.time_string}}</span>
+      <div class="text-center text-muted text-monospace">
+        <div class="paper-session-times">
+          {{session.session}}
+          <span class="session_times">{{session.time_string}}</span>
+          <a href="{{session.zoom_link}}" target="_blank"  class="card-link">
+            <img
+                src="static/images/zoom-icon.png"
+                height="24px"
+                alt="Join Zoom Meeting"
+                title="Join Zoom Meeting"
+            >
+          </a>
+        </div>
       </div>
-      <div class="paper-zoom-link">
-        [<a href="{{session.zoom_link}}" target="_blank"  class="card-link">Live QA</a>]
-      </div>
-      <div class="paper-cal-links">
-        <img src="static/images/calendar.svg" class="paper-detail-calendar">
-        <span id="session-cal-link-{{loop.index}}"></span>
+      <div class="text-center text-muted text-monospace">
+        <div class="paper-cal-links">
+          <img src="static/images/calendar.svg" class="paper-detail-calendar" height="24px">
+          <span id="session-cal-link-{{loop.index}}"></span>
+        </div>
       </div>
     {% endfor %}
-    </div>
 
   </div>
 </div>

@@ -21,7 +21,10 @@ class SessionInfo:
     @property
     def session(self) -> str:
         start_day = self.start_time.strftime("%a")
-        return f"{start_day} Session {self.session_name}"
+        if self.session_name.startswith("D"):
+            # demo sessions
+            return f"Demo Session {self.session_name[1:]} {start_day}"
+        return f"Session {self.session_name} {start_day}"
 
 
 @dataclass(frozen=True)

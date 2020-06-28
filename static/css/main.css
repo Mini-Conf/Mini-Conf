@@ -392,23 +392,6 @@ div#papers_options > div {
   justify-content: center;
 }
 
-.paper-session-times {
-  grid-column-start: 2;
-}
-
-.paper-zoom-link {
-  grid-column-start: 3;
-}
-
-.paper-cal-links {
-  grid-column-start: 4;
-}
-
-.paper-detail-container {
-  display: grid;
-  grid-template-columns: 40px auto auto auto 40px;
-}
-
 .paper-detail-calendar {
   position: relative;
   top: -1px;

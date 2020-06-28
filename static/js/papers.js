@@ -122,9 +122,16 @@ const updateFilterSelectionBtn = value => {
 
 const updateSession = () => {
     const urlSession = getUrlParameter("session");
+    let sessionName;
     if (urlSession) {
-        filters['session'] = urlSession
-        d3.select('#session_name').text(urlSession);
+        filters['session'] = urlSession;
+        // special processing for regular QA session and Demo session
+        if (urlSession.startsWith("D")) {
+          sessionName = "Demo Session " + urlSession.substring(1)
+        } else {
+          sessionName = "Session " + urlSession
+        }
+        d3.select('#session_name').text(sessionName);
         d3.select('.session_notice').classed('d-none', null);
         return true;
     } else {
