@@ -62,7 +62,7 @@ def papers():
 
 
 @app.route("/papers_vis.html")
-def paper_vis():
+def papers_vis():
     data = _data()
     # The data will be loaded from `papers.json`.
     # See the `papers_json()` method and `static/js/papers.js`.

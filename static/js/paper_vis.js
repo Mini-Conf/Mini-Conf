@@ -265,7 +265,8 @@ const start = () => {
             p.pos = projMap.get(p.id)
         })
 
-        all_papers = papers;
+        // filter papers without a projection
+        all_papers = papers.filter(p => p.pos !== undefined);
 
         calcAllKeys(all_papers, allKeys);
         setTypeAhead('authors', allKeys, filters, render);

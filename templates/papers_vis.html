@@ -22,6 +22,28 @@
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js"></script>
 {% endblock %}
 
+{% block tabs %}
+<ul class="nav nav-pills justify-content-center">
+  <li class="nav-item">
+    <a class="nav-link" href="papers.html">Browse</a>
+  </li>
+  <li class="nav-item">
+    <a
+        class="nav-link active"
+        data-toggle="tab"
+        href="papers.html"
+        role="tab"
+        aria-controls="nav-home"
+        aria-selected="true"
+    >Visualization
+    </a>
+  </li>
+</ul>
+
+{% endblock %}
+
+
+
 {% block content %}
 <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
   <div class="input-group mr-3">
@@ -78,6 +100,7 @@
   </div>
 
   <!-- Papers/Visualization -->
+  <!--
   <div
     class="btn-group btn-group-toggle mr-3 render_option"
     data-toggle="buttons">
@@ -102,6 +125,7 @@
       <a href="papers_vis.html" class="deco-none">visualization</a>
     </label>
   </div>
+  -->
 
 </div>
 
