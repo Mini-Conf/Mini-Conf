@@ -48,11 +48,15 @@ def load_site_data(
         "main_papers",
         "demo_papers",
         "srw_papers",
+        "cl_papers",
+        "tacl_papers",
         "paper_recs",
         "papers_projection",
         "main_paper_sessions",
         "demo_paper_sessions",
         "srw_paper_sessions",
+        "cl_paper_sessions",
+        "tacl_paper_sessions",
         # socials.html
         "socials",
         # workshops.html
@@ -103,21 +107,30 @@ def load_site_data(
     papers = build_papers(
         raw_papers=site_data["main_papers"]
         + site_data["demo_papers"]
-        + site_data["srw_papers"],
+        + site_data["srw_papers"]
+        + site_data["cl_papers"]
+        + site_data["tacl_papers"],
         all_paper_sessions=[
             site_data["main_paper_sessions"],
             site_data["demo_paper_sessions"],
             site_data["srw_paper_sessions"],
+            site_data["cl_paper_sessions"],
+            site_data["tacl_paper_sessions"],
         ],
         qa_session_length_hr=qa_session_length_hr,
         paper_recs=site_data["paper_recs"],
+        paper_images_path=site_data["config"]["paper_images_path"],
     )
     del site_data["main_papers"]
     del site_data["demo_papers"]
     del site_data["srw_papers"]
+    del site_data["cl_papers"]
+    del site_data["tacl_papers"]
     del site_data["main_paper_sessions"]
     del site_data["demo_paper_sessions"]
     del site_data["srw_paper_sessions"]
+    del site_data["cl_paper_sessions"]
+    del site_data["tacl_paper_sessions"]
     site_data["papers"] = papers
     demo_and_srw_tracks = ["System Demonstrations", "Student Research Workshop"]
     site_data["tracks"] = list(
@@ -175,17 +188,6 @@ def extract_list_field(v, key):
 
 def build_committee(raw_committee: List[Dict[str, Any]]) -> List[CommitteeMember]:
     return [jsons.load(item, cls=CommitteeMember) for item in raw_committee]
-
-
-def build_qa_session_for_plenary_session(qa_session: Dict[str, Any]) -> SessionInfo:
-    start_time = datetime.strptime(qa_session["start_time"][:-4], "%H:%M")
-    end_time = datetime.strptime(qa_session["end_time"][:-4], "%H:%M")
-    return SessionInfo(
-        session_name="",
-        start_time=start_time,
-        end_time=end_time,
-        zoom_link=qa_session["zoom_link"],
-    )
 
 
 def build_plenary_sessions(
@@ -287,11 +289,20 @@ def normalize_track_name(track_name: str) -> str:
     return track_name
 
 
+def get_card_image_path_for_paper(paper_id: str, paper_images_path: str) -> str:
+    if os.path.exists(os.path.join(paper_images_path, f"{paper_id}.png")):
+        return f"{paper_images_path}/{paper_id}.png"
+    else:
+        print(f"WARNING: using default image for {paper_id}")
+        return f"{paper_images_path}/default.png"
+
+
 def build_papers(
     raw_papers: List[Dict[str, str]],
     all_paper_sessions: List[Dict[str, Dict[str, Any]]],
     qa_session_length_hr: int,
     paper_recs: Dict[str, List[str]],
+    paper_images_path: str,
 ) -> List[Paper]:
     """Builds the site_data["papers"].
 
@@ -342,6 +353,9 @@ def build_papers(
         Paper(
             id=item["UID"],
             forum=item["UID"],
+            card_image_path=get_card_image_path_for_paper(
+                item["UID"], paper_images_path
+            ),
             content=PaperContent(
                 title=item["title"],
                 authors=extract_list_field(item, "authors"),
