@@ -11,6 +11,41 @@
     <h3 class="card-subtitle mb-2 text-muted text-center">
       {{ tutorial.organizers | join(", ") }}
     </h3>
+    <div class="text-center text-muted text-monospace">
+      <div class="tutorial-times">
+        {% if tutorial.session2_time %}
+          <span class="tutorial_times">Live Session 1: {{tutorial.session1_time}}</span>
+          <a href="{{tutorial.zoom_link}}" target="_blank"  class="card-link">
+            <img
+                src="static/images/zoom-icon.png"
+                height="24px"
+                alt="Join Zoom Meeting"
+                title="Join Zoom Meeting"
+            >
+          </a>
+          <br/>
+          <span class="tutorial_times">Live Session 2: {{tutorial.session2_time}}</span>
+          <a href="{{tutorial.zoom_link}}" target="_blank"  class="card-link">
+            <img
+                src="static/images/zoom-icon.png"
+                height="24px"
+                alt="Join Zoom Meeting"
+                title="Join Zoom Meeting"
+            >
+          </a>
+        {% else %}
+          <span class="tutorial_times">Live Session: {{tutorial.session1_time}}</span>
+          <a href="{{tutorial.zoom_link}}" target="_blank"  class="card-link">
+            <img
+                src="static/images/zoom-icon.png"
+                height="24px"
+                alt="Join Zoom Meeting"
+                title="Join Zoom Meeting"
+            >
+          </a>
+        {% endif %}        
+      </div>
+    </div>
     <div class="text-center p-3">
       <a class="card-link" data-toggle="collapse" role="button" href="#details">
         Description
@@ -18,7 +53,7 @@
     </div>
   </div>
 </div>
-<div id="details" class="pp-card m-3 collapse show">
+<div id="details" class="pp-card m-3 collapse hide">
   <div class="card-body">
     <div class="card-text">
       <div id="abstractExample">
@@ -35,11 +70,11 @@
   <b>Information about the virtual format of this tutorial: </b> {{tutorial.virtual_format_description}}
   <br/>
   <div class="row m-2">    
-    {% if tutorial.prerecorded %}
-    <!-- Presentation Embed -->
+    {% if tutorial.livestream %}
+    <!-- Livestreaming -->
     <div class="col-md-7 col-xs-12 my-auto p-2" >
       <p>
-        <b>Prerecorded talk</b>
+        <b>Livestreaming</b>
       </p>
       <div id="presentation-embed" class="slp my-auto"></div>
       <script src='https://slideslive.com/embed_presentation.js'></script>
@@ -69,12 +104,12 @@
   </div>
 </div>
 
-<!-- Livestreaming -->
-{% if tutorial.livestream %}
+<!-- Prerecorded Talk -->
+{% if tutorial.prerecorded %}
 <div class="row m-2">
   <div class="col-md-12 col-xs-12 my-auto p-2">
     <p>
-      <b>Livestreaming</b>
+      <b>Prerecorded talk</b>
     </p>
   <div id="presentation-embed-2" class="slp my-auto"></div>
   <script src='https://slideslive.com/embed_presentation.js'></script>

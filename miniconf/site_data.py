@@ -111,6 +111,9 @@ class Tutorial:
     material: str
     prerecorded: Optional[str]
     livestream: Optional[str]
+    zoom_link: Optional[str]
+    session1_time: Optional[str]
+    session2_time: Optional[str]
     virtual_format_description: str
 
 
