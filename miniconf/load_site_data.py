@@ -419,6 +419,9 @@ def build_workshops(raw_workshops: List[Dict[str, Any]]) -> Dict[str, List[Works
                 organizers=extract_list_field(item, "organizers"),
                 abstract=item["abstract"],
                 material=item["material"],
+                prerecorded=item.get("prerecorded", ""),
+                livestream=item.get("livestream", ""),
+                virtual_format_description=item["virtual_format_description"],
             )
             for item in raw_workshops
             if item["day"] == day
