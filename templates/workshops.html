@@ -8,72 +8,49 @@
 
 
 {% block tabs %}
-{{ components.tabs([("all", "All", "active"),
-                    ("sat", "Sunday", ""),
-                    ("thu", "Thursday", ""),
-                    ("fri", "Friday", ""),
+{{ components.tabs([("july5", "July 5", "active"),
+                    ("july9", "July 9", ""),
+                    ("july10", "July 10", ""),
                     ]) }}
 {% endblock %}
 
 {% block content %}
 <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
   <div
-    class="tab-pane active"
-    id="tab-all"
+    class="tab-pane active show"
+    id="tab-july5"
     role="tabpanel"
     aria-labelledby="nav-profile-tab"
   >
-      <div id="all">
-        <!-- Workshops -->
-        {{ components.section("Workshops") }}
-        <div class="speakers">
-          {{ components.workshopgroup(workshops.Sunday + workshops.Thursday + workshops.Friday)}}
-        </div>
-      </div>
-  </div>
-
-  <div
-    class="tab-pane fade"
-    id="tab-sat"
-    role="tabpanel"
-    aria-labelledby="nav-profile-tab"
-  >
-    <div id="sat">
-      <!-- Speakers -->
-      {{ components.section("Sunday") }}
+    <div id="july5">
       <div class="speakers">
-        {{ components.workshopgroup(workshops.Sunday) }}
+        {{ components.workshopgroup(workshops["July 5"]) }}
       </div>
     </div>
   </div>
 
   <div
     class="tab-pane fade"
-    id="tab-thu"
+    id="tab-july9"
     role="tabpanel"
     aria-labelledby="nav-profile-tab"
   >
-    <div id="thu">
-      <!-- Speakers -->
-      {{ components.section("Thursday") }}
+    <div id="july9">
       <div class="speakers">
-        {{ components.workshopgroup(workshops.Thursday) }}
+        {{ components.workshopgroup(workshops["July 9"]) }}
       </div>
     </div>
   </div>
 
-
   <div
     class="tab-pane fade"
-    id="tab-fri"
+    id="tab-july10"
     role="tabpanel"
     aria-labelledby="nav-profile-tab"
   >
-    <div id="fri">
-      <!-- Speakers -->
-      {{ components.section("Friday") }}
+    <div id="july10">
       <div class="speakers">
-        {{ components.workshopgroup(workshops.Friday) }}
+        {{ components.workshopgroup(workshops["July 10"]) }}
       </div>
     </div>
   </div>

@@ -410,9 +410,12 @@ def build_tutorials(raw_tutorials: List[Dict[str, Any]]) -> List[Tutorial]:
     ]
 
 
-def build_workshops(raw_workshops: List[Dict[str, Any]]) -> Dict[str, List[Workshop]]:
-    return {
-        day: [
+def build_workshops(
+    raw_workshops: List[Dict[str, Any]]
+) -> DefaultDict[str, List[Workshop]]:
+    workshops: DefaultDict[str, List[Workshop]] = defaultdict(list)
+    for item in raw_workshops:
+        workshops[item["day"]].append(
             Workshop(
                 id=item["UID"],
                 title=item["title"],
@@ -423,11 +426,8 @@ def build_workshops(raw_workshops: List[Dict[str, Any]]) -> Dict[str, List[Works
                 livestream=item.get("livestream", ""),
                 virtual_format_description=item["virtual_format_description"],
             )
-            for item in raw_workshops
-            if item["day"] == day
-        ]
-        for day in ["Sunday", "Thursday", "Friday"]
-    }
+        )
+    return workshops
 
 
 def build_sponsors(site_data, by_uid, display_time_format) -> None:
