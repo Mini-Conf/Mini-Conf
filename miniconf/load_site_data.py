@@ -436,12 +436,20 @@ def build_sponsors(site_data, by_uid, display_time_format) -> None:
         sponsor["UID"]: sponsor
         for sponsors_at_level in site_data["sponsors"]
         for sponsor in sponsors_at_level["sponsors"]
+        if not sponsor.get("duplicate", False)
     }
+
+    # Fix duplicates
+    for sponsors_at_level in site_data["sponsors"]:
+        for sponsor in sponsors_at_level["sponsors"]:
+            if sponsor.get("duplicate", False):
+                sponsor.update(by_uid["sponsors"][sponsor["UID"]])
 
     # Format the session start and end times
     for sponsor in by_uid["sponsors"].values():
         sponsor["zoom_times"] = OrderedDict()
-        for zoom in sponsor.get("zooms", []):
+
+        for zoom in sponsor.get("schedule", []):
             start = zoom["start"].astimezone(pytz.timezone("GMT"))
             if zoom.get("end") is None:
                 end = start + timedelta(hours=zoom["duration"])

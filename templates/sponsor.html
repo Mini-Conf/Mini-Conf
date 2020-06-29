@@ -30,8 +30,17 @@
 </div>
 {% endif %}
 
+<!-- Youtube -->
+{% if sponsor.video is defined %}
+<div class="row justify-content-md-center pt-3">
+  <video width="525" controls preload="none">
+    <source src="{{ sponsor.video }}" type="video/mp4">
+  </video>
+</div>
+{% endif %}
+
 <div class="row justify-content-md-center py-5">
-<div id="accordion" class="col-10 lead">
+<div id="accordion" class="col-10 ">
   <!-- Zooms -->
   {% if sponsor.zoom_times|length %}
   <div class="card">
@@ -52,6 +61,9 @@
             {% endfor %}
         </ul>
         {% endfor %}
+
+        <a class="btn btn-primary" href="{{ sponsor.zoom_link }}" role="button" target="_blank">Join via Zoom!</a>
+
       </div>
     </div>
   </div>
