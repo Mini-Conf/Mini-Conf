@@ -305,7 +305,12 @@
                     {{social.name}}
                 </h3>
                 <h6 class="text-muted font-italic">
-                    {{social.organizers|join(" & ")}}
+                  {{social.organizers.members|join(" & ")}}
+                  {% if social.organizers.website %}
+                  <br>
+                  (<a href="{{social.organizers.website}}" target="_blank">{{social.organizers.website}}</a>)
+                  {% endif %}
+
                 </h6>
                 {% if social.image %}
                 <div class="m-4">
