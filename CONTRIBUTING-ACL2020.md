@@ -117,6 +117,51 @@ If you made your contributions with a forked repository, the process for adding 
 
 For more details about opening a pull request on the website, please check the  [GitHub help documentation](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
 
+## Pages overview
+
+### Sponsors/Virtual Booths
+
+Each sponsor has a virtual booth where they can give an introduction about
+themselves, share resources like links or files, show a video and inform
+about live recruiting events taking place during the conference. Two pages 
+are relevant for that, `sponsors.html` (overview of all sponsors) and
+`sponsor.html` (the virtual booth for each sponsor).
+
+#### Sponsor Data
+
+The data used to generate these pages is sourced from `sponsors.yml`. Grouped
+by sponsor level, there is an entry for every sponsor containing information
+like name, logo, a link to their website, event schedule and more.
+
+Please refer to the [format description in the sitedata repo](https://github.com/acl-org/acl-2020-virtual-conference-sitedata#sponsors--yml-)
+for which fields exist and which are optional.
+
+##### Duplicates
+
+In case a sponsor is listed in two levels, the entries after the first mention
+of this sponsor  should only contain `UID`, `name` and `duplicate: yes`. This
+is e.g. the case for DeepMind and Grammarly.
+
+##### Update data 
+
+If you want to add or change sponsor data, make the change in the 
+[sitedata_acl2020](https://github.com/acl-org/acl-2020-virtual-conference-sitedata)
+repository. You can use the new data locally already in the webpage. When you are happy with it,
+create a PR and wait for it to be merged. Once that is done, in the main repository,
+bump the submodule version and create a PR with your changes. It is always better to
+wait for the data PR to be merged first to not break the live web page. 
+ 
+#### Templates 
+
+There are two templates that are important for the sponsors, `sponsors.html` (overview of all
+sponsors) and `sponsor.html` (the virtual booth for each sponsor).
+
+##### Virtual booths (`sponsor.html`)
+
+The page is divided into three parts: the introduction of the sponsor, video and
+then the different sections. Sections use [Bootstrap Accordions](https://getbootstrap.com/docs/4.3/components/collapse/#accordion-example). 
+If you want to add a new section, copy one of the existing and make sure to add a guard
+checking whether the related variables are defined if it is optional. 
 
 ## Deploy at AWS with login authentication
 TBD
