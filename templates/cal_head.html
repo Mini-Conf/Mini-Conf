@@ -3,6 +3,9 @@
   var events = JSON.parse('{{ calendar | tojson }}');
   var initial_view = 'timeGridWeek';
   window.fc_current_view = initial_view;
+  
+  //format time for readable popover
+  var readableTimeSlot = (time1, time2)=> time1.toTimeString().slice(0,5)+'-'+time2.toTimeString().slice(0,5)
 
   // We use https://fullcalendar.io/
   document.addEventListener('DOMContentLoaded', function() {
@@ -81,6 +84,16 @@
                 window.open(e.url, "_blank");
                 return false;
             }
+        },
+        eventDidMount: function(info) {
+          $(info.el).popover({
+            title: info.event.title,
+            html: true,
+            content: readableTimeSlot(info.event.start, info.event.end),
+            placement: 'top',
+            trigger:'hover',
+            container:'body'
+          })
         },
         // Render HTML from title as HTML
         eventContent: function( arg ) {
