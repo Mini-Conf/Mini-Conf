@@ -57,6 +57,11 @@ def load_site_data(
         "srw_paper_sessions",
         "cl_paper_sessions",
         "tacl_paper_sessions",
+        "main_paper_zoom_links",
+        "demo_paper_zoom_links",
+        "srw_paper_zoom_links",
+        "cl_paper_zoom_links",
+        "tacl_paper_zoom_links",
         # socials.html
         "socials",
         # workshops.html
@@ -118,19 +123,17 @@ def load_site_data(
             site_data["tacl_paper_sessions"],
         ],
         qa_session_length_hr=qa_session_length_hr,
+        all_paper_zoom_links=site_data["main_paper_zoom_links"]
+        + site_data["demo_paper_zoom_links"]
+        + site_data["srw_paper_zoom_links"]
+        + site_data["cl_paper_zoom_links"]
+        + site_data["tacl_paper_zoom_links"],
         paper_recs=site_data["paper_recs"],
         paper_images_path=site_data["config"]["paper_images_path"],
     )
-    del site_data["main_papers"]
-    del site_data["demo_papers"]
-    del site_data["srw_papers"]
-    del site_data["cl_papers"]
-    del site_data["tacl_papers"]
-    del site_data["main_paper_sessions"]
-    del site_data["demo_paper_sessions"]
-    del site_data["srw_paper_sessions"]
-    del site_data["cl_paper_sessions"]
-    del site_data["tacl_paper_sessions"]
+    for prefix in ["main", "demo", "srw", "cl", "tacl"]:
+        for suffix in ["papers", "paper_sessions", "paper_zoom_links"]:
+            del site_data[f"{prefix}_{suffix}"]
     site_data["papers"] = papers
     demo_and_srw_tracks = ["System Demonstrations", "Student Research Workshop"]
     site_data["tracks"] = list(
@@ -289,6 +292,7 @@ def build_papers(
     raw_papers: List[Dict[str, str]],
     all_paper_sessions: List[Dict[str, Dict[str, Any]]],
     qa_session_length_hr: int,
+    all_paper_zoom_links: List[Dict[str, str]],
     paper_recs: Dict[str, List[str]],
     paper_images_path: str,
 ) -> List[Paper]:
@@ -319,6 +323,15 @@ def build_papers(
       - main.19
     ```
     """
+    # build the lookup from (paper, slot) to zoom_link
+    zoom_info_for_paper_session: Dict[str, Dict[str, str]] = {}
+    for item in all_paper_zoom_links:
+        paper_id = item["UID"]
+        session_name = item["session_name"]
+        paper_session_id = f"{paper_id}-{session_name}"
+        assert paper_session_id not in zoom_info_for_paper_session
+        zoom_info_for_paper_session[paper_session_id] = item
+
     # build the lookup from paper to slots
     sessions_for_paper: DefaultDict[str, List[SessionInfo]] = defaultdict(list)
     for session_name, session_info in chain(
@@ -328,12 +341,18 @@ def build_papers(
         start_time = datetime.strptime(date, "%Y-%m-%d_%H:%M:%S")
         end_time = start_time + timedelta(hours=qa_session_length_hr)
         for paper_id in session_info["papers"]:
+            paper_session_id = f"{paper_id}-{session_name}"
+            zoom_info = zoom_info_for_paper_session[paper_session_id]
+            assert (
+                datetime.strptime(zoom_info["starttime"], "%Y-%m-%dT%H:%M:%SZ")
+                == start_time
+            )
             sessions_for_paper[paper_id].append(
                 SessionInfo(
                     session_name=session_name,
                     start_time=start_time,
                     end_time=end_time,
-                    zoom_link="https://zoom.com",
+                    zoom_link=zoom_info["zoom_join_link"],
                 )
             )
 
