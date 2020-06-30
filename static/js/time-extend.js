@@ -21,9 +21,9 @@ add_local_tz = (selector) => {
       }
       const start_dd = local_start.dayOfYear() - start_time.utc().dayOfYear();
       let start_dd_str = "";
-      if (start_dd > 0) {
+      if (start_dd > 0 && dd <= 0) {
         start_dd_str = `(+${start_dd}d)`;
-      } else if (start_dd < 0) {
+      } else if (start_dd < 0 && dd >= 0) {
         start_dd_str = `(${start_dd}d)`;
       }
       $(this).text(
