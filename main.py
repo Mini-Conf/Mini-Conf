@@ -40,7 +40,6 @@ def index():
 @app.route("/index.html")
 def home():
     data = _data()
-    data["committee"] = site_data["committee"]
     return render_template("index.html", **data)
 
 
@@ -116,6 +115,13 @@ def socials():
     data = _data()
     data["socials"] = site_data["socials"]
     return render_template("socials.html", **data)
+
+
+@app.route("/organizers.html")
+def organizers():
+    data = _data()
+    data["committee"] = site_data["committee"]
+    return render_template("organizers.html", **data)
 
 
 # ITEM PAGES

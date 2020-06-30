@@ -1,0 +1,13 @@
+{% set active_page = "Organizers" %}
+{% set page_title = "Organizers" %}
+{% extends "base.html" %}
+
+{% block content %}
+
+{{ components.section("Organizers") }}
+{{ components.organizergroup(committee) }}
+
+<!-- Acknowledgements -->
+{{ components.section("Acknowledgements") }}
+
+{% endblock %}
