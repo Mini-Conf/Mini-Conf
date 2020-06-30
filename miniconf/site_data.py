@@ -67,6 +67,7 @@ class Paper:
     id: str
     forum: str
     card_image_path: str
+    presentation_id: str
     content: PaperContent
 
     @property
@@ -82,7 +83,7 @@ class PlenarySession:
     date: str
     day: str
     time: Optional[str]
-    speaker: str
+    speaker: Optional[str]
     institution: Optional[str]
     abstract: Optional[str]
     bio: Optional[str]

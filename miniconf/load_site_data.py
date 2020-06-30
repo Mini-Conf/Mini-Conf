@@ -62,6 +62,11 @@ def load_site_data(
         "srw_paper_zoom_links",
         "cl_paper_zoom_links",
         "tacl_paper_zoom_links",
+        "main_paper_slideslive_ids",
+        "demo_paper_slideslive_ids",
+        "srw_paper_slideslive_ids",
+        "cl_paper_slideslive_ids",
+        "tacl_paper_slideslive_ids",
         # socials.html
         "socials",
         # workshops.html
@@ -128,11 +133,21 @@ def load_site_data(
         + site_data["srw_paper_zoom_links"]
         + site_data["cl_paper_zoom_links"]
         + site_data["tacl_paper_zoom_links"],
+        all_paper_slideslive_ids=site_data["main_paper_slideslive_ids"]
+        + site_data["demo_paper_slideslive_ids"]
+        + site_data["srw_paper_slideslive_ids"]
+        + site_data["cl_paper_slideslive_ids"]
+        + site_data["tacl_paper_slideslive_ids"],
         paper_recs=site_data["paper_recs"],
         paper_images_path=site_data["config"]["paper_images_path"],
     )
     for prefix in ["main", "demo", "srw", "cl", "tacl"]:
-        for suffix in ["papers", "paper_sessions", "paper_zoom_links"]:
+        for suffix in [
+            "papers",
+            "paper_sessions",
+            "paper_zoom_links",
+            "paper_slideslive_ids",
+        ]:
             del site_data[f"{prefix}_{suffix}"]
     site_data["papers"] = papers
     demo_and_srw_tracks = ["System Demonstrations", "Student Research Workshop"]
@@ -210,7 +225,7 @@ def build_plenary_sessions(
                 date=item["date"],
                 day=item["day"],
                 time=item.get("time"),
-                speaker=item["speaker"],
+                speaker=item.get("speaker"),
                 institution=item.get("institution"),
                 abstract=item.get("abstract"),
                 bio=item.get("bio"),
@@ -284,7 +299,7 @@ def get_card_image_path_for_paper(paper_id: str, paper_images_path: str) -> str:
     if os.path.exists(os.path.join(paper_images_path, f"{paper_id}.png")):
         return f"{paper_images_path}/{paper_id}.png"
     else:
-        print(f"WARNING: using default image for {paper_id}")
+        # print(f"WARNING: using default image for {paper_id}")
         return f"{paper_images_path}/default.png"
 
 
@@ -293,6 +308,7 @@ def build_papers(
     all_paper_sessions: List[Dict[str, Dict[str, Any]]],
     qa_session_length_hr: int,
     all_paper_zoom_links: List[Dict[str, str]],
+    all_paper_slideslive_ids: List[Dict[str, str]],
     paper_recs: Dict[str, List[str]],
     paper_images_path: str,
 ) -> List[Paper]:
@@ -332,6 +348,14 @@ def build_papers(
         assert paper_session_id not in zoom_info_for_paper_session
         zoom_info_for_paper_session[paper_session_id] = item
 
+    # build the lookup from paper to slideslive presentation ID
+    presentation_id_for_paper: Dict[str, str] = {}
+    for item in all_paper_slideslive_ids:
+        paper_id = item["UID"]
+        presentation_id = item["presentation_id"]
+        assert paper_id not in presentation_id_for_paper
+        presentation_id_for_paper[paper_id] = presentation_id
+
     # build the lookup from paper to slots
     sessions_for_paper: DefaultDict[str, List[SessionInfo]] = defaultdict(list)
     for session_name, session_info in chain(
@@ -363,6 +387,7 @@ def build_papers(
             card_image_path=get_card_image_path_for_paper(
                 item["UID"], paper_images_path
             ),
+            presentation_id=presentation_id_for_paper.get(item["UID"]),
             content=PaperContent(
                 title=item["title"],
                 authors=extract_list_field(item, "authors"),
@@ -382,6 +407,8 @@ def build_papers(
 
     # throw warnings for missing information
     for paper in papers:
+        if not paper.presentation_id:
+            print(f"WARNING: presentation_id not set for {paper.id}")
         if not paper.content.track:
             print(f"WARNING: track not set for {paper.id}")
         if len(paper.content.sessions) != 2:

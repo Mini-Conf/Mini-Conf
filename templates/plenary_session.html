@@ -8,12 +8,14 @@
     <h2 class="card-title main-title text-center" style="color:black">
       {{plenary_session.title}}
     </h2>
+    {% if plenary_session.spaker != none %}
     <h3 class="card-subtitle mb-2 text-muted text-center">
       {{plenary_session.speaker}}
       {% if plenary_session.institution %}
       / {{plenary_session.institution}}
       {% endif %}
     </h3>
+    {% endif %}
 
     {% if plenary_session.qa_time != none %}
     <div class="text-center text-muted text-monospace ">
