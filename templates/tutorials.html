@@ -6,9 +6,7 @@
 {{ components.calendar_scripts() }}
 <script>
   var events = JSON.parse('{{ calendar | tojson }}');
-  //format time for readable popover
-  var readableTimeSlot = (time1, time2)=> time1.toTimeString().slice(0,5)+'-'+time2.toTimeString().slice(0,5);
-
+ 
   // We use https://fullcalendar.io/
   document.addEventListener('DOMContentLoaded', function() {
       var initialTimeZone = moment.tz.guess();
@@ -78,7 +76,7 @@
           $(info.el).popover({
             title: info.event.title,
             html: true,
-            content: readableTimeSlot(info.event.start, info.event.end),
+            content: info.timeText,
             placement: 'top',
             trigger:'hover',
             container:'body'
