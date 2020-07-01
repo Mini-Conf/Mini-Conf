@@ -52,31 +52,12 @@
       class="form-control typeahead_all"
       placeholder="Search"
     />
-    <div class="input-group-append">
-      <button
-        class="btn btn-outline-secondary typeahead_all_clear"
-        type="button"
-      >
-        &times;
-      </button>
-    </div>
-  </div>
-
-  <div class="btn-group mr-3 btn-group-toggle filter_option">
-    <label
-      class="btn btn-outline-secondary"
-      data-tippy-content="Search for papers titles"
-    >
-      <input
-        type="radio"
-        name="options"
-        value="titles"
-        autocomplete="off"
-        checked
-      />
-      title
-    </label>
-    <!--
+    <div class="input-group-append mr-3 btn-group-toggle filter_option">
+      <label class="btn btn-outline-primary" data-tippy-content="Search for papers titles">
+        <input type="radio" name="options" value="titles" autocomplete="off"/>
+        by title
+      </label>
+      <!--
     <label
       class="btn btn-outline-secondary"
       data-tippy-content="Search for papers with specific keywords"
@@ -90,14 +71,18 @@
       keyword
     </label>
     -->
-    <label
-      class="btn btn-outline-secondary"
-      data-tippy-content="Search for papers from specific authors"
-    >
-      <input type="radio" name="options" value="authors" autocomplete="off" />
-      author
-    </label>
+      <label class="btn btn-outline-primary" data-tippy-content="Search for papers from specific authors">
+        <input type="radio" name="options" value="authors" autocomplete="off" checked />
+        by author
+      </label>
+
+      <button class="btn btn btn-outline-danger typeahead_all_clear" type="button">
+        &times;
+      </button>
+    </div>
   </div>
+
+  
 
   <!-- Papers/Visualization -->
   <!--
