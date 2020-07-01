@@ -26,6 +26,7 @@ const sel_papers = d3.select('#sel_papers');
 
 const persistor = new Persistor('Mini-Conf-Papers');
 
+let trackhighlight = [];
 
 const plot_size = () => {
     const cont = document.getElementById('container');
@@ -157,6 +158,7 @@ const updateVis = () => {
     all_papers.forEach(
       openreview => {
           openreview.content.read = storedPapers[openreview.id] || false
+          openreview.content.tracker = trackhighlight.includes(openreview.id) || false
       })
 
     const is_filtered = filters.authors || filters.keywords || filters.titles;
@@ -187,6 +189,7 @@ const updateVis = () => {
       .attr('cx', (d, i) => all_pos[i].cx())
       .attr('cy', (d, i) => all_pos[i].cy())
       .classed('read', d => d.content.read)
+      .classed('filtered', d => d.content.tracker)
       .classed('highlight', d => d.is_selected)
       .classed('non-highlight', d => !d.is_selected && is_filtered)
       .on('click',
@@ -251,11 +254,17 @@ const tooltip_template = (d) => `
 `
 
 
-const start = () => {
-    Promise.all([
-        d3.json('papers.json'),
+const start = (track) => {
+    const loadfiles = [
+        d3.json("papers.json"),
         d3.json('serve_papers_projection.json')
-    ]).then(([papers, proj]) => {
+    ]
+    if (track != "All tracks") {  
+        loadfiles.push(d3.json("track_" + track + ".json"));
+    } else {
+        trackhighlight =[];
+    }
+    Promise.all(loadfiles).then(([papers, proj, trackPapers]) => {
         // all_proj = proj;
 
         const projMap = new Map()
@@ -274,6 +283,8 @@ const start = () => {
 
         xS.domain(d3.extent(proj.map(p => p.pos[0])));
         yS.domain(d3.extent(proj.map(p => p.pos[1])));
+        
+        if (trackPapers) trackhighlight = trackPapers.map(d => d.id);
 
         updateVis();
     })

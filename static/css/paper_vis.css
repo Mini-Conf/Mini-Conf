@@ -25,6 +25,11 @@
   fill: rgb(255, 54, 72);
 }
 
+.dot.filtered {
+  fill-opacity: 1;
+  fill: rgb(255, 113, 43);
+}
+
 .dot.read {
   /*opacity: 1;*/
   fill: gray;

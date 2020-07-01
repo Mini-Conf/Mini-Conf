@@ -1,5 +1,7 @@
 {% extends "base.html" %}
+{% set active_page = "Papers" %}
 {% set page_title = "Paper Explorer" %}
+
 {% block head %}
 {{ super() }}
 <link rel="stylesheet" href="static/css/typeahead.css" />
@@ -10,7 +12,7 @@
   <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.3/dist/handlebars.min.js" integrity="sha256-/PJBs6QWvXijOFIX04kZpLb6ZtSQckdOIavLWKKOgXU=" crossorigin="anonymous"></script>
 #}
 
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<!-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script> -->
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.0/dist/umd/popper.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/tippy.js@6.2.3/dist/tippy-bundle.umd.min.js"></script>
@@ -80,6 +82,14 @@
         &times;
       </button>
     </div>
+  </div>
+  <div class="bootstrap-select">
+    <select id="track_selector" class="selectpicker" data-live-search="true" data-style="btn-light">
+      <option>All tracks</option>
+      {% for track in tracks %}
+      <option>{{ track }}</option>
+      {% endfor %}
+    </select>
   </div>
 
   
@@ -156,8 +166,17 @@
 
 <script>
   $(document).ready(function () {
-    start();
     tippy("[data-tippy-content]", { trigger: "mouseenter focus" });
+    const track = getUrlParameter("track") || "All tracks";
+
+    start(track);
+    $('#track_selector').selectpicker('val', track);
+  });
+
+  $('#track_selector').on('changed.bs.select', function (e, clickedIndex, isSelected, previousValue) {
+    let track = e.target.value;
+    setQueryStringParameter("track", track);
+    start(track);
   });
 </script>
 {% endblock %}
