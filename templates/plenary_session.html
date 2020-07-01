@@ -22,9 +22,6 @@
       <div>
       Live QA:
       <span class="session_times">{{plenary_session.qa_time}}</span>
-      {% if plenary_session.qa_time != none %}
-      [<a href="{{plenary_session.zoom_link}}" target="_blank"  class="card-link">Join Zoom Meeting</a>]
-      {% endif %}
       </div>
     </div>
     {% endif %}
@@ -72,7 +69,7 @@
   {% endif %}
   <script>
     embed = new SlidesLiveEmbed('presentation-embed', {
-      presentationId: '{{presentation_id}}',
+      presentationId: '{{config.default_presentation_id}}', // FIXME: when the talks are ready
       autoPlay: false, // change to true to autoplay the embedded presentation
       verticalEnabled: true,
       verticalWhenWidthLte: 500,
