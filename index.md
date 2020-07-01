@@ -22,7 +22,8 @@ Double blind peer reviews will be conducted to determine acceptance at the end o
 - March 10, 2020: Travel Grant Notifications Sent (delayed)
 - April 2, 2020: Proceedings are out!
 - July 2, 2020: Early Registration Ends. [Click here](http://www.cvent.com/events/acm-conference-on-health-inference-and-learning-chil-2020-/event-summary-c40cab906b3c48cfa2be7dfb100fc753.aspx) to register
-- July 23-25, 2020: Conference in Toronto
+- July 11, 2020: Speaker Deadline for Submitting Recorded Talks to SlidesLive.
+- July 23-25, 2020: Virtual ACM-CHIL Conference
 
 ### Contact Information
 
