@@ -119,12 +119,19 @@ class Tutorial:
 
 
 @dataclass(frozen=True)
+class WorkshopPaper:
+    id: str
+    title: str
+    speakers: str
+    presentation_id: Optional[str]
+
+
+@dataclass(frozen=True)
 class Workshop:
     id: str
     title: str
     organizers: List[str]
     abstract: str
     material: str
-    prerecorded: Optional[str]
     livestream: Optional[str]
-    virtual_format_description: str
+    papers: List[WorkshopPaper]

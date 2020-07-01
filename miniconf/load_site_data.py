@@ -20,6 +20,7 @@ from miniconf.site_data import (
     SessionInfo,
     Tutorial,
     Workshop,
+    WorkshopPaper,
 )
 
 
@@ -71,6 +72,8 @@ def load_site_data(
         "socials",
         # workshops.html
         "workshops",
+        "w1_papers",
+        "w2_papers",
         # sponsors.html
         "sponsors",
         # about.html
@@ -181,13 +184,25 @@ def load_site_data(
     by_uid["tutorials"] = {tutorial.id: tutorial for tutorial in tutorials}
 
     # workshops.html
-    workshops = build_workshops(site_data["workshops"])
+    workshops = build_workshops(
+        raw_workshops=site_data["workshops"],
+        raw_workshop_papers={
+            "W1": site_data["w1_papers"],
+            "W2": site_data["w2_papers"],
+        },
+    )
     site_data["workshops"] = workshops
     # workshop_<uid>.html
     by_uid["workshops"] = {}
     for _, workshops_list in workshops.items():
         for workshop in workshops_list:
             by_uid["workshops"][workshop.id] = workshop
+    # workshop_papers = build_workshop_papers(
+    #     raw_workshop_papers={
+    #         "w1": site_data["w1_papers"],
+    #         "w2": site_data["w2_papers"]
+    #     }
+    # )
 
     # sponsors.html
     build_sponsors(site_data, by_uid, display_time_format)
@@ -441,8 +456,21 @@ def build_tutorials(raw_tutorials: List[Dict[str, Any]]) -> List[Tutorial]:
 
 
 def build_workshops(
-    raw_workshops: List[Dict[str, Any]]
+    raw_workshops: List[Dict[str, Any]], raw_workshop_papers: Dict[str, Dict[str, Any]]
 ) -> DefaultDict[str, List[Workshop]]:
+
+    workshop_papers: DefaultDict[str, List[Paper]] = defaultdict(list)
+    for workshop_id, papers in raw_workshop_papers.items():
+        for item in papers:
+            workshop_papers[workshop_id].append(
+                WorkshopPaper(
+                    id=item["UID"],
+                    title=item["title"],
+                    speakers=item["speakers"],
+                    presentation_id=item.get("presentation_id", ""),
+                )
+            )
+
     workshops: DefaultDict[str, List[Workshop]] = defaultdict(list)
     for item in raw_workshops:
         workshops[item["day"]].append(
@@ -452,9 +480,8 @@ def build_workshops(
                 organizers=extract_list_field(item, "organizers"),
                 abstract=item["abstract"],
                 material=item["material"],
-                prerecorded=item.get("prerecorded", ""),
                 livestream=item.get("livestream", ""),
-                virtual_format_description=item["virtual_format_description"],
+                papers=workshop_papers[item["UID"]],
             )
         )
     return workshops
