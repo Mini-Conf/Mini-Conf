@@ -1,14 +1,20 @@
 FAQ:
+  - Section: For Speakers
+    QA:
+      - Question: What is the deadline for submitting my recorded talk?
+        Answer: "The deadline for submitting presentation to SlidesLive is 11 July 2020."
+      - Question: What do I need to know to present my talk?
+        Answer: "You should be contacted by SlidesLive to arrange for your talk to be submitted. If you have not been contacted, or if you need assistance, please contact us at info@chilconference.org."
   - Section: Getting Started
     QA:
-      - Question: What is the recommended way of using this site and navigating the conference?
+      - Question: How do you recommend using this site and navigating the conference?
         Answer: "All content will be accessed through this website. New content is released daily, so check the Schedule for new videos that are released, and when the live sessions for speaker Q&A and posters are taking place. You can navigate all the papers in the Papers section: you can search for keywords and authors, looking through all papers by skimming titles, or using the visualization tab at the top. We encourage everyone to visit the sponsor hall just like you would at the physical conference and then to participate in as many socials and using the chat tool. If you need any help you can ask one of the on-call helpers on the chat channel."
       - Question: What if I have a problem?
         Answer: "If you have technical difficulties, please contact us by email."
   - Section: Website Navigation
     QA:
       - Question: What tools and logins do I need?
-        Answer: "The website uses two external tools: Rocket.Chat and Zoom. Logins for rocket.chat were created on registration. For other tools you can create them the first time you use the tool. For more details on specific tools, see answers to related questions below. You will not need to download any special software other than a web browser."
+        Answer: "The website uses two external tools: Rocket.Chat and Zoom."
       - Question: How do I register for Rocket.Chat?
         Answer: "You will need an account for Rocket.Chat, which is the text-chat tool that is embedded throughout the site. This would have been created for you on registration. If you registered after this was done, you can request a new one, which will be approved as soon as we can. Please use the email address you used to register for the conference."
       - Question: How can I find other people to chat with during the conference?
@@ -17,10 +23,5 @@ FAQ:
     QA:
       - Question: What parts of the conference are live?
         Answer: "The Poster Sessions, Q&A with Invited Speakers, and Virtual Socials. These live sessions occur at specific times, so make sure you look at the Calendar to see what is live right now (see Schedule in menu)."
-  - Section: For Authors
-    QA:
-      - Question: What do I need to know to present my poster?
-        Answer: "As an author on the paper, you will be a host on the Zoom link. When you join, it will start the meeting and it will allow others to join. Please join the link 5 minutes early, to be ready to start the session on time. We ask that you pay attention to Raised Hands, and try to discuss with people in the order that they raised their hand. This way they have a rough estimate of how long they might have to wait, and makes for respectful interaction. If someone is monopolizing your time, and you notice many hands are raised, do feel free to say ‘Unfortunately, I have to give some of the other participants an opportunity to ask questions as well’. As a host, you have additional privileges. If someone is being disruptive, or not muting themselves when needed, you can mute them. If someone is being inappropriate, you can eject them from the meeting. If you would like to make an author a co-host, you can do so. Additionally, only hosts can share their screens. You might find it useful to simply keep your screen shared the entire time, so that you can refer to figures in your slides."
-
 
 
