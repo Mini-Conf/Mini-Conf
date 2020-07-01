@@ -456,10 +456,11 @@ def build_tutorials(raw_tutorials: List[Dict[str, Any]]) -> List[Tutorial]:
 
 
 def build_workshops(
-    raw_workshops: List[Dict[str, Any]], raw_workshop_papers: Dict[str, Dict[str, Any]]
+    raw_workshops: List[Dict[str, Any]],
+    raw_workshop_papers: Dict[str, List[Dict[str, Any]]],
 ) -> DefaultDict[str, List[Workshop]]:
 
-    workshop_papers: DefaultDict[str, List[Paper]] = defaultdict(list)
+    workshop_papers: DefaultDict[str, List[WorkshopPaper]] = defaultdict(list)
     for workshop_id, papers in raw_workshop_papers.items():
         for item in papers:
             workshop_papers[workshop_id].append(
@@ -480,7 +481,7 @@ def build_workshops(
                 organizers=extract_list_field(item, "organizers"),
                 abstract=item["abstract"],
                 material=item["material"],
-                livestream=item.get("livestream", ""),
+                livestream=item["livestream"],
                 papers=workshop_papers[item["UID"]],
             )
         )
