@@ -307,7 +307,7 @@ body .carousel-control-prev {
 }
 
 .checkbox-paper {
-  opacity: 0.2;
+  opacity: 0.5;
   color: gray;
   font-size: 18pt;
   font-weight: bold;
@@ -319,9 +319,13 @@ body .carousel-control-prev {
   color: green;
 }
 
+.greenbox-paper.selected {
+  background-color: rgb(245, 256, 245);
+}
+
 @supports (-webkit-text-stroke: 1px gray) {
   .checkbox-paper {
-    opacity: 0.2;
+    opacity: 0.5;
     -webkit-text-stroke: 1px gray;
     -webkit-text-fill-color: white;
   }
