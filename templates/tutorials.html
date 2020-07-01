@@ -6,6 +6,8 @@
 {{ components.calendar_scripts() }}
 <script>
   var events = JSON.parse('{{ calendar | tojson }}');
+  //format time for readable popover
+  var readableTimeSlot = (time1, time2)=> time1.toTimeString().slice(0,5)+'-'+time2.toTimeString().slice(0,5);
 
   // We use https://fullcalendar.io/
   document.addEventListener('DOMContentLoaded', function() {
@@ -72,6 +74,16 @@
                 return false;
             }
         },
+        eventDidMount: function(info) {
+          $(info.el).popover({
+            title: info.event.title,
+            html: true,
+            content: readableTimeSlot(info.event.start, info.event.end),
+            placement: 'top',
+            trigger:'hover',
+            container:'body'
+          })
+        },
         // Render HTML from title as HTML
         eventContent: function( arg ) {
  	        return { html: arg.event.title }
@@ -109,7 +121,7 @@
 <div class="row">
   <div class="col-12 pb-4">
     <p class="lead">
-    Below is the schedule of the tutorial to be held on Sunday, July 5th, 2020. Click on each tutorial on the schedule to access its material. <br/>
+    Below is the schedule of the tutorial to be held on Sunday, July 5th, 2020. Hover over a tutorial to view full details and click on it to access its material. <br/>
     Tutorials held in parallel are shown one besides the other in the calendar.
     Some tutorials are held twice and some are held once.
     Check out <a href="https://acl2020.org/blog/intro-to-tutorial-infrastructure/">this blog post</a> by tutorial chairs to learn more about the new virtual format of tutorials.
