@@ -82,6 +82,16 @@ def load_site_data(
         "w8_papers",
         "w9_papers",
         "w10_papers",
+        "w11_papers",
+        "w12_papers",
+        "w13_papers",
+        "w14_papers",
+        "w15_papers",
+        "w16_papers",
+        "w17_papers",
+        "w18_papers",
+        "w19_papers",
+        "w20_papers",
         # sponsors.html
         "sponsors",
         # about.html
@@ -205,6 +215,16 @@ def load_site_data(
             "W8": site_data["w8_papers"],
             "W9": site_data["w9_papers"],
             "W10": site_data["w10_papers"],
+            "W11": site_data["w11_papers"],
+            "W12": site_data["w12_papers"],
+            "W13": site_data["w13_papers"],
+            "W14": site_data["w14_papers"],
+            "W15": site_data["w15_papers"],
+            "W16": site_data["w16_papers"],
+            "W17": site_data["w17_papers"],
+            "W18": site_data["w18_papers"],
+            "W19": site_data["w19_papers"],
+            "W20": site_data["w20_papers"],
         },
     )
     site_data["workshops"] = workshops
