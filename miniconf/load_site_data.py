@@ -74,6 +74,14 @@ def load_site_data(
         "workshops",
         "w1_papers",
         "w2_papers",
+        "w3_papers",
+        "w4_papers",
+        "w5_papers",
+        "w6_papers",
+        "w7_papers",
+        "w8_papers",
+        "w9_papers",
+        "w10_papers",
         # sponsors.html
         "sponsors",
         # about.html
@@ -189,6 +197,14 @@ def load_site_data(
         raw_workshop_papers={
             "W1": site_data["w1_papers"],
             "W2": site_data["w2_papers"],
+            "W3": site_data["w3_papers"],
+            "W4": site_data["w4_papers"],
+            "W5": site_data["w5_papers"],
+            "W6": site_data["w6_papers"],
+            "W7": site_data["w7_papers"],
+            "W8": site_data["w8_papers"],
+            "W9": site_data["w9_papers"],
+            "W10": site_data["w10_papers"],
         },
     )
     site_data["workshops"] = workshops
@@ -197,12 +213,6 @@ def load_site_data(
     for _, workshops_list in workshops.items():
         for workshop in workshops_list:
             by_uid["workshops"][workshop.id] = workshop
-    # workshop_papers = build_workshop_papers(
-    #     raw_workshop_papers={
-    #         "w1": site_data["w1_papers"],
-    #         "w2": site_data["w2_papers"]
-    #     }
-    # )
 
     # sponsors.html
     build_sponsors(site_data, by_uid, display_time_format)
