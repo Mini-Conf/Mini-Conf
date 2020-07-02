@@ -67,6 +67,22 @@ const updateCards = (papers) => {
     lazyLoader();
 }
 
+const moveArrayItem = (array, fromIndex, toIndex) => {
+    const arr = [...array];
+    arr.splice(toIndex, 0, ...arr.splice(fromIndex, 1));
+    return arr;
+}
+
+function sortSelectedFirst(array) {
+    const selections = Object.keys(persistor.getAll())
+    for (let i = array.length - 1; i > 0 ; i--) {
+        if (selections.includes(array[i].id)) {
+            array = moveArrayItem(array, i, 0)
+        }
+    }
+    allPapers = array;
+}
+
 /* Randomize array in-place using Durstenfeld shuffle algorithm */
 function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -215,11 +231,19 @@ d3.selectAll('.render_option input').on('click', function () {
     render();
 });
 
+d3.select('.visited').on('click', () => {
+    sortSelectedFirst(allPapers);
+
+    render();
+})
+
 d3.select('.reshuffle').on('click', () => {
     shuffleArray(allPapers);
 
     render();
 })
+
+
 
 /**
  * CARDS
