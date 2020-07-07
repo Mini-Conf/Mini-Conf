@@ -206,25 +206,25 @@
 </div>
 {%- endmacro %}
 
-{% macro workshopgroup(workshops) -%}
+{% macro workshopgroup(tutorials) -%}
 <div class="cards row">
-  {% for workshop in workshops %}
+  {% for tutorial in tutorials %}
   <div class="col-md-6 col-sm-12 p-3" style="box-sizing: border-box;">
     <div class="card" style="display: block; overflow: hidden; width: 100%;">
       <div
         class="card-header text-center"
         style="min-height: 200px; width: 100%;"
       >
-        <a class="text-muted" href="workshop_{{workshop.id}}.html">
+        <a class="text-muted" href="tutorial_{{tutorial.id}}.html">
           <h3 class="card-title main-title">
-            {{workshop.title}}
+            {{tutorial.title}}
           </h3>
         </a>
         <div class="card-subtitle text-muted">
-          {{ workshop.organizers | join(", ") }}
+          {{ tutorial.organizers | join(", ") }}
         </div>
         <div class="m-3 text-left card-subtitle font-italic">
-          {{workshop.abstract|safe}}
+          {{tutorial.abstract|safe}}
         </div>
       </div>
     </div>

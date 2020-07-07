@@ -28,7 +28,7 @@ def main(site_data_path):
         elif typ == "yml":
             site_data[name] = yaml.load(open(f).read(), Loader=yaml.SafeLoader)
 
-    for typ in ["papers", "speakers", "workshops"]:
+    for typ in ["papers", "speakers", "tutorials", "workshops", "dss"]:
         by_uid[typ] = {}
         for p in site_data[typ]:
             by_uid[typ][p["UID"]] = p
@@ -215,6 +215,12 @@ def schedule():
     data["workshops"] = [
         format_workshop(workshop) for workshop in site_data["workshops"]
     ]
+    data["tutorials"] = [
+        format_workshop(tutorial) for tutorial in site_data["tutorials"]
+    ]
+    data["dss"] = [
+        format_workshop(ds) for ds in site_data["dss"]
+    ]
     return render_template("schedule.html", **data)
 
 
@@ -302,6 +308,21 @@ def workshop(workshop):
     data["workshop"] = format_workshop(v)
     return render_template("workshop.html", **data)
 
+@app.route("/tutorial_<tutorial>.html")
+def tutorial(tutorial):
+    uid = tutorial
+    v = by_uid["tutorials"][uid]
+    data = _data()
+    data["tutorial"] = format_workshop(v)
+    return render_template("tutorial.html", **data)
+
+@app.route("/ds_<ds>.html")
+def ds(ds):
+    uid = ds
+    v = by_uid["dss"][uid]
+    data = _data()
+    data["ds"] = format_workshop(v)
+    return render_template("ds.html", **data)
 
 @app.route("/chat.html")
 def chat():
@@ -343,6 +364,10 @@ def generator():
         yield "speaker", {"speaker": str(speaker["UID"])}
     for workshop in site_data["workshops"]:
         yield "workshop", {"workshop": str(workshop["UID"])}
+    for tutorial in site_data["tutorials"]:
+        yield "tutorial", {"tutorial": str(tutorial["UID"])}
+    for ds in site_data["dss"]:
+        yield "ds", {"ds": str(ds["UID"])}
 
     for key in site_data:
         yield "serve", {"path": key}

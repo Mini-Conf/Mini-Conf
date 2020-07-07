@@ -101,6 +101,28 @@
       {{ components.section("Tutorials") }}
 
     <div class="speakers">
+      {{ components.workshopgroup(tutorials) }}
+    </div>
+
+    </div>
+
+    <script type="text/javascript">
+      lazyLoader();
+    </script>
+  </div>
+
+<!-- Workshops -->
+  <div
+    class="tab-pane fade"
+    id="tab-workshop"
+    role="tabpanel"
+    aria-labelledby="nav-profile-tab"
+  >
+    <div id="workshop">
+      <!-- Speakers -->
+      {{ components.section("Workshops") }}
+
+    <div class="speakers">
       {{ components.workshopgroup(workshops) }}
     </div>
 
@@ -111,5 +133,25 @@
     </script>
   </div>
 
+<!-- Doctoral Symposium -->
+  <div
+    class="tab-pane fade"
+    id="tab-ds"
+    role="tabpanel"
+    aria-labelledby="nav-profile-tab"
+  >
+    <div id="ds">
+      {{ components.section("Doctoral Symposium") }}
+
+    <div class="speakers">
+      {{ components.workshopgroup(dss) }}
+    </div>
+
+    </div>
+
+    <script type="text/javascript">
+      lazyLoader();
+    </script>
+  </div>
 </div>
 {% endblock %}
