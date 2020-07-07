@@ -1,0 +1,30 @@
+{% set page_title = tutorial.title %}
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Title -->
+<div class="pp-card m-3" style="">
+  <div class="card-header">
+    <h2 class="card-title main-title text-center" style="">
+      {{tutorial.title}}
+    </h2>
+    <h3 class="card-subtitle mb-2 text-muted text-center">
+      {{ tutorial.organizers | join(", ") }}
+    </h3>
+  </div>
+</div>
+<div id="details" class="pp-card m-3">
+  <div class="card-body">
+    <div class="card-text">
+      <div id="abstractExample">
+        <span class="font-weight-bold">Abstract:</span>
+        {{tutorial.abstract|safe}} <br /><br />
+      </div>
+    </div>
+    <p></p>
+  </div>
+</div>
+
+<!-- Presentation Embed -->
+
+{% endblock %}
