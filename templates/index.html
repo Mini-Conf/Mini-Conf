@@ -1,6 +1,5 @@
 {% set active_page = "Home" %}
 {% extends "base.html" %}
-
 {% block top %}
 <style>
   .back {
@@ -25,8 +24,11 @@
       <h2>
         {{config.tagline|safe}}
       </h2>
-      <h2 class="p-5">
+      <h2 class="p-2" style="font-size: 2rem">
         {{config.date|safe}}
+      </h2>
+      <h2 class="p-2">
+          <a href={{config.registration}} class="btn btn-light btn-lg" role="button">Register now!</a>
       </h2>
     </div>
   </div>
