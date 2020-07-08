@@ -71,14 +71,13 @@
   >
     <div id="thu">
       <!-- Speakers -->
-      {{ components.section("Keynote speakers") }}
+      {{ components.section("Thursday") }}
+
       <div class="speakers">
-        {{ components.speakergroup(thu.speakers) }}
+        {{ components.day_to_view(thu.schedule) }}
       </div>
       {{ components.section("Highlighted Papers") }}
-      <div class="papers">
-        {{ components.highlightgroup(thu.highlighted, 1) }}
-      </div>
+      {{ components.highlightgroup(thu.highlighted, 1) }}
     </div>
 
     <script type="text/javascript">
@@ -95,14 +94,13 @@
   >
     <div id="fri">
       <!-- Speakers -->
-      {{ components.section("Keynote speakers") }}
+      {{ components.section("Friday") }}
+
       <div class="speakers">
-        {{ components.speakergroup(fri.speakers) }}
+        {{ components.day_to_view(fri.schedule) }}
       </div>
       {{ components.section("Highlighted Papers") }}
-      <div class="papers">
-        {{ components.highlightgroup(fri.highlighted, 1) }}
-      </div>
+      {{ components.highlightgroup(fri.highlighted, 1) }}
     </div>
 
     <script type="text/javascript">

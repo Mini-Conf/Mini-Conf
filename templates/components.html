@@ -260,3 +260,34 @@
 {% endfor %}
 {%- endmacro %}
 
+{% macro day_to_view(day) -%}
+<div class="cards row">
+  <table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Time</th>
+      <th scope="col">Type</th>
+      <th scope="col">Title</th>
+      <th scope="col">Speaker</th>
+      <th scope="col">Moderator</th>
+      <th scope="col">Read more</th>
+      <th scope="col">Video link</th>
+    </tr>
+  </thead>
+    <tbody>
+    {% for row in day %}
+    <tr>
+      <td>{% if row.time %}{{ row.time }}{% endif %}</td>
+      <td>{% if row.type %}{{ row.type }}{% endif %}</td>
+      <td>{% if row.title %}{{ row.title }}{% endif %}</td>
+      <td>{% if row.speaker %}{{ row.speaker }}{% endif %}</td>
+      <td>{% if row.moderator %}{{ row.moderator }}{% endif %}</td>
+      <td>{% if row.doclink %}{{ row.doclink }}{% endif %}</td>
+      <td>{% if row.videolink %}{{ row.videolink }}{% endif %}</td>
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+</div>
+{%- endmacro %}
+
