@@ -10,6 +10,7 @@
 {{ components.tabs([("calendar", "Calendar", "active"),
                     ("thu", "Thursday", ""),
                     ("fri", "Friday", ""),
+                    ("preview", "Recommended Viewing", ""),
                     ("tutorial", "Tutorials", ""),
                     ]) }}
 {% endblock %}
@@ -58,6 +59,30 @@
       <div class="papers">
         {{ components.highlightgroup(thu.highlighted, 1) }}
       </div>
+    </div>
+
+    <script type="text/javascript">
+      lazyLoader();
+    </script>
+  </div>
+
+<!-- Recommended viewing schedule -->
+  <div
+    class="tab-pane fade"
+    id="tab-preview"
+    role="tabpanel"
+    aria-labelledby="nav-profile-tab"
+  >
+    <div id="preview">
+      <!-- Speakers -->
+      {{ components.section("Recommended viewing") }}
+
+    <p>The following talks have been pre-recorded. To get the most out of the live sessions, we recommend that you watch them in advance.</p>
+
+    <div class="speakers">
+      {{ components.schedule(preview) }}
+    </div>
+
     </div>
 
     <script type="text/javascript">
@@ -153,5 +178,6 @@
       lazyLoader();
     </script>
   </div>
+
 </div>
 {% endblock %}
