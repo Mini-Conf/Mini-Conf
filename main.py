@@ -221,6 +221,7 @@ def schedule():
     data["dss"] = [
         format_workshop(ds) for ds in site_data["dss"]
     ]
+    data["preview"] = site_data["preview"]
     return render_template("schedule.html", **data)
 
 
