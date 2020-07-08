@@ -212,6 +212,7 @@ def schedule():
             format_paper(by_uid["papers"][h["UID"]]) for h in site_data["highlighted"]
         ],
     }
+    data["speakers"] = [x for x in site_data['speakers']]
     data["workshops"] = [
         format_workshop(workshop) for workshop in site_data["workshops"]
     ]
