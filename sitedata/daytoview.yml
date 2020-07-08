@@ -1,179 +1,179 @@
 thursday:
 - time: 10:00 AM - 10:50 AM (EST) 
-     type: Tutorial 
-     title: A Tour of Survival Analysis, from Classical to Modern 
-     speaker: George H. Chen, Jeremy C. Weiss  
-     moderator: Irene Chen 
-    doclink: Coming soon
-    videolink: Coming soon
+type: Tutorial 
+title: A Tour of Survival Analysis, from Classical to Modern 
+speaker: George H. Chen, Jeremy C. Weiss  
+moderator: Irene Chen 
+doclink: Coming soon
+videolink: Coming soon
 
 - time: 10:00 AM - 10:50 AM 
-     type: Tutorial 
-     title: Medical Imaging with Deep Learning 
-     speaker: Joseph Paul Cohen 
-     moderator: Irene Chen 
-    doclink: Coming soon
-    videolink: Coming soon
+type: Tutorial 
+title: Medical Imaging with Deep Learning 
+speaker: Joseph Paul Cohen 
+moderator: Irene Chen 
+doclink: Coming soon
+videolink: Coming soon
 
 - time: 10:00 AM - 10:50 AM 
-     type: Tutorial 
-     title: Public Health Datasets for Deep Learning: Challenges and Opportunities 
-     speaker: Ziad Obermeyer, Katy Haynes, Josh Risley 
-     moderator: Irene Chen 
-    doclink: Coming soon
-    videolink: Coming soon
+type: Tutorial 
+title: Public Health Datasets for Deep Learning: Challenges and Opportunities 
+speaker: Ziad Obermeyer, Katy Haynes, Josh Risley 
+moderator: Irene Chen 
+doclink: Coming soon
+videolink: Coming soon
 
 - time: 11:00 AM - 11:10 AM 
-     type: Introduction 
-     title: Opening Remarks 
-     speaker: Marzyeh Ghassemi 
-     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+type: Introduction 
+title: Opening Remarks 
+speaker: Marzyeh Ghassemi 
+moderator: TBD 
+doclink: Coming soon
+videolink: Coming soon
 
 - time: 11:10 AM - 11:30 AM 
-     type: Keynote 
-     title: Title Here 
-     speaker: Yoshua Bengio 
-     moderator: Tristan Naumann 
-    doclink: Coming soon
-    videolink: Coming soon
+type: Keynote 
+title: Title Here 
+speaker: Yoshua Bengio 
+moderator: Tristan Naumann 
+doclink: Coming soon
+videolink: Coming soon
 
 - time: 11:30 AM - 11:35 AM 
-     type: Research Talk 
- 	 title: Defining Admissible Rewards for High-Confidence Policy Evaluation in Batch Reinforcement Learning 
-     speaker: Niranjani Prasad 
-     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+type: Research Talk 
+title: Defining Admissible Rewards for High-Confidence Policy Evaluation in Batch Reinforcement Learning 
+speaker: Niranjani Prasad 
+moderator: TBD 
+doclink: Coming soon
+videolink: Coming soon
 
 - time: 11:35 AM - 11:40 AM 
-     type: Research Talk 
-     title: Variational Learning of Individual Survival Distributions 
-     speaker: Zidi Xiu 
-     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+type: Research Talk 
+title: Variational Learning of Individual Survival Distributions 
+speaker: Zidi Xiu 
+moderator: TBD 
+doclink: Coming soon
+videolink: Coming soon
 
 - time: 11:40 AM - 11:45 AM 
-     type: Research Talk 
- 	 title: Interpretable Subgroup Discovery in Treatment Effect Estimation with Application to Opioid Prescribing Guidelines 
-     speaker: Chirag Nagpal 
-     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+type: Research Talk 
+title: Interpretable Subgroup Discovery in Treatment Effect Estimation with Application to Opioid Prescribing Guidelines 
+speaker: Chirag Nagpal 
+moderator: TBD 
+doclink: Coming soon
+videolink: Coming soon
 
 - time: 11:45 AM - 11:50 AM 
-     type: Research Talk 
-     title: Adverse Drug Reaction Discovery from Electronic Health Records with Deep Neural Networks 
-     speaker: Wei Zhang 
-     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+type: Research Talk 
+title: Adverse Drug Reaction Discovery from Electronic Health Records with Deep Neural Networks 
+speaker: Wei Zhang 
+moderator: TBD 
+doclink: Coming soon
+videolink: Coming soon
 
 - time: 11:50 AM - 11:55 AM 
-     type: Research Talk 
-     title: CaliForest: Calibrated Random Forest for Health Data 
-     speaker: Yubin Park 
-     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+type: Research Talk 
+title: CaliForest: Calibrated Random Forest for Health Data 
+speaker: Yubin Park 
+moderator: TBD 
+doclink: Coming soon
+videolink: Coming soon
 
 - time: 11:55 AM - 12:00 PM 
-     type: Research Talk 
-     title: BMM-Net: Automatic Segmentation of Edema in Optical Coherence Tomography Based on Boundary Detection and Multi-Scale Network 
-     speaker: Ruru Zhang 
-     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+type: Research Talk 
+title: BMM-Net: Automatic Segmentation of Edema in Optical Coherence Tomography Based on Boundary Detection and Multi-Scale Network 
+speaker: Ruru Zhang 
+moderator: TBD 
+doclink: Coming soon
+videolink: Coming soon
 
 - time: 12:00 PM - 1:00 PM 
-     type: Social Lunch 
-     title: Social Lunch 
-     speaker: N/A 
-     moderator: Irene Chen 
-    doclink: Coming soon
-    videolink: Coming soon
+type: Social Lunch 
+title: Social Lunch 
+speaker: N/A 
+moderator: Irene Chen 
+doclink: Coming soon
+videolink: Coming soon
 
 - time: 1:00 PM - 1:10 PM 
-     type: Introduction 
-     title: Welcome Back 
-     speaker: Marzyeh Ghassemi 
-     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+type: Introduction 
+title: Welcome Back 
+speaker: Marzyeh Ghassemi 
+moderator: TBD 
+doclink: Coming soon
+videolink: Coming soon
 
 - time: 1:10 PM - 1:15 PM 
-	 type:  Research Talk
-	 title: Survival Cluster Analysis 
-	 speaker: Paidamoyo Chapfuwa
-	 moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+ type:  Research Talk
+ title: Survival Cluster Analysis 
+ speaker: Paidamoyo Chapfuwa
+ moderator: TBD 
+doclink: Coming soon
+videolink: Coming soon
 
 - time: 1:15 PM - 1:20 PM 
-	 type:  Research Talk
-	 title: An Adversarial Approach for the Robust Classification of Pneumonia from Chest Radiographs
-	 speaker: Joseph D. Janizek
-	 moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+ type:  Research Talk
+ title: An Adversarial Approach for the Robust Classification of Pneumonia from Chest Radiographs
+ speaker: Joseph D. Janizek
+ moderator: TBD 
+doclink: Coming soon
+videolink: Coming soon
 
 - time: 1:20 PM - 1:25 PM 
-	 type:  Research Talk 
-	 title: Explaining an increase in predicted risk for clinical alerts
-	 speaker: Michaela Hardt
-	 moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+ type:  Research Talk 
+ title: Explaining an increase in predicted risk for clinical alerts
+ speaker: Michaela Hardt
+ moderator: TBD 
+doclink: Coming soon
+videolink: Coming soon
 
 - time: 1:25 PM - 1:30 PM 
-	 type:  Research Talk 
-	 title: Fast Learning-based Registration of Sparse 3D Clinical Images
-	 speaker: Kathleen Lewis
-	 moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+ type:  Research Talk 
+ title: Fast Learning-based Registration of Sparse 3D Clinical Images
+ speaker: Kathleen Lewis
+ moderator: TBD 
+doclink: Coming soon
+videolink: Coming soon
 
 - time: 1:30 PM - 1:35 PM 
-	 type:  Research Talk 
-	 title: Multiple Instance Learning for Predicting Necrotizing Enterocolitis in Premature Infants Using Microbiome Data
-	 speaker: Thomas Hooven
-	 moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+ type:  Research Talk 
+ title: Multiple Instance Learning for Predicting Necrotizing Enterocolitis in Premature Infants Using Microbiome Data
+ speaker: Thomas Hooven
+ moderator: TBD 
+doclink: Coming soon
+videolink: Coming soon
 
 - time: 1:35 PM - 1:40 PM 
-	 type:  Research Talk 
-	 title: Hurtful Words: Quantifying Biases in Clinical Contextual Word Embeddings
-	 speaker: Haoran Zhang
-	 moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+ type:  Research Talk 
+ title: Hurtful Words: Quantifying Biases in Clinical Contextual Word Embeddings
+ speaker: Haoran Zhang
+ moderator: TBD 
+doclink: Coming soon
+videolink: Coming soon
 
 - time: 1:40 PM - 2:00 PM 
-     type: Keynote 
-     title: Title Here 
-     speaker: Elaine Nsoesie 
-     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+type: Keynote 
+title: Title Here 
+speaker: Elaine Nsoesie 
+moderator: TBD 
+doclink: Coming soon
+videolink: Coming soon
 
 - time: 2:00 PM - 2:20 PM 
-     type: Keynote 
-     title: Title Here 
-     speaker: Nigam Shah 
-     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+type: Keynote 
+title: Title Here 
+speaker: Nigam Shah 
+moderator: TBD 
+doclink: Coming soon
+videolink: Coming soon
 
 - time: 2:20 PM - 2:30 PM 
-     type: Introduction 
-     title: Day 1 Closing Remarks 
-     speaker: Marzyeh Ghassemi 
-     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+type: Introduction 
+title: Day 1 Closing Remarks 
+speaker: Marzyeh Ghassemi 
+moderator: TBD 
+doclink: Coming soon
+videolink: Coming soon
     
 friday:
   - time: Coming soon
