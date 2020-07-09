@@ -4,6 +4,7 @@ import csv
 import glob
 import json
 import os
+from typing import Dict
 
 import yaml
 from flask import Flask, jsonify, redirect, render_template, send_from_directory
@@ -12,6 +13,25 @@ from flaskext.markdown import Markdown
 
 site_data = {}
 by_uid = {}
+
+times = [
+    "1 - (05:00-07:00 GMT)",
+    "2 - (08:00-10:00 GMT)",
+    "3 - (12:00-14:00 GMT)",
+    "4 - (17:00-19:00 GMT)",
+    "5 - (20:00-22:00 GMT)",
+]
+times2 = [
+    "(05:00-07:00 GMT)",
+    "(08:00-10:00 GMT)",
+    "(12:00-14:00 GMT)",
+    "(17:00-19:00 GMT)",
+    "(20:00-22:00 GMT)",
+]
+
+paper_session: Dict[str, str] = {}
+session_times: Dict[str, str] = {}
+session_links: Dict[str, str] = {}
 
 
 def main(site_data_path):
@@ -33,8 +53,25 @@ def main(site_data_path):
         for p in site_data[typ]:
             by_uid[typ][p["UID"]] = p
 
+    site_data["poster_schedule"].sort(key=lambda s: s["name"])
+
+    for v in site_data["poster_schedule"]:
+        for poster_info in v["posters"]:
+            poster = poster_info["UID"]
+            join_link = poster_info["join_link"]
+            paper_session.setdefault(poster, [])
+            session_times.setdefault(poster, [])
+            session_links.setdefault(poster, [])
+            t = times2[int(v["name"].split()[-1]) - 1]
+            paper_session[poster].append(v["name"])
+            session_times[poster].append(t)
+            session_links[poster].append(join_link)
+
     print("Data Successfully Loaded")
     return extra_files
+
+
+# (site_data["poster_schedule"].sort(key=lambda s: s["name"]))
 
 
 # ------------- SERVER CODE -------------------->
@@ -119,7 +156,14 @@ def extract_list_field(v, key):
 
 
 def format_paper(v):
-    list_keys = ["authors", "keywords", "session"]
+    list_keys = [
+        "authors",
+        "keywords",
+        "session",
+        "paper_session",
+        "session_times",
+        "session_links",
+    ]
     list_fields = {}
     for key in list_keys:
         list_fields[key] = extract_list_field(v, key)
@@ -135,6 +179,9 @@ def format_paper(v):
             "TLDR": v["abstract"],
             "recs": [],
             "session": list_fields["session"],
+            "paper_session": paper_session[v["UID"]],
+            "session_times": session_times[v["UID"]],
+            "session_links": session_links[v["UID"]],
             "pdf_url": v.get("pdf_url", ""),
         },
     }

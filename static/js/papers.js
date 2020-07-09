@@ -223,7 +223,7 @@ const card_time_small = (openreview, show) => {
     return show ? `
 <!--    <div class="pp-card-footer">-->
     <div class="text-center" style="margin-top: 10px;">
-    ${cnt.session.filter(s => s.match(/.*[0-9]/g)).map(
+    ${cnt.paper_session.filter(s => s.match(/.*[0-9]/g)).map(
       (s, i) => `<a class="card-subtitle text-muted" href="?session=${encodeURIComponent(
         s)}">${s.replace('Session ', '')}</a> ${card_live(
         cnt.session_links[i])} ${card_cal(openreview, i)} `).join(', ')}
@@ -263,10 +263,10 @@ const card_html = openreview => `
                 <h6 class="card-subtitle text-muted" align="center">
                         ${openreview.content.authors.join(', ')}
                 </h6>
+                ${card_time_small(openreview, render_mode !== 'list')}
                 ${card_image(openreview, render_mode !== 'list')}
                 
             </div>
                
                 ${card_detail(openreview, (render_mode === 'detail'))}
         </div>`
-
