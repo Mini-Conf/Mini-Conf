@@ -17,7 +17,7 @@ thursday:
 
   - time: "10:00 AM - 10:50 AM" 
     type: Tutorial 
-    title: Public Health Datasets for Deep Learning: Challenges and Opportunities 
+    title: "Public Health Datasets for Deep Learning: Challenges and Opportunities "
     speaker: Ziad Obermeyer, Katy Haynes, Josh Risley 
     moderator: Irene Chen 
     doclink: Coming soon
@@ -73,7 +73,7 @@ thursday:
 
   - time: "11:50 AM - 11:55 AM" 
     type: Research Talk 
-    title: CaliForest: Calibrated Random Forest for Health Data 
+    title: "CaliForest: Calibrated Random Forest for Health Data" 
     speaker: Yubin Park 
     moderator: TBD 
     doclink: Coming soon
@@ -81,7 +81,7 @@ thursday:
 
   - time: "11:55 AM - 12:00 PM" 
     type: Research Talk 
-    title: BMM-Net: Automatic Segmentation of Edema in Optical Coherence Tomography Based on Boundary Detection and Multi-Scale Network 
+    title: "BMM-Net: Automatic Segmentation of Edema in Optical Coherence Tomography Based on Boundary Detection and Multi-Scale Network"
     speaker: Ruru Zhang 
     moderator: TBD 
     doclink: Coming soon
