@@ -270,7 +270,6 @@
       <th scope="col">Title</th>
       <th scope="col">Speaker</th>
       <th scope="col">Moderator</th>
-      <th scope="col">Read more</th>
       <th scope="col">Video link</th>
     </tr>
   </thead>
@@ -282,7 +281,6 @@
       <td>{% if row.title %}{{ row.title }}{% endif %}</td>
       <td>{% if row.speaker %}{{ row.speaker }}{% endif %}</td>
       <td>{% if row.moderator %}{{ row.moderator }}{% endif %}</td>
-      <td>{% if row.doclink %}{{ row.doclink }}{% endif %}</td>
       <td>{% if row.videolink %}{{ row.videolink }}{% endif %}</td>
     </tr>
 {% endfor %}
