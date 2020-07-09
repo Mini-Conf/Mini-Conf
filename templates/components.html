@@ -278,10 +278,14 @@
     <tr>
       <td>{% if row.time %}{{ row.time }}{% endif %}</td>
       <td>{% if row.type %}{{ row.type }}{% endif %}</td>
-      <td>{% if row.title %}{{ row.title }}{% endif %}</td>
+      <td>{% if row.doclink %}<a href="{{ row.doclink }}" />{% endif %}
+          {% if row.title %}{{ row.title }}{% endif %}
+          {% if row.doclink %}</a>{% endif %}</td>
       <td>{% if row.speaker %}{{ row.speaker }}{% endif %}</td>
       <td>{% if row.moderator %}{{ row.moderator }}{% endif %}</td>
-      <td>{% if row.videolink %}{{ row.videolink }}{% endif %}</td>
+      <td>{% if row.sessionlink %}<a href="{{ row.sessionlink }}" />{% endif %}
+          {% if row.sessionlinktext %}{{ row.sessionlinktext }}{% endif %}
+          {% if row.sessionlink %}</a>{% endif %}</td>
     </tr>
 {% endfor %}
   </tbody>
