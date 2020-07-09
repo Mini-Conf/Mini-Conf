@@ -4,24 +4,27 @@ thursday:
     title: A Tour of Survival Analysis, from Classical to Modern 
     speaker: George H. Chen, Jeremy C. Weiss  
     moderator: Irene Chen 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "10:00 AM - 10:50 AM" 
     type: Tutorial 
     title: Medical Imaging with Deep Learning 
     speaker: Joseph Paul Cohen 
     moderator: Irene Chen 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "10:00 AM - 10:50 AM" 
     type: Tutorial 
     title: "Public Health Datasets for Deep Learning: Challenges and Opportunities "
     speaker: Ziad Obermeyer, Katy Haynes, Josh Risley 
     moderator: Irene Chen 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
     
   - time: 
     type: 
@@ -29,71 +32,79 @@ thursday:
     speaker: 
     moderator: 
     doclink: 
-    videolink:     
+    sessionlink:     
 
   - time: "11:00 AM - 11:10 AM"
     type: Introduction 
     title: Opening Remarks 
     speaker: Marzyeh Ghassemi 
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "11:10 AM - 11:30 AM" 
     type: Keynote 
     title: "[Machine Learning Challenges in the Fight for Social Good - the Covid-19 Case](https://www.chilconference.org/speaker_1.html)"
     speaker: Yoshua Bengio 
     moderator: Tristan Naumann 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "11:30 AM - 11:35 AM" 
     type: Research Talk 
     title: Defining Admissible Rewards for High-Confidence Policy Evaluation in Batch Reinforcement Learning 
     speaker: Niranjani Prasad 
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "11:35 AM - 11:40 AM"
     type: Research Talk 
     title: Variational Learning of Individual Survival Distributions 
     speaker: Zidi Xiu 
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "11:40 AM - 11:45 AM" 
     type: Research Talk 
     title: Interpretable Subgroup Discovery in Treatment Effect Estimation with Application to Opioid Prescribing Guidelines 
     speaker: Chirag Nagpal 
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "11:45 AM - 11:50 AM" 
     type: Research Talk 
     title: Adverse Drug Reaction Discovery from Electronic Health Records with Deep Neural Networks 
     speaker: Wei Zhang 
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "11:50 AM - 11:55 AM" 
     type: Research Talk 
     title: "CaliForest: Calibrated Random Forest for Health Data" 
     speaker: Yubin Park 
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "11:55 AM - 12:00 PM" 
     type: Research Talk 
     title: "BMM-Net: Automatic Segmentation of Edema in Optical Coherence Tomography Based on Boundary Detection and Multi-Scale Network"
     speaker: Ruru Zhang 
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
     
   - time: 
     type: 
@@ -101,15 +112,16 @@ thursday:
     speaker: 
     moderator: 
     doclink: 
-    videolink: 
+    sessionlink: 
     
   - time: "12:00 PM - 1:00 PM" 
     type: Social Lunch 
     title: Social Lunch 
     speaker: N/A 
     moderator: Irene Chen 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
     
   - time: 
     type: 
@@ -117,87 +129,97 @@ thursday:
     speaker: 
     moderator: 
     doclink: 
-    videolink:     
+    sessionlink:     
 
   - time: "1:00 PM - 1:10 PM "
     type: Introduction 
     title: Welcome Back 
     speaker: Marzyeh Ghassemi 
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "1:10 PM - 1:15 PM" 
     type:  Research Talk
     title: Survival Cluster Analysis 
     speaker: Paidamoyo Chapfuwa
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "1:15 PM - 1:20 PM "
     type:  Research Talk
     title: An Adversarial Approach for the Robust Classification of Pneumonia from Chest Radiographs
     speaker: Joseph D. Janizek
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "1:20 PM - 1:25 PM "
     type:  Research Talk 
     title: Explaining an increase in predicted risk for clinical alerts
     speaker: Michaela Hardt
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "1:25 PM - 1:30 PM" 
     type:  Research Talk 
     title: Fast Learning-based Registration of Sparse 3D Clinical Images
     speaker: Kathleen Lewis
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "1:30 PM - 1:35 PM "
     type:  Research Talk 
     title: Multiple Instance Learning for Predicting Necrotizing Enterocolitis in Premature Infants Using Microbiome Data
     speaker: Thomas Hooven
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "1:35 PM - 1:40 PM "
     type:  Research Talk 
     title: "Hurtful Words: Quantifying Biases in Clinical Contextual Word Embeddings"
     speaker: Haoran Zhang
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "1:40 PM - 2:00 PM" 
     type: Keynote 
     title: "[Digital Platforms & Public Health in Africa](https://www.chilconference.org/speaker_2.html)"
     speaker: Elaine Nsoesie 
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "2:00 PM - 2:20 PM" 
     type: Keynote 
     title: "[A framework for shaping the future of AI in healthcare](https://www.chilconference.org/speaker_5.html)"
     speaker: Nigam Shah 
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "2:20 PM - 2:30 PM" 
     type: Introduction 
     title: Day 1 Closing Remarks 
     speaker: Marzyeh Ghassemi 
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
     
 friday:
 thursday:
@@ -206,24 +228,27 @@ thursday:
     title: A Tour of Survival Analysis, from Classical to Modern 
     speaker: George H. Chen, Jeremy C. Weiss  
     moderator: Irene Chen 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "10:00 AM - 10:50 AM" 
     type: Tutorial 
     title: Medical Imaging with Deep Learning 
     speaker: Joseph Paul Cohen 
     moderator: Irene Chen 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "10:00 AM - 10:50 AM" 
     type: Tutorial 
     title: "Public Health Datasets for Deep Learning: Challenges and Opportunities "
     speaker: Ziad Obermeyer, Katy Haynes, Josh Risley 
     moderator: Irene Chen 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
     
   - time: 
     type: 
@@ -231,71 +256,79 @@ thursday:
     speaker: 
     moderator: 
     doclink: 
-    videolink:     
+    sessionlink:     
 
   - time: "11:00 AM - 11:10 AM"
     type: Introduction 
     title: Opening Remarks 
     speaker: Marzyeh Ghassemi 
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "11:10 AM - 11:30 AM" 
     type: Keynote 
     title: "Machine Learning Challenges in the Fight for Social Good - the Covid-19 Case" 
     speaker: Yoshua Bengio 
     moderator: Tristan Naumann 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "11:30 AM - 11:35 AM" 
     type: Research Talk 
     title: Defining Admissible Rewards for High-Confidence Policy Evaluation in Batch Reinforcement Learning 
     speaker: Niranjani Prasad 
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "11:35 AM - 11:40 AM"
     type: Research Talk 
     title: Variational Learning of Individual Survival Distributions 
     speaker: Zidi Xiu 
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "11:40 AM - 11:45 AM" 
     type: Research Talk 
     title: Interpretable Subgroup Discovery in Treatment Effect Estimation with Application to Opioid Prescribing Guidelines 
     speaker: Chirag Nagpal 
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "11:45 AM - 11:50 AM" 
     type: Research Talk 
     title: Adverse Drug Reaction Discovery from Electronic Health Records with Deep Neural Networks 
     speaker: Wei Zhang 
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "11:50 AM - 11:55 AM" 
     type: Research Talk 
     title: "CaliForest: Calibrated Random Forest for Health Data" 
     speaker: Yubin Park 
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "11:55 AM - 12:00 PM" 
     type: Research Talk 
     title: "BMM-Net: Automatic Segmentation of Edema in Optical Coherence Tomography Based on Boundary Detection and Multi-Scale Network"
     speaker: Ruru Zhang 
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
     
   - time: 
     type: 
@@ -303,15 +336,16 @@ thursday:
     speaker: 
     moderator: 
     doclink: 
-    videolink:     
+    sessionlink:     
 
   - time: "12:00 PM - 1:00 PM" 
     type: Social Lunch 
     title: Social Lunch 
     speaker: N/A 
     moderator: Irene Chen 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
     
   - time: 
     type: 
@@ -319,87 +353,97 @@ thursday:
     speaker: 
     moderator: 
     doclink: 
-    videolink:     
+    sessionlink:     
 
   - time: "1:00 PM - 1:10 PM "
     type: Introduction 
     title: Welcome Back 
     speaker: Marzyeh Ghassemi 
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "1:10 PM - 1:15 PM" 
     type:  Research Talk
     title: Survival Cluster Analysis 
     speaker: Paidamoyo Chapfuwa
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "1:15 PM - 1:20 PM "
     type:  Research Talk
     title: An Adversarial Approach for the Robust Classification of Pneumonia from Chest Radiographs
     speaker: Joseph D. Janizek
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "1:20 PM - 1:25 PM "
     type:  Research Talk 
     title: Explaining an increase in predicted risk for clinical alerts
     speaker: Michaela Hardt
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "1:25 PM - 1:30 PM" 
     type:  Research Talk 
     title: Fast Learning-based Registration of Sparse 3D Clinical Images
     speaker: Kathleen Lewis
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "1:30 PM - 1:35 PM "
     type:  Research Talk 
     title: Multiple Instance Learning for Predicting Necrotizing Enterocolitis in Premature Infants Using Microbiome Data
     speaker: Thomas Hooven
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "1:35 PM - 1:40 PM "
     type:  Research Talk 
     title: "Hurtful Words: Quantifying Biases in Clinical Contextual Word Embeddings"
     speaker: Haoran Zhang
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "1:40 PM - 2:00 PM" 
     type: Keynote 
     title: "Digital Platforms & Public Health in Africa"
     speaker: Elaine Nsoesie 
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "2:00 PM - 2:20 PM" 
     type: Keynote 
     title: A framework for shaping the future of AI in healthcare
     speaker: Nigam Shah 
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "2:20 PM - 2:30 PM" 
     type: Introduction 
     title: Day 1 Closing Remarks 
     speaker: Marzyeh Ghassemi 
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
     
 friday:
   - time: "10:00 AM - 10:50 AM"
@@ -407,135 +451,154 @@ friday:
     title: "Population and public health: challenges and opportunities"
     speaker: Vishwali Mhasawade, Yuan Zhao, Rumi Chunara  
     moderator: Irene Chen 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
   - time: "10:00 AM - 10:50 AM" 
     type: Tutorial 
     title: "Analyzing critical care data, from speculation to publication, starring MIMIC-IV"
     speaker: Alistair Johnson 
     moderator: Irene Chen 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "11:00 AM - 11:10 AM"
     type: Introduction 
     title: Opening Remarks 
     speaker: Marzyeh Ghassemi 
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
   - time: "11:10 AM - 11:30 AM"
     type: Keynote
     title: "Machine Learning in Health Care: Too Important to Be a Toy Example"
     speaker: Sherri Rose
     moderator: TBD
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "11:30 AM - 11:35 AM" 
     type: Research Talk 
     title: "Disease State Prediction From Single-Cell Data Using Graph Attention Networks"
     speaker: Neal Ravindra
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
   - time: "11:35 AM - 11:40 AM"
     type: Research Talk 
     title: Using SNOMED to Automate Clinical Concept Mapping
     speaker: Shaun Gupta
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
   - time: "11:40 AM - 11:45 AM" 
     type: Research Talk 
     title: "MMiDaS-AE: Multi-modal Missing Data aware Stacked Autoencoder for Biomedical Abstract Screening"
     speaker: Eric W. Lee
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
   - time: "11:45 AM - 11:50 AM" 
     type: Research Talk 
     title: Hidden Stratification Causes Clinically Meaningful Failures in Machine Learning for Medical Imaging
     speaker: "Luke Oakden-Rayner"
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
   - time: "11:50 AM - 11:55 AM" 
     type: Research Talk 
     title: Interactive Hybrid Approach to Combine Human and Machine Intelligence for Personalized Rehabilitation Assessment
     speaker: Min Hun Lee
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
   - time: "11:55 AM - 12:00 PM" 
     type: Research Talk 
     title: Extracting Medical Entities from Social Media
     speaker: Sanja Scepanovic
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "12:00 PM - 1:00 PM" 
     type: Sponsor Lunch 
     title: Sponsor Lunch 
     speaker: N/A 
     moderator: Irene Chen 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
 
   - time: "1:00 PM - 1:10 PM "
     type: Introduction 
     title: Welcome Back 
     speaker: Marzyeh Ghassemi 
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
   - time: "1:10 PM - 1:15 PM" 
     type:  Research Talk
     title: "Population-aware Hierarchical Bayesian Domain Adaptation via Multi-component Invariant Learning"
     speaker: Vishwali Mhasawade
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
   - time: "1:15 PM - 1:20 PM "
     type:  Research Talk
     title: "TASTE: Temporal and Static Tensor Factorization for Phenotyping Electronic Health Records"
     speaker: Ardavan Afshar
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
   - time: "1:20 PM - 1:25 PM "
     type:  Research Talk 
     title: Analyzing the Role of Model Uncertainty for Electronic Health Records
     speaker: Michael W. Dusenberry
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
   - time: "1:25 PM - 1:30 PM" 
     type:  Research Talk 
     title: "Deidentification of free-text medical records using pre-trained bidirectional transformers"
     speaker: Alistair Johnson
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
   - time: "1:30 PM - 1:35 PM "
     type:  Research Talk 
     title: "MIMIC-Extract: A Data Extraction, Preprocessing, and Representation Pipeline for MIMIC-III"
     speaker: Matthew B. A. McDermott
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
   - time: "1:40 PM - 2:00 PM"
     type: Keynote
     title: TBD
     speaker: Ruslan Salakhutdinov
     moderator: TBD
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
   - time: "2:00 PM - 2:20 PM" 
     type: Introduction 
     title: Day 2 Closing Remarks 
     speaker: Marzyeh Ghassemi 
     moderator: TBD 
-    doclink: Coming soon
-    videolink: Coming soon
+    doclink:
+    sessionlink: 
+    sessionlinktext: Coming soon
