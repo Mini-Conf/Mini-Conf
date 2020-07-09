@@ -176,13 +176,14 @@ thursday:
     videolink: Coming soon
     
 friday:
-  - time: Coming soon
-    type: Coming soon
-    title: Coming soon
-    speaker: Coming soon
-    moderator: Coming soon
+  - time: "11:10 AM - 11:30 AM"
+    type: Keynote
+    title: "Machine Learning in Health Care: Too Important to Be a Toy Example"
+    speaker: Sherri Rose
+    moderator: TBD
     doclink: Coming soon
     videolink: Coming soon
+    
   - time: Coming soon
     type: Coming soon
     title: Coming soon
