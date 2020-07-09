@@ -22,6 +22,14 @@ thursday:
     moderator: Irene Chen 
     doclink: Coming soon
     videolink: Coming soon
+    
+  - time: 
+    type: 
+    title: 
+    speaker: 
+    moderator: 
+    doclink: 
+    videolink:     
 
   - time: "11:00 AM - 11:10 AM"
     type: Introduction 
@@ -86,7 +94,15 @@ thursday:
     moderator: TBD 
     doclink: Coming soon
     videolink: Coming soon
-
+    
+  - time: 
+    type: 
+    title: 
+    speaker: 
+    moderator: 
+    doclink: 
+    videolink: 
+    
   - time: "12:00 PM - 1:00 PM" 
     type: Social Lunch 
     title: Social Lunch 
@@ -94,6 +110,14 @@ thursday:
     moderator: Irene Chen 
     doclink: Coming soon
     videolink: Coming soon
+    
+  - time: 
+    type: 
+    title: 
+    speaker: 
+    moderator: 
+    doclink: 
+    videolink:     
 
   - time: "1:00 PM - 1:10 PM "
     type: Introduction 
@@ -200,6 +224,14 @@ thursday:
     moderator: Irene Chen 
     doclink: Coming soon
     videolink: Coming soon
+    
+  - time: 
+    type: 
+    title: 
+    speaker: 
+    moderator: 
+    doclink: 
+    videolink:     
 
   - time: "11:00 AM - 11:10 AM"
     type: Introduction 
@@ -264,6 +296,14 @@ thursday:
     moderator: TBD 
     doclink: Coming soon
     videolink: Coming soon
+    
+  - time: 
+    type: 
+    title: 
+    speaker: 
+    moderator: 
+    doclink: 
+    videolink:     
 
   - time: "12:00 PM - 1:00 PM" 
     type: Social Lunch 
@@ -272,6 +312,14 @@ thursday:
     moderator: Irene Chen 
     doclink: Coming soon
     videolink: Coming soon
+    
+  - time: 
+    type: 
+    title: 
+    speaker: 
+    moderator: 
+    doclink: 
+    videolink:     
 
   - time: "1:00 PM - 1:10 PM "
     type: Introduction 
