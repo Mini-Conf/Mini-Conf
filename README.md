@@ -10,6 +10,11 @@ It is designed to be:
 * Modifiable without a database using CSV files.
 * Easy to extend to fit any backend or additional frontend tools. 
 
+## Links
+Demo system: <a href='http://www.mini-conf.org'> http://www.mini-conf.org</a>
+
+Source Code: <a href='https://github.com/Mini-Conf/Mini-Conf'> https://github.com/Mini-Conf/Mini-Conf</a>
+
 ## Get Started
 
 <pre>
