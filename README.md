@@ -1,4 +1,4 @@
-## Mini-Conf
+## MiniConf
 
 <a href="https://mini-conf.github.io/index.html">MiniConf</a> is a virtual conference in a box. It manages the papers, schedules, and speakers for an academic conference run virtually. It can be easily integrated with interactive tools such as video, chat, and QA.
 
@@ -48,11 +48,11 @@ Contains additional preprocessing to add visualizations, recommendations, schedu
 
 ### Extensions
 
-Miniconf is designed to be a completely static solution. However it is designed to integrate well with dynamic third-party solutions. We directly support the following providers: 
+MiniConf is designed to be a completely static solution. However it is designed to integrate well with dynamic third-party solutions. We directly support the following providers: 
 
 * Rocket.Chat: The `chat/` directory contains descriptions for setting up a hosted Rocket.Chat instance and for embedding chat rooms on individual paper pages. You can either buy a hosted setting from Rocket.chat or we include instructions for running your own scalable instance through sloppy.io. 
 
-* Auth0 : The code can integrate through Auth0.com to provide both page login (through javascript gating) and OAuth SSO with Rocket Chat. The documentation on Auth0 is very easy to follow, you simply need to create an Application for both the Miniconf site and the Rocket.Chat server. You then enter in the Client keys to the appropriate configs. 
+* Auth0 : The code can integrate through Auth0.com to provide both page login (through javascript gating) and OAuth SSO with Rocket Chat. The documentation on Auth0 is very easy to follow, you simply need to create an Application for both the MiniConf site and the Rocket.Chat server. You then enter in the Client keys to the appropriate configs. 
 
 * SlidesLive: It is easy to embedded any video provider -> YouTube, Vimeo, etc. However we have had great experience with SlidesLive and recommend them as a host. We include a slideslive example on the main page. 
 
@@ -61,7 +61,7 @@ Miniconf is designed to be a completely static solution. However it is designed 
 
 ### Example
 
-Mini-Conf was originally built to host <a href="https://iclr.cc/virtual_2020">ICLR 2020</a> a virtual conference with 6000 participants. 
+MiniConf was originally built to host <a href="https://iclr.cc/virtual_2020">ICLR 2020</a> a virtual conference with 6000 participants. 
 
 * ACMC 2020 (Australian Computer Music Conference): https://acmc2020.com/index.html
 * ACL 2020 (Association of Computational Linguistics): https://virtual.acl2020.org/index.html
