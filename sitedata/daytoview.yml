@@ -45,10 +45,10 @@ thursday:
 
   - time: "11:10 AM - 11:30 AM" 
     type: Keynote 
-    title: "[Machine Learning Challenges in the Fight for Social Good - the Covid-19 Case](https://www.chilconference.org/speaker_1.html)"
+    title: "Machine Learning Challenges in the Fight for Social Good - the Covid-19 Case"
     speaker: Yoshua Bengio 
     moderator: Tristan Naumann 
-    doclink:
+    doclink: "https://www.chilconference.org/speaker_1.html"
     sessionlink: 
     sessionlinktext: Coming soon
 
@@ -196,19 +196,19 @@ thursday:
 
   - time: "1:40 PM - 2:00 PM" 
     type: Keynote 
-    title: "[Digital Platforms & Public Health in Africa](https://www.chilconference.org/speaker_2.html)"
+    title: "Digital Platforms & Public Health in Africa"
     speaker: Elaine Nsoesie 
     moderator: TBD 
-    doclink:
+    doclink: "https://www.chilconference.org/speaker_2.html"
     sessionlink: 
     sessionlinktext: Coming soon
 
   - time: "2:00 PM - 2:20 PM" 
     type: Keynote 
-    title: "[A framework for shaping the future of AI in healthcare](https://www.chilconference.org/speaker_5.html)"
+    title: "A framework for shaping the future of AI in healthcare"
     speaker: Nigam Shah 
     moderator: TBD 
-    doclink:
+    doclink: "https://www.chilconference.org/speaker_5.html"
     sessionlink: 
     sessionlinktext: Coming soon
 
@@ -252,7 +252,7 @@ friday:
     title: "Machine Learning in Health Care: Too Important to Be a Toy Example"
     speaker: Sherri Rose
     moderator: TBD
-    doclink:
+    doclink: "https://www.chilconference.org/speaker_3.html"
     sessionlink: 
     sessionlinktext: Coming soon
 
