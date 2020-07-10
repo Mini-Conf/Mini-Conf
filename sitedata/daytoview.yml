@@ -4,27 +4,27 @@ thursday:
     title: A Tour of Survival Analysis, from Classical to Modern 
     speaker: George H. Chen, Jeremy C. Weiss  
     moderator: Irene Chen 
-    doclink:
+    doclink: "https://www.chilconference.org/tutorial_a.html"
     sessionlink: 
-    sessionlinktext: Coming soon
+    sessionlinktext: Tutorial Zoom
 
   - time: "10:00 AM - 10:50 AM" 
     type: Tutorial 
     title: Medical Imaging with Deep Learning 
     speaker: Joseph Paul Cohen 
     moderator: Irene Chen 
-    doclink:
+    doclink: "https://www.chilconference.org/tutorial_e.html"
     sessionlink: 
-    sessionlinktext: Coming soon
+    sessionlinktext: Tutorial Zoom
 
   - time: "10:00 AM - 10:50 AM" 
     type: Tutorial 
     title: "Public Health Datasets for Deep Learning: Challenges and Opportunities "
     speaker: Ziad Obermeyer, Katy Haynes, Josh Risley 
     moderator: Irene Chen 
-    doclink:
+    doclink: "https://www.chilconference.org/tutorial_c.html"
     sessionlink: 
-    sessionlinktext: Coming soon
+    sessionlinktext: Tutorial Zoom
     
   - time: 
     type: 
