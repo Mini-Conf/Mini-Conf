@@ -63,6 +63,12 @@ Miniconf is designed to be a completely static solution. However it is designed 
 
 Mini-Conf was originally built to host <a href="https://iclr.cc/virtual_2020">ICLR 2020</a> a virtual conference with 6000 participants. 
 
+* ACMC 2020 (Australian Computer Music Conference): https://acmc2020.com/index.html
+* ACL 2020 (Australian Computer Music Conference): https://virtual.acl2020.org/index.html
+* AKBC 2020 (Automated Knowledge Base Construction) : https://akbc.apps.allenai.org/index.html
+* ICLR 2020 (International Conference on Learning Representations): https://iclr.cc/virtual_2020
+* Data Science Capstone Exhibition, University of Pretoria: https://up-mitc-ds.github.io/808exhibition2020/index.html
+
 ### Acknowledgements
 
 MiniConf was built by [Hendrik Strobelt](http://twitter.com/hen_str) and [Sasha Rush](http://twitter.com/srush_nlp).
