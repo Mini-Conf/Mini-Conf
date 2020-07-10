@@ -238,6 +238,14 @@ friday:
     doclink: "https://www.chilconference.org/tutorial_d.html"
     sessionlink: 
     sessionlinktext: Tutorial Zoom
+    
+  - time: 
+    type: 
+    title: 
+    speaker: 
+    moderator: 
+    doclink: 
+    sessionlink:    
 
   - time: "11:00 AM - 11:10 AM"
     type: Introduction 
@@ -304,6 +312,14 @@ friday:
     doclink:
     sessionlink: 
     sessionlinktext: Coming soon
+    
+  - time: 
+    type: 
+    title: 
+    speaker: 
+    moderator: 
+    doclink: 
+    sessionlink:    
 
   - time: "12:00 PM - 1:00 PM" 
     type: Sponsor Lunch 
@@ -313,6 +329,14 @@ friday:
     doclink:
     sessionlink: 
     sessionlinktext: Coming soon
+    
+  - time: 
+    type: 
+    title: 
+    speaker: 
+    moderator: 
+    doclink: 
+    sessionlink:    
 
   - time: "1:00 PM - 1:10 PM "
     type: Introduction 
