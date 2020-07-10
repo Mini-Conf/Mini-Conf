@@ -59,7 +59,7 @@ MiniConf is designed to be a completely static solution. However it is designed 
 * PDF.js: For conferences that use posters it is easy to include an embedded pdf on poster pages. An example is given. 
 
 
-### Example
+### Examples
 
 MiniConf was originally built to host <a href="https://iclr.cc/virtual_2020">ICLR 2020</a> a virtual conference with 6000 participants. 
 
