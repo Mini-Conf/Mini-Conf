@@ -388,7 +388,7 @@ friday:
     sessionlinktext: Coming soon
   - time: "1:40 PM - 2:00 PM"
     type: Keynote
-    title: TBD
+    title: "Incorporating Domain Knowledge into Deep Learning Models"
     speaker: Ruslan Salakhutdinov
     moderator: TBD
     doclink:
