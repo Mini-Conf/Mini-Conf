@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block tabs %}
-{{ components.tabs([("thu", "Guidance", "active"),
+{{ components.tabs([("guidance", "Guidance", "active"),
                     ("preview", "Pre-recorded", ""),
                     ("thu", "Thursday", ""),
                     ("fri", "Friday", ""),
@@ -21,12 +21,12 @@
 
   <!-- Guidance Tab -->
   <div
-    class="tab-pane fade"
-    id="tab-thu"
+    class="tab-pane active"
+    id="tab-guidance"
     role="tabpanel"
     aria-labelledby="nav-profile-tab"
   >
-    <div id="thu">
+    <div id="guidance">
       <!-- Speakers -->
       {{ components.section("Guidance") }}
 
