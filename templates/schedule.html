@@ -7,9 +7,10 @@
 {% endblock %}
 
 {% block tabs %}
-{{ components.tabs([("thu", "Thursday", "active"),
-                    ("fri", "Friday", ""),
+{{ components.tabs([("thu", "Guidance", "active"),
                     ("preview", "Pre-recorded", ""),
+                    ("thu", "Thursday", ""),
+                    ("fri", "Friday", ""),
                     ("keynote", "Keynotes", ""),
                     ("tutorial", "Tutorials", ""),
                     ]) }}
@@ -17,6 +18,29 @@
 
 {% block content %}
 <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+
+  <!-- Guidance Tab -->
+  <div
+    class="tab-pane fade"
+    id="tab-thu"
+    role="tabpanel"
+    aria-labelledby="nav-profile-tab"
+  >
+    <div id="thu">
+      <!-- Speakers -->
+      {{ components.section("Guidance") }}
+
+      <div class="speakers">
+        {{ components.day_to_view(thu.schedule) }}
+      </div>
+      Coming soon.
+    </div>
+
+    <script type="text/javascript">
+      lazyLoader();
+    </script>
+  </div>
+
 
   <!-- Keynote Tab -->
   <div
@@ -40,7 +64,7 @@
 
   <!-- Thursday Tab -->
   <div
-    class="tab-pane active"
+    class="tab-pane fade"
     id="tab-thu"
     role="tabpanel"
     aria-labelledby="nav-profile-tab"
