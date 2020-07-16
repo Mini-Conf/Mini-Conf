@@ -233,6 +233,22 @@
 </div>
 {%- endmacro %}
 
+{% macro slideslive(slideslive_id) -%}
+{% if slideslive_id %}
+<div class="pp-card m-3" style="">
+  <div id="presentation-embed-{{ slideslive_id }}"></div>
+  <script src='https://slideslive.com/embed_presentation.js'></script>
+  <script>
+      embed = new SlidesLiveEmbed('presentation-embed-{{ slideslive_id }}', {
+          presentationId: '{{ slideslive_id }}',
+          autoPlay: false, // change to true to autoplay the embedded presentation
+          verticalEnabled: true
+      });
+  </script>
+</div>
+{% endif %}
+{%- endmacro %}
+
 {% macro schedule(preview) -%}
 {% for day in preview %}
 
