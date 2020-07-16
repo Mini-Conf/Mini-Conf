@@ -235,14 +235,18 @@
 
 {% macro slideslive(slideslive_id) -%}
 {% if slideslive_id %}
-<div class="pp-card m-3" style="">
+{{ section("Presentation (SlidesLive)") }}
+<div class="col-md-12 col-xs-12 my-auto p-2">
   <div id="presentation-embed-{{ slideslive_id }}"></div>
   <script src='https://slideslive.com/embed_presentation.js'></script>
   <script>
       embed = new SlidesLiveEmbed('presentation-embed-{{ slideslive_id }}', {
           presentationId: '{{ slideslive_id }}',
           autoPlay: false, // change to true to autoplay the embedded presentation
-          verticalEnabled: true
+          verticalEnabled: true,
+          verticalWhenWidthLte: 500,
+          allowHiddenControlsWhenPaused: true,
+          hideTitle: true
       });
   </script>
 </div>
