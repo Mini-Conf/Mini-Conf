@@ -1,2 +1,2 @@
-UID,title,authors,abstract,slideslive_id
-a,"Test",John Doe,"Test 2",
+UID,title,authors,abstract,slideslive_id,rocketchat_id
+a,"Test",John Doe,"Test 2",,
