@@ -6,7 +6,7 @@
 <div class="pp-card m-3" style="">
   <div class="card-header">
     <h2 class="card-title main-title text-center" style="">
-      {{workshop.title}}
+      {{ workshop.title }}
     </h2>
     <h3 class="card-subtitle mb-2 text-muted text-center">
       {{ workshop.organizers | join(", ") }}
@@ -18,7 +18,7 @@
     <div class="card-text">
       <div id="abstractExample">
         <span class="font-weight-bold">Abstract:</span>
-        {{workshop.abstract|safe}} <br /><br />
+        {{ workshop.abstract|safe }} <br /><br />
       </div>
     </div>
     <p></p>
@@ -26,5 +26,6 @@
 </div>
 
 <!-- Presentation Embed -->
+{{ components.slideslive(workshop.slideslive_id) }}
 
 {% endblock %}

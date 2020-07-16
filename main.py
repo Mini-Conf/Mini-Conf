@@ -259,6 +259,7 @@ def format_paper(v):
             "pdf_url": v.get("pdf_url", ""),
             "acm_pdf_url": v.get("acm_pdf_url", ""),
             "acm_html_url": v.get("acm_html_url", ""),
+            "slideslive_id": v["slideslive_id"],
         },
     }
 
@@ -274,6 +275,7 @@ def format_workshop(v):
         "title": v["title"],
         "organizers": list_fields["authors"],
         "abstract": v["abstract"],
+        "slideslive_id": v["slideslive_id"]
     }
 
 
