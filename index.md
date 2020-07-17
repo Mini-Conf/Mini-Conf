@@ -4,6 +4,8 @@ The ACM Conference on Health, Inference, and Learning (CHIL), targets a cross-di
 
 ACM CHIL 2020 builds on the success of the ML4H Unconference, held in Toronto, and the Machine Learning for Health Workshop at NeurIPS, held in Vancouver. The conference is designed to spark insight-driven discussions on new and emerging ideas that may lead to collaboration and discussion.
 
+All ACM CHIL events and communications must abide by the [ACM policy against discrimination and harassment](https://www.acm.org/about-acm/policy-against-harassment). Violations of this policy should be reported [directly to the ACM](https://www.acm.org/about-acm/reporting-unacceptable-behavior), copying the event chairs. 
+
 ### Conference Timeline
 
 - *October 30, 2019: Call for Papers*
