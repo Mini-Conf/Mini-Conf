@@ -206,7 +206,7 @@
 </div>
 {%- endmacro %}
 
-{% macro workshopgroup(tutorials) -%}
+{% macro workshopgroup(tutorials, what) -%}
 <div class="cards row">
   {% for tutorial in tutorials %}
   <div class="col-md-6 col-sm-12 p-3" style="box-sizing: border-box;">
@@ -215,7 +215,7 @@
         class="card-header text-center"
         style="min-height: 200px; width: 100%;"
       >
-        <a class="text-muted" href="tutorial_{{tutorial.id}}.html">
+      <a class="text-muted" href="{{what}}_{{tutorial.id}}.html">
           <h3 class="card-title main-title">
             {{tutorial.title}}
           </h3>

@@ -13,6 +13,7 @@
                     ("fri", "Friday Schedule", ""),
                     ("keynote", "Keynotes", ""),
                     ("tutorial", "Tutorials", ""),
+                    ("ds", "Doctoral Symposium", "")
                     ]) }}
 {% endblock %}
 
@@ -155,7 +156,7 @@
       {{ components.section("Tutorials") }}
 
     <div class="speakers">
-      {{ components.workshopgroup(tutorials) }}
+      {{ components.workshopgroup(tutorials, "tutorial") }}
     </div>
 
     </div>
@@ -177,7 +178,7 @@
       {{ components.section("Workshops") }}
 
     <div class="speakers">
-      {{ components.workshopgroup(workshops) }}
+      {{ components.workshopgroup(workshops, "workshop") }}
     </div>
 
     </div>
@@ -198,7 +199,7 @@
       {{ components.section("Doctoral Symposium") }}
 
     <div class="speakers">
-      {{ components.workshopgroup(dss) }}
+      {{ components.workshopgroup(dss, "ds") }}
     </div>
 
     </div>
