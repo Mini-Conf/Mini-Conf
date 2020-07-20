@@ -21,7 +21,7 @@ All ACM CHIL events and communications must abide by the [ACM policy against dis
 - *March 9, 2020: Doctoral Symposia Notifications*
 - *April 2, 2020: Proceedings are out!* [Click here](https://dl.acm.org/doi/proceedings/10.1145/3368555) to view them on the ACM Digital Library
 - July 11, 2020: Speaker Deadline for Submitting Recorded Talks to SlidesLive
-- **July 23-25, 2020: Virtual ACM-CHIL Conference**
+- **July 23-24, 2020: Virtual ACM-CHIL Conference**
 
 ### Contact Information
 
