@@ -263,8 +263,8 @@ friday:
     speaker: Sherri Rose
     moderator: TBD
     doclink: "https://www.chilconference.org/speaker_3.html"
-    sessionlink: 
-    sessionlinktext: Coming soon
+    sessionlink: https://acm-org.zoom.us/j/95207093365
+    sessionlinktext: Zoom (as above)
 
   - time: "11:30 AM - 11:35 AM" 
     type: Research Talk 
@@ -334,8 +334,8 @@ friday:
     speaker: N/A 
     moderator: Irene Chen 
     doclink:
-    sessionlink: 
-    sessionlinktext: Coming soon
+    sessionlink: https://acm-org.zoom.us/j/96173526760
+    sessionlinktext: Zoom
     
   - time: 
     type: 
@@ -414,5 +414,5 @@ friday:
     speaker: Marzyeh Ghassemi 
     moderator: TBD 
     doclink:
-    sessionlink: 
-    sessionlinktext: Coming soon
+    sessionlink: https://acm-org.zoom.us/j/99755535413
+    sessionlinktext: Zoom (as above)
