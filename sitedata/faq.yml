@@ -1,16 +1,10 @@
 FAQ:
-  - Section: For Speakers
-    QA:
-      - Question: What is the deadline for submitting my recorded talk?
-        Answer: "The deadline for submitting presentation to SlidesLive is 11 July 2020."
-      - Question: What do I need to know to present my talk?
-        Answer: "You should be contacted by SlidesLive to arrange for your talk to be submitted. If you have not been contacted, or if you need assistance, please contact us at info@chilconference.org."
   - Section: Getting Started
     QA:
       - Question: How do you recommend using this site and navigating the conference?
         Answer: "All content will be accessed through this website. New content is released daily, so check the Schedule for new videos that are released, and when the live sessions for speaker Q&A and posters are taking place. You can navigate all the papers in the Papers section: you can search for keywords and authors, looking through all papers by skimming titles, or using the visualization tab at the top. We encourage everyone to visit the sponsor hall just like you would at the physical conference and then to participate in as many socials and using the chat tool. If you need any help you can ask one of the on-call helpers on the chat channel."
       - Question: What if I have a problem?
-        Answer: "If you have technical difficulties, please contact us by email."
+        Answer: "If you have technical difficulties, please contact us by email at info@chilconference.org."
   - Section: Website Navigation
     QA:
       - Question: What tools and logins do I need?
@@ -22,6 +16,11 @@ FAQ:
   - Section: Live Interaction
     QA:
       - Question: What parts of the conference are live?
-        Answer: "The Poster Sessions, Q&A with Invited Speakers, and Virtual Socials. These live sessions occur at specific times, so make sure you look at the Calendar to see what is live right now (see Schedule in menu)."
-
+        Answer: "Q&A sessions with Keynote Speakers, tutorial authors and research paper authors, along with the virtual lunch socials, are all live via Zoom. These live sessions occur at specific times, so make sure you look at the Calendar to see what is live right now (see Schedule in menu)."
+  - Section: For Speakers
+    QA:
+      - Question: What is the deadline for submitting my recorded talk?
+        Answer: "The deadline for submitting presentation to SlidesLive is 11 July 2020."
+      - Question: What do I need to know to present my talk?
+        Answer: "You should be contacted by SlidesLive to arrange for your talk to be submitted. If you have not been contacted, or if you need assistance, please contact us at info@chilconference.org."
 
