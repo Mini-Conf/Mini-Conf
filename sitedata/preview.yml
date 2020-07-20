@@ -18,13 +18,13 @@ Thursday:
     title: "Workshop Spotlights 1 - 13"
     link: Coming soon
   - time: 30 min
-    title: "Tutorial: Public Health Datasets for Deep Learning: Challenges and Opportunities."
-    link: Coming soon
-  - time: 30 min
     title: "Tutorial: A Tour of Survival Analysis, from Classical to Modern."
     link: Coming soon
   - time: 30 min
     title: "Tutorial: Medical Imaging with Deep Learning"
+    link: Coming soon
+  - time: 30 min
+    title: "Tutorial: Public Health Datasets for Deep Learning: Challenges and Opportunities."
     link: Coming soon
 Friday:
   - time: 20 min
@@ -43,10 +43,10 @@ Friday:
     title: "Workshop Spotlights 14 - 26"
     link: Coming soon
   - time: 30 min
-    title: "Tutorial: Analyzing critical care data, from speculation to publication, starring MIMIC-IV."
+    title: "Tutorial: Population and public health: challenges and opportunities."
     link: Coming soon
   - time: 30 min
-    title: "Tutorial: Population and public health: challenges and opportunities."
+    title: "Tutorial: Analyzing critical care data, from speculation to publication, starring MIMIC-IV."
     link: Coming soon
   - time: 30 min
     title: "Doctoral Symposium."

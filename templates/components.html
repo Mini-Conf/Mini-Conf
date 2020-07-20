@@ -274,16 +274,16 @@
   <table class="table table-striped">
   <thead>
     <tr>
-      <th scope="col">Time</th>
       <th scope="col">Title</th>
+      <th scope="col">Duration</th>
       <th scope="col">Link</th>
     </tr>
   </thead>
     <tbody>
     {% for row in preview[day] %}
     <tr>
-      <td>{{ row.time }}</td>
       <td>{{ row.title }}</td>
+      <td>{{ row.time }}</td>
       <td>{{ row.link }}</td>
     </tr>
 {% endfor %}
