@@ -1,7 +1,7 @@
 Thursday:
   - time: 20 min
     title: "Keynote: Yoshua Bengio"
-    link: Coming soon
+    slideslive_id: 38931907
   - time: 50 min
     title: "Research Paper Talks 1 - 6"
     link: Coming soon
@@ -10,9 +10,11 @@ Thursday:
     link: Coming soon
   - time: 20 min
     title: "Keynote: Elaine Nsoesie"
+    slideslive_id: 38931908
     link: Coming soon
   - time: 20 min
     title: "Keynote: Nigam Shah"
+    slideslive_id: 38931909
     link: Coming soon
   - time: 40 min
     title: "Workshop Spotlights 1 - 13"
@@ -29,6 +31,7 @@ Thursday:
 Friday:
   - time: 20 min
     title: "Keynote: Sherri Rose"
+    slideslive_id: 3893191
     link: Coming soon
   - time: 50 min
     title: "Research Paper Talks 13 - 18"
@@ -38,7 +41,7 @@ Friday:
     link: Coming soon
   - time: 20 min
     title: "Keynote: Ruslan Salakhutdinov"
-    link: Coming soon
+    slideslive_id: 38931911
   - time: 40 min
     title: "Workshop Spotlights 14 - 26"
     link: Coming soon

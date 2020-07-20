@@ -276,7 +276,7 @@
     <tr>
       <th scope="col">Title</th>
       <th scope="col">Duration</th>
-      <th scope="col">Link</th>
+      <th scope="col">Recording</th>
     </tr>
   </thead>
     <tbody>
@@ -284,7 +284,9 @@
     <tr>
       <td>{{ row.title }}</td>
       <td>{{ row.time }}</td>
-      <td>{{ row.link }}</td>
+      <td>{% if row.slideslive_id%}<a href="https://slideslive.com/{{ row.slideslive_id }}" />{% endif %}
+              Link
+          {% if row.slideslive_id %}</a>{% endif %}</td>
     </tr>
 {% endfor %}
   </tbody>
