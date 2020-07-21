@@ -362,7 +362,7 @@ Workshop Spotlights:
     slideslive_id: 38931958
   - time:
     day: 
-    title : "A Comprehensive Evaluation of Multitask Representation Learning on EHR Data"
+    title : "Distracted Multi-task Learning: Addressing Negative Transfer with Fine-tuning on EHR Time-series Data"
     doclink: /workshop_ws25.html
     slideslive_id: 38931959
   - time:
