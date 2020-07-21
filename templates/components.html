@@ -307,7 +307,7 @@
       <th scope="col">Title</th>
       <th scope="col">Speaker</th>
       <th scope="col">Moderator</th>
-      <th scope="col">Session link</th>
+      <th scope="col">Q&amp;A Session link</th>
     </tr>
   </thead>
     <tbody>
@@ -320,7 +320,7 @@
           {% if row.doclink %}</a>{% endif %}</td>
       <td>{% if row.speaker %}{{ row.speaker }}{% endif %}</td>
       <td>{% if row.moderator %}{{ row.moderator }}{% endif %}</td>
-      <td>{% if row.sessionlink %}<a href="{{ row.sessionlink }}" />{% endif %}
+      <td>{% if row.sessionlink %}<a href="{{ row.sessionlink }}" target="_blank" />{% endif %}
           {% if row.sessionlinktext %}{{ row.sessionlinktext }}{% endif %}
           {% if row.sessionlink %}</a>{% endif %}</td>
     </tr>
