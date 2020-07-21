@@ -274,17 +274,21 @@
   <table class="table table-striped">
   <thead>
     <tr>
-      <th scope="col">Title</th>
-      <th scope="col">Duration</th>
-      <th scope="col">Link</th>
+      <th scope="col">Title/speaker</th>
+      <th scope="col">Recording</th>
+      <th scope="col">Q&A Session</th>
     </tr>
   </thead>
     <tbody>
     {% for row in preview[day] %}
     <tr>
-      <td>{{ row.title }}</td>
-      <td>{{ row.time }}</td>
-      <td>{{ row.link }}</td>
+        <td>{% if row.doclink%}<a href="{{ row.doclink }}">{% endif %}
+                {{ row.title }}
+                {% if row.doclink %}</a>{% endif %}</td>
+      <td>{% if row.slideslive_id%}<a href="https://slideslive.com/{{ row.slideslive_id }}" />{% endif %}
+              Link
+          {% if row.slideslive_id %}</a>{% endif %}</td>
+      <td>{{ row.day }}</td>
     </tr>
 {% endfor %}
   </tbody>

@@ -1,53 +1,463 @@
-Thursday:
+Keynotes (20 min each):
   - time: 20 min
-    title: "Keynote: Yoshua Bengio"
-    link: Coming soon
-  - time: 50 min
-    title: "Research Paper Talks 1 - 6"
-    link: Coming soon
-  - time: 50 min
-    title: "Research Paper Talks 7 - 12"
-    link: Coming soon
+    type: Keynote
+    title: "Yoshua Bengio"
+    slideslive_id: 38931907
+    day: "Thur 11:10-11:30 AM"
+    doclink: "/speaker_1.html"
   - time: 20 min
-    title: "Keynote: Elaine Nsoesie"
+    type: Keynote
+    title: "Elaine Nsoesie"
+    slideslive_id: 38931908
     link: Coming soon
+    day: "Thur 1:40-2:00 PM"
+    doclink: "/speaker_2.html"
   - time: 20 min
-    title: "Keynote: Nigam Shah"
+    type: Keynote
+    title: "Nigam Shah"
+    slideslive_id: 38931909
     link: Coming soon
-  - time: 40 min
-    title: "Workshop Spotlights 1 - 13"
-    link: Coming soon
-  - time: 30 min
-    title: "Tutorial: A Tour of Survival Analysis, from Classical to Modern."
-    link: Coming soon
-  - time: 30 min
-    title: "Tutorial: Medical Imaging with Deep Learning"
-    link: Coming soon
-  - time: 30 min
-    title: "Tutorial: Public Health Datasets for Deep Learning: Challenges and Opportunities."
-    link: Coming soon
-Friday:
+    day: "Thur 2:00-2:20 PM"
+    doclink: "/speaker_5.html"
   - time: 20 min
-    title: "Keynote: Sherri Rose"
+    title: "Sherri Rose"
+    slideslive_id: 3893191
     link: Coming soon
-  - time: 50 min
-    title: "Research Paper Talks 13 - 18"
-    link: Coming soon
-  - time: 50 min
-    title: "Research Paper Talks 19 - 23"
-    link: Coming soon
+    day: "Fri 11:10-11:30 AM"
+    doclink: "/speaker_3.html"
   - time: 20 min
-    title: "Keynote: Ruslan Salakhutdinov"
-    link: Coming soon
-  - time: 40 min
-    title: "Workshop Spotlights 14 - 26"
-    link: Coming soon
+    title: "Ruslan Salakhutdinov"
+    slideslive_id: 38931911
+    day: "Fri 1:40-2:00 PM"
+    doclink: "/speaker_4.html"
+Tutorials (30 min each):
   - time: 30 min
-    title: "Tutorial: Population and public health: challenges and opportunities."
-    link: Coming soon
+    title: "A Tour of Survival Analysis, from Classical to Modern"
+    day: "Thur 10:00-10:50 AM"
+    slideslive_id: 38931962
+    doclink: "/tutorial_a.html"
   - time: 30 min
-    title: "Tutorial: Analyzing critical care data, from speculation to publication, starring MIMIC-IV."
-    link: Coming soon
+    title: "Medical Imaging with Deep Learning"
+    day: "Thur 10:00-10:50 AM"
+    slideslive_id: 38931963
+    doclink: "/tutorial_e.html"
   - time: 30 min
-    title: "Doctoral Symposium."
+    title: "Public Health Datasets for Deep Learning: Challenges and Opportunities"
+    day: "Thur 10:00-10:50 AM"
+    slideslive_id: 38931961
+    doclink: "/tutorial_c.html"
+  - time: 30 min
+    title: "Population and public health: challenges and opportunities"
     link: Coming soon
+    day: "Fri 10:00-10:50 AM"
+    slideslive_id: 38931964
+    doclink: "/tutorial_b.html"
+  - time: 30 min
+    title: "Analyzing critical care data, from speculation to publication, starring MIMIC-IV"
+    day: "Fri 10:00-10:50 AM"
+    slideslive_id: 38931965
+    doclink: "/tutorial_d.html"
+Research Papers (10 min each):
+  - day: "Thur 11:30-11:35 AM" 
+    type: Research Talk 
+    time: 10 min
+    title: Defining Admissible Rewards for High-Confidence Policy Evaluation in Batch Reinforcement Learning 
+    speaker: Niranjani Prasad 
+    moderator: TBD 
+    doclink: /poster_3368555.3384450.html
+    slideslive_id: 38931912
+
+  - day: "Thur 11:35-11:40 AM"
+    type: Research Talk 
+    time: 10 min
+    title: Variational Learning of Individual Survival Distributions 
+    speaker: Zidi Xiu 
+    moderator: TBD 
+    doclink: /poster_3368555.3384454.html
+    slideslive_id: 38931913
+
+  - day: "Thur 11:40-11:45 AM" 
+    type: Research Talk 
+    time: 10 min
+    title: Interpretable Subgroup Discovery in Treatment Effect Estimation with Application to Opioid Prescribing Guidelines 
+    speaker: Chirag Nagpal 
+    moderator: TBD 
+    doclink: /poster_3368555.3384456.html
+    slideslive_id: 38931914
+
+  - day: "Thur 11:45-11:50 AM" 
+    type: Research Talk 
+    time: 10 min
+    title: Adverse Drug Reaction Discovery from Electronic Health Records with Deep Neural Networks 
+    speaker: Wei Zhang 
+    moderator: TBD 
+    doclink: /poster_3368555.3384459.html
+    slideslive_id: 38931915
+
+  - day: "Thur 11:50-11:55 AM" 
+    type: Research Talk 
+    time: 10 min
+    title: "CaliForest: Calibrated Random Forest for Health Data" 
+    speaker: Yubin Park 
+    moderator: TBD 
+    doclink: /poster_3368555.3384461.html
+    slideslive_id: 38931916
+
+  - day: "Thur 11:55-12:00 PM" 
+    type: Research Talk 
+    time: 10 min
+    title: "BMM-Net: Automatic Segmentation of Edema in Optical Coherence Tomography Based on Boundary Detection and Multi-Scale Network"
+    speaker: Ruru Zhang 
+    moderator: TBD 
+    doclink: /poster_3368555.3384447.html
+    slideslive_id: 38931917
+    
+  - day: "Thur 1:10-1:15 PM" 
+    type:  Research Talk
+    time: 10 min
+    title: Survival Cluster Analysis 
+    speaker: Paidamoyo Chapfuwa
+    moderator: TBD 
+    doclink: /poster_3368555.3384465.html
+    slideslive_id: 38931918
+
+  - day: "Thur 1:15-1:20 PM "
+    type:  Research Talk
+    time: 10 min
+    title: An Adversarial Approach for the Robust Classification of Pneumonia from Chest Radiographs
+    speaker: Joseph D. Janizek
+    moderator: TBD 
+    doclink: /poster_3368555.3384458.html
+    slideslive_id: 38931919
+
+  - day: "Thur 1:20-1:25 PM "
+    type:  Research Talk 
+    time: 10 min
+    title: Explaining an increase in predicted risk for clinical alerts
+    speaker: Michaela Hardt
+    moderator: TBD 
+    doclink: /poster_3368555.3384460.html
+    slideslive_id: 38931920
+
+  - day: "Thur 1:25-1:30 PM" 
+    type:  Research Talk 
+    time: 10 min
+    title: Fast Learning-based Registration of Sparse 3D Clinical Images
+    speaker: Kathleen Lewis
+    moderator: TBD 
+    doclink: /poster_3368555.3384462.html
+    slideslive_id: 38931921
+
+  - day: "Thur 1:30-1:35 PM "
+    type:  Research Talk 
+    time: 10 min
+    title: Multiple Instance Learning for Predicting Necrotizing Enterocolitis in Premature Infants Using Microbiome Data
+    speaker: Thomas Hooven
+    moderator: TBD 
+    doclink: /poster_3368555.3384466.html
+    slideslive_id: 38931922
+
+  - day: "Thur 1:35-1:40 PM "
+    type:  Research Talk 
+    time: 10 min
+    title: "Hurtful Words: Quantifying Biases in Clinical Contextual Word Embeddings"
+    speaker: Haoran Zhang
+    moderator: TBD 
+    doclink: /poster_3368555.3384448.html
+    slideslive_id: 38931923
+
+  - day: "Fri 11:30-11:35 AM" 
+    type: Research Talk 
+    time: 10 min
+    title: "Disease State Prediction From Single-Cell Data Using Graph Attention Networks"
+    speaker: Neal Ravindra
+    moderator: TBD 
+    doclink: /poster_3368555.3384449.html
+    slideslive_id: 38931924
+
+  - day: "Fri 11:35-11:40 AM"
+    type: Research Talk 
+    time: 10 min
+    title: Using SNOMED to Automate Clinical Concept Mapping
+    speaker: Patrick Long
+    moderator: TBD 
+    doclink: /poster_3368555.3384453.html
+    slideslive_id: 38931925
+
+  - day: "Fri 11:40-11:45 AM" 
+    type: Research Talk 
+    time: 10 min
+    title: "MMiDaS-AE: Multi-modal Missing Data aware Stacked Autoencoder for Biomedical Abstract Screening"
+    speaker: Eric W. Lee
+    moderator: TBD 
+    doclink: /poster_3368555.3384463.html
+    slideslive_id: 38931926
+
+  - day: "Fri 11:45-11:50 AM" 
+    type: Research Talk 
+    time: 10 min
+    title: Hidden Stratification Causes Clinically Meaningful Failures in Machine Learning for Medical Imaging
+    speaker: "Jared Dunnmon"
+    moderator: TBD 
+    doclink: /poster_3368555.3384468.html
+    slideslive_id: 38931927
+
+  - day: "Fri 11:50-11:55 AM" 
+    type: Research Talk 
+    time: 10 min
+    title: Interactive Hybrid Approach to Combine Human and Machine Intelligence for Personalized Rehabilitation Assessment
+    speaker: Min Hun Lee
+    moderator: TBD 
+    doclink: /poster_3368555.3384452.html
+    slideslive_id: 38931928
+
+  - day: "Fri 11:55-12:00 PM" 
+    type: Research Talk 
+    time: 10 min
+    title: Extracting Medical Entities from Social Media
+    speaker: Sanja Scepanovic
+    moderator: TBD 
+    doclink: /poster_3368555.3384467.html
+    slideslive_id: 38931929
+    
+  - day: "Fri 1:10-1:15 PM" 
+    type:  Research Talk
+    time: 10 min
+    title: "Population-aware Hierarchical Bayesian Domain Adaptation via Multi-component Invariant Learning"
+    speaker: Vishwali Mhasawade
+    moderator: TBD 
+    doclink: /poster_3368555.3384451.html
+    slideslive_id: 38931930
+
+  - day: "Fri 1:15-1:20 PM "
+    type:  Research Talk
+    time: 10 min
+    title: "TASTE: Temporal and Static Tensor Factorization for Phenotyping Electronic Health Records"
+    speaker: Ioakeim Perros
+    moderator: TBD 
+    doclink: /poster_3368555.3384464.html
+    slideslive_id: 38931931
+
+  - day: "Fri 1:20-1:25 PM "
+    type:  Research Talk 
+    time: 10 min
+    title: Analyzing the Role of Model Uncertainty for Electronic Health Records
+    speaker: Michael W. Dusenberry
+    moderator: TBD 
+    doclink: /poster_3368555.3384457.html
+    slideslive_id: 38931932
+
+  - day: "Fri 1:25-1:30 PM" 
+    type:  Research Talk 
+    time: 10 min
+    title: "Deidentification of free-text medical records using pre-trained bidirectional transformers"
+    speaker: Alistair Johnson
+    moderator: TBD 
+    doclink: /poster_3368555.3384455.html
+    slideslive_id: 38931933
+
+  - day: "Fri 1:30-1:35 PM "
+    type:  Research Talk 
+    time: 10 min
+    title: "MIMIC-Extract: A Data Extraction, Preprocessing, and Representation Pipeline for MIMIC-III"
+    speaker: Matthew B. A. McDermott
+    moderator: TBD 
+    doclink: /poster_3368555.3384469.html
+    slideslive_id: 38931934
+Workshop Spotlights (3 minutes each):
+  - time:
+    day: 
+    title : "Differentially Private 'Small' Dataset Release Using Random Projections"
+    doclink: /workshop_ws1.html
+    slideslive_id: 38931935
+  - time:
+    day: 
+    title : "Learning Representations for Prediction of Next Patient State"
+    doclink: /workshop_ws3.html
+    slideslive_id: 38931937
+  - time:
+    day: 
+    title : "Deep State-Space Generative Model For Correlated Time-to-Event Predictions"
+    doclink: /workshop_ws4.html
+    slideslive_id: 38931938
+  - time:
+    day: 
+    title : "Differentially Private Survival Function Estimation"
+    doclink: /workshop_ws5.html
+    slideslive_id: 38931939
+  - time:
+    day: 
+    title : "Improving medical annotation quality to decrease labeling burden using stratified noisy cross-validation"
+    doclink: /workshop_ws7.html
+    slideslive_id: 38931941
+  - time:
+    day: 
+    title : "A Multi-Task Learning Approach to Personalized Progression Modeling"
+    doclink: /workshop_ws8.html
+    slideslive_id: 38931942
+  - time:
+    day: 
+    title : "Improved Patient Classification with Hierarchical Language Model Pretraining over Clinical Notes"
+    doclink: /workshop_ws9.html
+    slideslive_id: 38931943
+  - time:
+    day: 
+    title : "Health change detection using temporal transductive learning"
+    doclink: /workshop_ws10.html
+    slideslive_id: 38931944
+  - time:
+    day: 
+    title : "Cost-Sensitive Feature Selection Using Bayesian Optimization"
+    doclink: /workshop_ws11.html
+    slideslive_id: 38931945
+  - time:
+    day: 
+    title : "A large-scale Twitter dataset for drug safety applications mined from publicly existing resources"
+    doclink: /workshop_ws12.html
+    slideslive_id: 38931946
+  - time:
+    day: 
+    title : "ClinicalBERT: Modeling Clinical Notes and Predicting Hospital Readmission"
+    doclink: /workshop_ws13.html
+    slideslive_id: 38931947
+  - time:
+    day: 
+    title : "Mining Dynamic Problem Lists from Clinical Notes for the Interpretable Prediction of Adverse Outcomes"
+    doclink: /workshop_ws14.html
+    slideslive_id: 38931948
+  - time:
+    day: 
+    title : "Deep Transfer Learning for Physiological Signals"
+    doclink: /workshop_ws15.html
+    slideslive_id: 38931949
+  - time:
+    day: 
+    title : "Open Set Medical Diagnosis"
+    doclink: /workshop_ws16.html
+    slideslive_id: 38931950
+  - time:
+    day: 
+    title : "Assessing Robustness of Deep Learning Methods in Dermatological Workflow"
+    doclink: /workshop_ws17.html
+    slideslive_id: 38931951
+  - time:
+    day: 
+    title : "Automated Emotional Valence Prediction in Mental Health Text via Deep Transfer Learning"
+    doclink: /workshop_ws20.html
+    slideslive_id: 38931954
+  - time:
+    day: 
+    title : "Generation of Differentially Private Heterogeneous Synthetic Electronic Health Records using GANs"
+    doclink: /workshop_ws21.html
+    slideslive_id: 38931955
+  - time:
+    day: 
+    title : "Integrating Physiological Time Series and Clinical Notes with Deep Learning for Improved ICU Mortality Prediction"
+    doclink: /workshop_ws22.html
+    slideslive_id: 38931956
+  - time:
+    day: 
+    title : "CheXpedition: Investigating Generalization Challenges for Translation of Chest X-Ray Algorithms to the Clinical Setting"
+    doclink: /workshop_ws23.html
+    slideslive_id: 38931957
+  - time:
+    day: 
+    title : "Automated Medical Coding using BERT: Benchmarking Deep Learning in the Face of Subjective Labels"
+    doclink: /workshop_ws24.html
+    slideslive_id: 38931958
+  - time:
+    day: 
+    title : "A Comprehensive Evaluation of Multitask Representation Learning on EHR Data"
+    doclink: /workshop_ws25.html
+    slideslive_id: 38931959
+  - time:
+    day: 
+    title : "Dataset Bias in Diagnostic AI systems: Guidelines for Dataset Collection and Usage"
+    doclink: /workshop_ws26.html
+    slideslive_id: 38931960
+  - time:
+    day: 
+    title : "Temporal-Clustering Invariance in Irregular Healthcare Time Series"
+    doclink: /workshop_ws27.html
+    slideslive_id: 38931987
+  - time:
+    day: 
+    title : "Calibrated Deep Nonparametric Survival Analysis"
+    doclink: /workshop_ws28.html
+    slideslive_id: 38931988
+Doctoral Symposium (8 minutes each):
+  - time:
+    day: 
+    title : "Serena Jeblee"
+    doclink: /ds_a.html
+    slideslive_id: 38931967
+  - time:
+    day: 
+    title : "Serifat Folorunso"
+    doclink: /ds_b.html
+    slideslive_id: 38931968
+  - time:
+    day: 
+    title : "Savannah Bergquist"
+    doclink: /ds_d.html
+    slideslive_id: 38931970
+  - time:
+    day: 
+    title : "Paidamoyo Chapfuwa"
+    doclink: /ds_e.html
+    slideslive_id: 38931971
+  - time:
+    day: 
+    title : "Primoz Kocbek"
+    doclink: /ds_f.html
+    slideslive_id: 38931972
+  - time:
+    day: 
+    title : "Jill Furzer"
+    doclink: /ds_h.html
+    slideslive_id: 38931974
+  - time:
+    day: 
+    title : "Hasna Njah"
+    doclink: /ds_j.html
+    slideslive_id: 38931976
+  - time:
+    day: 
+    title : "Vinyas Harish"
+    doclink: /ds_k.html
+    slideslive_id: 38931977
+  - time:
+    day: 
+    title : "Haohan Wang"
+    doclink: /ds_l.html
+    slideslive_id: 38931978
+  - time:
+    day: 
+    title : "Mamadou Lamine MBOUP"
+    doclink: /ds_m.html
+    slideslive_id: 38931979
+  - time:
+    day: 
+    title : "Tulika Kakati"
+    doclink: /ds_n.html
+    slideslive_id: 38931980
+  - time:
+    day: 
+    title : "Nirvana Nursimulu"
+    doclink: /ds_o.html
+    slideslive_id: 38931981
+  - time:
+    day: 
+    title : "Rohit Bhattacharya"
+    doclink: /ds_q.html
+    slideslive_id: 38931983
+  - time:
+    day: 
+    title : "Kaspar Märtens"
+    doclink: /ds_r.html
+    slideslive_id: 38931984
+  - time:
+    day: 
+    title : "Luis Oala"
+    doclink: /ds_s.html
+    slideslive_id: 38931985
