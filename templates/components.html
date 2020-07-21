@@ -285,10 +285,10 @@
         <td>{% if row.doclink%}<a href="{{ row.doclink }}">{% endif %}
                 {{ row.title }}
                 {% if row.doclink %}</a>{% endif %}</td>
-      <td>{% if row.slideslive_id%}<a href="https://slideslive.com/{{ row.slideslive_id }}" />{% endif %}
-              Link
+      <td>{% if row.slideslive_id%}<a href="https://slideslive.com/{{ row.slideslive_id }}" target="_blank" />{% endif %}
+              SlidesLive
           {% if row.slideslive_id %}</a>{% endif %}</td>
-      <td>{{ row.day }}</td>
+      <td>{% if row.day %} {{ row.day }} {% endif %}</td>
     </tr>
 {% endfor %}
   </tbody>
