@@ -275,8 +275,9 @@
   <thead>
     <tr>
       <th scope="col">Title/speaker</th>
-      <th scope="col">Recording</th>
+      {% if day == 'Keynotes' or day == 'Tutorials' or day == 'Research Papers' %}
       <th scope="col">Q&A Session</th>
+      {% endif %}
     </tr>
   </thead>
     <tbody>
@@ -285,10 +286,9 @@
         <td>{% if row.doclink%}<a href="{{ row.doclink }}">{% endif %}
                 {{ row.title }}
                 {% if row.doclink %}</a>{% endif %}</td>
-      <td>{% if row.slideslive_id%}<a href="https://slideslive.com/{{ row.slideslive_id }}" target="_blank" />{% endif %}
-              SlidesLive
-          {% if row.slideslive_id %}</a>{% endif %}</td>
+      {% if day == 'Keynotes' or day == 'Tutorials' or day == 'Research Papers' %}
       <td>{% if row.day %} {{ row.day }} {% endif %}</td>
+      {% endif %}
     </tr>
 {% endfor %}
   </tbody>
