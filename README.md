@@ -72,7 +72,7 @@ MiniConf was originally built to host <a href="https://iclr.cc/virtual_2020">ICL
 * ACL 2020 (Association of Computational Linguistics): https://virtual.acl2020.org/index.html
 * AKBC 2020 (Automated Knowledge Base Construction) : https://akbc.apps.allenai.org/index.html
 * ICLR 2020 (International Conference on Learning Representations): https://iclr.cc/virtual_2020
-* ICML 2020 (International Conference of Machine Learning): https://icml.cc/virtual/2020/index.html
+* ICML 2020 (International Conference on Machine Learning): https://icml.cc/virtual/2020/index.html
 * Data Science Capstone Exhibition, University of Pretoria: https://up-mitc-ds.github.io/808exhibition2020/index.html
 
 ### Acknowledgements
