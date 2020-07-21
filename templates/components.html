@@ -275,8 +275,9 @@
   <thead>
     <tr>
       <th scope="col">Title/speaker</th>
-      <th scope="col">Recording</th>
+      {% if day == 'Keynotes' or day == 'Tutorials' or day == 'Research Papers' %}
       <th scope="col">Q&A Session</th>
+      {% endif %}
     </tr>
   </thead>
     <tbody>
@@ -285,10 +286,9 @@
         <td>{% if row.doclink%}<a href="{{ row.doclink }}">{% endif %}
                 {{ row.title }}
                 {% if row.doclink %}</a>{% endif %}</td>
-      <td>{% if row.slideslive_id%}<a href="https://slideslive.com/{{ row.slideslive_id }}" />{% endif %}
-              Link
-          {% if row.slideslive_id %}</a>{% endif %}</td>
-      <td>{{ row.day }}</td>
+      {% if day == 'Keynotes' or day == 'Tutorials' or day == 'Research Papers' %}
+      <td>{% if row.day %} {{ row.day }} {% endif %}</td>
+      {% endif %}
     </tr>
 {% endfor %}
   </tbody>
@@ -307,7 +307,7 @@
       <th scope="col">Title</th>
       <th scope="col">Speaker</th>
       <th scope="col">Moderator</th>
-      <th scope="col">Session link</th>
+      <th scope="col">Q&amp;A Session link</th>
     </tr>
   </thead>
     <tbody>
@@ -320,7 +320,7 @@
           {% if row.doclink %}</a>{% endif %}</td>
       <td>{% if row.speaker %}{{ row.speaker }}{% endif %}</td>
       <td>{% if row.moderator %}{{ row.moderator }}{% endif %}</td>
-      <td>{% if row.sessionlink %}<a href="{{ row.sessionlink }}" />{% endif %}
+      <td>{% if row.sessionlink %}<a href="{{ row.sessionlink }}" target="_blank" />{% endif %}
           {% if row.sessionlinktext %}{{ row.sessionlinktext }}{% endif %}
           {% if row.sessionlink %}</a>{% endif %}</td>
     </tr>

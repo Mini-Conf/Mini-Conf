@@ -1,4 +1,4 @@
-Keynotes (20 min each):
+Keynotes:
   - time: 20 min
     type: Keynote
     title: "Yoshua Bengio"
@@ -21,7 +21,7 @@ Keynotes (20 min each):
     doclink: "/speaker_5.html"
   - time: 20 min
     title: "Sherri Rose"
-    slideslive_id: 3893191
+    slideslive_id: 38931910
     link: Coming soon
     day: "Fri 11:10-11:30 AM"
     doclink: "/speaker_3.html"
@@ -30,7 +30,7 @@ Keynotes (20 min each):
     slideslive_id: 38931911
     day: "Fri 1:40-2:00 PM"
     doclink: "/speaker_4.html"
-Tutorials (30 min each):
+Tutorials:
   - time: 30 min
     title: "A Tour of Survival Analysis, from Classical to Modern"
     day: "Thur 10:00-10:50 AM"
@@ -57,7 +57,7 @@ Tutorials (30 min each):
     day: "Fri 10:00-10:50 AM"
     slideslive_id: 38931965
     doclink: "/tutorial_d.html"
-Research Papers (10 min each):
+Research Papers:
   - day: "Thur 11:30-11:35 AM" 
     type: Research Talk 
     time: 10 min
@@ -264,7 +264,7 @@ Research Papers (10 min each):
     moderator: TBD 
     doclink: /poster_3368555.3384469.html
     slideslive_id: 38931934
-Workshop Spotlights (3 minutes each):
+Workshop Spotlights:
   - time:
     day: 
     title : "Differentially Private 'Small' Dataset Release Using Random Projections"
@@ -342,11 +342,6 @@ Workshop Spotlights (3 minutes each):
     slideslive_id: 38931951
   - time:
     day: 
-    title : "Automated Emotional Valence Prediction in Mental Health Text via Deep Transfer Learning"
-    doclink: /workshop_ws20.html
-    slideslive_id: 38931954
-  - time:
-    day: 
     title : "Generation of Differentially Private Heterogeneous Synthetic Electronic Health Records using GANs"
     doclink: /workshop_ws21.html
     slideslive_id: 38931955
@@ -385,7 +380,7 @@ Workshop Spotlights (3 minutes each):
     title : "Calibrated Deep Nonparametric Survival Analysis"
     doclink: /workshop_ws28.html
     slideslive_id: 38931988
-Doctoral Symposium (8 minutes each):
+Doctoral Symposium:
   - time:
     day: 
     title : "Serena Jeblee"

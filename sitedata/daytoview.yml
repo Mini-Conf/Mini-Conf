@@ -3,7 +3,7 @@ thursday:
     type: Tutorial 
     title: A Tour of Survival Analysis, from Classical to Modern 
     speaker: George H. Chen, Jeremy C. Weiss  
-    moderator: Irene Chen 
+    moderator: Andrew Beam, Irene Chen 
     doclink: "https://www.chilconference.org/tutorial_a.html"
     sessionlink: https://acm-org.zoom.us/j/97192244292
     sessionlinktext: Zoom
@@ -12,7 +12,7 @@ thursday:
     type: Tutorial 
     title: Medical Imaging with Deep Learning 
     speaker: Joseph Paul Cohen 
-    moderator: Irene Chen 
+    moderator: Adrian Dalca, Irene Chen 
     doclink: "https://www.chilconference.org/tutorial_e.html"
     sessionlink: https://acm-org.zoom.us/j/91855352830
     sessionlinktext: Zoom
@@ -21,7 +21,7 @@ thursday:
     type: Tutorial 
     title: "Public Health Datasets for Deep Learning: Challenges and Opportunities "
     speaker: Ziad Obermeyer, Katy Haynes, Josh Risley 
-    moderator: Irene Chen 
+    moderator: Tom Pollard, Irene Chen 
     doclink: "https://www.chilconference.org/tutorial_c.html"
     sessionlink: https://acm-org.zoom.us/j/92252417545
     sessionlinktext: Zoom
@@ -38,9 +38,9 @@ thursday:
     type: Introduction 
     title: Opening Remarks 
     speaker: Marzyeh Ghassemi 
-    moderator: TBD 
+    moderator: Tristan Naumann 
     doclink:
-    sessionlink: https://acm-org.zoom.us/j/93083999413
+    sessionlink: https://acm-org.zoom.us/j/93312695261
     sessionlinktext: Zoom
 
   - time: "11:10 AM - 11:30 AM" 
@@ -49,14 +49,14 @@ thursday:
     speaker: Yoshua Bengio 
     moderator: Tristan Naumann 
     doclink: "https://www.chilconference.org/speaker_1.html"
-    sessionlink: https://acm-org.zoom.us/j/93083999413
+    sessionlink: https://acm-org.zoom.us/j/93312695261
     sessionlinktext: Zoom (as above)
 
   - time: "11:30 AM - 11:35 AM" 
     type: Research Talk 
     title: Defining Admissible Rewards for High-Confidence Policy Evaluation in Batch Reinforcement Learning 
     speaker: Niranjani Prasad 
-    moderator: TBD 
+    moderator: Bret Nestor, Marzyeh Ghassemi
     doclink: /poster_3368555.3384450.html
     sessionlink:  https://acm-org.zoom.us/j/95617935177
     sessionlinktext: Zoom
@@ -65,7 +65,7 @@ thursday:
     type: Research Talk 
     title: Variational Learning of Individual Survival Distributions 
     speaker: Zidi Xiu 
-    moderator: TBD 
+    moderator: Bret Nestor, Marzyeh Ghassemi
     doclink: /poster_3368555.3384454.html
     sessionlink: https://acm-org.zoom.us/j/95617935177
     sessionlinktext: Zoom (as above)
@@ -74,7 +74,7 @@ thursday:
     type: Research Talk 
     title: Interpretable Subgroup Discovery in Treatment Effect Estimation with Application to Opioid Prescribing Guidelines 
     speaker: Chirag Nagpal 
-    moderator: TBD 
+    moderator: Bret Nestor, Marzyeh Ghassemi
     doclink: /poster_3368555.3384456.html
     sessionlink: https://acm-org.zoom.us/j/95617935177
     sessionlinktext: Zoom (as above)
@@ -83,7 +83,7 @@ thursday:
     type: Research Talk 
     title: Adverse Drug Reaction Discovery from Electronic Health Records with Deep Neural Networks 
     speaker: Wei Zhang 
-    moderator: TBD 
+    moderator: Bret Nestor, Marzyeh Ghassemi
     doclink: /poster_3368555.3384459.html
     sessionlink: https://acm-org.zoom.us/j/95617935177
     sessionlinktext: Zoom (as above)
@@ -92,7 +92,7 @@ thursday:
     type: Research Talk 
     title: "CaliForest: Calibrated Random Forest for Health Data" 
     speaker: Yubin Park 
-    moderator: TBD 
+    moderator: Bret Nestor, Marzyeh Ghassemi 
     doclink: /poster_3368555.3384461.html
     sessionlink: https://acm-org.zoom.us/j/95617935177
     sessionlinktext: Zoom (as above)
@@ -101,7 +101,7 @@ thursday:
     type: Research Talk 
     title: "BMM-Net: Automatic Segmentation of Edema in Optical Coherence Tomography Based on Boundary Detection and Multi-Scale Network"
     speaker: Ruru Zhang 
-    moderator: TBD 
+    moderator: Bret Nestor, Marzyeh Ghassemi
     doclink: /poster_3368555.3384447.html
     sessionlink: https://acm-org.zoom.us/j/95617935177
     sessionlinktext: Zoom (as above)
@@ -118,7 +118,7 @@ thursday:
     type: Social Lunch 
     title: Social Lunch 
     speaker: N/A 
-    moderator: Irene Chen 
+    moderator: Irene Chen, Laura Rosella
     doclink:
     sessionlink: https://acm-org.zoom.us/j/92141200135
     sessionlinktext: Zoom 
@@ -135,90 +135,90 @@ thursday:
     type: Introduction 
     title: Welcome Back 
     speaker: Marzyeh Ghassemi 
-    moderator: TBD 
+    moderator: Matthew McDermott
     doclink:
     sessionlink: https://acm-org.zoom.us/j/92141200135
-    sessionlinktext: Zoom 
+    sessionlinktext: Zoom (as above)
 
   - time: "1:10 PM - 1:15 PM" 
     type:  Research Talk
     title: Survival Cluster Analysis 
     speaker: Paidamoyo Chapfuwa
-    moderator: TBD 
+    moderator: Matthew McDermott 
     doclink: /poster_3368555.3384465.html
-    sessionlink:  https://acm-org.zoom.us/j/92458756283
+    sessionlink:  https://acm-org.zoom.us/j/93312695261
     sessionlinktext: Zoom 
 
   - time: "1:15 PM - 1:20 PM "
     type:  Research Talk
     title: An Adversarial Approach for the Robust Classification of Pneumonia from Chest Radiographs
     speaker: Joseph D. Janizek
-    moderator: TBD 
+    moderator: Matthew McDermott
     doclink: /poster_3368555.3384458.html
-    sessionlink: https://acm-org.zoom.us/j/92458756283
+    sessionlink: https://acm-org.zoom.us/j/93312695261
     sessionlinktext: Zoom (as above)
 
   - time: "1:20 PM - 1:25 PM "
     type:  Research Talk 
     title: Explaining an increase in predicted risk for clinical alerts
     speaker: Michaela Hardt
-    moderator: TBD 
+    moderator: Matthew McDermott
     doclink: /poster_3368555.3384460.html
-    sessionlink: https://acm-org.zoom.us/j/92458756283
+    sessionlink: https://acm-org.zoom.us/j/93312695261
     sessionlinktext: Zoom (as above)
 
   - time: "1:25 PM - 1:30 PM" 
     type:  Research Talk 
     title: Fast Learning-based Registration of Sparse 3D Clinical Images
     speaker: Kathleen Lewis
-    moderator: TBD 
+    moderator: Matthew McDermott
     doclink: /poster_3368555.3384462.html
-    sessionlink: https://acm-org.zoom.us/j/92458756283
+    sessionlink: https://acm-org.zoom.us/j/93312695261
     sessionlinktext: Zoom (as above)
 
   - time: "1:30 PM - 1:35 PM "
     type:  Research Talk 
     title: Multiple Instance Learning for Predicting Necrotizing Enterocolitis in Premature Infants Using Microbiome Data
     speaker: Thomas Hooven
-    moderator: TBD 
+    moderator: Matthew McDermott
     doclink: /poster_3368555.3384466.html
-    sessionlink: https://acm-org.zoom.us/j/92458756283
+    sessionlink: https://acm-org.zoom.us/j/93312695261
     sessionlinktext: Zoom (as above)
 
   - time: "1:35 PM - 1:40 PM "
     type:  Research Talk 
     title: "Hurtful Words: Quantifying Biases in Clinical Contextual Word Embeddings"
     speaker: Haoran Zhang
-    moderator: TBD 
+    moderator: Matthew McDermott
     doclink: /poster_3368555.3384448.html
-    sessionlink: https://acm-org.zoom.us/j/92458756283
+    sessionlink: https://acm-org.zoom.us/j/93312695261
     sessionlinktext: Zoom (as above)
 
   - time: "1:40 PM - 2:00 PM" 
     type: Keynote 
     title: "Digital Platforms & Public Health in Africa"
     speaker: Elaine Nsoesie 
-    moderator: TBD 
+    moderator: Tristan Naumann
     doclink: "https://www.chilconference.org/speaker_2.html"
-    sessionlink: https://acm-org.zoom.us/j/94824267777
+    sessionlink: https://acm-org.zoom.us/j/95904797161
     sessionlinktext: Zoom 
 
   - time: "2:00 PM - 2:20 PM" 
     type: Keynote 
     title: "A framework for shaping the future of AI in healthcare"
     speaker: Nigam Shah 
-    moderator: TBD 
+    moderator: Tristan Naumann
     doclink: "https://www.chilconference.org/speaker_5.html"
-    sessionlink: https://acm-org.zoom.us/j/94824267777
+    sessionlink: https://acm-org.zoom.us/j/95904797161
     sessionlinktext: Zoom (as above)
 
   - time: "2:20 PM - 2:30 PM" 
     type: Closing 
     title: Day 1 Closing Remarks 
     speaker: Marzyeh Ghassemi 
-    moderator: TBD 
+    moderator: Tristan Naumann
     doclink:
-    sessionlink: https://acm-org.zoom.us/j/94824267777
+    sessionlink: https://acm-org.zoom.us/j/95904797161
     sessionlinktext: Zoom (as above)
         
 friday:
@@ -226,7 +226,7 @@ friday:
     type: Tutorial 
     title: "Population and public health: challenges and opportunities"
     speaker: Vishwali Mhasawade, Yuan Zhao, Rumi Chunara  
-    moderator: Irene Chen 
+    moderator: Irene Chen, Laura Rosella
     doclink: "https://www.chilconference.org/tutorial_b.html"
     sessionlink: https://acm-org.zoom.us/j/94501844419
     sessionlinktext: Zoom
@@ -235,7 +235,7 @@ friday:
     type: Tutorial 
     title: "Analyzing critical care data, from speculation to publication, starring MIMIC-IV"
     speaker: Alistair Johnson 
-    moderator: Irene Chen 
+    moderator: Irene Chen, Tom Pollard
     doclink: "https://www.chilconference.org/tutorial_d.html"
     sessionlink: https://acm-org.zoom.us/j/99868624455
     sessionlinktext: Zoom
@@ -252,25 +252,25 @@ friday:
     type: Introduction 
     title: Opening Remarks 
     speaker: Marzyeh Ghassemi 
-    moderator: TBD 
+    moderator: Tasmie Sarker
     doclink:
-    sessionlink: https://acm-org.zoom.us/j/95207093365
+    sessionlink: https://acm-org.zoom.us/j/98928141757
     sessionlinktext: Zoom
 
   - time: "11:10 AM - 11:30 AM"
     type: Keynote
     title: "Machine Learning in Health Care: Too Important to Be a Toy Example"
     speaker: Sherri Rose
-    moderator: TBD
+    moderator: Tristan Naumann 
     doclink: "https://www.chilconference.org/speaker_3.html"
-    sessionlink: https://acm-org.zoom.us/j/95207093365
+    sessionlink: https://acm-org.zoom.us/j/98928141757
     sessionlinktext: Zoom (as above)
 
   - time: "11:30 AM - 11:35 AM" 
     type: Research Talk 
     title: "Disease State Prediction From Single-Cell Data Using Graph Attention Networks"
     speaker: Neal Ravindra
-    moderator: TBD 
+    moderator: Brett Beaulieu-Jones
     doclink: /poster_3368555.3384449.html
     sessionlink: https://acm-org.zoom.us/j/96943419848
     sessionlinktext: Zoom
@@ -279,7 +279,7 @@ friday:
     type: Research Talk 
     title: Using SNOMED to Automate Clinical Concept Mapping
     speaker: Patrick Long
-    moderator: TBD 
+    moderator: Brett Beaulieu-Jones
     doclink: /poster_3368555.3384453.html
     sessionlink: https://acm-org.zoom.us/j/96943419848
     sessionlinktext: Zoom (as above)
@@ -288,7 +288,7 @@ friday:
     type: Research Talk 
     title: "MMiDaS-AE: Multi-modal Missing Data aware Stacked Autoencoder for Biomedical Abstract Screening"
     speaker: Eric W. Lee
-    moderator: TBD 
+    moderator: Brett Beaulieu-Jones
     doclink: /poster_3368555.3384463.html
     sessionlink: https://acm-org.zoom.us/j/96943419848
     sessionlinktext: Zoom (as above)
@@ -297,7 +297,7 @@ friday:
     type: Research Talk 
     title: Hidden Stratification Causes Clinically Meaningful Failures in Machine Learning for Medical Imaging
     speaker: "Jared Dunnmon"
-    moderator: TBD 
+    moderator: Brett Beaulieu-Jones
     doclink: /poster_3368555.3384468.html
     sessionlink: https://acm-org.zoom.us/j/96943419848
     sessionlinktext: Zoom (as above)
@@ -306,7 +306,7 @@ friday:
     type: Research Talk 
     title: Interactive Hybrid Approach to Combine Human and Machine Intelligence for Personalized Rehabilitation Assessment
     speaker: Min Hun Lee
-    moderator: TBD 
+    moderator: Brett Beaulieu-Jones
     doclink: /poster_3368555.3384452.html
     sessionlink: https://acm-org.zoom.us/j/96943419848
     sessionlinktext: Zoom (as above)
@@ -315,7 +315,7 @@ friday:
     type: Research Talk 
     title: Extracting Medical Entities from Social Media
     speaker: Sanja Scepanovic
-    moderator: TBD 
+    moderator: Brett Beaulieu-Jones
     doclink: /poster_3368555.3384467.html
     sessionlink: https://acm-org.zoom.us/j/96943419848
     sessionlinktext: Zoom (as above)
@@ -332,7 +332,7 @@ friday:
     type: Sponsor Lunch 
     title: Sponsor Lunch 
     speaker: N/A 
-    moderator: Irene Chen 
+    moderator: Irene Chen, Tasmie Sarker
     doclink:
     sessionlink: https://acm-org.zoom.us/j/96173526760
     sessionlinktext: Zoom
@@ -351,14 +351,14 @@ friday:
     speaker: Marzyeh Ghassemi 
     moderator: TBD 
     doclink:
-    sessionlink: https://acm-org.zoom.us/j/94058205148
-    sessionlinktext: Zoom
+    sessionlink: https://acm-org.zoom.us/j/96173526760
+    sessionlinktext: Zoom (as above)
 
   - time: "1:10 PM - 1:15 PM" 
     type:  Research Talk
     title: "Population-aware Hierarchical Bayesian Domain Adaptation via Multi-component Invariant Learning"
     speaker: Vishwali Mhasawade
-    moderator: TBD 
+    moderator: Danielle Belgrave
     doclink: /poster_3368555.3384451.html
     sessionlink: https://acm-org.zoom.us/j/94058205148
     sessionlinktext: Zoom
@@ -367,7 +367,7 @@ friday:
     type:  Research Talk
     title: "TASTE: Temporal and Static Tensor Factorization for Phenotyping Electronic Health Records"
     speaker: Ioakeim Perros
-    moderator: TBD 
+    moderator: Danielle Belgrave
     doclink: /poster_3368555.3384464.html
     sessionlink: https://acm-org.zoom.us/j/94058205148
     sessionlinktext: Zoom (as above)
@@ -376,7 +376,7 @@ friday:
     type:  Research Talk 
     title: Analyzing the Role of Model Uncertainty for Electronic Health Records
     speaker: Michael W. Dusenberry
-    moderator: TBD 
+    moderator: Danielle Belgrave 
     doclink: /poster_3368555.3384457.html
     sessionlink: https://acm-org.zoom.us/j/94058205148
     sessionlinktext: Zoom (as above)
@@ -385,7 +385,7 @@ friday:
     type:  Research Talk 
     title: "Deidentification of free-text medical records using pre-trained bidirectional transformers"
     speaker: Alistair Johnson
-    moderator: TBD 
+    moderator: Danielle Belgrave
     doclink: /poster_3368555.3384455.html
     sessionlink: https://acm-org.zoom.us/j/94058205148
     sessionlinktext: Zoom (as above)
@@ -394,7 +394,7 @@ friday:
     type:  Research Talk 
     title: "MIMIC-Extract: A Data Extraction, Preprocessing, and Representation Pipeline for MIMIC-III"
     speaker: Matthew B. A. McDermott
-    moderator: TBD 
+    moderator: Danielle Belgrave
     doclink: /poster_3368555.3384469.html
     sessionlink: https://acm-org.zoom.us/j/94058205148
     sessionlinktext: Zoom (as above)
@@ -403,16 +403,16 @@ friday:
     type: Keynote
     title: "Incorporating Domain Knowledge into Deep Learning Models"
     speaker: Ruslan Salakhutdinov
-    moderator: TBD
+    moderator: Tristan Naumann
     doclink: "https://www.chilconference.org/speaker_4.html"
-    sessionlink: https://acm-org.zoom.us/j/99755535413
+    sessionlink: https://acm-org.zoom.us/j/98783796522
     sessionlinktext: Zoom
 
   - time: "2:00 PM - 2:20 PM" 
     type: Closing 
     title: Day 2 Closing Remarks 
     speaker: Marzyeh Ghassemi 
-    moderator: TBD 
+    moderator: Tasmie Sarker 
     doclink:
-    sessionlink: https://acm-org.zoom.us/j/99755535413
+    sessionlink: https://acm-org.zoom.us/j/98783796522
     sessionlinktext: Zoom (as above)
