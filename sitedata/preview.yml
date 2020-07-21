@@ -21,7 +21,7 @@ Keynotes (20 min each):
     doclink: "/speaker_5.html"
   - time: 20 min
     title: "Sherri Rose"
-    slideslive_id: 3893191
+    slideslive_id: 38931910
     link: Coming soon
     day: "Fri 11:10-11:30 AM"
     doclink: "/speaker_3.html"
@@ -340,11 +340,6 @@ Workshop Spotlights (3 minutes each):
     title : "Assessing Robustness of Deep Learning Methods in Dermatological Workflow"
     doclink: /workshop_ws17.html
     slideslive_id: 38931951
-  - time:
-    day: 
-    title : "Automated Emotional Valence Prediction in Mental Health Text via Deep Transfer Learning"
-    doclink: /workshop_ws20.html
-    slideslive_id: 38931954
   - time:
     day: 
     title : "Generation of Differentially Private Heterogeneous Synthetic Electronic Health Records using GANs"
