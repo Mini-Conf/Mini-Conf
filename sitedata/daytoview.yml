@@ -40,7 +40,7 @@ thursday:
     speaker: Marzyeh Ghassemi 
     moderator: Tristan Naumann 
     doclink:
-    sessionlink: https://acm-org.zoom.us/j/93083999413
+    sessionlink: https://acm-org.zoom.us/j/93312695261
     sessionlinktext: Zoom
 
   - time: "11:10 AM - 11:30 AM" 
@@ -49,7 +49,7 @@ thursday:
     speaker: Yoshua Bengio 
     moderator: Tristan Naumann 
     doclink: "https://www.chilconference.org/speaker_1.html"
-    sessionlink: https://acm-org.zoom.us/j/93083999413
+    sessionlink: https://acm-org.zoom.us/j/93312695261
     sessionlinktext: Zoom (as above)
 
   - time: "11:30 AM - 11:35 AM" 
@@ -138,7 +138,7 @@ thursday:
     moderator: Matthew McDermott
     doclink:
     sessionlink: https://acm-org.zoom.us/j/92141200135
-    sessionlinktext: Zoom 
+    sessionlinktext: Zoom (as above)
 
   - time: "1:10 PM - 1:15 PM" 
     type:  Research Talk
@@ -146,7 +146,7 @@ thursday:
     speaker: Paidamoyo Chapfuwa
     moderator: Matthew McDermott 
     doclink: /poster_3368555.3384465.html
-    sessionlink:  https://acm-org.zoom.us/j/92458756283
+    sessionlink:  https://acm-org.zoom.us/j/93312695261
     sessionlinktext: Zoom 
 
   - time: "1:15 PM - 1:20 PM "
@@ -155,7 +155,7 @@ thursday:
     speaker: Joseph D. Janizek
     moderator: Matthew McDermott
     doclink: /poster_3368555.3384458.html
-    sessionlink: https://acm-org.zoom.us/j/92458756283
+    sessionlink: https://acm-org.zoom.us/j/93312695261
     sessionlinktext: Zoom (as above)
 
   - time: "1:20 PM - 1:25 PM "
@@ -164,7 +164,7 @@ thursday:
     speaker: Michaela Hardt
     moderator: Matthew McDermott
     doclink: /poster_3368555.3384460.html
-    sessionlink: https://acm-org.zoom.us/j/92458756283
+    sessionlink: https://acm-org.zoom.us/j/93312695261
     sessionlinktext: Zoom (as above)
 
   - time: "1:25 PM - 1:30 PM" 
@@ -173,7 +173,7 @@ thursday:
     speaker: Kathleen Lewis
     moderator: Matthew McDermott
     doclink: /poster_3368555.3384462.html
-    sessionlink: https://acm-org.zoom.us/j/92458756283
+    sessionlink: https://acm-org.zoom.us/j/93312695261
     sessionlinktext: Zoom (as above)
 
   - time: "1:30 PM - 1:35 PM "
@@ -182,7 +182,7 @@ thursday:
     speaker: Thomas Hooven
     moderator: Matthew McDermott
     doclink: /poster_3368555.3384466.html
-    sessionlink: https://acm-org.zoom.us/j/92458756283
+    sessionlink: https://acm-org.zoom.us/j/93312695261
     sessionlinktext: Zoom (as above)
 
   - time: "1:35 PM - 1:40 PM "
@@ -191,7 +191,7 @@ thursday:
     speaker: Haoran Zhang
     moderator: Matthew McDermott
     doclink: /poster_3368555.3384448.html
-    sessionlink: https://acm-org.zoom.us/j/92458756283
+    sessionlink: https://acm-org.zoom.us/j/93312695261
     sessionlinktext: Zoom (as above)
 
   - time: "1:40 PM - 2:00 PM" 
@@ -200,7 +200,7 @@ thursday:
     speaker: Elaine Nsoesie 
     moderator: Tristan Naumann
     doclink: "https://www.chilconference.org/speaker_2.html"
-    sessionlink: https://acm-org.zoom.us/j/94824267777
+    sessionlink: https://acm-org.zoom.us/j/95904797161
     sessionlinktext: Zoom 
 
   - time: "2:00 PM - 2:20 PM" 
@@ -209,7 +209,7 @@ thursday:
     speaker: Nigam Shah 
     moderator: Tristan Naumann
     doclink: "https://www.chilconference.org/speaker_5.html"
-    sessionlink: https://acm-org.zoom.us/j/94824267777
+    sessionlink: https://acm-org.zoom.us/j/95904797161
     sessionlinktext: Zoom (as above)
 
   - time: "2:20 PM - 2:30 PM" 
@@ -218,7 +218,7 @@ thursday:
     speaker: Marzyeh Ghassemi 
     moderator: Tristan Naumann
     doclink:
-    sessionlink: https://acm-org.zoom.us/j/94824267777
+    sessionlink: https://acm-org.zoom.us/j/95904797161
     sessionlinktext: Zoom (as above)
         
 friday:
@@ -254,7 +254,7 @@ friday:
     speaker: Marzyeh Ghassemi 
     moderator: Tasmie Sarker
     doclink:
-    sessionlink: https://acm-org.zoom.us/j/95207093365
+    sessionlink: https://acm-org.zoom.us/j/98928141757
     sessionlinktext: Zoom
 
   - time: "11:10 AM - 11:30 AM"
@@ -263,7 +263,7 @@ friday:
     speaker: Sherri Rose
     moderator: Tristan Naumann 
     doclink: "https://www.chilconference.org/speaker_3.html"
-    sessionlink: https://acm-org.zoom.us/j/95207093365
+    sessionlink: https://acm-org.zoom.us/j/98928141757
     sessionlinktext: Zoom (as above)
 
   - time: "11:30 AM - 11:35 AM" 
@@ -351,8 +351,8 @@ friday:
     speaker: Marzyeh Ghassemi 
     moderator: TBD 
     doclink:
-    sessionlink: https://acm-org.zoom.us/j/94058205148
-    sessionlinktext: Zoom
+    sessionlink: https://acm-org.zoom.us/j/96173526760
+    sessionlinktext: Zoom (as above)
 
   - time: "1:10 PM - 1:15 PM" 
     type:  Research Talk
@@ -405,7 +405,7 @@ friday:
     speaker: Ruslan Salakhutdinov
     moderator: Tristan Naumann
     doclink: "https://www.chilconference.org/speaker_4.html"
-    sessionlink: https://acm-org.zoom.us/j/99755535413
+    sessionlink: https://acm-org.zoom.us/j/98783796522
     sessionlinktext: Zoom
 
   - time: "2:00 PM - 2:20 PM" 
@@ -414,5 +414,5 @@ friday:
     speaker: Marzyeh Ghassemi 
     moderator: Tasmie Sarker 
     doclink:
-    sessionlink: https://acm-org.zoom.us/j/99755535413
+    sessionlink: https://acm-org.zoom.us/j/98783796522
     sessionlinktext: Zoom (as above)
