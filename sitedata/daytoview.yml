@@ -6,7 +6,7 @@ thursday:
     moderator: Andrew Beam, Irene Chen 
     doclink: "https://www.chilconference.org/tutorial_a.html"
     sessionlink: https://acm-org.zoom.us/j/97192244292
-    sessionlinktext: Zoom
+    sessionlinktext: Zoom 1A
 
   - time: "10:00-10:50 AM" 
     type: Tutorial 
@@ -15,7 +15,7 @@ thursday:
     moderator: Adrian Dalca, Irene Chen 
     doclink: "https://www.chilconference.org/tutorial_e.html"
     sessionlink: https://acm-org.zoom.us/j/91855352830
-    sessionlinktext: Zoom
+    sessionlinktext: Zoom 1B
 
   - time: "10:00-10:50 AM" 
     type: Tutorial 
@@ -24,7 +24,7 @@ thursday:
     moderator: Tom Pollard, Irene Chen 
     doclink: "https://www.chilconference.org/tutorial_c.html"
     sessionlink: https://acm-org.zoom.us/j/92252417545
-    sessionlinktext: Zoom
+    sessionlinktext: Zoom 1C
     
   - time: 
     type: 
@@ -41,7 +41,7 @@ thursday:
     moderator: Tristan Naumann 
     doclink:
     sessionlink: https://acm-org.zoom.us/j/93312695261
-    sessionlinktext: Zoom
+    sessionlinktext: Zoom 2
 
   - time: "11:10-11:30 AM" 
     type: Keynote 
@@ -50,7 +50,7 @@ thursday:
     moderator: Tristan Naumann 
     doclink: "https://www.chilconference.org/speaker_1.html"
     sessionlink: https://acm-org.zoom.us/j/93312695261
-    sessionlinktext: Zoom (as above)
+    sessionlinktext: Zoom 2
 
   - time: "11:30-11:35 AM" 
     type: Research Talk 
@@ -59,7 +59,7 @@ thursday:
     moderator: Bret Nestor, Marzyeh Ghassemi
     doclink: /poster_3368555.3384450.html
     sessionlink:  https://acm-org.zoom.us/j/95617935177
-    sessionlinktext: Zoom
+    sessionlinktext: Zoom 3
 
   - time: "11:35-11:40 AM"
     type: Research Talk 
@@ -68,7 +68,7 @@ thursday:
     moderator: Bret Nestor, Marzyeh Ghassemi
     doclink: /poster_3368555.3384454.html
     sessionlink: https://acm-org.zoom.us/j/95617935177
-    sessionlinktext: Zoom (as above)
+    sessionlinktext: Zoom 3
 
   - time: "11:40-11:45 AM" 
     type: Research Talk 
@@ -77,7 +77,7 @@ thursday:
     moderator: Bret Nestor, Marzyeh Ghassemi
     doclink: /poster_3368555.3384456.html
     sessionlink: https://acm-org.zoom.us/j/95617935177
-    sessionlinktext: Zoom (as above)
+    sessionlinktext: Zoom 3
 
   - time: "11:45-11:50 AM" 
     type: Research Talk 
@@ -86,7 +86,7 @@ thursday:
     moderator: Bret Nestor, Marzyeh Ghassemi
     doclink: /poster_3368555.3384459.html
     sessionlink: https://acm-org.zoom.us/j/95617935177
-    sessionlinktext: Zoom (as above)
+    sessionlinktext: Zoom 3
 
   - time: "11:50-11:55 AM" 
     type: Research Talk 
@@ -95,7 +95,7 @@ thursday:
     moderator: Bret Nestor, Marzyeh Ghassemi 
     doclink: /poster_3368555.3384461.html
     sessionlink: https://acm-org.zoom.us/j/95617935177
-    sessionlinktext: Zoom (as above)
+    sessionlinktext: Zoom 3
 
   - time: "11:55-12:00 PM" 
     type: Research Talk 
@@ -104,7 +104,7 @@ thursday:
     moderator: Bret Nestor, Marzyeh Ghassemi
     doclink: /poster_3368555.3384447.html
     sessionlink: https://acm-org.zoom.us/j/95617935177
-    sessionlinktext: Zoom (as above)
+    sessionlinktext: Zoom 3
     
   - time: 
     type: 
@@ -121,7 +121,7 @@ thursday:
     moderator: Irene Chen, Laura Rosella
     doclink:
     sessionlink: https://acm-org.zoom.us/j/92141200135
-    sessionlinktext: Zoom 
+    sessionlinktext: Zoom 4 
     
   - time: 
     type: 
@@ -138,7 +138,7 @@ thursday:
     moderator: Matthew McDermott
     doclink:
     sessionlink: https://acm-org.zoom.us/j/92141200135
-    sessionlinktext: Zoom (as above)
+    sessionlinktext: Zoom 4
 
   - time: "1:10-1:15 PM" 
     type:  Research Talk
@@ -147,7 +147,7 @@ thursday:
     moderator: Matthew McDermott 
     doclink: /poster_3368555.3384465.html
     sessionlink:  https://acm-org.zoom.us/j/93312695261
-    sessionlinktext: Zoom 
+    sessionlinktext: Zoom 5
 
   - time: "1:15-1:20 PM "
     type:  Research Talk
@@ -156,7 +156,7 @@ thursday:
     moderator: Matthew McDermott
     doclink: /poster_3368555.3384458.html
     sessionlink: https://acm-org.zoom.us/j/93312695261
-    sessionlinktext: Zoom (as above)
+    sessionlinktext: Zoom 5
 
   - time: "1:20-1:25 PM "
     type:  Research Talk 
@@ -165,7 +165,7 @@ thursday:
     moderator: Matthew McDermott
     doclink: /poster_3368555.3384460.html
     sessionlink: https://acm-org.zoom.us/j/93312695261
-    sessionlinktext: Zoom (as above)
+    sessionlinktext: Zoom 5
 
   - time: "1:25-1:30 PM" 
     type:  Research Talk 
@@ -174,7 +174,7 @@ thursday:
     moderator: Matthew McDermott
     doclink: /poster_3368555.3384462.html
     sessionlink: https://acm-org.zoom.us/j/93312695261
-    sessionlinktext: Zoom (as above)
+    sessionlinktext: Zoom 5
 
   - time: "1:30-1:35 PM "
     type:  Research Talk 
@@ -183,7 +183,7 @@ thursday:
     moderator: Matthew McDermott
     doclink: /poster_3368555.3384466.html
     sessionlink: https://acm-org.zoom.us/j/93312695261
-    sessionlinktext: Zoom (as above)
+    sessionlinktext: Zoom 5
 
   - time: "1:35-1:40 PM "
     type:  Research Talk 
@@ -192,7 +192,7 @@ thursday:
     moderator: Matthew McDermott
     doclink: /poster_3368555.3384448.html
     sessionlink: https://acm-org.zoom.us/j/93312695261
-    sessionlinktext: Zoom (as above)
+    sessionlinktext: Zoom 5
 
   - time: "1:40-2:00 PM" 
     type: Keynote 
@@ -201,7 +201,7 @@ thursday:
     moderator: Tristan Naumann
     doclink: "https://www.chilconference.org/speaker_2.html"
     sessionlink: https://acm-org.zoom.us/j/95904797161
-    sessionlinktext: Zoom 
+    sessionlinktext: Zoom 6
 
   - time: "2:00-2:20 PM" 
     type: Keynote 
@@ -210,7 +210,7 @@ thursday:
     moderator: Tristan Naumann
     doclink: "https://www.chilconference.org/speaker_5.html"
     sessionlink: https://acm-org.zoom.us/j/95904797161
-    sessionlinktext: Zoom (as above)
+    sessionlinktext: Zoom 6
 
   - time: "2:20-2:30 PM" 
     type: Closing 
@@ -219,7 +219,7 @@ thursday:
     moderator: Tristan Naumann
     doclink:
     sessionlink: https://acm-org.zoom.us/j/95904797161
-    sessionlinktext: Zoom (as above)
+    sessionlinktext: Zoom 6
         
 friday:
   - time: "10:00-10:50 AM"
