@@ -1,5 +1,5 @@
 thursday:
-  - time: "10:00 AM - 10:50 AM"
+  - time: "10:00-10:50 AM"
     type: Tutorial 
     title: A Tour of Survival Analysis, from Classical to Modern 
     speaker: George H. Chen, Jeremy C. Weiss  
@@ -8,7 +8,7 @@ thursday:
     sessionlink: https://acm-org.zoom.us/j/97192244292
     sessionlinktext: Zoom
 
-  - time: "10:00 AM - 10:50 AM" 
+  - time: "10:00-10:50 AM" 
     type: Tutorial 
     title: Medical Imaging with Deep Learning 
     speaker: Joseph Paul Cohen 
@@ -17,7 +17,7 @@ thursday:
     sessionlink: https://acm-org.zoom.us/j/91855352830
     sessionlinktext: Zoom
 
-  - time: "10:00 AM - 10:50 AM" 
+  - time: "10:00-10:50 AM" 
     type: Tutorial 
     title: "Public Health Datasets for Deep Learning: Challenges and Opportunities "
     speaker: Ziad Obermeyer, Katy Haynes, Amy Pitelka, Josh Risley, Katie Lin
@@ -34,7 +34,7 @@ thursday:
     doclink: 
     sessionlink:     
 
-  - time: "11:00 AM - 11:10 AM"
+  - time: "11:00-11:10 AM"
     type: Introduction 
     title: Opening Remarks 
     speaker: Marzyeh Ghassemi 
@@ -43,7 +43,7 @@ thursday:
     sessionlink: https://acm-org.zoom.us/j/93312695261
     sessionlinktext: Zoom
 
-  - time: "11:10 AM - 11:30 AM" 
+  - time: "11:10-11:30 AM" 
     type: Keynote 
     title: "Machine Learning Challenges in the Fight for Social Good - the Covid-19 Case"
     speaker: Yoshua Bengio 
@@ -52,7 +52,7 @@ thursday:
     sessionlink: https://acm-org.zoom.us/j/93312695261
     sessionlinktext: Zoom (as above)
 
-  - time: "11:30 AM - 11:35 AM" 
+  - time: "11:30-11:35 AM" 
     type: Research Talk 
     title: Defining Admissible Rewards for High-Confidence Policy Evaluation in Batch Reinforcement Learning 
     speaker: Niranjani Prasad 
@@ -61,7 +61,7 @@ thursday:
     sessionlink:  https://acm-org.zoom.us/j/95617935177
     sessionlinktext: Zoom
 
-  - time: "11:35 AM - 11:40 AM"
+  - time: "11:35-11:40 AM"
     type: Research Talk 
     title: Variational Learning of Individual Survival Distributions 
     speaker: Zidi Xiu 
@@ -70,7 +70,7 @@ thursday:
     sessionlink: https://acm-org.zoom.us/j/95617935177
     sessionlinktext: Zoom (as above)
 
-  - time: "11:40 AM - 11:45 AM" 
+  - time: "11:40-11:45 AM" 
     type: Research Talk 
     title: Interpretable Subgroup Discovery in Treatment Effect Estimation with Application to Opioid Prescribing Guidelines 
     speaker: Chirag Nagpal 
@@ -79,7 +79,7 @@ thursday:
     sessionlink: https://acm-org.zoom.us/j/95617935177
     sessionlinktext: Zoom (as above)
 
-  - time: "11:45 AM - 11:50 AM" 
+  - time: "11:45-11:50 AM" 
     type: Research Talk 
     title: Adverse Drug Reaction Discovery from Electronic Health Records with Deep Neural Networks 
     speaker: Wei Zhang 
@@ -88,7 +88,7 @@ thursday:
     sessionlink: https://acm-org.zoom.us/j/95617935177
     sessionlinktext: Zoom (as above)
 
-  - time: "11:50 AM - 11:55 AM" 
+  - time: "11:50-11:55 AM" 
     type: Research Talk 
     title: "CaliForest: Calibrated Random Forest for Health Data" 
     speaker: Yubin Park 
@@ -97,7 +97,7 @@ thursday:
     sessionlink: https://acm-org.zoom.us/j/95617935177
     sessionlinktext: Zoom (as above)
 
-  - time: "11:55 AM - 12:00 PM" 
+  - time: "11:55-12:00 PM" 
     type: Research Talk 
     title: "BMM-Net: Automatic Segmentation of Edema in Optical Coherence Tomography Based on Boundary Detection and Multi-Scale Network"
     speaker: Shenda Shi 
@@ -114,7 +114,7 @@ thursday:
     doclink: 
     sessionlink: 
     
-  - time: "12:00 PM - 1:00 PM" 
+  - time: "12:00-1:00 PM" 
     type: Social Lunch 
     title: Social Lunch 
     speaker: N/A 
@@ -131,7 +131,7 @@ thursday:
     doclink: 
     sessionlink:     
 
-  - time: "1:00 PM - 1:10 PM "
+  - time: "1:00-1:10 PM "
     type: Introduction 
     title: Welcome Back 
     speaker: Marzyeh Ghassemi 
@@ -140,7 +140,7 @@ thursday:
     sessionlink: https://acm-org.zoom.us/j/92141200135
     sessionlinktext: Zoom (as above)
 
-  - time: "1:10 PM - 1:15 PM" 
+  - time: "1:10-1:15 PM" 
     type:  Research Talk
     title: Survival Cluster Analysis 
     speaker: Paidamoyo Chapfuwa
@@ -149,7 +149,7 @@ thursday:
     sessionlink:  https://acm-org.zoom.us/j/93312695261
     sessionlinktext: Zoom 
 
-  - time: "1:15 PM - 1:20 PM "
+  - time: "1:15-1:20 PM "
     type:  Research Talk
     title: An Adversarial Approach for the Robust Classification of Pneumonia from Chest Radiographs
     speaker: Joseph D. Janizek
@@ -158,7 +158,7 @@ thursday:
     sessionlink: https://acm-org.zoom.us/j/93312695261
     sessionlinktext: Zoom (as above)
 
-  - time: "1:20 PM - 1:25 PM "
+  - time: "1:20-1:25 PM "
     type:  Research Talk 
     title: Explaining an increase in predicted risk for clinical alerts
     speaker: Michaela Hardt
@@ -167,7 +167,7 @@ thursday:
     sessionlink: https://acm-org.zoom.us/j/93312695261
     sessionlinktext: Zoom (as above)
 
-  - time: "1:25 PM - 1:30 PM" 
+  - time: "1:25-1:30 PM" 
     type:  Research Talk 
     title: Fast Learning-based Registration of Sparse 3D Clinical Images
     speaker: Kathleen Lewis
@@ -176,7 +176,7 @@ thursday:
     sessionlink: https://acm-org.zoom.us/j/93312695261
     sessionlinktext: Zoom (as above)
 
-  - time: "1:30 PM - 1:35 PM "
+  - time: "1:30-1:35 PM "
     type:  Research Talk 
     title: Multiple Instance Learning for Predicting Necrotizing Enterocolitis in Premature Infants Using Microbiome Data
     speaker: Thomas Hooven
@@ -185,7 +185,7 @@ thursday:
     sessionlink: https://acm-org.zoom.us/j/93312695261
     sessionlinktext: Zoom (as above)
 
-  - time: "1:35 PM - 1:40 PM "
+  - time: "1:35-1:40 PM "
     type:  Research Talk 
     title: "Hurtful Words: Quantifying Biases in Clinical Contextual Word Embeddings"
     speaker: Haoran Zhang
@@ -194,7 +194,7 @@ thursday:
     sessionlink: https://acm-org.zoom.us/j/93312695261
     sessionlinktext: Zoom (as above)
 
-  - time: "1:40 PM - 2:00 PM" 
+  - time: "1:40-2:00 PM" 
     type: Keynote 
     title: "Digital Platforms & Public Health in Africa"
     speaker: Elaine Nsoesie 
@@ -203,7 +203,7 @@ thursday:
     sessionlink: https://acm-org.zoom.us/j/95904797161
     sessionlinktext: Zoom 
 
-  - time: "2:00 PM - 2:20 PM" 
+  - time: "2:00-2:20 PM" 
     type: Keynote 
     title: "A framework for shaping the future of AI in healthcare"
     speaker: Nigam Shah 
@@ -212,7 +212,7 @@ thursday:
     sessionlink: https://acm-org.zoom.us/j/95904797161
     sessionlinktext: Zoom (as above)
 
-  - time: "2:20 PM - 2:30 PM" 
+  - time: "2:20-2:30 PM" 
     type: Closing 
     title: Day 1 Closing Remarks 
     speaker: Marzyeh Ghassemi 
@@ -222,7 +222,7 @@ thursday:
     sessionlinktext: Zoom (as above)
         
 friday:
-  - time: "10:00 AM - 10:50 AM"
+  - time: "10:00-10:50 AM"
     type: Tutorial 
     title: "Population and public health: challenges and opportunities"
     speaker: Vishwali Mhasawade, Yuan Zhao, Rumi Chunara  
@@ -231,7 +231,7 @@ friday:
     sessionlink: https://acm-org.zoom.us/j/94501844419
     sessionlinktext: Zoom
 
-  - time: "10:00 AM - 10:50 AM" 
+  - time: "10:00-10:50 AM" 
     type: Tutorial 
     title: "Analyzing critical care data, from speculation to publication, starring MIMIC-IV"
     speaker: Alistair Johnson 
@@ -248,7 +248,7 @@ friday:
     doclink: 
     sessionlink:    
 
-  - time: "11:00 AM - 11:10 AM"
+  - time: "11:00-11:10 AM"
     type: Introduction 
     title: Opening Remarks 
     speaker: Marzyeh Ghassemi 
@@ -257,7 +257,7 @@ friday:
     sessionlink: https://acm-org.zoom.us/j/98928141757
     sessionlinktext: Zoom
 
-  - time: "11:10 AM - 11:30 AM"
+  - time: "11:10-11:30 AM"
     type: Keynote
     title: "Machine Learning in Health Care: Too Important to Be a Toy Example"
     speaker: Sherri Rose
@@ -266,7 +266,7 @@ friday:
     sessionlink: https://acm-org.zoom.us/j/98928141757
     sessionlinktext: Zoom (as above)
 
-  - time: "11:30 AM - 11:35 AM" 
+  - time: "11:30-11:35 AM" 
     type: Research Talk 
     title: "Disease State Prediction From Single-Cell Data Using Graph Attention Networks"
     speaker: Neal Ravindra
@@ -275,7 +275,7 @@ friday:
     sessionlink: https://acm-org.zoom.us/j/96943419848
     sessionlinktext: Zoom
 
-  - time: "11:35 AM - 11:40 AM"
+  - time: "11:35-11:40 AM"
     type: Research Talk 
     title: Using SNOMED to Automate Clinical Concept Mapping
     speaker: Patrick Long
@@ -284,7 +284,7 @@ friday:
     sessionlink: https://acm-org.zoom.us/j/96943419848
     sessionlinktext: Zoom (as above)
 
-  - time: "11:40 AM - 11:45 AM" 
+  - time: "11:40-11:45 AM" 
     type: Research Talk 
     title: "MMiDaS-AE: Multi-modal Missing Data aware Stacked Autoencoder for Biomedical Abstract Screening"
     speaker: Eric W. Lee
@@ -293,7 +293,7 @@ friday:
     sessionlink: https://acm-org.zoom.us/j/96943419848
     sessionlinktext: Zoom (as above)
 
-  - time: "11:45 AM - 11:50 AM" 
+  - time: "11:45-11:50 AM" 
     type: Research Talk 
     title: Hidden Stratification Causes Clinically Meaningful Failures in Machine Learning for Medical Imaging
     speaker: "Jared Dunnmon"
@@ -302,7 +302,7 @@ friday:
     sessionlink: https://acm-org.zoom.us/j/96943419848
     sessionlinktext: Zoom (as above)
 
-  - time: "11:50 AM - 11:55 AM" 
+  - time: "11:50-11:55 AM" 
     type: Research Talk 
     title: Interactive Hybrid Approach to Combine Human and Machine Intelligence for Personalized Rehabilitation Assessment
     speaker: Min Hun Lee
@@ -311,7 +311,7 @@ friday:
     sessionlink: https://acm-org.zoom.us/j/96943419848
     sessionlinktext: Zoom (as above)
 
-  - time: "11:55 AM - 12:00 PM" 
+  - time: "11:55-12:00 PM" 
     type: Research Talk 
     title: Extracting Medical Entities from Social Media
     speaker: Sanja Scepanovic
@@ -328,7 +328,7 @@ friday:
     doclink: 
     sessionlink:    
 
-  - time: "12:00 PM - 1:00 PM" 
+  - time: "12:00-1:00 PM" 
     type: Sponsor Lunch 
     title: Sponsor Lunch 
     speaker: N/A 
@@ -345,7 +345,7 @@ friday:
     doclink: 
     sessionlink:    
 
-  - time: "1:00 PM - 1:10 PM "
+  - time: "1:00-1:10 PM "
     type: Introduction 
     title: Welcome Back 
     speaker: Marzyeh Ghassemi 
@@ -354,7 +354,7 @@ friday:
     sessionlink: https://acm-org.zoom.us/j/96173526760
     sessionlinktext: Zoom (as above)
 
-  - time: "1:10 PM - 1:15 PM" 
+  - time: "1:10-1:15 PM" 
     type:  Research Talk
     title: "Population-aware Hierarchical Bayesian Domain Adaptation via Multi-component Invariant Learning"
     speaker: Vishwali Mhasawade
@@ -363,7 +363,7 @@ friday:
     sessionlink: https://acm-org.zoom.us/j/94058205148
     sessionlinktext: Zoom
 
-  - time: "1:15 PM - 1:20 PM "
+  - time: "1:15-1:20 PM "
     type:  Research Talk
     title: "TASTE: Temporal and Static Tensor Factorization for Phenotyping Electronic Health Records"
     speaker: Ioakeim Perros
@@ -372,7 +372,7 @@ friday:
     sessionlink: https://acm-org.zoom.us/j/94058205148
     sessionlinktext: Zoom (as above)
 
-  - time: "1:20 PM - 1:25 PM "
+  - time: "1:20-1:25 PM "
     type:  Research Talk 
     title: Analyzing the Role of Model Uncertainty for Electronic Health Records
     speaker: Michael W. Dusenberry
@@ -381,7 +381,7 @@ friday:
     sessionlink: https://acm-org.zoom.us/j/94058205148
     sessionlinktext: Zoom (as above)
 
-  - time: "1:25 PM - 1:30 PM" 
+  - time: "1:25-1:30 PM" 
     type:  Research Talk 
     title: "Deidentification of free-text medical records using pre-trained bidirectional transformers"
     speaker: Alistair Johnson
@@ -390,7 +390,7 @@ friday:
     sessionlink: https://acm-org.zoom.us/j/94058205148
     sessionlinktext: Zoom (as above)
 
-  - time: "1:30 PM - 1:35 PM "
+  - time: "1:30-1:35 PM "
     type:  Research Talk 
     title: "MIMIC-Extract: A Data Extraction, Preprocessing, and Representation Pipeline for MIMIC-III"
     speaker: Matthew B. A. McDermott
@@ -399,7 +399,7 @@ friday:
     sessionlink: https://acm-org.zoom.us/j/94058205148
     sessionlinktext: Zoom (as above)
 
-  - time: "1:40 PM - 2:00 PM"
+  - time: "1:40-2:00 PM"
     type: Keynote
     title: "Incorporating Domain Knowledge into Deep Learning Models"
     speaker: Ruslan Salakhutdinov
@@ -408,7 +408,7 @@ friday:
     sessionlink: https://acm-org.zoom.us/j/98783796522
     sessionlinktext: Zoom
 
-  - time: "2:00 PM - 2:20 PM" 
+  - time: "2:00-2:20 PM" 
     type: Closing 
     title: Day 2 Closing Remarks 
     speaker: Marzyeh Ghassemi 
