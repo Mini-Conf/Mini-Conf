@@ -52,15 +52,6 @@ thursday:
     sessionlink: https://acm-org.zoom.us/j/93312695261
     sessionlinktext: Zoom 2
 
-  - time: "11:30-11:35 AM" 
-    type: Research Talk 
-    title: Defining Admissible Rewards for High-Confidence Policy Evaluation in Batch Reinforcement Learning 
-    speaker: Niranjani Prasad 
-    moderator: Bret Nestor, Marzyeh Ghassemi
-    doclink: /poster_3368555.3384450.html
-    sessionlink:  https://acm-org.zoom.us/j/95617935177
-    sessionlinktext: Zoom 3
-
   - time: "11:35-11:40 AM"
     type: Research Talk 
     title: Variational Learning of Individual Survival Distributions 
@@ -396,6 +387,15 @@ friday:
     speaker: Matthew B. A. McDermott
     moderator: Danielle Belgrave
     doclink: /poster_3368555.3384469.html
+    sessionlink: https://acm-org.zoom.us/j/94058205148
+    sessionlinktext: Zoom 11
+
+  - time: "1:35-11:40 PM" 
+    type: Research Talk 
+    title: Defining Admissible Rewards for High-Confidence Policy Evaluation in Batch Reinforcement Learning 
+    speaker: Niranjani Prasad 
+    moderator: Danielle Belgrave
+    doclink: /poster_3368555.3384450.html
     sessionlink: https://acm-org.zoom.us/j/94058205148
     sessionlinktext: Zoom 11
 
