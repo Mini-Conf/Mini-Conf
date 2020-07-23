@@ -229,7 +229,7 @@ friday:
     moderator: Irene Chen, Laura Rosella
     doclink: "https://www.chilconference.org/tutorial_b.html"
     sessionlink: https://acm-org.zoom.us/j/94501844419
-    sessionlinktext: Zoom
+    sessionlinktext: Zoom 7A
 
   - time: "10:00-10:50 AM" 
     type: Tutorial 
@@ -238,7 +238,7 @@ friday:
     moderator: Irene Chen, Tom Pollard
     doclink: "https://www.chilconference.org/tutorial_d.html"
     sessionlink: https://acm-org.zoom.us/j/99868624455
-    sessionlinktext: Zoom
+    sessionlinktext: Zoom 7B
     
   - time: 
     type: 
@@ -255,7 +255,7 @@ friday:
     moderator: Tasmie Sarker
     doclink:
     sessionlink: https://acm-org.zoom.us/j/98928141757
-    sessionlinktext: Zoom
+    sessionlinktext: Zoom 8
 
   - time: "11:10-11:30 AM"
     type: Keynote
@@ -264,7 +264,7 @@ friday:
     moderator: Tristan Naumann 
     doclink: "https://www.chilconference.org/speaker_3.html"
     sessionlink: https://acm-org.zoom.us/j/98928141757
-    sessionlinktext: Zoom (as above)
+    sessionlinktext: Zoom 8
 
   - time: "11:30-11:35 AM" 
     type: Research Talk 
@@ -273,7 +273,7 @@ friday:
     moderator: Brett Beaulieu-Jones
     doclink: /poster_3368555.3384449.html
     sessionlink: https://acm-org.zoom.us/j/96943419848
-    sessionlinktext: Zoom
+    sessionlinktext: Zoom 9
 
   - time: "11:35-11:40 AM"
     type: Research Talk 
@@ -282,7 +282,7 @@ friday:
     moderator: Brett Beaulieu-Jones
     doclink: /poster_3368555.3384453.html
     sessionlink: https://acm-org.zoom.us/j/96943419848
-    sessionlinktext: Zoom (as above)
+    sessionlinktext: Zoom 9
 
   - time: "11:40-11:45 AM" 
     type: Research Talk 
@@ -291,7 +291,7 @@ friday:
     moderator: Brett Beaulieu-Jones
     doclink: /poster_3368555.3384463.html
     sessionlink: https://acm-org.zoom.us/j/96943419848
-    sessionlinktext: Zoom (as above)
+    sessionlinktext: Zoom 9
 
   - time: "11:45-11:50 AM" 
     type: Research Talk 
@@ -300,7 +300,7 @@ friday:
     moderator: Brett Beaulieu-Jones
     doclink: /poster_3368555.3384468.html
     sessionlink: https://acm-org.zoom.us/j/96943419848
-    sessionlinktext: Zoom (as above)
+    sessionlinktext: Zoom 9
 
   - time: "11:50-11:55 AM" 
     type: Research Talk 
@@ -309,7 +309,7 @@ friday:
     moderator: Brett Beaulieu-Jones
     doclink: /poster_3368555.3384452.html
     sessionlink: https://acm-org.zoom.us/j/96943419848
-    sessionlinktext: Zoom (as above)
+    sessionlinktext: Zoom 9
 
   - time: "11:55-12:00 PM" 
     type: Research Talk 
@@ -318,7 +318,7 @@ friday:
     moderator: Brett Beaulieu-Jones
     doclink: /poster_3368555.3384467.html
     sessionlink: https://acm-org.zoom.us/j/96943419848
-    sessionlinktext: Zoom (as above)
+    sessionlinktext: Zoom 9
     
   - time: 
     type: 
@@ -335,7 +335,7 @@ friday:
     moderator: Irene Chen, Tasmie Sarker
     doclink:
     sessionlink: https://acm-org.zoom.us/j/96173526760
-    sessionlinktext: Zoom
+    sessionlinktext: Zoom 10
     
   - time: 
     type: 
@@ -352,7 +352,7 @@ friday:
     moderator: TBD 
     doclink:
     sessionlink: https://acm-org.zoom.us/j/96173526760
-    sessionlinktext: Zoom (as above)
+    sessionlinktext: Zoom 10
 
   - time: "1:10-1:15 PM" 
     type:  Research Talk
@@ -361,7 +361,7 @@ friday:
     moderator: Danielle Belgrave
     doclink: /poster_3368555.3384451.html
     sessionlink: https://acm-org.zoom.us/j/94058205148
-    sessionlinktext: Zoom
+    sessionlinktext: Zoom 11
 
   - time: "1:15-1:20 PM "
     type:  Research Talk
@@ -370,7 +370,7 @@ friday:
     moderator: Danielle Belgrave
     doclink: /poster_3368555.3384464.html
     sessionlink: https://acm-org.zoom.us/j/94058205148
-    sessionlinktext: Zoom (as above)
+    sessionlinktext: Zoom 11
 
   - time: "1:20-1:25 PM "
     type:  Research Talk 
@@ -379,7 +379,7 @@ friday:
     moderator: Danielle Belgrave 
     doclink: /poster_3368555.3384457.html
     sessionlink: https://acm-org.zoom.us/j/94058205148
-    sessionlinktext: Zoom (as above)
+    sessionlinktext: Zoom 11
 
   - time: "1:25-1:30 PM" 
     type:  Research Talk 
@@ -388,7 +388,7 @@ friday:
     moderator: Danielle Belgrave
     doclink: /poster_3368555.3384455.html
     sessionlink: https://acm-org.zoom.us/j/94058205148
-    sessionlinktext: Zoom (as above)
+    sessionlinktext: Zoom 11
 
   - time: "1:30-1:35 PM "
     type:  Research Talk 
@@ -397,7 +397,7 @@ friday:
     moderator: Danielle Belgrave
     doclink: /poster_3368555.3384469.html
     sessionlink: https://acm-org.zoom.us/j/94058205148
-    sessionlinktext: Zoom (as above)
+    sessionlinktext: Zoom 11
 
   - time: "1:40-2:00 PM"
     type: Keynote
@@ -406,7 +406,7 @@ friday:
     moderator: Tristan Naumann
     doclink: "https://www.chilconference.org/speaker_4.html"
     sessionlink: https://acm-org.zoom.us/j/98783796522
-    sessionlinktext: Zoom
+    sessionlinktext: Zoom 12
 
   - time: "2:00-2:20 PM" 
     type: Closing 
@@ -415,4 +415,4 @@ friday:
     moderator: Tasmie Sarker 
     doclink:
     sessionlink: https://acm-org.zoom.us/j/98783796522
-    sessionlinktext: Zoom (as above)
+    sessionlinktext: Zoom 12
