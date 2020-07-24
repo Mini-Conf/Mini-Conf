@@ -390,7 +390,7 @@ friday:
     sessionlink: https://acm-org.zoom.us/j/94058205148
     sessionlinktext: Zoom 11
 
-  - time: "1:35-11:40 PM" 
+  - time: "1:35-1:40 PM" 
     type: Research Talk 
     title: Defining Admissible Rewards for High-Confidence Policy Evaluation in Batch Reinforcement Learning 
     speaker: Niranjani Prasad 
