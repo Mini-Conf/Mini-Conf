@@ -56,7 +56,7 @@ thursday:
     type: Research Talk 
     title: Variational Learning of Individual Survival Distributions 
     speaker: Zidi Xiu 
-    moderator: Bret Nestor, Marzyeh Ghassemi
+    moderator: Irene Chen
     doclink: /poster_3368555.3384454.html
     sessionlink: https://acm-org.zoom.us/j/95617935177
     sessionlinktext: Zoom 3
@@ -65,7 +65,7 @@ thursday:
     type: Research Talk 
     title: Interpretable Subgroup Discovery in Treatment Effect Estimation with Application to Opioid Prescribing Guidelines 
     speaker: Chirag Nagpal 
-    moderator: Bret Nestor, Marzyeh Ghassemi
+    moderator: Irene Chen
     doclink: /poster_3368555.3384456.html
     sessionlink: https://acm-org.zoom.us/j/95617935177
     sessionlinktext: Zoom 3
@@ -74,7 +74,7 @@ thursday:
     type: Research Talk 
     title: Adverse Drug Reaction Discovery from Electronic Health Records with Deep Neural Networks 
     speaker: Wei Zhang 
-    moderator: Bret Nestor, Marzyeh Ghassemi
+    moderator: Irene Chen
     doclink: /poster_3368555.3384459.html
     sessionlink: https://acm-org.zoom.us/j/95617935177
     sessionlinktext: Zoom 3
@@ -83,7 +83,7 @@ thursday:
     type: Research Talk 
     title: "CaliForest: Calibrated Random Forest for Health Data" 
     speaker: Yubin Park 
-    moderator: Bret Nestor, Marzyeh Ghassemi 
+    moderator: Irene Chen 
     doclink: /poster_3368555.3384461.html
     sessionlink: https://acm-org.zoom.us/j/95617935177
     sessionlinktext: Zoom 3
@@ -92,7 +92,7 @@ thursday:
     type: Research Talk 
     title: "BMM-Net: Automatic Segmentation of Edema in Optical Coherence Tomography Based on Boundary Detection and Multi-Scale Network"
     speaker: Shenda Shi 
-    moderator: Bret Nestor, Marzyeh Ghassemi
+    moderator: Irene Chen
     doclink: /poster_3368555.3384447.html
     sessionlink: https://acm-org.zoom.us/j/95617935177
     sessionlinktext: Zoom 3
@@ -349,7 +349,7 @@ friday:
     type:  Research Talk
     title: "Population-aware Hierarchical Bayesian Domain Adaptation via Multi-component Invariant Learning"
     speaker: Vishwali Mhasawade
-    moderator: Danielle Belgrave
+    moderator: Marzyeh Ghassemi
     doclink: /poster_3368555.3384451.html
     sessionlink: https://acm-org.zoom.us/j/94058205148
     sessionlinktext: Zoom 11
@@ -358,7 +358,7 @@ friday:
     type:  Research Talk
     title: "TASTE: Temporal and Static Tensor Factorization for Phenotyping Electronic Health Records"
     speaker: Ardavan (Ari) Afshar
-    moderator: Danielle Belgrave
+    moderator: Marzyeh Ghassemi
     doclink: /poster_3368555.3384464.html
     sessionlink: https://acm-org.zoom.us/j/94058205148
     sessionlinktext: Zoom 11
@@ -367,7 +367,7 @@ friday:
     type:  Research Talk 
     title: Analyzing the Role of Model Uncertainty for Electronic Health Records
     speaker: Michael W. Dusenberry
-    moderator: Danielle Belgrave 
+    moderator: Marzyeh Ghassemi 
     doclink: /poster_3368555.3384457.html
     sessionlink: https://acm-org.zoom.us/j/94058205148
     sessionlinktext: Zoom 11
@@ -376,7 +376,7 @@ friday:
     type:  Research Talk 
     title: "Deidentification of free-text medical records using pre-trained bidirectional transformers"
     speaker: Alistair Johnson
-    moderator: Danielle Belgrave
+    moderator: Marzyeh Ghassemi
     doclink: /poster_3368555.3384455.html
     sessionlink: https://acm-org.zoom.us/j/94058205148
     sessionlinktext: Zoom 11
@@ -385,7 +385,7 @@ friday:
     type:  Research Talk 
     title: "MIMIC-Extract: A Data Extraction, Preprocessing, and Representation Pipeline for MIMIC-III"
     speaker: Matthew B. A. McDermott
-    moderator: Danielle Belgrave
+    moderator: Marzyeh Ghassemi
     doclink: /poster_3368555.3384469.html
     sessionlink: https://acm-org.zoom.us/j/94058205148
     sessionlinktext: Zoom 11
@@ -394,7 +394,7 @@ friday:
     type: Research Talk 
     title: Defining Admissible Rewards for High-Confidence Policy Evaluation in Batch Reinforcement Learning 
     speaker: Niranjani Prasad 
-    moderator: Danielle Belgrave
+    moderator: Marzyeh Ghassemi
     doclink: /poster_3368555.3384450.html
     sessionlink: https://acm-org.zoom.us/j/94058205148
     sessionlinktext: Zoom 11
