@@ -4,6 +4,17 @@
 
 <img src="https://raw.githubusercontent.com/Mini-Conf/Mini-Conf/master/miniconf.gif">
 
+MiniConf was originally built to host <a href="https://iclr.cc/virtual_2020">ICLR 2020</a> a virtual conference with 6000 participants and have been used to host a wide variety of major conferences.
+
+* ACMC 2020 (Australian Computer Music Conference): https://acmc2020.com/index.html
+* ACM-CHIL 2020 (Conference on Health, Inference, and Learning) https://www.chilconference.org/
+* ACL 2020 (Association of Computational Linguistics): https://virtual.acl2020.org/index.html
+* AKBC 2020 (Automated Knowledge Base Construction) : https://akbc.apps.allenai.org/index.html
+* ICLR 2020 (International Conference on Learning Representations): https://iclr.cc/virtual_2020
+* ICML 2020 (International Conference on Machine Learning): https://icml.cc/virtual/2020/index.html
+* SIGIR 2020 (Information Retrieval): https://sigir-schedule.baai.ac.cn/papers
+* Data Science Capstone Exhibition, University of Pretoria: https://up-mitc-ds.github.io/808exhibition2020/index.html
+
 It is designed to be:
 
 * Run based on static files hosted by any server. 
@@ -63,17 +74,6 @@ MiniConf is designed to be a completely static solution. However it is designed 
 
 * PDF.js: For conferences that use posters it is easy to include an embedded pdf on poster pages. An example is given. 
 
-
-### Examples
-
-MiniConf was originally built to host <a href="https://iclr.cc/virtual_2020">ICLR 2020</a> a virtual conference with 6000 participants. 
-
-* ACMC 2020 (Australian Computer Music Conference): https://acmc2020.com/index.html
-* ACL 2020 (Association of Computational Linguistics): https://virtual.acl2020.org/index.html
-* AKBC 2020 (Automated Knowledge Base Construction) : https://akbc.apps.allenai.org/index.html
-* ICLR 2020 (International Conference on Learning Representations): https://iclr.cc/virtual_2020
-* ICML 2020 (International Conference of Machine Learning): https://icml.cc/virtual/2020/index.html
-* Data Science Capstone Exhibition, University of Pretoria: https://up-mitc-ds.github.io/808exhibition2020/index.html
 
 ### Acknowledgements
 
