@@ -81,6 +81,17 @@ MiniConf was built by [Hendrik Strobelt](http://twitter.com/hen_str) and [Sasha 
 
 Thanks to Darren Nelson for the original design sketches. Shakir Mohamed, Martha White, Kyunghyun Cho, Lee Campbell, and Adam White for planning and feedback. Hao Fang, Junaid Rahim, Jake Tae, Yasser Souri, Soumya Chatterjee, and Ankshita Gupta for contributions. 
 
-
+### Citation
+Feel free to cite MiniConf:
+```bibtex
+@misc{RushStrobelt2020,
+    title={MiniConf -- A Virtual Conference Framework},
+    author={Alexander M. Rush and Hendrik Strobelt},
+    year={2020},
+    eprint={2007.12238},
+    archivePrefix={arXiv},
+    primaryClass={cs.HC}
+}
+```
 
 
