@@ -44,6 +44,7 @@ app.config.from_object(__name__)
 freezer = Freezer(app)
 markdown = Markdown(app)
 
+
 # MAIN PAGES
 
 
@@ -56,6 +57,11 @@ def _data():
 @app.route("/")
 def index():
     return redirect("/index.html")
+
+
+@app.route("/favicon.ico")
+def favicon():
+    return send_from_directory(site_data_path, 'favicon.ico')
 
 
 # TOP LEVEL PAGES
@@ -217,7 +223,6 @@ def serve(path):
 
 @freezer.register_generator
 def generator():
-
     for paper in site_data["papers"]:
         yield "poster", {"poster": str(paper["UID"])}
     for speaker in site_data["speakers"]:
