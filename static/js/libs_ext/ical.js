@@ -73,12 +73,12 @@ ICAL.helpers = {
    *
    * @example
    * var time = new ICAL.Time(...);
-   * var result = ICAL.helpers.formatClassType(time, ICAL.Time);
+   * var result = ICAL.modules.formatClassType(time, ICAL.Time);
    *
    * (result instanceof ICAL.Time)
    * // => true
    *
-   * result = ICAL.helpers.formatClassType({}, ICAL.Time);
+   * result = ICAL.modules.formatClassType({}, ICAL.Time);
    * (result isntanceof ICAL.Time)
    * // => true
    *
@@ -299,7 +299,7 @@ ICAL.helpers = {
    * not overwritten with the source properties.
    *
    * @example
-   * var child = ICAL.helpers.extend(parent, {
+   * var child = ICAL.modules.extend(parent, {
    *   "bar": 123
    * });
    *
