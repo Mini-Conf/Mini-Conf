@@ -82,13 +82,13 @@ function brush_ended() {
   let count = 0;
   all_sel.forEach((paper) => {
     if (summaryBy === "keywords") {
-      paper.content.keywords.forEach((kw) => {
+      paper.keywords.forEach((kw) => {
         count = words_abstract.get(kw) || 0;
         count += 1;
         words_abstract.set(kw, count);
       });
     } else {
-      parts = paper.content.abstract.split(/[.]?\s+/);
+      parts = paper.abstract.split(/[.]?\s+/);
       parts.forEach((p) => {
         if (p.length < 3) return;
         p = p.toLowerCase();
@@ -129,16 +129,16 @@ function brush_ended() {
     .html(
       (d) =>
         `<div class="p_title">${
-          d.content.title
-        }</div> <div class="p_authors">${d.content.authors.join(", ")}</div>`
+          d.title
+        }</div> <div class="p_authors">${d.authors.join(", ")}</div>`
     )
     .on("click", (d) =>
-      window.open(`poster_${d.content.iclr_id}.html`, "_blank")
+      window.open(`poster_${d.UID}.html`, "_blank")
     )
     .on("mouseenter", (d) => {
       l_main
         .selectAll(".dot")
-        .filter((dd) => dd.id === d.id)
+        .filter((dd) => dd.UID === d.UID)
         .classed("highlight_sel", true)
         .each(function () {
           if (this._tippy) this._tippy.show();
@@ -147,7 +147,7 @@ function brush_ended() {
     .on("mouseleave", (d) => {
       l_main
         .selectAll(".dot")
-        .filter((dd) => dd.id === d.id)
+        .filter((dd) => dd.UID === d.UID)
         .classed("highlight_sel", false)
         .each(function () {
           if (this._tippy) this._tippy.hide();
@@ -158,7 +158,7 @@ function brush_ended() {
 const updateVis = () => {
   const storedPapers = persistor.getAll();
   all_papers.forEach((openreview) => {
-    openreview.content.read = storedPapers[openreview.id] || false;
+    openreview.read = storedPapers[openreview.UID] || false;
   });
 
   const is_filtered = filters.authors || filters.keywords || filters.titles;
@@ -187,25 +187,25 @@ const updateVis = () => {
 
   l_main
     .selectAll(".dot")
-    .data(all_papers, (d) => d.id)
+    .data(all_papers, (d) => d.UID)
     .join("circle")
     .attr("class", "dot")
     .attr("r", (d) => (d.is_selected ? 8 : 6))
     .attr("cx", (d, i) => all_pos[i].cx())
     .attr("cy", (d, i) => all_pos[i].cy())
-    .classed("read", (d) => d.content.read)
+    .classed("read", (d) => d.read)
     .classed("highlight", (d) => d.is_selected)
     .classed("non-highlight", (d) => !d.is_selected && is_filtered)
     .on("click", function (d) {
-      window.open(`poster_${d.id}.html`, "_blank");
-      persistor.set(d.id, true);
+      window.open(`poster_${d.UID}.html`, "_blank");
+      persistor.set(d.UID, true);
       d3.select(this).classed("read", true);
     });
 
   if (!currentTippy) {
     currentTippy = tippy(".dot", {
       content(reference) {
-        return d3.select(reference).datum().content.title;
+        return d3.select(reference).datum().title;
         // return tooltip_template(d3.select(reference).datum());
       },
       onShow(instance) {
@@ -228,9 +228,9 @@ const render = () => {
     let pass_test = true;
     while (i < f_test.length && pass_test) {
       if (f_test[i][0] === "titles") {
-        pass_test &= d.content.title === f_test[i][1];
+        pass_test &= d.title === f_test[i][1];
       } else {
-        pass_test &= d.content[f_test[i][0]].indexOf(f_test[i][1]) > -1;
+        pass_test &= d[f_test[i][0]].indexOf(f_test[i][1]) > -1;
       }
       i++;
     }
@@ -247,9 +247,9 @@ const render = () => {
 // language=HTML
 const tooltip_template = (d) => `
     <div>
-        <div class="tt-title">${d.content.title}</div>
-        <p>${d.content.authors.join(", ")}</p>
-        <img src="https://iclr.github.io/iclr-images/${d.id}.png" width=100%/>
+        <div class="tt-title">${d.title}</div>
+        <p>${d.authors.join(", ")}</p>
+        <img src="https://iclr.github.io/iclr-images/${d.UID}.png" width=100%/>
      </div>   
 `;
 
@@ -262,7 +262,7 @@ const start = () => {
       proj.forEach((p) => projMap.set(p.id, p.pos));
 
       papers.forEach((p) => {
-        p.pos = projMap.get(p.id);
+        p.pos = projMap.get(p.UID);
       });
 
       all_papers = papers;

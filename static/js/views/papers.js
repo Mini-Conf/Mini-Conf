@@ -2,7 +2,7 @@ let allPapers = [];
 const allKeys = {
   authors: [],
   keywords: [],
-  session: [],
+  sessions: [],
   titles: [],
 };
 const filters = {
@@ -14,12 +14,12 @@ const filters = {
 
 let render_mode = "compact";
 
-const persistor = new Persistor("Mini-Conf-Papers");
+let persistor = null;
 
 const updateCards = (papers) => {
   const storedPapers = persistor.getAll();
   papers.forEach((openreview) => {
-    openreview.content.read = storedPapers[openreview.id] || false;
+    openreview.read = storedPapers[openreview.UID] || false;
   });
 
   const readCard = (iid, new_value) => {
@@ -30,16 +30,16 @@ const updateCards = (papers) => {
 
   const all_mounted_cards = d3
     .select(".cards")
-    .selectAll(".myCard", (openreview) => openreview.id)
+    .selectAll(".myCard", (openreview) => openreview.UID)
     .data(papers, (d) => d.number)
     .join("div")
     .attr("class", "myCard col-xs-6 col-md-4")
     .html(card_html);
 
   all_mounted_cards.select(".card-title").on("click", function (d) {
-    const iid = d.id;
+    const iid = d.UID;
     all_mounted_cards
-      .filter((d) => d.id === iid)
+      .filter((d) => d.UID === iid)
       .select(".checkbox-paper")
       .classed("selected", function () {
         const new_value = true; //! d3.select(this).classed('not-selected');
@@ -49,7 +49,7 @@ const updateCards = (papers) => {
   });
 
   all_mounted_cards.select(".checkbox-paper").on("click", function (d) {
-    const iid = d.id;
+    const iid = d.UID;
     const new_value = !d3.select(this).classed("selected");
     readCard(iid, new_value);
     d3.select(this).classed("selected", new_value);
@@ -86,10 +86,12 @@ const render = () => {
       while (i < f_test.length && pass_test) {
         if (f_test[i][0] === "titles") {
           pass_test &=
-            d.content.title.toLowerCase().indexOf(f_test[i][1].toLowerCase()) >
+            d.title.toLowerCase().indexOf(f_test[i][1].toLowerCase()) >
             -1;
+        } else if (f_test[i][0] === "session") {
+          pass_test &= d["sessions"].indexOf(f_test[i][1]) > -1;
         } else {
-          pass_test &= d.content[f_test[i][0]].indexOf(f_test[i][1]) > -1;
+          pass_test &= d[f_test[i][0]].indexOf(f_test[i][1]) > -1;
         }
         i++;
       }
@@ -127,9 +129,11 @@ const start = () => {
   setQueryStringParameter("filter", urlFilter);
   updateFilterSelectionBtn(urlFilter);
 
-  API.getPapers()
-    .then((papers) => {
+  Promise.all([API.getPapers(), API.getConfig()])
+    .then(([papers, config]) => {
       console.log(papers, "--- papers");
+
+      persistor = new Persistor("miniconf-"+config.name);
 
       shuffleArray(papers);
 
@@ -191,7 +195,7 @@ const keyword = (kw) => `<a href="papers.html?filter=keywords&search=${kw}"
 
 const card_image = (openreview, show) => {
   if (show)
-    return ` <center><img class="lazy-load-img cards_img" data-src="https://iclr.github.io/iclr-images/small/${openreview.id}.jpg" width="80%"/></center>`;
+    return ` <center><img class="lazy-load-img cards_img" data-src="https://iclr.github.io/iclr-images/small/${openreview.UID}.jpg" width="80%"/></center>`;
   return "";
 };
 
@@ -199,9 +203,9 @@ const card_detail = (openreview, show) => {
   if (show)
     return ` 
      <div class="pp-card-header">
-        <p class="card-text"> ${openreview.content.TLDR}</p>
+        <p class="card-text"> ${openreview.TLDR}</p>
         <p class="card-text"><span class="font-weight-bold">Keywords:</span>
-            ${openreview.content.keywords.map(keyword).join(", ")}
+            ${openreview.keywords.map(keyword).join(", ")}
         </p>
     </div>
 `;
@@ -209,12 +213,12 @@ const card_detail = (openreview, show) => {
 };
 
 const card_time_small = (openreview, show) => {
-  const cnt = openreview.content;
+  const cnt = openreview;
   return show
     ? `
 <!--    <div class="pp-card-footer">-->
     <div class="text-center" style="margin-top: 10px;">
-    ${cnt.session
+    ${cnt.sessions
       .filter((s) => s.match(/.*[0-9]/g))
       .map(
         (s, i) =>
@@ -237,36 +241,37 @@ const card_icon_cal = icon_cal(16);
 const card_live = (link) =>
   `<a class="text-muted" href="${link}">${card_icon_video}</a>`;
 const card_cal = (openreview, i) =>
-  `<a class="text-muted" href="webcal://iclr.github.io/iclr-images/calendars/poster_${openreview.forum}.${i}.ics">${card_icon_cal}</a>`;
+  `<a class="text-muted" href="webcal://iclr.github.io/iclr-images/calendars/poster_${openreview.UID}.${i}.ics">${card_icon_cal}</a>`;
 
-// const card_time_detail = (openreview, show) => {
-//     const cnt = openreview.content;
-//     return show ? `
-// <!--    <div class="pp-card-footer">-->
-//     <div class="text-center text-monospace small" style="margin-top: 10px;">
-//     ${cnt.session.filter(s => s.match(/.*[0-9]/g))
-//       .map((s, i) => `${s} ${cnt.session_times[i]} ${card_live(cnt.session_links[i])}   `)
-//       .join('<br>')}
-//     </div>
-// <!--    </div>-->
-//     ` : '';
-// }
+const card_time_detail = (openreview, show) => {
+  const cnt = openreview;
+  return show ? `
+<!--    <div class="pp-card-footer">-->
+    <div class="text-center text-monospace small" style="margin-top: 10px;">
+    ${cnt.sessions.filter(s => s.match(/.*[0-9]/g))
+    .map((s, i) => `${s} ${cnt.session_times[i]} ${card_live(
+      cnt.session_links[i])}   `)
+    .join('<br>')}
+    </div>
+<!--    </div>-->
+    ` : '';
+}
 
 // language=HTML
 const card_html = (openreview) =>
   `
         <div class="pp-card pp-mode-${render_mode} ">
             <div class="pp-card-header">
-            <div class="checkbox-paper ${openreview.content.read ? "selected" : ""}" 
+            <div class="checkbox-paper ${openreview.read ? "selected" : ""}" 
             style="display: block;position: absolute; bottom:35px;left: 35px;">✓</div>    
-                <a href="poster_${openreview.id}.html"
+                <a href="poster_${openreview.UID}.html"
                 target="_blank"
                    class="text-muted">
                    <h5 class="card-title" align="center"> ${
-                     openreview.content.title
-                   } </h5></a>
+    openreview.title
+  } </h5></a>
                 <h6 class="card-subtitle text-muted" align="center">
-                        ${openreview.content.authors.join(", ")}
+                        ${openreview.authors.join(", ")}
                 </h6>
                 ${card_image(openreview, render_mode !== "list")}
                 

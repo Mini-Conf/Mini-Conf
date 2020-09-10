@@ -4,13 +4,13 @@ const calcAllKeys = function (allPapers, allKeys) {
   const collectSessions = new Set();
 
   allPapers.forEach((d) => {
-    d.content.authors.forEach((a) => collectAuthors.add(a));
-    d.content.keywords.forEach((a) => collectKeywords.add(a));
-    d.content.session.forEach((a) => collectSessions.add(a));
-    allKeys.titles.push(d.content.title);
+    d.authors.forEach((a) => collectAuthors.add(a));
+    d.keywords.forEach((a) => collectKeywords.add(a));
+    d.sessions.forEach((a) => collectSessions.add(a));
+    allKeys.titles.push(d.title);
   });
   allKeys.authors = Array.from(collectAuthors);
   allKeys.keywords = Array.from(collectKeywords);
-  allKeys.session = Array.from(collectSessions);
-  allKeys.session.sort();
+  allKeys.sessions = Array.from(collectSessions);
+  allKeys.sessions.sort();
 };
