@@ -127,7 +127,7 @@ const start = () => {
   setQueryStringParameter("filter", urlFilter);
   updateFilterSelectionBtn(urlFilter);
 
-  d3.json("papers.json")
+  API.getPapers()
     .then((papers) => {
       console.log(papers, "--- papers");
 
@@ -257,9 +257,8 @@ const card_html = (openreview) =>
   `
         <div class="pp-card pp-mode-${render_mode} ">
             <div class="pp-card-header">
-            <div class="checkbox-paper ${
-              openreview.content.read ? "selected" : ""
-            }" style="display: block;position: absolute; bottom:35px;left: 35px;">✓</div>    
+            <div class="checkbox-paper ${openreview.content.read ? "selected" : ""}" 
+            style="display: block;position: absolute; bottom:35px;left: 35px;">✓</div>    
                 <a href="poster_${openreview.id}.html"
                 target="_blank"
                    class="text-muted">

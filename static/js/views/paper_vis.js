@@ -1,322 +1,313 @@
 let all_papers = [];
 let all_pos = [];
 const allKeys = {
-    authors: [],
-    keywords: [],
-    titles: []
-}
+  authors: [],
+  keywords: [],
+  titles: [],
+};
 const filters = {
-    authors: null,
-    keywords: null,
-    title: null
+  authors: null,
+  keywords: null,
+  title: null,
 };
 
-const summaryBy = 'keywords' // or: "abstract"
+const summaryBy = "keywords"; // or: "abstract"
 
 let currentTippy = null;
 let brush = null;
 
 const sizes = {
-    margins: {l: 20, b: 20, r: 20, t: 20}
-}
+  margins: { l: 20, b: 20, r: 20, t: 20 },
+};
 
-const explain_text_plot = d3.select('#explain_text_plot');
-const summary_selection = d3.select('#summary_selection');
-const sel_papers = d3.select('#sel_papers');
+const explain_text_plot = d3.select("#explain_text_plot");
+const summary_selection = d3.select("#summary_selection");
+const sel_papers = d3.select("#sel_papers");
 
-const persistor = new Persistor('Mini-Conf-Papers');
-
+const persistor = new Persistor("Mini-Conf-Papers");
 
 const plot_size = () => {
-    const cont = document.getElementById('container');
-    const wh = Math.max(window.innerHeight - 280, 300)
-    let ww = Math.max(cont.offsetWidth - 210, 300)
-    if (cont.offsetWidth < 768) ww = cont.offsetWidth - 10.0;
+  const cont = document.getElementById("container");
+  const wh = Math.max(window.innerHeight - 280, 300);
+  let ww = Math.max(cont.offsetWidth - 210, 300);
+  if (cont.offsetWidth < 768) ww = cont.offsetWidth - 10.0;
 
-    if ((wh / ww > 1.3)) {
-        const min = Math.min(wh, ww)
-        return [min, min]
-    } else {
-        return [ww, wh]
-    }
-}
+  if (wh / ww > 1.3) {
+    const min = Math.min(wh, ww);
+    return [min, min];
+  }
+  return [ww, wh];
+};
 
 const xS = d3.scaleLinear().range([0, 500]);
 const yS = d3.scaleLinear().range([0, 500]);
-const plot = d3.select('.plot');
-const l_bg = plot.append('g');
-const l_main = plot.append('g');
-const l_fg = plot.append('g');
+const plot = d3.select(".plot");
+const l_bg = plot.append("g");
+const l_main = plot.append("g");
+const l_fg = plot.append("g");
 
 const brush_start = () => {
-    // console.log(currentTippy, "--- currentTippy");
-    currentTippy.forEach(t => t.disable());
-    brushed();
-}
+  // console.log(currentTippy, "--- currentTippy");
+  currentTippy.forEach((t) => t.disable());
+  brushed();
+};
 const brushed = () => {
-    let [[x0, y0], [x1, y1]] = d3.event.selection;
-    x0 = Math.round(x0), y0 = Math.round(y0);
-    x1 = Math.round(x1), y1 = Math.round(y1);
-    // console.log(x0, x1, y1, y0, "--- x0,x1,y1,y0");
+  let [[x0, y0], [x1, y1]] = d3.event.selection;
+  (x0 = Math.round(x0)), (y0 = Math.round(y0));
+  (x1 = Math.round(x1)), (y1 = Math.round(y1));
+  // console.log(x0, x1, y1, y0, "--- x0,x1,y1,y0");
 
-    l_main.selectAll('.dot')
-      .classed('rect_selected', function () {
-          const me = d3.select(this);
-          return x0 <= me.attr("cx") && x1 >= me.attr("cx") && // Check X coordinate
-            y0 <= me.attr("cy") && y1 >= me.attr("cy")  // And Y coordinate
-      })
+  l_main.selectAll(".dot").classed("rect_selected", function () {
+    const me = d3.select(this);
+    return (
+      x0 <= me.attr("cx") &&
+      x1 >= me.attr("cx") && // Check X coordinate
+      y0 <= me.attr("cy") &&
+      y1 >= me.attr("cy")
+    ); // And Y coordinate
+  });
 
-    // extent[0][0] <= myCircle.attr("cx") && extent[1][0] >= myCircle.attr("cx") && // Check X coordinate
-    //          extent[0][1] <= myCircle.attr("cy") && extent[1][1] >= myCircle.attr("cy")  // And Y coordinate
-
-}
+  // extent[0][0] <= myCircle.attr("cx") && extent[1][0] >= myCircle.attr("cx") && // Check X coordinate
+  //          extent[0][1] <= myCircle.attr("cy") && extent[1][1] >= myCircle.attr("cy")  // And Y coordinate
+};
 
 function brush_ended() {
-    currentTippy.forEach(t => t.enable());
+  currentTippy.forEach((t) => t.enable());
 
-    const all_sel = []
-    l_main.selectAll('.dot.rect_selected').each(d => all_sel.push(d));
+  const all_sel = [];
+  l_main.selectAll(".dot.rect_selected").each((d) => all_sel.push(d));
 
-    const words_abstract = new Map();
-    let parts = null;
-    let count = 0;
-    all_sel.forEach(paper => {
-        if (summaryBy === 'keywords') {
-            paper.content.keywords.forEach(kw => {
-                count = words_abstract.get(kw) | 0;
-                count += 1;
-                words_abstract.set(kw, count);
-            })
-        } else {
-            parts = paper.content.abstract.split(/[.]?\s+/)
-            parts.forEach(p => {
-                if (p.length < 3) return;
-                p = p.toLowerCase();
-                count = words_abstract.get(p) | 0;
-                count += 1;
-                words_abstract.set(p, count);
-            })
-        }
-
-
-    })
-    stopwords.forEach(sw => words_abstract.delete(sw));
-    const abstract_words = [...words_abstract.entries()]
-      .sort((a, b) => -a[1] + b[1])
-      .slice(0, 15);
-
-    if (abstract_words.length > 0) {
-        explain_text_plot.style('display', 'none');
-        const f_scale = d3.scaleLinear().domain([1, abstract_words[0][1]])
-          .range([10, 16])
-        summary_selection.selectAll('.topWords').data(abstract_words)
-          .join('div')
-          .attr('class', 'topWords')
-          .style('font-size', d => f_scale(d[1]) + 'px')
-          .text(d => d[0])
-
-
+  const words_abstract = new Map();
+  let parts = null;
+  let count = 0;
+  all_sel.forEach((paper) => {
+    if (summaryBy === "keywords") {
+      paper.content.keywords.forEach((kw) => {
+        count = words_abstract.get(kw) || 0;
+        count += 1;
+        words_abstract.set(kw, count);
+      });
     } else {
-        summary_selection.selectAll('.topWords').remove();
-        explain_text_plot.style('display', null);
+      parts = paper.content.abstract.split(/[.]?\s+/);
+      parts.forEach((p) => {
+        if (p.length < 3) return;
+        p = p.toLowerCase();
+        count = words_abstract.get(p) || 0;
+        count += 1;
+        words_abstract.set(p, count);
+      });
     }
+  });
+  stopwords.forEach((sw) => words_abstract.delete(sw));
+  const abstract_words = [...words_abstract.entries()]
+    .sort((a, b) => -a[1] + b[1])
+    .slice(0, 15);
 
-    sel_papers.selectAll('.sel_paper').data(all_sel)
-      .join('div')
-      .attr('class', 'sel_paper')
-      .html(
-        d => `<div class="p_title">${d.content.title}</div> <div class="p_authors">${d.content.authors.join(
-          ', ')}</div>`)
-      .on('click',
-        d => window.open(`poster_${d.content.iclr_id}.html`, '_blank'))
-      .on('mouseenter', d => {
+  if (abstract_words.length > 0) {
+    explain_text_plot.style("display", "none");
+    const f_scale = d3
+      .scaleLinear()
+      .domain([1, abstract_words[0][1]])
+      .range([10, 16]);
+    summary_selection
+      .selectAll(".topWords")
+      .data(abstract_words)
+      .join("div")
+      .attr("class", "topWords")
+      .style("font-size", (d) => `${f_scale(d[1])}px`)
+      .text((d) => d[0]);
+  } else {
+    summary_selection.selectAll(".topWords").remove();
+    explain_text_plot.style("display", null);
+  }
 
-          l_main.selectAll('.dot').filter(dd => dd.id === d.id)
-            .classed('highlight_sel', true)
-            .each(function () {
-                if (this._tippy)
-                    this._tippy.show();
-            })
-      })
-      .on('mouseleave', d => {
-          l_main.selectAll('.dot').filter(dd => dd.id === d.id)
-            .classed('highlight_sel', false)
-            .each(function () {
-                if (this._tippy)
-                    this._tippy.hide();
-            })
-      })
-
-
+  sel_papers
+    .selectAll(".sel_paper")
+    .data(all_sel)
+    .join("div")
+    .attr("class", "sel_paper")
+    .html(
+      (d) =>
+        `<div class="p_title">${
+          d.content.title
+        }</div> <div class="p_authors">${d.content.authors.join(", ")}</div>`
+    )
+    .on("click", (d) =>
+      window.open(`poster_${d.content.iclr_id}.html`, "_blank")
+    )
+    .on("mouseenter", (d) => {
+      l_main
+        .selectAll(".dot")
+        .filter((dd) => dd.id === d.id)
+        .classed("highlight_sel", true)
+        .each(function () {
+          if (this._tippy) this._tippy.show();
+        });
+    })
+    .on("mouseleave", (d) => {
+      l_main
+        .selectAll(".dot")
+        .filter((dd) => dd.id === d.id)
+        .classed("highlight_sel", false)
+        .each(function () {
+          if (this._tippy) this._tippy.hide();
+        });
+    });
 }
-
 
 const updateVis = () => {
+  const storedPapers = persistor.getAll();
+  all_papers.forEach((openreview) => {
+    openreview.content.read = storedPapers[openreview.id] || false;
+  });
 
-    const storedPapers = persistor.getAll();
-    all_papers.forEach(
-      openreview => {
-          openreview.content.read = storedPapers[openreview.id] || false
-      })
+  const is_filtered = filters.authors || filters.keywords || filters.titles;
 
-    const is_filtered = filters.authors || filters.keywords || filters.titles;
+  const [pW, pH] = plot_size();
 
-    const [pW, pH] = plot_size();
+  plot.attr("width", pW).attr("height", pH);
+  d3.select("#table_info").style("height", `${pH}px`);
 
-    plot.attr('width', pW).attr('height', pH)
-    d3.select('#table_info').style('height', pH + 'px');
+  xS.range([sizes.margins.l, pW - sizes.margins.r]);
+  yS.range([sizes.margins.t, pH - sizes.margins.b]);
 
-    xS.range([sizes.margins.l, pW - sizes.margins.r]);
-    yS.range([sizes.margins.t, pH - sizes.margins.b]);
+  brush.extent([
+    [0, 0],
+    [pW, pH],
+  ]);
+  l_bg.call(brush);
 
-    brush.extent([[0, 0],
-        [pW, pH]])
-    l_bg.call(brush);
+  all_pos = all_papers.map((d) => {
+    const r2 = d.is_selected ? 8 : 4;
+    const [x, y] = [xS(d.pos[0]), yS(d.pos[1])];
+    return new cola.Rectangle(x - r2, x + r2, y - r2, y + r2);
+  });
 
-    all_pos = all_papers.map(d => {
-        const r2 = (d.is_selected ? 8 : 4);
-        const [x, y] = [xS(d.pos[0]), yS(d.pos[1])];
-        return new cola.Rectangle(x - r2, x + r2, y - r2, y + r2);
-    })
+  cola.removeOverlaps(all_pos);
 
-    cola.removeOverlaps(all_pos);
+  l_main
+    .selectAll(".dot")
+    .data(all_papers, (d) => d.id)
+    .join("circle")
+    .attr("class", "dot")
+    .attr("r", (d) => (d.is_selected ? 8 : 6))
+    .attr("cx", (d, i) => all_pos[i].cx())
+    .attr("cy", (d, i) => all_pos[i].cy())
+    .classed("read", (d) => d.content.read)
+    .classed("highlight", (d) => d.is_selected)
+    .classed("non-highlight", (d) => !d.is_selected && is_filtered)
+    .on("click", function (d) {
+      window.open(`poster_${d.id}.html`, "_blank");
+      persistor.set(d.id, true);
+      d3.select(this).classed("read", true);
+    });
 
-    l_main.selectAll('.dot').data(all_papers, d => d.id)
-      .join('circle')
-      .attr('class', 'dot')
-      .attr('r', d => d.is_selected ? 8 : 6)
-      .attr('cx', (d, i) => all_pos[i].cx())
-      .attr('cy', (d, i) => all_pos[i].cy())
-      .classed('read', d => d.content.read)
-      .classed('highlight', d => d.is_selected)
-      .classed('non-highlight', d => !d.is_selected && is_filtered)
-      .on('click',
-        function(d) {
-            window.open(`poster_${d.id}.html`, '_blank');
-            persistor.set(d.id, true);
-            d3.select(this).classed('read', true);
-        })
-
-    if (!currentTippy) {
-        currentTippy = tippy('.dot', {
-            content(reference) {
-                return d3.select(reference).datum().content.title;
-                // return tooltip_template(d3.select(reference).datum());
-            },
-            onShow(instance) {
-                const d = d3.select(instance.reference).datum()
-                instance.setContent(tooltip_template(d))
-            },
-            allowHTML: true
-        });
-
-    }
-
-}
+  if (!currentTippy) {
+    currentTippy = tippy(".dot", {
+      content(reference) {
+        return d3.select(reference).datum().content.title;
+        // return tooltip_template(d3.select(reference).datum());
+      },
+      onShow(instance) {
+        const d = d3.select(instance.reference).datum();
+        instance.setContent(tooltip_template(d));
+      },
+      allowHTML: true,
+    });
+  }
+};
 
 const render = () => {
-    const f_test = [];
-    Object.keys(filters)
-      .forEach(k => {filters[k] ? f_test.push([k, filters[k]]) : null});
+  const f_test = [];
+  Object.keys(filters).forEach((k) => {
+    filters[k] ? f_test.push([k, filters[k]]) : null;
+  });
 
-    let test = d => {
-        let i = 0, pass_test = true;
-        while (i < f_test.length && pass_test) {
-            if (f_test[i][0] === 'titles') {
-                pass_test &= d.content['title'] === f_test[i][1];
-            } else {
-                pass_test &= d.content[f_test[i][0]].indexOf(
-                  f_test[i][1]) > -1
-            }
-            i++;
-        }
-        return pass_test;
+  let test = (d) => {
+    let i = 0;
+    let pass_test = true;
+    while (i < f_test.length && pass_test) {
+      if (f_test[i][0] === "titles") {
+        pass_test &= d.content.title === f_test[i][1];
+      } else {
+        pass_test &= d.content[f_test[i][0]].indexOf(f_test[i][1]) > -1;
+      }
+      i++;
     }
+    return pass_test;
+  };
 
-    if (f_test.length === 0) test = d => false;
+  if (f_test.length === 0) test = (d) => false;
 
-    all_papers.forEach(paper => paper.is_selected = test(paper));
+  all_papers.forEach((paper) => (paper.is_selected = test(paper)));
 
-    updateVis();
+  updateVis();
+};
 
-}
-
-
-//language=HTML
+// language=HTML
 const tooltip_template = (d) => `
     <div>
         <div class="tt-title">${d.content.title}</div>
-        <p>${d.content.authors.join(', ')}</p>
+        <p>${d.content.authors.join(", ")}</p>
         <img src="https://iclr.github.io/iclr-images/${d.id}.png" width=100%/>
      </div>   
-`
-
+`;
 
 const start = () => {
-    Promise.all([
-        d3.json('papers.json'),
-        d3.json('serve_papers_projection.json')
-    ]).then(([papers, proj]) => {
-        // all_proj = proj;
+  API.getPapersAndProjection()
+    .then(([papers, proj]) => {
+      // all_proj = proj;
 
-        const projMap = new Map()
-        proj.forEach(p => projMap.set(p.id, p.pos))
+      const projMap = new Map();
+      proj.forEach((p) => projMap.set(p.id, p.pos));
 
-        papers.forEach(p => {
-            p.pos = projMap.get(p.id)
-        })
+      papers.forEach((p) => {
+        p.pos = projMap.get(p.id);
+      });
 
-        all_papers = papers;
+      all_papers = papers;
 
-        calcAllKeys(all_papers, allKeys);
-        setTypeAhead('authors', allKeys, filters, render);
+      calcAllKeys(all_papers, allKeys);
+      setTypeAhead("authors", allKeys, filters, render);
 
+      xS.domain(d3.extent(proj.map((p) => p.pos[0])));
+      yS.domain(d3.extent(proj.map((p) => p.pos[1])));
 
-        xS.domain(d3.extent(proj.map(p => p.pos[0])));
-        yS.domain(d3.extent(proj.map(p => p.pos[1])));
-
-        updateVis();
+      updateVis();
     })
-      .catch(e => console.error(e))
+    .catch((e) => console.error(e));
 
-
-    brush = d3.brush()
-      .on("start", brush_start)
-      .on("brush", brushed)
-      .on("end", brush_ended)
-    ;
-
-
-}
-
+  brush = d3
+    .brush()
+    .on("start", brush_start)
+    .on("brush", brushed)
+    .on("end", brush_ended);
+};
 
 /**
  *  EVENTS
- **/
+ * */
 
-const updateFilterSelectionBtn = value => {
-    d3.selectAll('.filter_option label')
-      .classed('active', function () {
-          const v = d3.select(this).select('input').property('value')
-          return v === value;
-      })
-}
+const updateFilterSelectionBtn = (value) => {
+  d3.selectAll(".filter_option label").classed("active", function () {
+    const v = d3.select(this).select("input").property("value");
+    return v === value;
+  });
+};
 
-d3.selectAll('.filter_option input').on('click', function () {
-    const me = d3.select(this)
+d3.selectAll(".filter_option input").on("click", function () {
+  const me = d3.select(this);
 
-    const filter_mode = me.property('value');
-    updateFilterSelectionBtn(filter_mode);
+  const filter_mode = me.property("value");
+  updateFilterSelectionBtn(filter_mode);
 
-    setTypeAhead(filter_mode, allKeys, filters, render);
-    render();
-})
+  setTypeAhead(filter_mode, allKeys, filters, render);
+  render();
+});
 
-$(window).on('resize', _.debounce(updateVis, 150));
+$(window).on("resize", _.debounce(updateVis, 150));
 
-
-const stopwords =
-  `i
+const stopwords = `i
 me
 my
 myself
@@ -442,4 +433,4 @@ will
 just
 don
 should
-now`.split('\n');
+now`.split("\n");
