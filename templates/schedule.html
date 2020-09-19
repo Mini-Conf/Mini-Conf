@@ -32,9 +32,10 @@
     <!-- small cal for smart phones-->
     <div id="calendar_small" class="d-sm-none"></div>
 
-    <script type="text/javascript">
-      make_cal();
-    </script>
+<!--    <script type="text/javascript">-->
+<!--      // console.log(make_cal(),"-&#45;&#45; make_cal()");-->
+<!--      make_cal().then((d) => console.log(d, "-&#45;&#45; d"));-->
+<!--    </script>-->
   </div>
 
   <!-- Day Tab -->
@@ -57,9 +58,32 @@
       </div>
     </div>
 
-    <script type="text/javascript">
-      lazyLoader();
-    </script>
+
   </div>
+
+  <script type="text/javascript">
+    window.onload = () => {
+      const tabPanes = $(".tab-pane");
+      // Create calendars:
+      make_cal(false).then(({ render }) => {
+        // render cal with all tabs visible
+        tabPanes.css("display", "block");
+        render();
+        tabPanes.css("display", "");
+
+        // re-render cal on resize
+        $(window).on(
+          "resize",
+          _.debounce(() => {
+            tabPanes.css("display", "block");
+            render();
+            tabPanes.css("display", "");
+          }, 500)
+        );
+      });
+      // ----
+      lazyLoader();
+    };
+  </script>
 </div>
 {% endblock %}

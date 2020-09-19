@@ -1,4 +1,4 @@
-function make_cal() {
+async function make_cal(handleResize = true) {
 
   const current_tz = getUrlParameter("tz") || moment.tz.guess();
   const tzNames = [...moment.tz.names()];
@@ -23,7 +23,6 @@ function make_cal() {
         window.open(`${window.location.pathname}?tz=${new_tz}`, "_self");
       });
   };
-
   setupTZSelector();
 
   // requires moments.js
@@ -45,164 +44,167 @@ function make_cal() {
     return dates;
   };
 
-  API.getConfig().then((config) => {
-    API.getCalendar().then((events) => {
-      const all_cals = [];
-      const timezoneName = current_tz;
+  const config = await API.getConfig();
+  const events = await API.getCalendar();
 
-      const min_date = d3.min(events.map((e) => e.start));
-      let min_hours =
-        d3.min(events.map((e) => moment(e.start).tz(timezoneName).hours())) - 1;
-      let max_hours =
-        d3.max(events.map((e) => moment(e.end).tz(timezoneName).hours())) + 1;
-      if (min_hours < 0 || max_hours > 24) {
-        min_hours = 0;
-        max_hours = 24;
-      }
-      // console.log(min_hours, max_hours);
-      const { Calendar } = tui;
-      const calendar = new Calendar("#calendar", {
-        defaultView: "week",
-        isReadOnly: true,
-        // useDetailPopup: true,
-        taskView: false,
-        scheduleView: ["time"],
-        usageStatistics: false,
-        week: {
-          workweek: !config.calendar.sunday_saturday,
-          hourStart: min_hours,
-          hourEnd: max_hours,
-        },
-        timezones: [
-          {
-            timezoneOffset: -moment.tz
-              .zone(timezoneName)
-              .utcOffset(moment(min_date)),
-            displayLabel: timezoneName,
-            tooltip: timezoneName,
-          },
-        ],
-        // timezones: [{
-        //     getTimezoneOffset: 540,
-        //     displayLabel: 'a',
-        //     tooltip: timezoneName
-        // }],
-        template: {
-          monthDayname(dayname) {
-            return `<span class="calendar-week-dayname-name">${dayname.label}</span>`;
-          },
-          time(schedule) {
-            return `<strong>${moment(schedule.start.getTime())
-              .tz(timezoneName)
-              .format("hh:mm")}</strong> ${schedule.title}`;
-          },
-          milestone(schedule) {
-            return `<span class="calendar-font-icon ic-milestone-b"></span> <span style="background-color: ${schedule.bgColor}"> M: ${schedule.title}</span>`;
-          },
-          weekDayname(model) {
-            const parts = model.renderDate.split("-");
-            return `<span class="tui-full-calendar-dayname-name"> ${parts[1]}/${parts[2]}</span>&nbsp;&nbsp;<span class="tui-full-calendar-dayname-name">${model.dayName}</span>`;
-          },
-        },
-      });
-      calendar.setDate(Date.parse(min_date));
-      calendar.createSchedules(events);
-      calendar.on({
-        clickSchedule(e) {
-          const s = e.schedule;
-          if (s.location.length > 0) {
-            window.open(s.location, "_blanket");
-          }
-        },
-      });
+  const all_cals = [];
+  const timezoneName = current_tz;
 
-      all_cals.push(calendar);
+  // determine min date
+  const min_date = d3.min(events.map((e) => e.start));
+  let min_hours =
+    d3.min(events.map((e) => moment(e.start).tz(timezoneName).hours())) - 1;
+  let max_hours =
+    d3.max(events.map((e) => moment(e.end).tz(timezoneName).hours())) + 1;
+  if (min_hours < 0 || max_hours > 24) {
+    min_hours = 0;
+    max_hours = 24;
+  }
 
-      const cols = config.calendar.colors;
-      if (cols) {
-        const cals = [];
-        Object.keys(cols).forEach((k) => {
-          const v = cols[k];
-          cals.push({
-            id: k,
-            name: k,
-            bgColor: v,
-          });
-        });
-
-        calendar.setCalendars(cals);
-      }
-
-      const week_dates = enumerateDaysBetweenDates(
-        calendar.getDateRangeStart().toDate(),
-        calendar.getDateRangeEnd().toDate()
-      );
-
-      const c_sm = d3.select("#calendar_small");
-      let i = 0;
-      for (const day of week_dates) {
-        c_sm.append("div").attr("id", `cal__${i}`);
-        const cal = new Calendar(`#cal__${i}`, {
-          defaultView: "day",
-          isReadOnly: true,
-          // useDetailPopup: true,
-          taskView: false,
-          scheduleView: ["time"],
-          usageStatistics: false,
-
-          timezones: [
-            {
-              timezoneOffset: -moment.tz
-                .zone(timezoneName)
-                .utcOffset(moment(min_date)),
-              displayLabel: timezoneName,
-              tooltip: timezoneName,
-            },
-          ],
-        });
-
-        cal.setDate(day.toDate());
-        cal.createSchedules(events);
-        cal.on({
-          clickSchedule(e) {
-            const s = e.schedule;
-            if (s.location.length > 0) {
-              window.open(s.location, "_blanket");
-            }
-          },
-        });
-
-        all_cals.push(cal);
-        const cols = config.calendar.colors;
-        if (cols) {
-          const cals = [];
-          Object.keys(cols).forEach((k) => {
-            const v = cols[k];
-            cals.push({
-              id: k,
-              name: k,
-              bgColor: v,
-            });
-          });
-
-          cal.setCalendars(cals);
-        }
-
-        i++;
-      }
-      const resize = async function (cal) {
-        await cal.render(true);
-        // d3.selectAll('.tui-full-calendar-vlayout-area').attr('style',null);
-      };
-
-      $(window).on(
-        "resize",
-        _.debounce(function () {
-          all_cals.forEach((c) => resize(c));
-        }, 100)
-      );
-
-      // d3.selectAll('.tui-full-calendar-vlayout-area').attr('style',null);
-    });
+  const {Calendar} = tui;
+  const calendar = new Calendar("#calendar", {
+    defaultView: "week",
+    isReadOnly: true,
+    // useDetailPopup: true,
+    taskView: false,
+    scheduleView: ["time"],
+    usageStatistics: false,
+    week: {
+      workweek: !config.calendar.sunday_saturday,
+      hourStart: min_hours,
+      hourEnd: max_hours,
+    },
+    timezones: [
+      {
+        timezoneOffset: -moment.tz
+          .zone(timezoneName)
+          .utcOffset(moment(min_date)),
+        displayLabel: timezoneName,
+        tooltip: timezoneName,
+      },
+    ],
+    // timezones: [{
+    //     getTimezoneOffset: 540,
+    //     displayLabel: 'a',
+    //     tooltip: timezoneName
+    // }],
+    template: {
+      monthDayname(dayname) {
+        return `<span class="calendar-week-dayname-name">${dayname.label}</span>`;
+      },
+      time(schedule) {
+        return `<strong>${moment(schedule.start.getTime())
+          .tz(timezoneName)
+          .format("hh:mm")}</strong> ${schedule.title}`;
+      },
+      milestone(schedule) {
+        return `<span class="calendar-font-icon ic-milestone-b"></span> <span style="background-color: ${schedule.bgColor}"> M: ${schedule.title}</span>`;
+      },
+      weekDayname(model) {
+        const parts = model.renderDate.split("-");
+        return `<span class="tui-full-calendar-dayname-name"> ${parts[1]}/${parts[2]}</span>&nbsp;&nbsp;<span class="tui-full-calendar-dayname-name">${model.dayName}</span>`;
+      },
+    },
   });
+  calendar.setDate(Date.parse(min_date));
+  calendar.createSchedules(events);
+  calendar.on({
+    clickSchedule(e) {
+      const s = e.schedule;
+      if (s.location.length > 0) {
+        window.open(s.location, "_blanket");
+      }
+    },
+  });
+
+  all_cals.push(calendar);
+
+  const cols = config.calendar.colors;
+  if (cols) {
+    const cals = [];
+    Object.keys(cols).forEach((k) => {
+      const v = cols[k];
+      cals.push({
+        id: k,
+        name: k,
+        bgColor: v,
+      });
+    });
+    calendar.setCalendars(cals);
+  }
+
+  const week_dates = enumerateDaysBetweenDates(
+    calendar.getDateRangeStart().toDate(),
+    calendar.getDateRangeEnd().toDate()
+  );
+
+  const c_sm = d3.select("#calendar_small");
+  let i = 0;
+  for (const day of week_dates) {
+    c_sm.append("div").attr("id", `cal__${i}`);
+    const cal = new Calendar(`#cal__${i}`, {
+      defaultView: "day",
+      isReadOnly: true,
+      // useDetailPopup: true,
+      taskView: false,
+      scheduleView: ["time"],
+      usageStatistics: false,
+
+      timezones: [
+        {
+          timezoneOffset: -moment.tz
+            .zone(timezoneName)
+            .utcOffset(moment(min_date)),
+          displayLabel: timezoneName,
+          tooltip: timezoneName,
+        },
+      ],
+    });
+
+    cal.setDate(day.toDate());
+    cal.createSchedules(events);
+    cal.on({
+      clickSchedule(e) {
+        const s = e.schedule;
+        if (s.location.length > 0) {
+          window.open(s.location, "_blanket");
+        }
+      },
+    });
+
+    all_cals.push(cal);
+    const cols = config.calendar.colors;
+    if (cols) {
+      const cals = [];
+      Object.keys(cols).forEach((k) => {
+        const v = cols[k];
+        cals.push({
+          id: k,
+          name: k,
+          bgColor: v,
+        });
+      });
+
+      cal.setCalendars(cals);
+    }
+
+    i++;
+  }
+
+
+  const renderAll = () => {all_cals.forEach(c => c.render(true));}
+  renderAll();
+
+  if (handleResize) {
+    $(window).on(
+      "resize",
+      _.debounce(renderAll, 100)
+    );
+  }
+
+  // return the render function for outsie control
+  return {
+    render: renderAll
+  }
+
 }
