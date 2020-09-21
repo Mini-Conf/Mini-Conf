@@ -17,14 +17,13 @@ let currentTippy = null;
 let brush = null;
 
 const sizes = {
-  margins: { l: 20, b: 20, r: 20, t: 20 },
+  margins: {l: 20, b: 20, r: 20, t: 20},
 };
 
 const explain_text_plot = d3.select("#explain_text_plot");
 const summary_selection = d3.select("#summary_selection");
 const sel_papers = d3.select("#sel_papers");
 
-const persistor = new Persistor("Mini-Conf-Papers");
 
 const plot_size = () => {
   const cont = document.getElementById("container");
@@ -156,65 +155,66 @@ function brush_ended() {
 }
 
 const updateVis = () => {
-  const storedPapers = persistor.getAll();
-  all_papers.forEach((openreview) => {
-    openreview.read = storedPapers[openreview.UID] || false;
-  });
-
-  const is_filtered = filters.authors || filters.keywords || filters.titles;
-
-  const [pW, pH] = plot_size();
-
-  plot.attr("width", pW).attr("height", pH);
-  d3.select("#table_info").style("height", `${pH}px`);
-
-  xS.range([sizes.margins.l, pW - sizes.margins.r]);
-  yS.range([sizes.margins.t, pH - sizes.margins.b]);
-
-  brush.extent([
-    [0, 0],
-    [pW, pH],
-  ]);
-  l_bg.call(brush);
-
-  all_pos = all_papers.map((d) => {
-    const r2 = d.is_selected ? 8 : 4;
-    const [x, y] = [xS(d.pos[0]), yS(d.pos[1])];
-    return new cola.Rectangle(x - r2, x + r2, y - r2, y + r2);
-  });
-
-  cola.removeOverlaps(all_pos);
-
-  l_main
-    .selectAll(".dot")
-    .data(all_papers, (d) => d.UID)
-    .join("circle")
-    .attr("class", "dot")
-    .attr("r", (d) => (d.is_selected ? 8 : 6))
-    .attr("cx", (d, i) => all_pos[i].cx())
-    .attr("cy", (d, i) => all_pos[i].cy())
-    .classed("read", (d) => d.read)
-    .classed("highlight", (d) => d.is_selected)
-    .classed("non-highlight", (d) => !d.is_selected && is_filtered)
-    .on("click", function (d) {
-      window.open(`poster_${d.UID}.html`, "_blank");
-      persistor.set(d.UID, true);
-      d3.select(this).classed("read", true);
+  API.readPaperAll().then(storedPapers => {
+    all_papers.forEach((openreview) => {
+      openreview.read = storedPapers[openreview.UID] || false;
     });
 
-  if (!currentTippy) {
-    currentTippy = tippy(".dot", {
-      content(reference) {
-        return d3.select(reference).datum().title;
-        // return tooltip_template(d3.select(reference).datum());
-      },
-      onShow(instance) {
-        const d = d3.select(instance.reference).datum();
-        instance.setContent(tooltip_template(d));
-      },
-      allowHTML: true,
+    const is_filtered = filters.authors || filters.keywords || filters.titles;
+
+    const [pW, pH] = plot_size();
+
+    plot.attr("width", pW).attr("height", pH);
+    d3.select("#table_info").style("height", `${pH}px`);
+
+    xS.range([sizes.margins.l, pW - sizes.margins.r]);
+    yS.range([sizes.margins.t, pH - sizes.margins.b]);
+
+    brush.extent([
+      [0, 0],
+      [pW, pH],
+    ]);
+    l_bg.call(brush);
+
+    all_pos = all_papers.map((d) => {
+      const r2 = d.is_selected ? 8 : 4;
+      const [x, y] = [xS(d.pos[0]), yS(d.pos[1])];
+      return new cola.Rectangle(x - r2, x + r2, y - r2, y + r2);
     });
-  }
+
+    cola.removeOverlaps(all_pos);
+
+    l_main
+      .selectAll(".dot")
+      .data(all_papers, (d) => d.UID)
+      .join("circle")
+      .attr("class", "dot")
+      .attr("r", (d) => (d.is_selected ? 8 : 6))
+      .attr("cx", (d, i) => all_pos[i].cx())
+      .attr("cy", (d, i) => all_pos[i].cy())
+      .classed("read", (d) => d.read)
+      .classed("highlight", (d) => d.is_selected)
+      .classed("non-highlight", (d) => !d.is_selected && is_filtered)
+      .on("click", function (d) {
+        window.open(`poster_${d.UID}.html`, "_blank");
+        API.readPaperSet(d.UID,true).then();
+        d3.select(this).classed("read", true);
+      });
+
+    if (!currentTippy) {
+      currentTippy = tippy(".dot", {
+        content(reference) {
+          return d3.select(reference).datum().title;
+          // return tooltip_template(d3.select(reference).datum());
+        },
+        onShow(instance) {
+          const d = d3.select(instance.reference).datum();
+          instance.setContent(tooltip_template(d));
+        },
+        allowHTML: true,
+      });
+    }
+  })
 };
 
 const render = () => {

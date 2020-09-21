@@ -14,48 +14,47 @@ const filters = {
 
 let render_mode = "compact";
 
-let persistor = null;
+// let persistor = null;
 
 const updateCards = (papers) => {
-  const storedPapers = persistor.getAll();
-  papers.forEach((openreview) => {
-    openreview.read = storedPapers[openreview.UID] || false;
+  API.readPaperAll().then(storedPapers => {
+    papers.forEach((openreview) => {
+      openreview.read = storedPapers[openreview.UID] || false;
+    });
+
+    const readCard = (iid, new_value) => {
+      API.readPaperSet(iid, new_value).then();
+    };
+
+    const all_mounted_cards = d3
+      .select(".cards")
+      .selectAll(".myCard", (openreview) => openreview.UID)
+      .data(papers, (d) => d.number)
+      .join("div")
+      .attr("class", "myCard col-xs-6 col-md-4")
+      .html(card_html);
+
+    all_mounted_cards.select(".card-title").on("click", function (d) {
+      const iid = d.UID;
+      all_mounted_cards
+        .filter((d) => d.UID === iid)
+        .select(".checkbox-paper")
+        .classed("selected", function () {
+          const new_value = true; //! d3.select(this).classed('not-selected');
+          readCard(iid, new_value);
+          return new_value;
+        });
+    });
+
+    all_mounted_cards.select(".checkbox-paper").on("click", function (d) {
+      const iid = d.UID;
+      const new_value = !d3.select(this).classed("selected");
+      readCard(iid, new_value);
+      d3.select(this).classed("selected", new_value);
+    });
+
+    lazyLoader();
   });
-
-  const readCard = (iid, new_value) => {
-    persistor.set(iid, new_value);
-    // storedPapers[iid] = new_value ? 1 : null;
-    // Cookies.set('papers-selected', storedPapers, {expires: 365});
-  };
-
-  const all_mounted_cards = d3
-    .select(".cards")
-    .selectAll(".myCard", (openreview) => openreview.UID)
-    .data(papers, (d) => d.number)
-    .join("div")
-    .attr("class", "myCard col-xs-6 col-md-4")
-    .html(card_html);
-
-  all_mounted_cards.select(".card-title").on("click", function (d) {
-    const iid = d.UID;
-    all_mounted_cards
-      .filter((d) => d.UID === iid)
-      .select(".checkbox-paper")
-      .classed("selected", function () {
-        const new_value = true; //! d3.select(this).classed('not-selected');
-        readCard(iid, new_value);
-        return new_value;
-      });
-  });
-
-  all_mounted_cards.select(".checkbox-paper").on("click", function (d) {
-    const iid = d.UID;
-    const new_value = !d3.select(this).classed("selected");
-    readCard(iid, new_value);
-    d3.select(this).classed("selected", new_value);
-  });
-
-  lazyLoader();
 };
 
 /* Randomize array in-place using Durstenfeld shuffle algorithm */
@@ -133,7 +132,7 @@ const start = () => {
     .then(([papers, config]) => {
       console.log(papers, "--- papers");
 
-      persistor = new Persistor("miniconf-"+config.name);
+      // persistor = new Persistor("miniconf-" + config.name);
 
       shuffleArray(papers);
 
