@@ -56,15 +56,15 @@ const brushed = () => {
   (x1 = Math.round(x1)), (y1 = Math.round(y1));
   // console.log(x0, x1, y1, y0, "--- x0,x1,y1,y0");
 
-  l_main.selectAll(".dot").classed("rect_selected", function () {
-    const me = d3.select(this);
-    return (
-      x0 <= me.attr("cx") &&
-      x1 >= me.attr("cx") && // Check X coordinate
-      y0 <= me.attr("cy") &&
-      y1 >= me.attr("cy")
-    ); // And Y coordinate
-  });
+  l_main.selectAll(".dot")
+    .classed("rect_selected", d => {
+      return (
+        x0 <= d.posCola[0] &&
+        x1 >= d.posCola[0] && // Check X coordinate
+        y0 <= d.posCola[1] &&
+        y1 >= d.posCola[1] // Check Y
+      );
+    });
 
   // extent[0][0] <= myCircle.attr("cx") && extent[1][0] >= myCircle.attr("cx") && // Check X coordinate
   //          extent[0][1] <= myCircle.attr("cy") && extent[1][1] >= myCircle.attr("cy")  // And Y coordinate
@@ -131,9 +131,7 @@ function brush_ended() {
           d.title
         }</div> <div class="p_authors">${d.authors.join(", ")}</div>`
     )
-    .on("click", (d) =>
-      window.open(`poster_${d.UID}.html`, "_blank")
-    )
+    .on("click", (d) => openPaper(d))
     .on("mouseenter", (d) => {
       l_main
         .selectAll(".dot")
@@ -154,67 +152,83 @@ function brush_ended() {
     });
 }
 
+const openPaper = d => {
+  window.open(API.posterLink(d), "_blank");
+  API.markSet(API.storeIDs.visited, d.UID, true).then();
+}
+
 const updateVis = () => {
-  API.readPaperAll().then(storedPapers => {
-    all_papers.forEach((openreview) => {
-      openreview.read = storedPapers[openreview.UID] || false;
-    });
+  Promise.all([
+    API.markGetAll(API.storeIDs.visited),
+    API.markGetAll(API.storeIDs.bookmarked)
+  ]).then(
+    ([visitedPapers, bookmarks]) => {
 
-    const is_filtered = filters.authors || filters.keywords || filters.titles;
-
-    const [pW, pH] = plot_size();
-
-    plot.attr("width", pW).attr("height", pH);
-    d3.select("#table_info").style("height", `${pH}px`);
-
-    xS.range([sizes.margins.l, pW - sizes.margins.r]);
-    yS.range([sizes.margins.t, pH - sizes.margins.b]);
-
-    brush.extent([
-      [0, 0],
-      [pW, pH],
-    ]);
-    l_bg.call(brush);
-
-    all_pos = all_papers.map((d) => {
-      const r2 = d.is_selected ? 8 : 4;
-      const [x, y] = [xS(d.pos[0]), yS(d.pos[1])];
-      return new cola.Rectangle(x - r2, x + r2, y - r2, y + r2);
-    });
-
-    cola.removeOverlaps(all_pos);
-
-    l_main
-      .selectAll(".dot")
-      .data(all_papers, (d) => d.UID)
-      .join("circle")
-      .attr("class", "dot")
-      .attr("r", (d) => (d.is_selected ? 8 : 6))
-      .attr("cx", (d, i) => all_pos[i].cx())
-      .attr("cy", (d, i) => all_pos[i].cy())
-      .classed("read", (d) => d.read)
-      .classed("highlight", (d) => d.is_selected)
-      .classed("non-highlight", (d) => !d.is_selected && is_filtered)
-      .on("click", function (d) {
-        window.open(`poster_${d.UID}.html`, "_blank");
-        API.readPaperSet(d.UID,true).then();
-        d3.select(this).classed("read", true);
+      all_papers.forEach((paper) => {
+        paper.read = visitedPapers[paper.UID] || false;
+        paper.bookmarked = bookmarks[paper.UID] || false;
       });
 
-    if (!currentTippy) {
-      currentTippy = tippy(".dot", {
-        content(reference) {
-          return d3.select(reference).datum().title;
-          // return tooltip_template(d3.select(reference).datum());
-        },
-        onShow(instance) {
-          const d = d3.select(instance.reference).datum();
-          instance.setContent(tooltip_template(d));
-        },
-        allowHTML: true,
+      const is_filtered = filters.authors || filters.keywords || filters.titles;
+
+      const [pW, pH] = plot_size();
+
+      plot.attr("width", pW).attr("height", pH);
+      d3.select("#table_info").style("height", `${pH}px`);
+
+      xS.range([sizes.margins.l, pW - sizes.margins.r]);
+      yS.range([sizes.margins.t, pH - sizes.margins.b]);
+
+      brush.extent([
+        [0, 0],
+        [pW, pH],
+      ]);
+      l_bg.call(brush);
+
+      all_pos = all_papers.map((d) => {
+        const r2 = d.is_selected ? 8 : 4;
+        const [x, y] = [xS(d.pos[0]), yS(d.pos[1])];
+        return new cola.Rectangle(x - r2, x + r2, y - r2, y + r2);
       });
-    }
-  })
+
+      cola.removeOverlaps(all_pos);
+
+      l_main
+        .selectAll(".dot")
+        .data(all_papers, (d) => d.UID)
+        .join("circle")
+        .attr("class", "dot")
+        .attr("r", (d) => (d.is_selected ? 8 : 6))
+        .attr('transform', (d, i) => {
+          const pos = [all_pos[i].cx(), all_pos[i].cy()];
+          d.posCola = pos;
+          return `translate(${pos.join(',')})`;
+        })
+        // .attr("cx", (d, i) => all_pos[i].cx())
+        // .attr("cy", (d, i) => all_pos[i].cy())
+        .classed("read", (d) => d.read)
+        .classed("bookmarked", (d) => d.bookmarked)
+        .classed("highlight", (d) => d.is_selected)
+        .classed("non-highlight", (d) => !d.is_selected && is_filtered)
+        .on("click", function (d) {
+          openPaper(d);
+          d3.select(this).classed("read", true);
+        });
+
+      if (!currentTippy) {
+        currentTippy = tippy(".dot", {
+          content(reference) {
+            return d3.select(reference).datum().title;
+            // return tooltip_template(d3.select(reference).datum());
+          },
+          onShow(instance) {
+            const d = d3.select(instance.reference).datum();
+            instance.setContent(tooltip_template(d));
+          },
+          allowHTML: true,
+        });
+      }
+    })
 };
 
 const render = () => {
@@ -249,7 +263,7 @@ const tooltip_template = (d) => `
     <div>
         <div class="tt-title">${d.title}</div>
         <p>${d.authors.join(", ")}</p>
-        <img src="https://iclr.github.io/iclr-images/${d.UID}.png" width=100%/>
+        <img src="${API.thumbnailPath(d)}" width=100%/>
      </div>   
 `;
 

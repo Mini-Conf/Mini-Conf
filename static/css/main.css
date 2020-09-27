@@ -65,7 +65,7 @@ body {
   padding-right: 15px;
 }
 
-.pp-mode-list .pp-card-header {
+.pp-mode-mini .pp-card-header {
   height: 175px;
   border: 1px solid #eee;
 }
@@ -76,7 +76,7 @@ body {
   bottom: 3px;
 }
 
-.pp-mode-list .pp-card-header .card-title {
+.pp-mode-mini .pp-card-header .card-title {
   font-size: 17px;
 }
 
@@ -269,27 +269,41 @@ body .carousel-control-prev {
 }
 
 .checkbox-paper {
-  opacity: 0.2;
-  color: gray;
+  /*opacity: 0.2;*/
+  color: #fcfcfc;
   font-size: 18pt;
   font-weight: bold;
   cursor: pointer;
+  transition-duration: 100ms;
+}
+
+.checkbox-bookmark {
+  color: #ddd;
+  font-size: 18pt;
+  font-weight: bold;
+  cursor: pointer;
+  transition-duration: 100ms;
 }
 
 .checkbox-paper.selected {
   opacity: 1;
-  color: green;
+  color: #6c757d;
 }
 
-@supports (-webkit-text-stroke: 1px gray) {
-  .checkbox-paper {
-    opacity: 0.2;
-    -webkit-text-stroke: 1px gray;
-    -webkit-text-fill-color: white;
-  }
-
-  .checkbox-paper.selected {
-    opacity: 1;
-    -webkit-text-fill-color: green;
-  }
+.checkbox-bookmark.selected {
+  opacity: 1;
+  color: #bed972;
 }
+
+/*@supports (-webkit-text-stroke: 1px gray) {*/
+/*  .checkbox-paper {*/
+/*    opacity: 0.2;*/
+/*    -webkit-text-stroke: 1px gray;*/
+/*    -webkit-text-fill-color: white;*/
+/*  }*/
+
+/*  .checkbox-paper.selected {*/
+/*    opacity: 1;*/
+/*    -webkit-text-fill-color: #bed972;*/
+/*  }*/
+/*}*/

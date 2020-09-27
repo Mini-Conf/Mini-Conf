@@ -1,10 +1,13 @@
 /* eslint-disable no-underscore-dangle */
 class API {
+  /**
+   * get and cache config object
+   * @return object
+   */
   static getConfig() {
     if (API.configCache == null) {
       API.configCache = $.get("serve_config.json");
     }
-    console.log("-hen-- cache Hit");
     return API.configCache;
   }
 
@@ -26,26 +29,109 @@ class API {
     ]);
   }
 
-  static get persistorRead() {
-    if (API._persistorReadCache == null){
-      API._persistorReadCache = new Persistor(`miniconf-${API.getConfig().name}-read`);
+  /**
+   * Store for visited papers
+   * lazy store creation/loading - not needed if own store backend
+   * @return object
+   */
+  static get storeVisited() {
+    if (API._storeVisitedCache == null) {
+      API._storeVisitedCache = new Persistor(
+        `miniconf-${API.getConfig().name}-visited`
+      );
     }
-    return API._persistorReadCache;
+    return API._storeVisitedCache;
   }
 
-  static readPaperAll() {
-    return new Promise((resolve) => resolve(API.persistorRead.getAll()));
+  static get storeBookmarks() {
+    if (API._storeBookmarkCache == null) {
+      API._storeBookmarkCache = new Persistor(
+        `miniconf-${API.getConfig().name}-bookmarks`
+      );
+    }
+    return API._storeBookmarkCache;
   }
 
-  static async readPaperSet(paperID, read = true) {
-    return this.persistorRead.set(paperID, read);
+  /**
+   * lazy store creation/loading - not needed if own store backend
+   * @see API.storeIDs
+   * @return object
+   */
+  static getStore(storeID) {
+    if (!(storeID in API._storeCaches)) {
+      API._storeCaches[storeID] = new Persistor(
+        `miniconf-${API.getConfig().name}-${storeID}`
+      );
+    }
+    return API._storeCaches[storeID];
   }
+
+  /**
+   * get marks for all papers of a specific type
+   * @see API.storeIDs
+   * @param storeID
+   * @return {Promise<object>}
+   */
+  static async markGetAll(storeID) {
+    return API.getStore(storeID).getAll();
+  }
+
+  static async markSet(storeID, paperID, read = true) {
+    return API.getStore(storeID).set(paperID, read);
+  }
+
+  /*
+   * Resource paths
+   */
+
+  /**
+   * Link to thumbnails derived from paper object
+   * @param paper
+   * @return {string}
+   */
+  static thumbnailPath(paper) {
+    return `https://iclr.github.io/iclr-images/small/${paper.UID}.jpg`;
+  }
+
+  /**
+   * Link to poster detail derived from paper object
+   * @param paper
+   * @return {string}
+   */
+  static posterLink(paper) {
+    return `poster_${paper.UID}.html`;
+  }
+
+  /**
+   * link to the poster ICAL file for poster and repetition i
+   * @param paper
+   * @param i
+   * @return {string}
+   */
+  static posterICS(paper, i) {
+    return `webcal://iclr.github.io/iclr-images/calendars/poster_${paper.UID}.${i}.ics`;
+  }
+
+
+  //
+  //
+  // /**
+  //  * Get list of all visited papers from store
+  //  * @return {Promise<object>}
+  //  */
+  // static visitedPaperAll() {
+  //   return new Promise((resolve) => resolve(API.storeVisited.getAll()));
+  // }
+  //
+  // static async visitedPaperSet(paperID, read = true) {
+  //   return this.storeVisited.set(paperID, read);
+  // }
 }
 
 API.configCache = null;
 API.paperCache = null;
-API._persistorReadCache = null;
-API.persistorWanted = null;
-// new Persistor(
-//   `miniconf-${API.getConfig().name}-interested`
-// );
+API._storeCaches = {};
+API.storeIDs = {
+  visited: "visited",
+  bookmarked: "bookmark",
+};

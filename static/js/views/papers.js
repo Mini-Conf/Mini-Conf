@@ -12,50 +12,78 @@ const filters = {
   title: null,
 };
 
-let render_mode = "compact";
+// names for render modes
+const MODE = {
+  mini: "mini",
+  compact: "compact",
+  detail: "detail"
+}
 
-// let persistor = null;
+
+let render_mode = MODE.compact;
 
 const updateCards = (papers) => {
-  API.readPaperAll().then(storedPapers => {
-    papers.forEach((openreview) => {
-      openreview.read = storedPapers[openreview.UID] || false;
-    });
+  Promise.all([
+    API.markGetAll(API.storeIDs.visited),
+    API.markGetAll(API.storeIDs.bookmarked)
+  ]).then(
+    ([visitedPapers, bookmarks]) => {
 
-    const readCard = (iid, new_value) => {
-      API.readPaperSet(iid, new_value).then();
-    };
+      papers.forEach((paper) => {
+        paper.UID = paper.UID;
+        paper.read = visitedPapers[paper.UID] || false;
+        paper.bookmarked = bookmarks[paper.UID] || false;
+      });
 
-    const all_mounted_cards = d3
-      .select(".cards")
-      .selectAll(".myCard", (openreview) => openreview.UID)
-      .data(papers, (d) => d.number)
-      .join("div")
-      .attr("class", "myCard col-xs-6 col-md-4")
-      .html(card_html);
+      const visitedCard = (iid, new_value) => {
+        API.markSet(API.storeIDs.visited, iid, new_value).then();
+      };
 
-    all_mounted_cards.select(".card-title").on("click", function (d) {
-      const iid = d.UID;
-      all_mounted_cards
-        .filter((d) => d.UID === iid)
-        .select(".checkbox-paper")
-        .classed("selected", function () {
-          const new_value = true; //! d3.select(this).classed('not-selected');
-          readCard(iid, new_value);
-          return new_value;
-        });
-    });
+      const bookmarkedCard = (iid, new_value) => {
+        API.markSet(API.storeIDs.bookmarked, iid, new_value).then();
+      };
 
-    all_mounted_cards.select(".checkbox-paper").on("click", function (d) {
-      const iid = d.UID;
-      const new_value = !d3.select(this).classed("selected");
-      readCard(iid, new_value);
-      d3.select(this).classed("selected", new_value);
-    });
 
-    lazyLoader();
-  });
-};
+      const all_mounted_cards = d3
+        .select(".cards")
+        .selectAll(".myCard", (paper) => paper.UID)
+        .data(papers, (d) => d.number)
+        .join("div")
+        .attr("class", "myCard col-xs-6 col-md-4")
+        .html(card_html);
+
+      all_mounted_cards.select(".card-title").on("click", function (d) {
+        const iid = d.UID;
+        // to avoid hierarchy issues, search for card again
+        all_mounted_cards
+          .filter((dd) => dd.UID === iid)
+          .select(".checkbox-paper")
+          .classed("selected", function () {
+            const new_value = true; //! d3.select(this).classed('not-selected');
+            visitedCard(iid, new_value);
+            return new_value;
+          });
+      });
+
+      all_mounted_cards.select(".checkbox-paper").on("click", function (d) {
+        const new_value = !d3.select(this).classed("selected");
+        visitedCard(d.UID, new_value);
+        d3.select(this).classed("selected", new_value);
+      });
+
+      all_mounted_cards.select(".checkbox-bookmark").on("click", function (d) {
+        const new_value = !d3.select(this).classed("selected");
+        bookmarkedCard(d.UID, new_value);
+        d3.select(this).classed("selected", new_value);
+      });
+
+
+      lazyLoader();
+
+
+    }
+  )
+}
 
 /* Randomize array in-place using Durstenfeld shuffle algorithm */
 function shuffleArray(array) {
@@ -152,7 +180,7 @@ const start = () => {
 };
 
 /**
- * EVENTS
+ * VIEW EVENTS (card events are in updateCards() )
  * * */
 
 d3.selectAll(".filter_option input").on("click", function () {
@@ -192,27 +220,29 @@ d3.select(".reshuffle").on("click", () => {
 const keyword = (kw) => `<a href="papers.html?filter=keywords&search=${kw}"
                        class="text-secondary text-decoration-none">${kw.toLowerCase()}</a>`;
 
-const card_image = (openreview, show) => {
+const card_image = (paper, show) => {
   if (show)
-    return ` <center><img class="lazy-load-img cards_img" data-src="https://iclr.github.io/iclr-images/small/${openreview.UID}.jpg" width="80%"/></center>`;
+    return ` <center><img class="lazy-load-img cards_img" data-src="${API.thumbnailPath(paper)}" width="80%"/></center>`;
   return "";
 };
 
-const card_detail = (openreview, show) => {
+const card_detail = (paper, show) => {
   if (show)
     return ` 
-     <div class="pp-card-header">
-        <p class="card-text"> ${openreview.TLDR}</p>
+     <div class="pp-card-header" style="overflow-y: auto;">
+     <div style="width:100%; ">
         <p class="card-text"><span class="font-weight-bold">Keywords:</span>
-            ${openreview.keywords.map(keyword).join(", ")}
+            ${paper.keywords.map(keyword).join(", ")}
         </p>
+        <p class="card-text"> ${paper.TLDR}</p>
+        </div>
     </div>
 `;
   return "";
 };
 
-const card_time_small = (openreview, show) => {
-  const cnt = openreview;
+const card_time_small = (paper, show) => {
+  const cnt = paper;
   return show
     ? `
 <!--    <div class="pp-card-footer">-->
@@ -225,7 +255,7 @@ const card_time_small = (openreview, show) => {
             s
           )}">${s.replace("Session ", "")}</a> ${card_live(
             cnt.session_links[i]
-          )} ${card_cal(openreview, i)} `
+          )} ${card_cal(paper, i)} `
       )
       .join(", ")}
     </div>
@@ -239,17 +269,16 @@ const card_icon_cal = icon_cal(16);
 
 const card_live = (link) =>
   `<a class="text-muted" href="${link}">${card_icon_video}</a>`;
-const card_cal = (openreview, i) =>
-  `<a class="text-muted" href="webcal://iclr.github.io/iclr-images/calendars/poster_${openreview.UID}.${i}.ics">${card_icon_cal}</a>`;
+const card_cal = (paper, i) =>
+  `<a class="text-muted" href="${API.posterICS(paper,i)}">${card_icon_cal}</a>`;
 
-const card_time_detail = (openreview, show) => {
-  const cnt = openreview;
+const card_time_detail = (paper, show) => {
   return show ? `
 <!--    <div class="pp-card-footer">-->
     <div class="text-center text-monospace small" style="margin-top: 10px;">
-    ${cnt.sessions.filter(s => s.match(/.*[0-9]/g))
-    .map((s, i) => `${s} ${cnt.session_times[i]} ${card_live(
-      cnt.session_links[i])}   `)
+    ${paper.sessions.filter(s => s.match(/.*[0-9]/g))
+    .map((s, i) => `${s} ${paper.session_times[i]} ${card_live(
+      paper.session_links[i])}   `)
     .join('<br>')}
     </div>
 <!--    </div>-->
@@ -257,24 +286,28 @@ const card_time_detail = (openreview, show) => {
 }
 
 // language=HTML
-const card_html = (openreview) =>
+const card_html = (paper) =>
   `
         <div class="pp-card pp-mode-${render_mode} ">
-            <div class="pp-card-header">
-            <div class="checkbox-paper ${openreview.read ? "selected" : ""}" 
-            style="display: block;position: absolute; bottom:35px;left: 35px;">✓</div>    
-                <a href="poster_${openreview.UID}.html"
+            <div class="pp-card-header" style="">
+            <div class="checkbox-paper far ${paper.read ? "selected" : ""}" 
+            style="display: block;position: absolute; bottom:${render_mode === MODE.detail ? 375 : 35}px;left: 35px;">&#xf058;</div>
+            <div class="checkbox-bookmark fas  ${paper.bookmarked ? "selected" : ""}" 
+            style="display: block;position: absolute; top:-5px;right: 25px;">&#xf02e;</div>
+            
+<!--                ✓-->
+                <a href="${API.posterLink(paper)}"
                 target="_blank"
                    class="text-muted">
                    <h5 class="card-title" align="center"> ${
-    openreview.title
+    paper.title
   } </h5></a>
                 <h6 class="card-subtitle text-muted" align="center">
-                        ${openreview.authors.join(", ")}
+                        ${paper.authors.join(", ")}
                 </h6>
-                ${card_image(openreview, render_mode !== "list")}
+                ${card_image(paper, render_mode !== MODE.mini)}
                 
             </div>
                
-                ${card_detail(openreview, render_mode === "detail")}
+                ${card_detail(paper, render_mode === MODE.detail)}
         </div>`;
