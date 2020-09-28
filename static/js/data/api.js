@@ -30,29 +30,6 @@ class API {
   }
 
   /**
-   * Store for visited papers
-   * lazy store creation/loading - not needed if own store backend
-   * @return object
-   */
-  static get storeVisited() {
-    if (API._storeVisitedCache == null) {
-      API._storeVisitedCache = new Persistor(
-        `miniconf-${API.getConfig().name}-visited`
-      );
-    }
-    return API._storeVisitedCache;
-  }
-
-  static get storeBookmarks() {
-    if (API._storeBookmarkCache == null) {
-      API._storeBookmarkCache = new Persistor(
-        `miniconf-${API.getConfig().name}-bookmarks`
-      );
-    }
-    return API._storeBookmarkCache;
-  }
-
-  /**
    * lazy store creation/loading - not needed if own store backend
    * @see API.storeIDs
    * @return object
@@ -112,20 +89,6 @@ class API {
     return `webcal://iclr.github.io/iclr-images/calendars/poster_${paper.UID}.${i}.ics`;
   }
 
-
-  //
-  //
-  // /**
-  //  * Get list of all visited papers from store
-  //  * @return {Promise<object>}
-  //  */
-  // static visitedPaperAll() {
-  //   return new Promise((resolve) => resolve(API.storeVisited.getAll()));
-  // }
-  //
-  // static async visitedPaperSet(paperID, read = true) {
-  //   return this.storeVisited.set(paperID, read);
-  // }
 }
 
 API.configCache = null;
