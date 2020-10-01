@@ -88,7 +88,6 @@ class API {
   static posterICS(paper, i) {
     return `webcal://iclr.github.io/iclr-images/calendars/poster_${paper.UID}.${i}.ics`;
   }
-
 }
 
 API.configCache = null;

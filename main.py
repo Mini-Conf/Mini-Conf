@@ -140,12 +140,10 @@ def format_paper(v):
         "TLDR": v["abstract"],
         "recs": [],
         "sessions": list_fields["sessions"],
-
         # links to external content per poster
         "pdf_url": v.get("pdf_url", ""),  # render poster from this PDF
         "code_link": "https://github.com/Mini-Conf/Mini-Conf",  # link to code
-        "link": "https://arxiv.org/abs/2007.12238"  # link to paper
-
+        "link": "https://arxiv.org/abs/2007.12238",  # link to paper
     }
 
 
