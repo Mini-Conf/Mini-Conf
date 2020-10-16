@@ -20,5 +20,6 @@ module.exports = {
     "no-unused-vars": "off",
     "no-undef": "off",
     "no-param-reassign": "off",
+    // "max-len": [1, {code: 120}]
   },
 };

@@ -1,3 +1,14 @@
+{# Components:
+tabs -- Navigation tabs
+section, subsection -- bootstrap sections
+speakergroup
+organizergroup
+faqgroup
+highlightgroup
+workshopgroup
+
+#}
+
 {% macro tabs(tab_group) -%}
 <ul class="nav nav-pills justify-content-center">
   {% for tab in tab_group %}
@@ -151,20 +162,20 @@
         <div class="col-md-4 col-xs-6 fluid">
           <div class="pp-card">
             <div class="pp-card-header">
-              <a href="poster_{{openreview.id}}.html" class="text-muted">
+              <a href="poster_{{openreview.UID}}.html" class="text-muted">
                 <h5 class="card-title" align="center">
-                  {{openreview.content.title}}
+                  {{openreview.title}}
                 </h5>
               </a>
               <h6 class="card-subtitle text-muted" align="center">
-                {% for a in openreview.content.authors %}
+                {% for a in openreview.authors %}
                 {{a}},
                 {% endfor %}
               </h6>
               <center>
                 <img
                   class="cards_img lazy-load-img"
-                  data-src="https://iclr.github.io/iclr-images/{{openreview.id}}.png"
+                  data-src="https://iclr.github.io/iclr-images/{{openreview.UID}}.png"
                   width="80%"
                 />
               </center>
