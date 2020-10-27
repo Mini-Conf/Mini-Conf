@@ -20,7 +20,7 @@ label:text-muted,
 
 body {
   font-family: "Lato", sans-serif;
-  background-color: rgba(236, 241, 246, 1);
+  background-color: rgba(255, 255, 255, 1);
 }
 
 .container a:hover {
@@ -50,6 +50,7 @@ body {
 }
 
 .pp-card {
+  background-color: #fff;
   font-family: "Exo";
   box-shadow: 0 0 14px 0 rgba(204, 204, 204, 1);
   margin-bottom: 1em;

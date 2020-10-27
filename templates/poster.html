@@ -58,19 +58,19 @@
           View Full Paper (HTML)
         </a>
         {% if paper.code_link != blank %}
-        <a href="{{paper.code_link}}" target="_blank" class="card-link">
+        <!-- <a href="{{paper.code_link}}" target="_blank" class="card-link">
             Code
-        </a>
+        </a> -->
         {% endif %}
     </div>
   </div>
 </div>
 
 <!-- Presentation Embed -->
-{{ components.slideslive(paper.content.slideslive_id) }}
+{{ components.slideslive(paper.slideslive_id) }}
 
 <!-- Presentation Embed -->
-{{ components.rocketchat(paper.content.rocketchat_id,config.chat_server) }}
+{{ components.rocketchat(paper.rocketchat_id,config.chat_server) }}
 
 <div id="details" class="pp-card m-3 collapse">
   <div class="card-body">
