@@ -44,6 +44,7 @@ app.config.from_object(__name__)
 freezer = Freezer(app)
 markdown = Markdown(app)
 
+
 # MAIN PAGES
 
 
@@ -56,6 +57,10 @@ def _data():
 @app.route("/")
 def index():
     return redirect("/index.html")
+
+@app.route("/favicon.ico")
+def favicon():
+    return send_from_directory(site_data_path, "favicon.ico")
 
 
 # REDIRECTS TO SUPPORT EARLIER LINKS
@@ -145,11 +150,11 @@ def home():
     return render_template("index.html", **data)
 
 
-@app.route("/about.html")
+@app.route("/help.html")
 def about():
     data = _data()
     data["FAQ"] = site_data["faq"]["FAQ"]
-    return render_template("about.html", **data)
+    return render_template("help.html", **data)
 
 
 @app.route("/papers.html")
@@ -240,28 +245,29 @@ def extract_list_field(v, key):
 
 
 def format_paper(v):
-    list_keys = ["authors", "keywords", "session"]
+    list_keys = ["authors", "keywords", "sessions"]
     list_fields = {}
     for key in list_keys:
         list_fields[key] = extract_list_field(v, key)
 
     return {
-        "id": v["UID"],
+        "UID": v["UID"],
+        "title": v["title"],
         "forum": v["UID"],
-        "content": {
-            "title": v["title"],
-            "authors": list_fields["authors"],
-            "keywords": list_fields["keywords"],
-            "abstract": v["abstract"],
-            "TLDR": v["abstract"],
-            "recs": [],
-            "session": list_fields["session"],
-            "pdf_url": v.get("pdf_url", ""),
-            "acm_pdf_url": v.get("acm_pdf_url", ""),
-            "acm_html_url": v.get("acm_html_url", ""),
-            "slideslive_id": v["slideslive_id"],
-            "rocketchat_id": v["rocketchat_id"],
-        },
+        "authors": list_fields["authors"],
+        "keywords": list_fields["keywords"],
+        "abstract": v["abstract"],
+        "TLDR": v["abstract"],
+        "recs": [],
+        "sessions": list_fields["sessions"],
+        # links to external content per poster
+        "pdf_url": v.get("pdf_url", ""),  # render poster from this PDF
+        "code_link": "https://github.com/Mini-Conf/Mini-Conf",  # link to code
+        "link": "https://arxiv.org/abs/2007.12238",  # link to paper
+        "acm_pdf_url": v.get("acm_pdf_url", ""),
+        "acm_html_url": v.get("acm_html_url", ""),
+        "slideslive_id": v["slideslive_id"],
+        "rocketchat_id": v["rocketchat_id"],
     }
 
 
@@ -359,7 +365,6 @@ def serve(path):
 
 @freezer.register_generator
 def generator():
-
     for paper in site_data["papers"]:
         yield "poster", {"poster": str(paper["UID"])}
     for speaker in site_data["speakers"]:
