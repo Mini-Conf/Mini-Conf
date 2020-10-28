@@ -3,7 +3,7 @@
 {% extends "base.html" %}
 {% block head %}
 {{ super() }}
-{% include 'cal_head.html' %}
+{% include 'schedule_head.html' %}
 {% endblock %}
 
 {% block tabs %}
@@ -62,12 +62,8 @@
       <li>You can ask questions in the Zoom webinar using the Q&A function.
   </ul>
 
-    For more information, see the <a href="/about.html">FAQ</a>.
+    For more information, see the <a href="/help.html">FAQ</a>.
     </div>
-
-    <script type="text/javascript">
-      lazyLoader();
-    </script>
   </div>
 
 
@@ -85,10 +81,6 @@
         {{ components.speakergroup(speakers) }}
       </div>
     </div>
-
-    <script type="text/javascript">
-      lazyLoader();
-    </script>
   </div>
 
   <!-- Thursday Tab -->
@@ -107,10 +99,6 @@
         {{ components.day_to_view(thu.schedule) }}
       </div>
     </div>
-
-    <script type="text/javascript">
-      lazyLoader();
-    </script>
   </div>
 
   <!-- Friday Tab -->
@@ -129,10 +117,6 @@
         {{ components.day_to_view(fri.schedule) }}
       </div>
     </div>
-
-    <script type="text/javascript">
-      lazyLoader();
-    </script>
   </div>
 
 <!-- Recommended viewing schedule tab -->
@@ -153,10 +137,6 @@
     </div>
 
     </div>
-
-    <script type="text/javascript">
-      lazyLoader();
-    </script>
   </div>
 
 <!-- Tutorials -->
@@ -175,10 +155,6 @@
     </div>
 
     </div>
-
-    <script type="text/javascript">
-      lazyLoader();
-    </script>
   </div>
 
 <!-- Workshops -->
@@ -197,10 +173,6 @@
     </div>
 
     </div>
-
-    <script type="text/javascript">
-      lazyLoader();
-    </script>
   </div>
 
 <!-- Doctoral Symposium -->
@@ -218,11 +190,31 @@
     </div>
 
     </div>
-
-    <script type="text/javascript">
-      lazyLoader();
-    </script>
   </div>
 
+  <script type="text/javascript">
+    window.onload = () => {
+      const tabPanes = $(".tab-pane");
+      // Create calendars:
+      make_cal(false).then(({ render }) => {
+        // render cal with all tabs visible
+        tabPanes.css("display", "block");
+        render();
+        tabPanes.css("display", "");
+
+        // re-render cal on resize
+        $(window).on(
+          "resize",
+          _.debounce(() => {
+            tabPanes.css("display", "block");
+            render();
+            tabPanes.css("display", "");
+          }, 500)
+        );
+      });
+      // ----
+      lazyLoader();
+    };
+  </script>
 </div>
 {% endblock %}
