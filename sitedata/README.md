@@ -1,6 +1,6 @@
 # Mini-Conf - Data Description
 
-All data for Mini-Conf can be provided either as CSV, JSON, or YAML. 
+All data for Mini-Conf can be provided either as CSV, JSON, or YAML.
 So it does not matter if you provide a `papers.csv` or a `papers.yml` as long as
 the required data fields are provided.
 
@@ -12,10 +12,11 @@ the required data fields are provided.
 - proceedings_title: `<proceedings name for citation>`
 - citation_date: `<date for citation export (no HTML)>`
 - analytics: `<Google analytics ID starting with UA... >`
-- logo: 
+- logo:
     - image: `<link to logo>`
     - width: `<width of the image> or "auto"`
     - height: `<height of the image> or "auto"`
+    - alt_text: `text describing image for accessibility`
 - site_title: `<name of the site>`
 - page_title:
     - prefix: `<text to include in title of every page>`
@@ -25,25 +26,28 @@ the required data fields are provided.
 - chat_server: `<url of rocket chat server, if used>`
 - default_presentation_id: `<default slideslive id, if used>`
 - default_poster_pdf: `<default poster pdf, if used>`
+- registration:
+    - url: `<link to registration page>`
+    - link_text: `<text for registration link>`
 
 ## Detail Pages
 
 ### committee [.csv | .json | .yml]
 The list of members of the orga team visible on the landing page
 
-  - role: `<Chair name>` 
+  - role: `<Chair name>`
   - name: `<Name>`
   - aff: `<Affiliation>`
   - im: `<Image URL>`
   - tw: `<Twitter name>`
-  
+
  Example (.yml):
  ```yaml
 committee:
-  - role: Procrastination Chair 
+  - role: Procrastination Chair
     name: Homer Simpson
     aff: Springfield University
-    im: https://en.wikipedia.org/wiki/Homer_Simpson#/media/File:Homer_Simpson_2006.png 
+    im: https://en.wikipedia.org/wiki/Homer_Simpson#/media/File:Homer_Simpson_2006.png
 ```
 
 <hr>
@@ -53,10 +57,10 @@ The list of papers.
 
 - UID: `<Unique ID>`
 - title: `<paper title>`
-- authors: `<list of authors>` -- (separated by `|` in CSV)
+- authors: `<list of authors>` -- (seperated by `|` in CSV)
 - abstract: `<abstract text>`
-- keywords: `<list of keywords>` -- (separated by `|` in CSV)  
-- sessions: `<list of session IDs>` --  (separated by `|` in CSV) 
+- keywords: `<list of keywords>` -- (seperated by `|` in CSV)
+- sessions: `<list of session IDs>` --  (seperated by `|` in CSV)
 
 Example (.csv):
 ```csv
@@ -112,4 +116,3 @@ FAQ:
       - Question: What is a good question?
         Answer: "Here are the answers"
 ```
-

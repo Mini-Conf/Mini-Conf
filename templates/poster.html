@@ -16,7 +16,7 @@
 {% for keyword in paper.keywords %}
 <meta name="citation_keywords" content="{{keyword}}"/>
 {% endfor %}
-<meta name="citation_pdf_url" content="{{paper.acm_pdf_url|default('')}}"/>
+<meta name="citation_pdf_url" content="{{paper.pdf_url|default('') }}"/>
 
 {% endblock %}
 
@@ -24,72 +24,62 @@
 
 <!-- Title -->
 <div class="pp-card m-3" style="">
-  <div class="card-header">
-    <h2 class="card-title main-title text-center" style="">
-        {{paper.title}}
-    </h2>
-    <h3 class="card-subtitle mb-2 text-muted text-center">
-        {% for author in paper.authors %}
-        <a href="papers.html?filter=authors&search={{author}}"
-           class="text-muted"
-        >{{author}}</a
-        >{{ "," if not loop.last }}
-        {% endfor %}
-    </h3>
-    <p class="card-text text-center">
-        <span class="">Keywords:</span>
-        {% for keyword in paper.keywords %}
-        <a
-                href="papers.html?filter=keywords&search={{keyword}}"
-                class="text-secondary text-decoration-none"
-        >{{keyword}}</a
-        >{{ "," if not loop.last }}
-        {% endfor %}
-    </p>
-    <div class="text-center p-3">
-        <a class="card-link" data-toggle="collapse" role="button"
-           href="#details">
-            Abstract
-        </a>
-        <a class="card-link" target="_blank" href="{{paper.acm_pdf_url}}">
-          View Full Paper (PDF)
-        </a>
-        <a class="card-link" target="_blank" href="{{paper.acm_html_url}}">
-          View Full Paper (HTML)
-        </a>
-        {% if paper.code_link != blank %}
-        <!-- <a href="{{paper.code_link}}" target="_blank" class="card-link">
-            Code
-        </a> -->
-        {% endif %}
-    </div>
-  </div>
-</div>
-
-<!-- Presentation Embed -->
-{{ components.slideslive(paper.slideslive_id) }}
-
-<!-- Presentation Embed -->
-{{ components.rocketchat(paper.rocketchat_id,config.chat_server) }}
-
-<div id="details" class="pp-card m-3 collapse">
-  <div class="card-body">
-    <div class="card-text">
-        <div id="abstractExample">
-            <span class="font-weight-bold">Abstract:</span>
-            {{paper.abstract}}
+    <div class="card-header">
+        <h2 class="card-title main-title text-center" style="">
+            {{paper.title}}
+        </h2>
+        <h3 class="card-subtitle mb-2 text-muted text-center">
+            {% for author in paper.authors %}
+            <a href="papers.html?filter=authors&search={{author}}"
+               class="text-muted"
+            >{{author}}</a
+            >{{ "," if not loop.last }}
+            {% endfor %}
+        </h3>
+        <p class="card-text text-center">
+            <span class="">Keywords:</span>
+            {% for keyword in paper.keywords %}
+            <a
+                    href="papers.html?filter=keywords&search={{keyword}}"
+                    class="text-secondary text-decoration-none"
+            >{{keyword}}</a
+            >{{ "," if not loop.last }}
+            {% endfor %}
+        </p>
+        <div class="text-center p-3">
+            <a class="card-link" data-toggle="collapse" role="button"
+               href="#details">
+                Abstract
+            </a>
+            <a class="card-link" target="_blank" href="{{paper.link}}">
+                Paper
+            </a>
+            {% if paper.code_link != blank %}
+            <a href="{{paper.code_link}}" target="_blank" class="card-link">
+                Code
+            </a>
+            {% endif %}
         </div>
     </div>
-    <p></p>
-  </div>
+</div>
+<div id="details" class="pp-card m-3 collapse">
+    <div class="card-body">
+        <div class="card-text">
+            <div id="abstractExample">
+                <span class="font-weight-bold">Abstract:</span>
+                {{paper.abstract}}
+            </div>
+        </div>
+        <p></p>
+    </div>
 </div>
 
-<!-- <h5 style="color: red;">
-  Add content for posters. This could be a video, embedded pdf, chat room ....
-</h5> -->
+<h5 style="color: red;">
+    Add content for posters. This could be a video, embedded pdf, chat room ....
+</h5>
 
 <!-- Chat -->
-<!-- {{ components.section("Chat") }}
+{{ components.section("Example Chat") }}
 
 <div class="col-md-12 col-xs-12 p-2">
     <div id="gitter" class="slp">
@@ -99,11 +89,11 @@
                     height="700px" width="100%"></iframe>
         </center>
     </div>
-</div> -->
+</div>
 
 <!-- Slides Live-->
 
-<!-- {{ components.section("Example SlidesLive") }}
+{{ components.section("Example SlidesLive") }}
 
 <div class="col-md-12 col-xs-12 my-auto p-2">
     <div id="presentation-embed" class="slp my-auto"></div>
@@ -120,13 +110,14 @@
       });
     </script>
 </div>
- -->
+
 
 <!-- Chat -->
 
-<!-- {{ components.section("Example Poster") }} -->
+{{ components.section("Example Poster") }}
 
 <div role="main" id="pdf_view"></div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.3.200/build/pdf.min.js"></script>
 <script src="static/js/modules/pdfRender.js"></script>

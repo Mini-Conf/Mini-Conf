@@ -1,3 +1,8 @@
+html,
+body {
+  height: 100%;
+}
+
 body a {
   color: #2294e0;
 }
@@ -8,8 +13,7 @@ body a:hover {
 }
 
 h2,
-h3,
-h4 {
+h3 {
   font-family: "Lato";
 }
 
@@ -20,16 +24,25 @@ label:text-muted,
 
 body {
   font-family: "Lato", sans-serif;
-  background-color: rgba(255, 255, 255, 1);
 }
 
 .container a:hover {
   text-decoration: none;
 }
 
+.container.content-wrapper {
+  /* 100% minus (header + footer) height to keep footer
+     at bottom, on pages with little content */
+  min-height: calc(100% - 198px);
+}
+
 .jumbotron {
   font-family: "Lato", sans-serif;
   background-color: rgba(236, 241, 246, 1);
+}
+
+.page-header {
+  padding: 10px 0;
 }
 
 .btn-group {
@@ -50,7 +63,6 @@ body {
 }
 
 .pp-card {
-  background-color: #fff;
   font-family: "Exo";
   box-shadow: 0 0 14px 0 rgba(204, 204, 204, 1);
   margin-bottom: 1em;

@@ -52,7 +52,10 @@ if __name__ == "__main__":
             ]
 
             # Change to topic of papers.
-            topic = "%s - %s" % (paper["title"], paper["authors"],)
+            topic = "%s - %s" % (
+                paper["title"],
+                paper["authors"],
+            )
             if not args.test:
                 rocket.channels_set_topic(channel_id, topic).json()
 

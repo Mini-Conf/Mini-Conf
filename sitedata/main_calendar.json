@@ -1,21 +1,11 @@
-[{"title": "Tutorial Session 2", "start": "2020-07-24T17:10:00+00:00", "end": "2020-07-24T18:00:00+00:00", "location": "", "link": "", "category": "time", "calendarId": "---"},
-{"title": "Research Paper Talks Q&A", "start": "2020-07-24T18:30:00+00:00", "end": "2020-07-24T19:00:00+00:00", "location": "", "link": "", "category": "time", "calendarId": "---"},
-{"title": "Research Paper Talks Q&A", "start": "2020-07-23T18:30:00+00:00", "end": "2020-07-23T19:00:00+00:00", "location": "", "link": "", "category": "time", "calendarId": "---"},
-{"title": "Research Paper Talks Q&A", "start": "2020-07-23T20:10:00+00:00", "end": "2020-07-23T20:40:00+00:00", "location": "", "link": "", "category": "time", "calendarId": "---"},
-{"title": "Keynote Q&A", "start": "2020-07-23T20:40:00+00:00", "end": "2020-07-23T21:00:00+00:00", "location": "", "link": "", "category": "time", "calendarId": "---"},
-{"title": "Opening Remarks", "start": "2020-07-24T18:00:00+00:00", "end": "2020-07-24T18:10:00+00:00", "location": "", "link": "", "category": "time", "calendarId": "---"},
-{"title": "Closing Remarks", "start": "2020-07-23T21:20:00+00:00", "end": "2020-07-23T21:30:00+00:00", "location": "", "link": "", "category": "time", "calendarId": "---"},
-{"title": "Keynote Q&A", "start": "2020-07-24T20:40:00+00:00", "end": "2020-07-24T21:00:00+00:00", "location": "", "link": "", "category": "time", "calendarId": "---"},
-{"title": "Tutorial Session 1", "start": "2020-07-23T17:10:00+00:00", "end": "2020-07-23T18:00:00+00:00", "location": "", "link": "", "category": "time", "calendarId": "---"},
-{"title": "Lunch w. Social Breakouts", "start": "2020-07-23T19:00:00+00:00", "end": "2020-07-23T20:00:00+00:00", "location": "", "link": "", "category": "time", "calendarId": "---"},
-{"title": "Keynote Q&A", "start": "2020-07-24T18:10:00+00:00", "end": "2020-07-24T18:30:00+00:00", "location": "", "link": "", "category": "time", "calendarId": "---"},
-{"title": "Tutorial Opening", "start": "2020-07-24T17:00:00+00:00", "end": "2020-07-24T17:10:00+00:00", "location": "", "link": "", "category": "time", "calendarId": "---"},
-{"title": "Research Paper Talks Q&A", "start": "2020-07-24T20:10:00+00:00", "end": "2020-07-24T20:40:00+00:00", "location": "", "link": "", "category": "time", "calendarId": "---"},
-{"title": "Welcome back!", "start": "2020-07-24T20:00:00+00:00", "end": "2020-07-24T20:10:00+00:00", "location": "", "link": "", "category": "time", "calendarId": "---"},
-{"title": "Openin Remarks", "start": "2020-07-23T18:00:00+00:00", "end": "2020-07-23T18:10:00+00:00", "location": "", "link": "", "category": "time", "calendarId": "---"},
-{"title": "Keynote Q&A", "start": "2020-07-23T18:10:00+00:00", "end": "2020-07-23T18:30:00+00:00", "location": "", "link": "", "category": "time", "calendarId": "---"},
-{"title": "Lunch w. Sponsor Breakouts", "start": "2020-07-24T19:00:00+00:00", "end": "2020-07-24T20:00:00+00:00", "location": "", "link": "", "category": "time", "calendarId": "---"},
-{"title": "Closing Remarks", "start": "2020-07-24T21:00:00+00:00", "end": "2020-07-24T21:10:00+00:00", "location": "", "link": "", "category": "time", "calendarId": "---"},
-{"title": "Tutorial Opening", "start": "2020-07-23T17:00:00+00:00", "end": "2020-07-23T17:10:00+00:00", "location": "", "link": "", "category": "time", "calendarId": "---"},
-{"title": "Keynote Q&A", "start": "2020-07-23T21:00:00+00:00", "end": "2020-07-23T21:20:00+00:00", "location": "", "link": "", "category": "time", "calendarId": "---"},
-{"title": "Welcome back!", "start": "2020-07-23T20:00:00+00:00", "end": "2020-07-23T20:10:00+00:00", "location": "", "link": "", "category": "time", "calendarId": "---"}]
+[
+    {
+      "title": "Live Q&A: Mihaela van der Schaar",
+      "start": "2020-04-29T11:00:00+00:00",
+      "end": "2020-04-29T11:30:00+00:00",
+      "location": "https://iclr.cc/virtual/speaker_5.html",
+      "link": "https://iclr.cc/virtual/speaker_5.html",
+      "category": "time",
+      "calendarId": "qa"
+    }
+  ]

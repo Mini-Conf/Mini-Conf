@@ -38,22 +38,14 @@ workshopgroup
 
 {% macro subsection(name) -%}
 <div class="row p-3">
-  <div class="bd-content">
+  <div class="col-12 bd-content">
     <h3>{{name}}</h3>
   </div>
 </div>
 {%- endmacro %}
 
-{% macro subsubsection(name) -%}
-<div class="row p-3">
-  <div class="bd-content">
-    <h4>{{name}}</h4>
-  </div>
-</div>
-{%- endmacro %}
-
 {% macro speakergroup(speakers) -%}
-{% for speaker in speakers %}
+{% for speaker in speakers or [] %}
 <div class="row p-4">
   <div class="col-md-12">
     <div class="card">
@@ -76,7 +68,7 @@ workshopgroup
               </span>
             </div>
             <div class="m-3">
-              {{speaker.bio|safe}}
+              {{speaker.abstract|safe}}
             </div>
           </div>
         </div>
@@ -89,7 +81,7 @@ workshopgroup
 
 {% macro organizergroup(committee) -%}
 <div class="row">
-  {% for org in committee %}
+  {% for org in committee or [] %}
   <div class="col-md-4 col-xs-6">
     <div class="pp-card">
       <div class="pp-card-header" class="text-muted">
@@ -163,7 +155,7 @@ workshopgroup
     data-interval="false"
   >
     <div class="carousel-inner cards" role="listbox">
-      {% for openreview in papers %}
+      {% for openreview in papers or [] %}
       {% if loop.index % 3 == 1 %}
       <div class="carousel-item {% if loop.index == 1%} active{% endif %}">
         {% endif %}
@@ -183,7 +175,7 @@ workshopgroup
               <center>
                 <img
                   class="cards_img lazy-load-img"
-                  data-src="static/images/papers/{{openreview.UID}}.png"
+                  data-src="https://iclr.github.io/iclr-images/{{openreview.UID}}.png"
                   width="80%"
                 />
               </center>
@@ -217,126 +209,29 @@ workshopgroup
 </div>
 {%- endmacro %}
 
-{% macro workshopgroup(tutorials, what) -%}
+{% macro workshopgroup(workshops) -%}
 <div class="cards row">
-  {% for tutorial in tutorials %}
+  {% for workshop in workshops or [] %}
   <div class="col-md-6 col-sm-12 p-3" style="box-sizing: border-box;">
     <div class="card" style="display: block; overflow: hidden; width: 100%;">
       <div
         class="card-header text-center"
         style="min-height: 200px; width: 100%;"
       >
-      <a class="text-muted" href="{{what}}_{{tutorial.id}}.html">
+        <a class="text-muted" href="workshop_{{workshop.id}}.html">
           <h3 class="card-title main-title">
-            {{tutorial.title}}
+            {{workshop.title}}
           </h3>
         </a>
         <div class="card-subtitle text-muted">
-          {{ tutorial.organizers | join(", ") }}
+          {{ workshop.organizers | join(", ") }}
         </div>
         <div class="m-3 text-left card-subtitle font-italic">
-          {{tutorial.abstract|safe}}
+          {{workshop.abstract|safe}}
         </div>
       </div>
     </div>
   </div>
   {% endfor %}
-</div>
-{%- endmacro %}
-
-{% macro slideslive(slideslive_id) -%}
-{% if slideslive_id %}
-{{ section("Presentation (SlidesLive)") }}
-<div class="col-md-12 col-xs-12 my-auto p-2">
-  <div id="presentation-embed-{{ slideslive_id }}"></div>
-  <script src='https://slideslive.com/embed_presentation.js'></script>
-  <script>
-      embed = new SlidesLiveEmbed('presentation-embed-{{ slideslive_id }}', {
-          presentationId: '{{ slideslive_id }}',
-          autoPlay: false, // change to true to autoplay the embedded presentation
-          verticalEnabled: true,
-          verticalWhenWidthLte: 500,
-          allowHiddenControlsWhenPaused: true,
-          hideTitle: true
-      });
-  </script>
-</div>
-{% endif %}
-{%- endmacro %}
-
-{% macro rocketchat(rocketchat_id,chat_server) -%}
-{% if rocketchat_id %}
-{{ section("Chat") }}
-<div class="col-md-12 col-xs-12 p-2">
-  <div id="gitter" class="slp">
-    <center>
-      <iframe frameborder="0" src="https://{{ chat_server }}/channel/{{ rocketchat_id }}?layout=embedded" height="700px" width="100%" ></iframe>
-    </center>
-  </div>
-</div>
-{% endif %}
-{%- endmacro %}
-
-{% macro schedule(preview) -%}
-{% for day in preview %}
-
-{{ subsection(day) }}
-<div class="cards row">
-  <table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Title/speaker</th>
-      {% if day == 'Keynotes' or day == 'Tutorials' or day == 'Research Papers' %}
-      <th scope="col" width=200px>Q&A Session</th>
-      {% endif %}
-    </tr>
-  </thead>
-    <tbody>
-    {% for row in preview[day] %}
-    <tr>
-        <td>{% if row.doclink%}<a href="{{ row.doclink }}">{% endif %}
-                {{ row.title }}
-                {% if row.doclink %}</a>{% endif %}</td>
-      {% if day == 'Keynotes' or day == 'Tutorials' or day == 'Research Papers' %}
-      <td>{% if row.day %} {{ row.day }} {% endif %}</td>
-      {% endif %}
-    </tr>
-{% endfor %}
-  </tbody>
-</table>
-</div>
-{% endfor %}
-{%- endmacro %}
-
-{% macro day_to_view(day) -%}
-<div class="cards row">
-  <table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col" width=150px>Time (EDT)</th>
-      <th scope="col">Type</th>
-      <th scope="col">Title</th>
-      <th scope="col">Speaker</th>
-      <th scope="col">Moderator</th>
-      <th scope="col" width=100px>Q&amp;A Session link</th>
-    </tr>
-  </thead>
-    <tbody>
-    {% for row in day %}
-    <tr>
-      <td>{% if row.time %}{{ row.time }}{% endif %}</td>
-      <td>{% if row.type %}{{ row.type }}{% endif %}</td>
-      <td>{% if row.doclink %}<a href="{{ row.doclink }}" />{% endif %}
-          {% if row.title %}{{ row.title }}{% endif %}
-          {% if row.doclink %}</a>{% endif %}</td>
-      <td>{% if row.speaker %}{{ row.speaker }}{% endif %}</td>
-      <td>{% if row.moderator %}{{ row.moderator }}{% endif %}</td>
-      <td>{% if row.sessionlink %}<a href="{{ row.sessionlink }}" target="_blank" />{% endif %}
-          {% if row.sessionlinktext %}{{ row.sessionlinktext }}{% endif %}
-          {% if row.sessionlink %}</a>{% endif %}</td>
-    </tr>
-{% endfor %}
-  </tbody>
-</table>
 </div>
 {%- endmacro %}

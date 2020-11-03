@@ -1,27 +1,29 @@
-name: ACM-CHIL 2020
+name: ACM-CHIL 2021
 tagline: ACM Conference on <br> Health, Inference, and Learning
-date: July 23/24th 2020
+date: April 8-10, 2021
 citation_date: July 2020
-proceedings_title: Proceedings of ACM-CHIL 2020
+proceedings_title: Proceedings of ACM-CHIL 2021
 analytics: UA-
 logo:
-  image: static/images/acm_92x192.png
+  image: static/images/acm-logo-192x192.png
   width: 50px
   height: auto
+  alt_text: 'ACM logo'
 # uncomment the following line to show the site title next to the logo image
-site_title: ACM-CHIL 2020
+site_title: ACM-CHIL 2021
 page_title:
   prefix: 'ACM-CHIL'
   separator: ': '
 background_image: static/images/main.jpg
 organization: ACM-CHIL Organization Committee
-registration: 'http://www.cvent.com/events/acm-conference-on-health-inference-and-learning-chil-2020-/event-summary-c40cab906b3c48cfa2be7dfb100fc753.aspx'
-registration_2: 'http://www.cvent.com/d/knqpjz'
+registration:
+  url: 'register.html'
+  link_text: Registration opens February 2021
 
 # Remove or change to your chat server.
 chat_server: chat.chilconference.org
 default_presentation_id: 38922815
-default_poster_pdf: static/images/GLTR_poster.pdf
+default_poster_pdf: /static/images/GLTR_poster.pdf
 
 
 # Configuration for auth
@@ -38,6 +40,4 @@ calendar:
     ---: '#bed972'
     qa: '#4FCAEB'
     talk: '#ccc'
-
   sunday_saturday: false  #  Include Sunday and Saturday
-  
