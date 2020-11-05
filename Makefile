@@ -35,6 +35,7 @@ deploy: freeze
 	-git branch -D gh-pages
 	-git branch -D $(TEMP_DEPLOY_BRANCH)
 	git checkout -b $(TEMP_DEPLOY_BRANCH)
+	cp CNAME build/CNAME
 	git add -f build
 	git commit -am "Deploy on gh-pages"
 	git subtree split --prefix build -b gh-pages
@@ -42,4 +43,3 @@ deploy: freeze
 	git push --force origin gh-pages
 	git checkout @{-1}
 	@echo "Deployed to gh-pages 🚀"
-
