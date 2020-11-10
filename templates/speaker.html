@@ -11,15 +11,14 @@
     <h3 class="card-subtitle mb-2 text-muted text-center">
       {{speaker.speaker}} / {{speaker.institution}}
     </h3>
-<!--     <div class="text-center p-3">
+    <div class="text-center p-3">
       <a class="card-link" data-toggle="collapse" role="button" href="#details">
         Abstract & Bio
       </a>
-    </div> -->
+    </div>
   </div>
 </div>
-<!-- <div id="details" class="pp-card collapse"> -->
-<div id="details" class="pp-card m-3">
+<div id="details" class="pp-card m-3 collapse">
   <div class="card-body">
     <div class="card-text">
       <div id="abstractExample">
@@ -35,9 +34,5 @@
 </div>
 
 <!-- Presentation Embed -->
-{{ components.slideslive(speaker.slideslive_id) }}
-
-<!-- Chat Embed -->
-{{ components.rocketchat(speaker.rocketchat_id,config.chat_server) }}
 
 {% endblock %}

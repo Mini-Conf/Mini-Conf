@@ -16,74 +16,66 @@ const filters = {
 const MODE = {
   mini: "mini",
   compact: "compact",
-  detail: "detail"
-}
-
+  detail: "detail",
+};
 
 let render_mode = MODE.compact;
 
 const updateCards = (papers) => {
   Promise.all([
     API.markGetAll(API.storeIDs.visited),
-    API.markGetAll(API.storeIDs.bookmarked)
-  ]).then(
-    ([visitedPapers, bookmarks]) => {
+    API.markGetAll(API.storeIDs.bookmarked),
+  ]).then(([visitedPapers, bookmarks]) => {
+    papers.forEach((paper) => {
+      paper.UID = paper.UID;
+      paper.read = visitedPapers[paper.UID] || false;
+      paper.bookmarked = bookmarks[paper.UID] || false;
+    });
 
-      papers.forEach((paper) => {
-        paper.UID = paper.UID;
-        paper.read = visitedPapers[paper.UID] || false;
-        paper.bookmarked = bookmarks[paper.UID] || false;
-      });
+    const visitedCard = (iid, new_value) => {
+      API.markSet(API.storeIDs.visited, iid, new_value).then();
+    };
 
-      const visitedCard = (iid, new_value) => {
-        API.markSet(API.storeIDs.visited, iid, new_value).then();
-      };
+    const bookmarkedCard = (iid, new_value) => {
+      API.markSet(API.storeIDs.bookmarked, iid, new_value).then();
+    };
 
-      const bookmarkedCard = (iid, new_value) => {
-        API.markSet(API.storeIDs.bookmarked, iid, new_value).then();
-      };
+    const all_mounted_cards = d3
+      .select(".cards")
+      .selectAll(".myCard", (paper) => paper.UID)
+      .data(papers, (d) => d.number)
+      .join("div")
+      .attr("class", "myCard col-xs-6 col-md-4")
+      .html(card_html);
 
+    all_mounted_cards.select(".card-title").on("click", function (d) {
+      const iid = d.UID;
+      // to avoid hierarchy issues, search for card again
+      all_mounted_cards
+        .filter((dd) => dd.UID === iid)
+        .select(".checkbox-paper")
+        .classed("selected", function () {
+          const new_value = true; //! d3.select(this).classed('not-selected');
+          visitedCard(iid, new_value);
+          return new_value;
+        });
+    });
 
-      const all_mounted_cards = d3
-        .select(".cards")
-        .selectAll(".myCard", (paper) => paper.UID)
-        .data(papers, (d) => d.number)
-        .join("div")
-        .attr("class", "myCard col-xs-6 col-md-4")
-        .html(card_html);
+    all_mounted_cards.select(".checkbox-paper").on("click", function (d) {
+      const new_value = !d3.select(this).classed("selected");
+      visitedCard(d.UID, new_value);
+      d3.select(this).classed("selected", new_value);
+    });
 
-      all_mounted_cards.select(".card-title").on("click", function (d) {
-        const iid = d.UID;
-        // to avoid hierarchy issues, search for card again
-        all_mounted_cards
-          .filter((dd) => dd.UID === iid)
-          .select(".checkbox-paper")
-          .classed("selected", function () {
-            const new_value = true; //! d3.select(this).classed('not-selected');
-            visitedCard(iid, new_value);
-            return new_value;
-          });
-      });
+    all_mounted_cards.select(".checkbox-bookmark").on("click", function (d) {
+      const new_value = !d3.select(this).classed("selected");
+      bookmarkedCard(d.UID, new_value);
+      d3.select(this).classed("selected", new_value);
+    });
 
-      all_mounted_cards.select(".checkbox-paper").on("click", function (d) {
-        const new_value = !d3.select(this).classed("selected");
-        visitedCard(d.UID, new_value);
-        d3.select(this).classed("selected", new_value);
-      });
-
-      all_mounted_cards.select(".checkbox-bookmark").on("click", function (d) {
-        const new_value = !d3.select(this).classed("selected");
-        bookmarkedCard(d.UID, new_value);
-        d3.select(this).classed("selected", new_value);
-      });
-
-
-      lazyLoader();
-
-
-    }
-  )
-}
+    lazyLoader();
+  });
+};
 
 /* Randomize array in-place using Durstenfeld shuffle algorithm */
 function shuffleArray(array) {
@@ -113,10 +105,9 @@ const render = () => {
       while (i < f_test.length && pass_test) {
         if (f_test[i][0] === "titles") {
           pass_test &=
-            d.title.toLowerCase().indexOf(f_test[i][1].toLowerCase()) >
-            -1;
+            d.title.toLowerCase().indexOf(f_test[i][1].toLowerCase()) > -1;
         } else if (f_test[i][0] === "session") {
-          pass_test &= d["sessions"].indexOf(f_test[i][1]) > -1;
+          pass_test &= d.sessions.indexOf(f_test[i][1]) > -1;
         } else {
           pass_test &= d[f_test[i][0]].indexOf(f_test[i][1]) > -1;
         }
@@ -222,7 +213,9 @@ const keyword = (kw) => `<a href="papers.html?filter=keywords&search=${kw}"
 
 const card_image = (paper, show) => {
   if (show)
-    return ` <center><img class="lazy-load-img cards_img" data-src="${API.thumbnailPath(paper)}" width="80%"/></center>`;
+    return ` <center><img class="lazy-load-img cards_img" data-src="${API.thumbnailPath(
+      paper
+    )}" width="80%"/></center>`;
   return "";
 };
 
@@ -270,20 +263,30 @@ const card_icon_cal = icon_cal(16);
 const card_live = (link) =>
   `<a class="text-muted" href="${link}">${card_icon_video}</a>`;
 const card_cal = (paper, i) =>
-  `<a class="text-muted" href="${API.posterICS(paper,i)}">${card_icon_cal}</a>`;
+  `<a class="text-muted" href="${API.posterICS(
+    paper,
+    i
+  )}">${card_icon_cal}</a>`;
 
 const card_time_detail = (paper, show) => {
-  return show ? `
+  return show
+    ? `
 <!--    <div class="pp-card-footer">-->
     <div class="text-center text-monospace small" style="margin-top: 10px;">
-    ${paper.sessions.filter(s => s.match(/.*[0-9]/g))
-    .map((s, i) => `${s} ${paper.session_times[i]} ${card_live(
-      paper.session_links[i])}   `)
-    .join('<br>')}
+    ${paper.sessions
+      .filter((s) => s.match(/.*[0-9]/g))
+      .map(
+        (s, i) =>
+          `${s} ${paper.session_times[i]} ${card_live(
+            paper.session_links[i]
+          )}   `
+      )
+      .join("<br>")}
     </div>
 <!--    </div>-->
-    ` : '';
-}
+    `
+    : "";
+};
 
 // language=HTML
 const card_html = (paper) =>
@@ -291,8 +294,12 @@ const card_html = (paper) =>
         <div class="pp-card pp-mode-${render_mode} ">
             <div class="pp-card-header" style="">
             <div class="checkbox-paper fas ${paper.read ? "selected" : ""}" 
-            style="display: block;position: absolute; bottom:${render_mode === MODE.detail ? 375 : 35}px;left: 35px;">&#xf00c;</div>
-            <div class="checkbox-bookmark fas  ${paper.bookmarked ? "selected" : ""}" 
+            style="display: block;position: absolute; bottom:${
+              render_mode === MODE.detail ? 375 : 35
+            }px;left: 35px;">&#xf00c;</div>
+            <div class="checkbox-bookmark fas  ${
+              paper.bookmarked ? "selected" : ""
+            }" 
             style="display: block;position: absolute; top:-5px;right: 25px;">&#xf02e;</div>
             
 <!--                ✓-->
@@ -300,8 +307,8 @@ const card_html = (paper) =>
                 target="_blank"
                    class="text-muted">
                    <h5 class="card-title" align="center"> ${
-    paper.title
-  } </h5></a>
+                     paper.title
+                   } </h5></a>
                 <h6 class="card-subtitle text-muted" align="center">
                         ${paper.authors.join(", ")}
                 </h6>

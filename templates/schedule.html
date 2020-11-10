@@ -7,189 +7,69 @@
 {% endblock %}
 
 {% block tabs %}
-{{ components.tabs([("guidance", "Guidance", "active"),
-                    ("preview", "Pre-recorded Content", ""),
-                    ("thu", "Thursday Schedule", ""),
-                    ("fri", "Friday Schedule", ""),
-                    ("keynote", "Keynotes", ""),
-                    ("tutorial", "Tutorials", ""),
-                    ("workshop", "Workshop Spotlights", ""),
-                    ("ds", "Doctoral Symposium", "")
-                    ]) }}
+{# COMMENTED OUT
+  {{ components.tabs([("calendar", "Calendar", "active"),
+        ("day", "Example Day", "")]) }}
+#}
 {% endblock %}
 
-{% block content %}
-<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
 
-  <!-- Guidance Tab -->
+{% block content %}
+<div class="page-header text-center">
+  <h1>Schedule</h1>
+</div>
+<div class="page-content text-center">
+  {{ schedule | markdown }}
+</div>
+
+{# COMMENTED OUT
+<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+  <!-- Calender tab -->
   <div
     class="tab-pane active"
-    id="tab-guidance"
+    id="tab-calendar"
     role="tabpanel"
     aria-labelledby="nav-profile-tab"
   >
-    <div id="guidance">
-      <!-- Speakers -->
-      {{ components.section("Guidance") }}
-
-
-<p>The conference is broadly organized into:</p>
-  <ul>
-      <li>Pre-recorded presentations, available for viewing anytime after 21 July 2020 - please view these before the interactive sessions!</li>
-      <li><a href="/chat.html" target="_blank">RocketChat</a> channels to enable focused discussion around presentations.</li>
-      <li>Live Zoom sessions for Q&A and social events - see schedule for Thursday and Friday. <em>Note that this schedule includes the interactive sessions, and does not include time for watching the pre-recorded presentations</em>.</li>
-  </ul>
-
-  <p><b>Types of content:</b>
-  <ul>
-      <li>Keynote talks</li>
-      <li>Tutorials</li>
-      <li>Research paper talks</li>
-      <li>Workshop spotlight talks</li>
-      <li>Doctoral symposium talks</li>
-  </ul>
-
-  <p><b>Note about Zoom links and passwords:</b>
-  <ul>
-      <li>Each session has a dedicated zoom link. Visit the the Thursday and Friday schedule pages to to find the corresponding link to each live Q&A session.
-      <li>Registered participants will receive a single password on each day for the all sessions via email. For example, the password for all sessions Day 1 will be XXXXXX and the password for all sessions on Day 2 will be XXYYXX.
-      <li>Please do not share/tweet/post any passwords, as sessions are likely to be Zoom-bombed if these are leaked.
-  </ul>
-
-  <p><b>How to interact and ask questions:</b>
-  <ul>
-      <li>Realtime questions and coordination can be done over RocketChat via the website, or you can download the RocketChat client and use server https://chat.chilconference.org.
-      <li>You can ask questions in the Zoom webinar using the Q&A function.
-  </ul>
-
-    For more information, see the <a href="/help.html">FAQ</a>.
+    <div class="form-group col">
+      <label for="tzOptions">Timezone:</label>
+      <select id="tzOptions" class="selectpicker" data-live-search="true">
+      </select>
     </div>
+
+    <!-- full cal for browser-->
+    <div id="calendar" class="d-none d-sm-block"></div>
+
+    <!-- small cal for smart phones-->
+    <div id="calendar_small" class="d-sm-none"></div>
+
+    <!--    <script type="text/javascript">-->
+    <!--      // console.log(make_cal(),"-&#45;&#45; make_cal()");-->
+    <!--      make_cal().then((d) => console.log(d, "-&#45;&#45; d"));-->
+    <!--    </script>-->
   </div>
 
+  <!-- Day Tab -->
 
-  <!-- Keynote Tab -->
   <div
     class="tab-pane fade"
-    id="tab-keynote"
+    id="tab-day"
     role="tabpanel"
     aria-labelledby="nav-profile-tab"
   >
-    <div id="keynote">
+    <div id="day">
       <!-- Speakers -->
-      {{ components.section("Keynote speakers") }}
+      {{ components.section("Speakers") }}
       <div class="speakers">
-        {{ components.speakergroup(speakers) }}
+        {{ components.speakergroup(day.speakers) }}
+      </div>
+      {{ components.section("Highlighted Papers") }}
+      <div class="papers">
+        {{ components.highlightgroup(day.highlighted, 1) }}
       </div>
     </div>
-  </div>
 
-  <!-- Thursday Tab -->
-  <div
-    class="tab-pane fade"
-    id="tab-thu"
-    role="tabpanel"
-    aria-labelledby="nav-profile-tab"
-  >
-    <div id="thu">
-      <!-- Speakers -->
-      {{ components.section("Thursday") }}
-      This schedule refers to interactive sessions. Pre-recorded content should be viewed in advance; we recommend allocating about five hours for this.
 
-      <div class="speakers">
-        {{ components.day_to_view(thu.schedule) }}
-      </div>
-    </div>
-  </div>
-
-  <!-- Friday Tab -->
-  <div
-    class="tab-pane fade"
-    id="tab-fri"
-    role="tabpanel"
-    aria-labelledby="nav-profile-tab"
-  >
-    <div id="fri">
-      <!-- Speakers -->
-      {{ components.section("Friday") }}
-      This schedule refers to interactive sessions. Pre-recorded content should be viewed in advance; we recommend allocating about five hours for this.
-
-      <div class="speakers">
-        {{ components.day_to_view(fri.schedule) }}
-      </div>
-    </div>
-  </div>
-
-<!-- Recommended viewing schedule tab -->
-  <div
-    class="tab-pane fade"
-    id="tab-preview"
-    role="tabpanel"
-    aria-labelledby="nav-profile-tab"
-  >
-    <div id="preview">
-      <!-- Speakers -->
-      {{ components.section("Pre-recorded content") }}
-
-    <p>The following talks have been pre-recorded. To get the most out of the live sessions, we recommend that you watch them in advance.</p>
-
-    <div class="speakers">
-      {{ components.schedule(preview) }}
-    </div>
-
-    </div>
-  </div>
-
-<!-- Tutorials -->
-  <div
-    class="tab-pane fade"
-    id="tab-tutorial"
-    role="tabpanel"
-    aria-labelledby="nav-profile-tab"
-  >
-    <div id="tutorial">
-      <!-- Speakers -->
-      {{ components.section("Tutorials") }}
-
-    <div class="speakers">
-      {{ components.workshopgroup(tutorials, "tutorial") }}
-    </div>
-
-    </div>
-  </div>
-
-<!-- Workshops -->
-  <div
-    class="tab-pane fade"
-    id="tab-workshop"
-    role="tabpanel"
-    aria-labelledby="nav-profile-tab"
-  >
-    <div id="workshop">
-      <!-- Speakers -->
-      {{ components.section("Workshop Spotlights") }}
-
-    <div class="speakers">
-      {{ components.workshopgroup(workshops, "workshop") }}
-    </div>
-
-    </div>
-  </div>
-
-<!-- Doctoral Symposium -->
-  <div
-    class="tab-pane fade"
-    id="tab-ds"
-    role="tabpanel"
-    aria-labelledby="nav-profile-tab"
-  >
-    <div id="ds">
-      {{ components.section("Doctoral Symposium") }}
-
-    <div class="speakers">
-      {{ components.workshopgroup(dss, "ds") }}
-    </div>
-
-    </div>
   </div>
 
   <script type="text/javascript">
@@ -217,4 +97,5 @@
     };
   </script>
 </div>
+#}
 {% endblock %}

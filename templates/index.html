@@ -1,14 +1,15 @@
 {% set active_page = "Home" %}
 {% extends "base.html" %}
+
 {% block top %}
 <style>
   .back {
-    background: 
-    linear-gradient(
-      rgba(30, 100, 160, 0.90), 
-      rgba(0, 0, 0, 0.01)
-    ),
-    url("{{config.background_image}}") no-repeat center;
+    background:
+      linear-gradient(
+        rgba(30, 100, 160, 0.90),
+        rgba(0, 0, 0, 0.01)
+      ),
+      url("static/images/main.jpg") no-repeat center;
     background-size: cover;
   }
   .back h2 {
@@ -18,25 +19,31 @@
   }
 </style>
 
-<div class="jumbotron jumbotron-fluid back" style="padding-bottom: 180px; padding-top: 10px;">
+<div class="jumbotron jumbotron-fluid back" style="padding-bottom: 20px;">
   <div class="row header p-6 m-5">
     <div class="p-1 mx-auto text-center text-white col-md-9 col-sm-12">
       <h2>
         {{config.tagline|safe}}
       </h2>
-      <h2 class="p-2" style="font-size: 2rem">
+      <h2 class="p-5">
         {{config.date|safe}}
       </h2>
-      <h2 class="p-2">
-          <a href={{config.registration}} class="btn btn-light btn-lg" role="button">Register now!</a>
-      </h2>
+      <a href={{config.registration.url}} class="btn btn-light btn-lg" role="button">
+        {{config.registration.link_text}}
+      </a>
     </div>
   </div>
 </div>
 {% endblock %}
 
 {% block content %}
+<div class="page-content">
+  {{ index | markdown }}
 
-{{ index | markdown }}
-
+  <!-- Organizers -->
+  {% if committee %}
+    {{ components.section("Organizers") }}
+    {{ components.organizergroup(committee) }}
+  {% endif %}
+</div>
 {% endblock %}

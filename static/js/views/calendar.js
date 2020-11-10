@@ -1,5 +1,4 @@
 async function make_cal(handleResize = true) {
-
   const current_tz = getUrlParameter("tz") || moment.tz.guess();
   const tzNames = [...moment.tz.names()];
 
@@ -61,7 +60,7 @@ async function make_cal(handleResize = true) {
     max_hours = 24;
   }
 
-  const {Calendar} = tui;
+  const { Calendar } = tui;
   const calendar = new Calendar("#calendar", {
     defaultView: "week",
     isReadOnly: true,
@@ -191,20 +190,17 @@ async function make_cal(handleResize = true) {
     i++;
   }
 
-
-  const renderAll = () => {all_cals.forEach(c => c.render(true));}
+  const renderAll = () => {
+    all_cals.forEach((c) => c.render(true));
+  };
   renderAll();
 
   if (handleResize) {
-    $(window).on(
-      "resize",
-      _.debounce(renderAll, 100)
-    );
+    $(window).on("resize", _.debounce(renderAll, 100));
   }
 
   // return the render function for outsie control
   return {
-    render: renderAll
-  }
-
+    render: renderAll,
+  };
 }

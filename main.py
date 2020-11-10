@@ -16,7 +16,7 @@ by_uid = {}
 
 def main(site_data_path):
     global site_data, extra_files
-    extra_files = ["index.md"]
+    extra_files = ["README.md"]
     # Load all for your sitedata one time.
     for f in glob.glob(site_data_path + "/*"):
         extra_files.append(f)
@@ -28,7 +28,7 @@ def main(site_data_path):
         elif typ == "yml":
             site_data[name] = yaml.load(open(f).read(), Loader=yaml.SafeLoader)
 
-    for typ in ["papers", "speakers", "tutorials", "workshops", "dss"]:
+    for typ in ["papers", "speakers", "workshops"]:
         by_uid[typ] = {}
         for p in site_data[typ]:
             by_uid[typ][p["UID"]] = p
@@ -58,15 +58,25 @@ def _data():
 def index():
     return redirect("/index.html")
 
+
 @app.route("/favicon.ico")
 def favicon():
     return send_from_directory(site_data_path, "favicon.ico")
 
 
 # REDIRECTS TO SUPPORT EARLIER LINKS
+@app.route("/registration")
+def registration():
+    return redirect("/register.html", code=302)
+
 
 @app.route("/agenda")
 def agenda():
+    return redirect("/calendar.html", code=302)
+
+
+@app.route("/keynote")
+def keynote():
     return redirect("/calendar.html", code=302)
 
 
@@ -75,49 +85,39 @@ def toc():
     return redirect("/papers.html", code=302)
 
 
-@app.route("/keynote")
-def keynote():
-    return redirect("/calendar.html", code=302)
-
-
-@app.route("/registration")
-def registration():
-    return redirect("/register.html", code=302)
-
-
 @app.route("/acm-chil-track-1-cfp")
 def track1():
-    return redirect("/call_papers.html", code=302)
+    return redirect("/call-for-papers.html", code=302)
 
 
 @app.route("/acm-chil-track-2-cfp")
 def track2():
-    return redirect("/call_papers.html", code=302)
+    return redirect("/call-for-papers.html", code=302)
 
 
 @app.route("/acm-chil-track-3-cfp")
 def track3():
-    return redirect("/call_papers.html", code=302)
+    return redirect("/call-for-papers.html", code=302)
 
 
 @app.route("/acm-chil-track-4-cfp")
 def track4():
-    return redirect("/call_papers.html", code=302)
+    return redirect("/call-for-papers.html", code=302)
 
 
 @app.route("/call-for-tutorials")
 def call_tutorials():
-    return redirect("/call_papers.html", code=302)
+    return redirect("/call-for-papers.html", code=302)
 
 
 @app.route("/doctoral-consortium-call-for-phd-students")
 def call_doctoral():
-    return redirect("/call_papers.html", code=302)
+    return redirect("/call-for-papers.html", code=302)
 
 
 @app.route("/financial-support")
 def financial_support():
-    return redirect("/register.html#tab-support", code=302)
+    return redirect("/sponsor.html", code=302)
 
 
 @app.route("/acm-chil-2020-sponsorship-policy")
@@ -137,7 +137,7 @@ def reviewers():
 
 @app.route("/faqs")
 def faqs():
-    return redirect("/about.html", code=302)
+    return redirect("/help.html", code=302)
 
 
 # TOP LEVEL PAGES
@@ -146,7 +146,8 @@ def faqs():
 @app.route("/index.html")
 def home():
     data = _data()
-    data["index"] = open("index.md").read()
+    data["index"] = open("./templates/content/index.md").read()
+    data["committee"] = site_data["committee"]["committee"]
     return render_template("index.html", **data)
 
 
@@ -164,31 +165,6 @@ def papers():
     return render_template("papers.html", **data)
 
 
-@app.route("/committee.html")
-def committee():
-    data = _data()
-    data["committee"] = site_data["committee"]["committee"]
-    return render_template("committee.html", **data)
-
-
-@app.route("/sponsor.html")
-def sponsor():
-    data = _data()
-    return render_template("sponsor.html", **data)
-
-
-@app.route("/register.html")
-def register():
-    data = _data()
-    return render_template("register.html", **data)
-
-
-@app.route("/call_papers.html")
-def callpapers():
-    data = _data()
-    return render_template("callpapers.html", **data)
-
-
 @app.route("/paper_vis.html")
 def paper_vis():
     data = _data()
@@ -198,42 +174,57 @@ def paper_vis():
 @app.route("/calendar.html")
 def schedule():
     data = _data()
-    # Hacky hardcoding of days
-    data["thu"] = {
-        "speakers": [x for x in site_data['speakers'] if x['day'] == 'thu'],
-        "schedule": site_data['daytoview']['thursday'],
+    data["day"] = {
+        "speakers": site_data["speakers"],
         "highlighted": [
             format_paper(by_uid["papers"][h["UID"]]) for h in site_data["highlighted"]
         ],
     }
-    data["fri"] = {
-        "speakers": [x for x in site_data['speakers'] if x['day'] == 'fri'],
-        "schedule": site_data['daytoview']['friday'],
-        "highlighted": [
-            format_paper(by_uid["papers"][h["UID"]]) for h in site_data["highlighted"]
-        ],
-    }
-    data["speakers"] = [x for x in site_data['speakers']]
-    data["workshops"] = [
-        format_workshop(workshop) for workshop in site_data["workshops"]
-    ]
-    data["tutorials"] = [
-        format_workshop(tutorial) for tutorial in site_data["tutorials"]
-    ]
-    data["dss"] = [
-        format_workshop(ds) for ds in site_data["dss"]
-    ]
-    data["preview"] = site_data["preview"]
+    data["schedule"] = open("./templates/content/schedule.md").read()
     return render_template("schedule.html", **data)
 
 
-# @app.route("/workshops.html")
-# def workshops():
-#     data = _data()
-#     data["workshops"] = [
-#         format_workshop(workshop) for workshop in site_data["workshops"]
-#     ]
-#     return render_template("workshops.html", **data)
+@app.route("/workshops.html")
+def workshops():
+    data = _data()
+    data["workshops"] = [
+        format_workshop(workshop) for workshop in site_data["workshops"]
+    ]
+    return render_template("workshops.html", **data)
+
+
+@app.route("/register.html")
+def register():
+    data = _data()
+    data["register"] = open("./templates/content/register.md").read()
+    return render_template("register.html", **data)
+
+
+@app.route("/sponsor.html")
+def sponsor():
+    data = _data()
+    data["sponsor"] = open("./templates/content/sponsor.md").read()
+    return render_template("sponsor.html", **data)
+
+
+@app.route("/call-for-papers.html")
+def call_for_papers():
+    data = _data()
+    data["call_for_papers"] = open("./templates/content/call-for-papers.md").read()
+    return render_template("call-for-papers.html", **data)
+
+
+@app.route("/committee.html")
+def committee():
+    data = _data()
+    data["committee"] = open("./templates/content/committee.md").read()
+    data["committee_governing_board"] = open(
+        "./templates/content/committee-governing-board.md"
+    ).read()
+    data["committee_senior_advisory_board"] = open(
+        "./templates/content/committee-senior-advisory-board.md"
+    ).read()
+    return render_template("committee.html", **data)
 
 
 def extract_list_field(v, key):
@@ -262,12 +253,8 @@ def format_paper(v):
         "sessions": list_fields["sessions"],
         # links to external content per poster
         "pdf_url": v.get("pdf_url", ""),  # render poster from this PDF
-        "code_link": "",  # link to code
+        "code_link": "https://github.com/Mini-Conf/Mini-Conf",  # link to code
         "link": "https://arxiv.org/abs/2007.12238",  # link to paper
-        "acm_pdf_url": v.get("acm_pdf_url", ""),
-        "acm_html_url": v.get("acm_html_url", ""),
-        "slideslive_id": v["slideslive_id"],
-        "rocketchat_id": v["rocketchat_id"],
     }
 
 
@@ -282,8 +269,6 @@ def format_workshop(v):
         "title": v["title"],
         "organizers": list_fields["authors"],
         "abstract": v["abstract"],
-        "slideslive_id": v["slideslive_id"],
-        "rocketchat_id": v["rocketchat_id"]
     }
 
 
@@ -316,21 +301,6 @@ def workshop(workshop):
     data["workshop"] = format_workshop(v)
     return render_template("workshop.html", **data)
 
-@app.route("/tutorial_<tutorial>.html")
-def tutorial(tutorial):
-    uid = tutorial
-    v = by_uid["tutorials"][uid]
-    data = _data()
-    data["tutorial"] = format_workshop(v)
-    return render_template("tutorial.html", **data)
-
-@app.route("/ds_<ds>.html")
-def ds(ds):
-    uid = ds
-    v = by_uid["dss"][uid]
-    data = _data()
-    data["ds"] = format_workshop(v)
-    return render_template("ds.html", **data)
 
 @app.route("/chat.html")
 def chat():
@@ -371,10 +341,6 @@ def generator():
         yield "speaker", {"speaker": str(speaker["UID"])}
     for workshop in site_data["workshops"]:
         yield "workshop", {"workshop": str(workshop["UID"])}
-    for tutorial in site_data["tutorials"]:
-        yield "tutorial", {"tutorial": str(tutorial["UID"])}
-    for ds in site_data["dss"]:
-        yield "ds", {"ds": str(ds["UID"])}
 
     for key in site_data:
         yield "serve", {"path": key}

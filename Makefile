@@ -43,4 +43,3 @@ deploy: freeze
 	git push --force origin gh-pages
 	git checkout @{-1}
 	@echo "Deployed to gh-pages 🚀"
-

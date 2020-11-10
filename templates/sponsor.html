@@ -1,110 +1,18 @@
-{% set active_page = "Registration" %}
+{% set active_page = "Sponsorship" %}
 {% set page_title = "Sponsorship" %}
 {% extends "base.html" %}
 
+{% block top %}
+{% endblock %}
+
 {% block tabs %}
-
-<ul class="nav nav-pills justify-content-center">
-  <li class="nav-item">
-    <a class="nav-link text-muted" href="register.html">Registration</a>
-  </li>
-<!--   <li class="nav-item">
-    <a class="nav-link text-muted" href="register.html#tab-support">Financial support</a>
-  </li> -->
-  <li class="nav-item active">
-    <a
-      class="nav-link text-muted active"
-      data-toggle="tab"
-      href="#tab-register"
-      role="tab"
-      aria-controls="nav-home"
-      aria-selected="true"
-      >Sponsorship
-    </a>
-  </li>
-</ul>
-
-
 {% endblock %}
 
 {% block content %}
-
-{{ components.section("Sponsorship") }}
-
-<p>Financial support ensures that ACM CHIL remains accessible to a broad set of participants by offseting the expenses involved in participation. We follow best practices in other ACM conferences to maintain a transparent and appropriate relationship with our funders:</p>
-
-<ol>
-<li>The substance and structure of the conference are determined independently by the program committees.</li>
-<li>All papers are chosen through a rigorous, double-blind peer review process, where authors disclose conflicts of interest.</li>
-<li>All sources of financial support are acknowledged.</li>
-<li>Benefits are publicly disclosed below.</li>
-<li>Corporate sponsors cannot specify how contributions are spent.</li>
-<li>All attendees will be expected to follow the ACM Code of Conduct.</li>
-</ol>
-
-{{ components.subsection("2020 Levels of Sponsorship") }}
-
-<p>Sponsorship of the annual ACM Conference on Health, Inference and Learning (CHIL) contributes to furthering research and interdisciplinary dialogue around machine learning and health. We deeply appreciate any amount of support your company or foundation can provide.</p>
-
-{{ components.subsubsection("$75,000 USD") }}
-
-<ul>
-<li>Sponsor Remarks</li>
-<li>Company signage displayed at event opening through closing</li>
-<li>Can provide company or foundation swag for conference goodie bags</li>
-<li>Access to an opt-in database of attendees</li>
-<li>Booth at conference event (all days)</li>
-<li>Verbal acknowledgment of contribution in the opening and closing remarks of the conference (a single track session attended by all participants)</li>
-<li>Free registration for up to 5 attendees from your organization </li>
-<li>Company or foundation name and logo on website with link</li>
-<li>Logo and thanks on all communications to all attendees</li>
-</ul>
-
-{{ components.subsubsection("$50,000 USD") }}
-
-<ul>
-<li>Can provide company or foundation swag for conference goodie bags</li>
-<li>Access to an opt-in database of attendees</li>
-<li>Booth at conference event (all days)</li>
-<li>Verbal acknowledgment of contribution in the opening and closing remarks of the conference (a single track session attended by all participants)</li>
-<li>Free registration for up to 3 attendees from your organization participants)</li>
-<li>Company or foundation name and logo on website with link</li>
-<li>Logo and thanks on all communications to all attendees </li>
-</ul>
-
-{{ components.subsubsection("$25,000 USD") }}
-
-<ul>
-<li>Booth at conference event (all days)</li>
-<li>Verbal acknowledgment of contribution in the opening and closing remarks of the conference (a single track session attended by all participants)</li>
-<li>Free registration for up to 2 attendees from your organization participants)</li>
-<li>Company or foundation name and logo on website with link</li>
-<li>Logo and thanks on all communications to all attendees</li>
-</ul>
-
-{{ components.subsubsection("$10,000 USD") }}
-
-<ul>
-<li>Verbal acknowledgment of contribution in the opening and closing remarks of the conference (a single track session attended by all participants)</li>
-<li>Free registration for up to 1 attendee from your organization</li>
-<li>Company or foundation name and logo on website with link</li>
-<li>Logo and thanks on all communications to all attendees</li>
-<li>No booth space</li>
-</ul>
-
-{{ components.subsubsection("$5,000 USD") }}
-
-<ul>
-<li>Company or foundation name and logo on website with link</li>
-<li>Logo and thanks on all communications to all attendees</li>
-<li>No booth space</li>
-</ul>
-
-{{ components.subsection("Sponsorship Chairs") }}
-
-<ul>
-<li>Dr. Joyce Ho, Emory University</li>
-<li>Dr. Laura Rosella, University of Toronto</li>
-</ul>
-
+<div class="page-header text-center">
+  <h1>Become a Sponsor</h1>
+</div>
+<div class="page-content">
+  {{ sponsor | markdown }}
+</div>
 {% endblock %}
