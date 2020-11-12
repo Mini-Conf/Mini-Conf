@@ -10,6 +10,7 @@ MiniConf was originally built to host <a href="https://iclr.cc/virtual_2020">ICL
 * ACM-CHIL 2020 (Conference on Health, Inference, and Learning) https://www.chilconference.org/
 * ACL 2020 (Association of Computational Linguistics): https://virtual.acl2020.org/index.html
 * AKBC 2020 (Automated Knowledge Base Construction) : https://akbc.apps.allenai.org/index.html
+* EMNLP 2020 (Empirical Methods in NLP): https://virtual.2020.emnlp.org/index.html
 * ICLR 2020 (International Conference on Learning Representations): https://iclr.cc/virtual_2020
 * ICML 2020 (International Conference on Machine Learning): https://icml.cc/virtual/2020/index.html
 * SIGIR 2020 (Information Retrieval): https://sigir-schedule.baai.ac.cn/papers
