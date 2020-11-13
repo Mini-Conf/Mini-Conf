@@ -1,4 +1,5 @@
-.tt-query,
+/* ALPER: dunno what this style is trying to do, but it looks fine without it */
+/* .tt-query,
 .tt-hint {
   width: 396px;
   height: 30px;
@@ -8,7 +9,7 @@
   border: 2px solid #ccc;
   border-radius: 8px;
   outline: none;
-}
+} */
 
 .tt-query {
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);

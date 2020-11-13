@@ -1,42 +1,162 @@
-body a {
-  color: #2294e0;
-}
-
-body a:hover {
-  color: #2294e0;
-  text-decoration: none;
-}
-
-h2,
-h3 {
-  font-family: "Lato";
-}
-
-label:text-muted,
-.nav-link {
-  font-family: "Lato";
+:root {
+  --main-bg-color: #edf2f7;
+  --main-border-color: #e2e8f0;
+  /* --shadow-color: rgb(204, 204, 204); */
+  /*--accent-color: #c42026;*/
+  --accent-color: #596636;
+  --text-color: #000;
+  --text-dark-color: #4a5568;
+  --text-gray-color: #a0aec0;
+  --text-heading-color: #7f6c5e;
+  --text-muted-color: #b9aba1;
+  --text-inv-color: #eee;
+  --text-accent-color: #997b66; /* lighten from original VIS2020 style for readability */
+  --icon-color: #6c757d;
+  --btn-color: #fff;
+  --btn-inv-color: #4a5568;
 }
 
 body {
-  font-family: "Lato", sans-serif;
-  background-color: rgba(236, 241, 246, 1);
+  color: var(--text-dark-color);
 }
 
-.container a:hover {
+body a {
+  color: var(--text-accent-color);
+}
+
+body a:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+code {
+  color: var(--accent-color);
+}
+
+.text-muted {
+  color: var(--text-muted-color);
+}
+
+.text-muted:hover {
+  color: var(--accent-color) !important;
+}
+
+.navbar-nav li {
+  margin: 0 3px;
+}
+
+.nav-pills li {
+  margin: 0 2px;
+}
+
+.nav-item {
+  font-family: "Zilla Slab", serif;
+}
+
+.cal-nav {
+  font-family: "Fira Sans", sans-serif;
+}
+
+/*label:text-muted,*/
+/*.nav-link.text-muted,*/
+/*.nav-link {*/
+/*  font-family: "Zilla Slab", serif;*/
+/*  font-size: 1.125rem;*/
+/*  color: var(--btn-inv-color) !important;*/
+/*  background-color: var(--main-bg-color) !important;*/
+/*}*/
+
+.nav-link.text-muted {
+  border: 1px solid transparent;
+  box-sizing: border-box !important;
+}
+
+.nav-link.active.text-muted,
+.nav-link.active {
+  color: var(--btn-color) !important;
+  background-color: var(--btn-inv-color) !important;
+}
+
+.nav-link.text-muted:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--text-dark-color);
+}
+
+.nav-link.text-muted.active:hover {
+  color: var(--main-border-color) !important;
+}
+
+body {
+  font-family: "Fira Sans", sans-serif;
+  background-color: var(--main-bg-color); /* rgba(236, 241, 246, 1); */
+}
+
+/* .container a:hover {
   text-decoration: none;
+} */
+
+h2.jumbotron-h {
+  font-family: "Zilla Slab SemiBold", sans-serif;
+  font-size: 2.5em;
+  color: var(--text-inv-color);
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: lighten;
 }
 
-.jumbotron {
-  font-family: "Lato", sans-serif;
-  background-color: rgba(236, 241, 246, 1);
+h3.jumbotron-date {
+  font-family: "Fira Sans", sans-serif;
+  font-size: 1.5em;
+  color: var(--text-inv-color);
+  background-color: rgba(0, 0, 0, 0.5);
+  background-blend-mode: lighten;
+}
+
+h1 {
+  font-family: "Zilla Slab SemiBold", serif;
+  font-size: 2.25rem;
+  color: var(--text-heading-color);
+}
+
+h2{
+  font-family: "Zilla Slab SemiBold", serif;
+  font-size: 1.875rem;
+  color: var(--text-heading-color);
+}
+
+h3 {
+  font-family: "Fira Sans SemiBold", sans-serif;
+  font-size: 1.5rem;
+  color: var(--text-heading-color);
+}
+
+.btn .active,
+.btn.btn-outline-secondary.active {
+  background-color: var(--btn-inv-color) !important;
 }
 
 .btn-group {
-  background-color: white;
+  background-color: var(--btn-color);
 }
 
 .btn {
-  background-color: white;
+  background-color: var(--btn-color);
+}
+
+.btn:hover {
+  background-color: var(--btn-inv-color);
+  color: var(--btn-color);
+}
+
+.gdpr-btn:hover {
+  color: var(--btn-color) !important;
+  background-color: var(--accent-color) !important;
+}
+
+.gdpr-btn {
+  color: var(--btn-inv-color) !important;
+  border: var(--main-border-color) !important;
+  background-color: var(--btn-color) !important;
 }
 
 #main-nav {
@@ -45,29 +165,50 @@ body {
 }
 
 .header {
-  font: "Montserrat";
+  font-family: "Zilla Slab", sans-serif;
 }
 
+#tzNote p {
+  margin-bottom: 0;
+  font-size: 0.85rem;
+}
+
+
 .pp-card {
-  font-family: "Exo";
-  box-shadow: 0 0 14px 0 rgba(204, 204, 204, 1);
+  font-family: "Fira Sans", sans-serif;
+  box-shadow: 0 0 14px 0 var(--main-border-color);
   margin-bottom: 1em;
   display: block;
   overflow: hidden;
 }
 
+h3 {
+  font-family: "Zilla Slab SemiBold", serif;
+}
+
+.pp-card-no-bottom {
+  font-family: "Zilla Slab", serif;
+  box-shadow: 0 0 14px 0 var(--main-border-color);
+  margin-bottom: 0;
+  display: block;
+  overflow: hidden;
+}
 .pp-card-header {
-  border: 4px solid #eee;
-  font-family: "Exo";
+  background-color: #fff;
+  border: 4px solid var(--main-border-color);
+
+  font-family: "Zilla Slab", serif;
   height: 340px;
   padding-top: 10px;
   padding-left: 15px;
   padding-right: 15px;
+
+  overflow: hidden;
 }
 
 .pp-mode-mini .pp-card-header {
   height: 175px;
-  border: 1px solid #eee;
+  border: 1px solid var(--main-border-color);
 }
 
 .pp-card-footer {
@@ -87,27 +228,18 @@ body {
   object-fit: scale-down;
 }
 
-body .nav-pills .nav-link.active {
-  background-color: #bed972;
-}
-
 .container {
-  margin-top: 10px;
+  margin-top: 25px;
 }
 
-.card {
-  font-family: "Exo";
+.card,
+.card-header,
+.card-title {
+  font-family: "Zilla Slab SemiBold", serif;
+  color: var(--text-dark-color);
 }
 
-.card-header {
-  font-family: "Exo";
-}
-
-.card-header .card-title {
-  font-family: "Exo";
-}
-
-.cards.myCard {
+.cards .myCard {
   display: flex;
   flex-flow: wrap;
   margin-left: 0;
@@ -120,28 +252,32 @@ body .nav-pills .nav-link.active {
 
 .card-title {
   margin-top: 10px;
-  font-size: 20px;
+  /* font-size: 20px; */
 }
 
-h2.card-title {
-  margin-top: 10px;
-  font-size: 30px;
-}
-
-h3.card-subtitle.text-muted {
+h5.card-title {
   margin-top: 10px;
   font-size: 20px;
+  /* font-size: 30px; */
 }
 
-.card-subtitle.text-muted {
+h6.card-subtitle.text-muted { /* paper author list */
+  font-family: Fira Sans, sans-serif;
+  font-size: 15px;
+}
+
+.card-subtitle.text-muted { /* paper time */
+  font-family: Fira Sans, sans-serif;
+  font-size: 15px;
   text-align: center;
-  font-size: 13px;
+  color: var(--text-muted-color)
 }
+
 
 .main-title {
   font-weight: 700;
-  color: #2294e0;
-  font-family: "Exo";
+  color: var(--text-heading-color);
+  font-family: "Zilla Slab SemiBold", serif;
 }
 
 .myAccordion {
@@ -206,6 +342,11 @@ h3.card-subtitle.text-muted {
   transform: translateX(-200%);
 }
 
+#main-nav {
+   background-color: #b9aba1;
+  /*background-image: url("/static/css/hex-pattern.png");*/
+}
+
 div.anchor {
   display: block;
   position: relative;
@@ -222,7 +363,7 @@ div.anchor {
   background: #fff;
   padding: 10px;
   border: 4px solid #eee;
-  box-shadow: rgb(204, 204, 204) 2px 2px 14px 0;
+  box-shadow: var(--main-border-color) 2px 2px 14px 0;
 }
 
 tr.fc-list-item {
@@ -230,7 +371,7 @@ tr.fc-list-item {
 }
 
 .details {
-  font-family: "Lato", sans-serif;
+  font-family: "Fira Sans", sans-serif;
 }
 
 #abstractExample.collapse:not(.show) {
@@ -260,7 +401,7 @@ body .carousel-control-prev {
 
 .icon_video,
 .icon_cal {
-  fill: #6c757d;
+  fill: var(--icon-color);
 }
 
 .icon_video:hover,
@@ -285,6 +426,21 @@ body .carousel-control-prev {
   transition-duration: 100ms;
 }
 
+#calendar {
+  font-family: "Fira Sans Condensed Light", sans-serif;
+}
+
+/* specific event colours are set in config.yml */
+.tui-full-calendar-time-schedule-content,
+.tui-full-calendar-time-schedule-content-time {
+  border-color: var(--main-border-color) !important;
+  font-weight: 400;
+}
+
+.tui-full-calendar-time-date-schedule-block:hover {
+  color: var(--accent-color);
+}
+
 .checkbox-paper.selected {
   opacity: 1;
   color: #6c757d;
@@ -292,18 +448,314 @@ body .carousel-control-prev {
 
 .checkbox-bookmark.selected {
   opacity: 1;
-  color: #bed972;
+  color: var(--accent-color);
 }
 
-/*@supports (-webkit-text-stroke: 1px gray) {*/
-/*  .checkbox-paper {*/
-/*    opacity: 0.2;*/
-/*    -webkit-text-stroke: 1px gray;*/
-/*    -webkit-text-fill-color: white;*/
-/*  }*/
+hr {
+  border-bottom: 2px;
+  border-style: dashed;
+  border-color: var(--accent-color);
+  border-top-width: 0;
+  position: relative;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 
-/*  .checkbox-paper.selected {*/
-/*    opacity: 1;*/
-/*    -webkit-text-fill-color: #bed972;*/
-/*  }*/
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+hr::after {
+  border: 2px solid var(--accent-color);
+  position: absolute;
+  border-radius: 9999px;
+  content: "";
+  right: -14px;
+  top: -4px;
+  width: 6px;
+  height: 6px;
+  box-sizing: content-box;
+}
+
+/* faq page styling */
+
+#tab-faq .card-header,
+#tab-faq .card-body
+{
+  font-family: "Fira Sans", sans-serif;
+}
+
+/* all_events styling */
+
+.event-card {
+  font-size: 1rem;
+  height: 100%;
+}
+
+.event-card .event-title{
+  font-family: "Zilla Slab SemiBold", serif;
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+}
+.event-card .event-time {
+  font-family: "Fira Sans", sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: .01em;
+  color: var(--text-dark-color);
+}
+
+.event-card .event-url{
+  font-family: "Fira Sans", sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: .01em;
+  color: var(--text-gray-color);
+  margin-bottom: 0.25rem;
+
+}
+
+/* combined styling (schedule listing, event, session, paper) */
+
+.nav-breadcrumb ol.breadcrumb {
+  padding: 0.75rem 0;
+  background-color: transparent;
+  font-size: 0.85rem;
+}
+
+/* h1 */
+.session-list-event,
+.session-title,
+.paper-title,
+.session-list-title
+{
+  font-family: "Zilla Slab SemiBold", serif;
+  color: var(--text-heading-color);
+}
+
+/* h3 */
+.session-list-session,
+.session-chair,
+.paper-authors
+{
+  font-family: "Fira Sans", sans-serif;
+  color: var(--text-dark-color);
+  font-size: 1.875rem;
+}
+
+/* h5 */
+.session-list-date,
+.session-date,
+.paper-link,
+.paper-presentation,
+.speaker-name
+{
+  /* placeholder; add styles here */
+  font-family: "Fira Sans", sans-serif;
+  color: var(--text-dark-color);
+  text-decoration: none;
+}
+
+/* h5 */
+.paper-details-heading,
+.speaker-title,
+.speaker-details-heading {
+  font-family: "Zilla Slab SemiBold", serif;
+  color: var(--text-heading-color);
+}
+
+/* h5 */
+.session-list-presenter
+{
+  /* placeholder; add styles here */
+  text-decoration: none;
+}
+
+/* info/non-paragraph text */
+.session-list-info,
+.session-info,
+.session-list-type
+{
+  /* placeholder; add styles here */
+  font-family: "Fira Sans", sans-serif;
+  color: var(--text-dark-color);
+  text-decoration: none;
+}
+
+/* session lists */
+
+.session-listing {
+  border-left: 5px solid transparent;
+}
+
+.event-faceting,
+.legend-item {
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  font-size: 1rem;
+  padding-bottom: 0.5rem;
+  font-family: "Fira Sans SemiBold", sans-serif;
+}
+
+.session-type {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  font-size: 1rem;
+  padding-bottom: 0.5rem;
+  font-family: "Fira Sans SemiBold", sans-serif;
+}
+
+.session-list-title .fas {
+  font-size: 0.8em;
+}
+
+/* session page styling */
+
+.session-chair .fas,
+.session-date .fas
+{
+  font-size: 0.75em;
+  vertical-align: baseline;
+}
+
+.session-links {
+  padding-top: 3rem;
+}
+
+.alert-link {
+  text-decoration: underline;
+}
+
+.integration-description {
+  color: var(--icon-color);
+  font-size: 0.85rem;
+}
+
+.integration-description emph {
+  color: var(--accent-color);
+}
+
+/* paper page styling */
+
+.paper-award {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: var(--accent-color);
+  outline: 2px solid var(--accent-color);
+  outline-offset: 6px;
+}
+
+
+/* awards styling */
+
+/*.award-card-wrapper{*/
+/*  z-index: 100;*/
 /*}*/
+.award-card {
+  font-size: 1rem;
+  height: 100%;
+  position: relative;
+  z-index: 0;
+}
+
+.award-card > * {
+  z-index: 5;
+}
+.award-card:before {
+    content: "\f091";  /* this is your text. You can also use UTF-8 character codes as I do here */
+    font-family: "Font Awesome 5 Free";
+    left: calc(50% - 25px);
+    position:absolute;
+    top: calc(50% - 25px);
+    font-size: 50px;
+    color: #f0f0f0;
+    z-index: -1;
+ }
+
+.award-card .award-title{
+  font-family: Fira Sans, sans-serif;
+  font-size: 1rem;
+  color: var(--text-dark-color);
+  letter-spacing: .01em;
+  font-weight: bold;
+}
+.award-card .award-name{
+  font-family: Zilla Slab SemiBold, serif;
+  font-size: 1.5rem;
+  color: var(--text-dark-color);
+}
+.award-card .award-paper{
+  font-family: Zilla Slab SemiBold, serif;
+  font-size: 1.4rem;
+  color: var(--text-dark-color);
+}
+.award-card .award-authors{
+  font-family: Fira Sans, sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: .01em;
+}
+
+/* tooltip used in calendar */
+.tooltip {
+  font-family: "Fira Sans", sans-serif;
+}
+
+/* tooltip for schedule days */
+.note{
+  border-bottom: 2px dotted;
+}
+
+/* tooltip for timezone */
+.timezone {
+  font-family: "Fira Sans", sans-serif;
+  font-size: 0.9rem;
+  border-bottom: 1px dotted var(--text-gray-color);
+}
+
+.tztooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tztooltip .tztooltiptext{
+  visibility: hidden;
+  width: 150px;
+  background-color: var(--btn-inv-color);
+  color: var(--text-inv-color);
+  text-align: center;
+  padding: 5px 2px;
+  border-radius: 6px;
+
+  font-family: "Fira Sans", sans-serif;
+  font-size: 0.8rem;
+
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -75px;
+
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tztooltip .tztooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tztooltip:hover {
+  cursor:help;
+}
+
+.tztooltip:hover .tztooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+

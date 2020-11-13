@@ -10,7 +10,9 @@
 
 .dot.highlight {
   fill-opacity: 1;
-  fill: rgb(255, 54, 72);
+  fill: rgb(43, 113, 255);
+  /*fill: #bed972;*/
+/*rgb(255, 54, 72);*/
 }
 .dot.non-highlight {
   fill: rgba(128, 128, 128, 0.62);
@@ -25,15 +27,21 @@
 
 .dot.highlight_sel {
   fill-opacity: 1;
-  fill: rgb(255, 54, 72);
+  fill: rgb(43, 113, 255);
+  /*fill: #bed972;*/
+  /*fill: rgb(255, 54, 72);*/
 }
 
 .dot.read {
   fill: gray;
 }
 .dot.bookmarked {
-  fill: #bed972;
+  fill: var(--accent-color);
   fill-opacity: 1;
+}
+.dot.bookmarked.non-highlight {
+  fill: var(--accent-color);
+  fill-opacity: .5;
 }
 
 .tt-title {

@@ -19,8 +19,28 @@ const MODE = {
   detail: "detail"
 }
 
+// import from base.html
+
+function getTimezone() {
+  const urlTz = window.getUrlParameter && getUrlParameter('tz');
+  if (urlTz) return urlTz;
+
+  const storageTz = window.localStorage.getItem("tz")
+  if (storageTz) return storageTz;
+
+  return moment.tz.guess();
+}
+
+const currentTZ = getTimezone();
+
+function formatTime(text) {
+  let atime = moment(text).clone().tz(currentTZ);
+  return atime.format("dd, MMM D, HH:mm");
+}
+
 
 let render_mode = MODE.compact;
+let currentTippy = null;
 
 const updateCards = (papers) => {
   Promise.all([
@@ -29,8 +49,9 @@ const updateCards = (papers) => {
   ]).then(
     ([visitedPapers, bookmarks]) => {
 
+
       papers.forEach((paper) => {
-        paper.UID = paper.UID;
+        // paper.UID = paper.UID;
         paper.read = visitedPapers[paper.UID] || false;
         paper.bookmarked = bookmarks[paper.UID] || false;
       });
@@ -49,8 +70,13 @@ const updateCards = (papers) => {
         .selectAll(".myCard", (paper) => paper.UID)
         .data(papers, (d) => d.number)
         .join("div")
-        .attr("class", "myCard col-xs-6 col-md-4")
+        .attr("class", "myCard col-sm-6 col-lg-4")
         .html(card_html);
+
+
+      // d3.select(".cards")
+      //   .html(papers.map(p =>`<div class="myCard col-sm-6 col-lg-4">${card_html(p)}</div>`).join('\n'))
+      // const all_mounted_cards =d3.selectAll(".myCard");
 
       all_mounted_cards.select(".card-title").on("click", function (d) {
         const iid = d.UID;
@@ -67,19 +93,22 @@ const updateCards = (papers) => {
 
       all_mounted_cards.select(".checkbox-paper").on("click", function (d) {
         const new_value = !d3.select(this).classed("selected");
+        d.read = new_value;
         visitedCard(d.UID, new_value);
         d3.select(this).classed("selected", new_value);
       });
 
       all_mounted_cards.select(".checkbox-bookmark").on("click", function (d) {
         const new_value = !d3.select(this).classed("selected");
+        d.bookmarked = new_value;
         bookmarkedCard(d.UID, new_value);
         d3.select(this).classed("selected", new_value);
       });
 
 
       lazyLoader();
-
+      if (currentTippy) currentTippy.forEach(t => t.destroy());
+      currentTippy = tippy(".has_tippy", {trigger: "mouseenter focus"}); //, {trigger: "mouseenter focus"}
 
     }
   )
@@ -94,6 +123,7 @@ function shuffleArray(array) {
     array[j] = temp;
   }
 }
+
 
 const render = () => {
   const f_test = [];
@@ -111,14 +141,19 @@ const render = () => {
       let i = 0;
       let pass_test = true;
       while (i < f_test.length && pass_test) {
-        if (f_test[i][0] === "titles") {
+        const testName = f_test[i][0];
+        const testValue = f_test[i][1];
+        const testValueSmall = testValue.toLowerCase();
+        if (testName === "titles") {
           pass_test &=
-            d.title.toLowerCase().indexOf(f_test[i][1].toLowerCase()) >
+            d.title.toLowerCase().indexOf(testValueSmall) >
             -1;
-        } else if (f_test[i][0] === "session") {
-          pass_test &= d["sessions"].indexOf(f_test[i][1]) > -1;
+        } else if (testName === "sessions" || testName === "keywords" || testName === "authors") {
+          pass_test &= d[testName]
+            .map(s => s.toLowerCase().indexOf(testValueSmall) > -1)
+            .reduce((o, n) => o || n, false);
         } else {
-          pass_test &= d[f_test[i][0]].indexOf(f_test[i][1]) > -1;
+          pass_test &= d[testName].toLowerCase().indexOf(testValueSmall) > -1;
         }
         i++;
       }
@@ -127,6 +162,7 @@ const render = () => {
     // console.log(fList, "--- fList");
     updateCards(fList);
   }
+
 };
 
 const updateFilterSelectionBtn = (value) => {
@@ -152,7 +188,7 @@ const updateSession = () => {
  * START here and load JSON.
  */
 const start = () => {
-  const urlFilter = getUrlParameter("filter") || "keywords";
+  const urlFilter = getUrlParameter("filter") || "titles";
   setQueryStringParameter("filter", urlFilter);
   updateFilterSelectionBtn(urlFilter);
 
@@ -186,13 +222,15 @@ const start = () => {
 d3.selectAll(".filter_option input").on("click", function () {
   const me = d3.select(this);
 
+  const old_search = getUrlParameter("search");
+
   const filter_mode = me.property("value");
   setQueryStringParameter("filter", filter_mode);
   setQueryStringParameter("search", "");
   updateFilterSelectionBtn(filter_mode);
-
   setTypeAhead(filter_mode, allKeys, filters, render);
-  render();
+
+  if (old_search !== "") render();
 });
 
 d3.selectAll(".remove_session").on("click", () => {
@@ -207,11 +245,41 @@ d3.selectAll(".render_option input").on("click", function () {
   render();
 });
 
+
+const sortFunctions = {
+  "random": (a, b) => null,
+  "bookmarked": (a, b) => -(a.bookmarked ? 1 : 0) + (b.bookmarked ? 1 : 0),
+  "visited": (a, b) => -(a.read ? 1 : 0) + (b.read ? 1 : 0),
+  "visited_not": (a, b) => (a.read ? 1 : 0) - (b.read ? 1 : 0),
+  "todo": (a, b) => -((a.read ? 0 : 1) + (a.bookmarked ? 2 : 0)) + ((b.read ? 0 : 1) + (b.bookmarked ? 2 : 0))
+
+}
+
+let sortBy = "random";
+
 d3.select(".reshuffle").on("click", () => {
-  shuffleArray(allPapers);
+  // shuffleArray(allPapers);
+  if (sortBy === "random") {
+    shuffleArray(allPapers);
+  } else {
+    allPapers.sort(sortFunctions[sortBy]);
+  }
 
   render();
 });
+
+const sortBySelector = d3.select("#sortBy")
+sortBySelector.on("change", (e) => {
+  sortBy = sortBySelector.property("value");
+  if (sortBy === "random") {
+    d3.select(".reshuffle").text("shuffle")
+    shuffleArray(allPapers);
+  } else {
+    d3.select(".reshuffle").text("sort")
+    allPapers.sort(sortFunctions[sortBy]);
+  }
+  render();
+})
 
 /**
  * CARDS
@@ -222,7 +290,8 @@ const keyword = (kw) => `<a href="papers.html?filter=keywords&search=${kw}"
 
 const card_image = (paper, show) => {
   if (show)
-    return ` <center><img class="lazy-load-img cards_img" data-src="${API.thumbnailPath(paper)}" width="80%"/></center>`;
+    return ` <center><img class="lazy-load-img cards_img" data-src="${API.thumbnailPath(
+      paper)}" width="80%"/></center>`;
   return "";
 };
 
@@ -234,7 +303,7 @@ const card_detail = (paper, show) => {
         <p class="card-text"><span class="font-weight-bold">Keywords:</span>
             ${paper.keywords.map(keyword).join(", ")}
         </p>
-        <p class="card-text"> ${paper.TLDR}</p>
+        <p class="card-text"> ${paper.abstract}</p>
         </div>
     </div>
 `;
@@ -270,7 +339,8 @@ const card_icon_cal = icon_cal(16);
 const card_live = (link) =>
   `<a class="text-muted" href="${link}">${card_icon_video}</a>`;
 const card_cal = (paper, i) =>
-  `<a class="text-muted" href="${API.posterICS(paper,i)}">${card_icon_cal}</a>`;
+  `<a class="text-muted" href="${API.posterICS(paper,
+    i)}">${card_icon_cal}</a>`;
 
 const card_time_detail = (paper, show) => {
   return show ? `
@@ -290,24 +360,35 @@ const card_html = (paper) =>
   `
         <div class="pp-card pp-mode-${render_mode} ">
             <div class="pp-card-header" style="">
-            <div class="checkbox-paper fas ${paper.read ? "selected" : ""}" 
-            style="display: block;position: absolute; bottom:${render_mode === MODE.detail ? 375 : 35}px;left: 35px;">&#xf00c;</div>
-            <div class="checkbox-bookmark fas  ${paper.bookmarked ? "selected" : ""}" 
-            style="display: block;position: absolute; top:-5px;right: 25px;">&#xf02e;</div>
-            
-<!--                ✓-->
-                <a href="${API.posterLink(paper)}"
-                target="_blank"
-                   class="text-muted">
-                   <h5 class="card-title" align="center"> ${
-    paper.title
-  } </h5></a>
-                <h6 class="card-subtitle text-muted" align="center">
-                        ${paper.authors.join(", ")}
-                </h6>
-                ${card_image(paper, render_mode !== MODE.mini)}
-                
+              <div class="checkbox-paper fas ${paper.read ? "selected" : ""}" 
+              style="display: block;position: absolute; bottom:${render_mode === MODE.detail ? 375 : 35}px;left: 35px;">&#xf00c;</div>
+              <div class="checkbox-bookmark fas  ${paper.bookmarked ? "selected" : ""}" 
+              style="display: block;position: absolute; top:-5px;right: 25px;">&#xf02e;</div>
+              <a href="${API.posterLink(paper)}"
+              target="_blank"
+                 class="text-muted">
+                 <h5 class="card-title" > ${paper.title} </h5>
+              </a>
+              <h6 class="card-subtitle text-muted" style="text-align: left;">
+                      ${paper.authors.map(
+    s => `<a href="papers.html?filter=authors&search=${s}">${s}</a>`)
+    .join(", ")}
+              </h6>              
+
+              <div class="card-subtitle text-muted mt-2" style="text-align: left;">
+                     <a class="has_tippy" href ="session_${paper.session_id}.html" target="_blank" data-tippy-content="go to session ${paper.session_title}">${formatTime(
+    paper.time_stamp)}</a> -- ${paper.sessions.map(
+    s => `<a class="has_tippy" href="papers.html?filter=sessions&search=${s}" data-tippy-content="filter all papers in session:">${s}</a>`)
+    .join(",")}
+              </div>
+              
+              ${card_image(paper, render_mode !== MODE.mini)}
             </div>
                
                 ${card_detail(paper, render_mode === MODE.detail)}
         </div>`;
+
+
+// <div class="card-subtitle text-muted mt-2" style="text-align: left;">
+//        Time: ${formatTime(paper.time_stamp)}
+// </div>

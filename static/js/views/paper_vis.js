@@ -11,7 +11,7 @@ const filters = {
   title: null,
 };
 
-const summaryBy = "keywords"; // or: "abstract"
+const summaryBy = "abstract"//"keywords"; // or: "abstract"
 
 let currentTippy = null;
 let brush = null;
@@ -80,6 +80,7 @@ function brush_ended() {
   let parts = null;
   let count = 0;
   all_sel.forEach((paper) => {
+
     if (summaryBy === "keywords") {
       paper.keywords.forEach((kw) => {
         count = words_abstract.get(kw) || 0;
@@ -87,14 +88,23 @@ function brush_ended() {
         words_abstract.set(kw, count);
       });
     } else {
+      const wordvec = new Set();
       parts = paper.abstract.split(/[.]?\s+/);
       parts.forEach((p) => {
         if (p.length < 3) return;
+        // wordvec.add(p.toLowerCase());
         p = p.toLowerCase();
         count = words_abstract.get(p) || 0;
         count += 1;
         words_abstract.set(p, count);
       });
+      // console.log(wordvec, "--- wordvec");
+      // for (let p of wordvec) {
+      //   console.log(p, "--- p");
+      //   count = words_abstract.get(p) || 0;
+      //   count += 1;
+      //   words_abstract.set(p, count);
+      // }
     }
   });
   stopwords.forEach((sw) => words_abstract.delete(sw));
@@ -241,15 +251,24 @@ const render = () => {
     let i = 0;
     let pass_test = true;
     while (i < f_test.length && pass_test) {
-      if (f_test[i][0] === "titles") {
-        pass_test &= d.title === f_test[i][1];
+      const testName = f_test[i][0];
+      const testValue = f_test[i][1];
+      const testValueSmall = testValue.toLowerCase();
+      if (testName === "titles") {
+        pass_test &=
+          d.title.toLowerCase().indexOf(testValueSmall) >
+          -1;
+      } else if (testName === "sessions" || testName === "keywords" || testName === "authors") {
+        pass_test &= d[testName]
+          .map(s => s.toLowerCase().indexOf(testValueSmall) > -1)
+          .reduce((o, n) => o || n, false);
       } else {
-        pass_test &= d[f_test[i][0]].indexOf(f_test[i][1]) > -1;
+        pass_test &= d[testName].toLowerCase().indexOf(testValueSmall) > -1;
       }
       i++;
     }
     return pass_test;
-  };
+  }
 
   if (f_test.length === 0) test = (d) => false;
 
@@ -272,9 +291,12 @@ const start = () => {
     .then(([papers, proj]) => {
       // all_proj = proj;
 
+      console.log(papers,proj,"--- papers,proj");
+
       const projMap = new Map();
       proj.forEach((p) => projMap.set(p.id, p.pos));
 
+      papers = papers.filter(d => !!d.abstract && projMap.get(d.UID));
       papers.forEach((p) => {
         p.pos = projMap.get(p.UID);
       });
@@ -282,11 +304,10 @@ const start = () => {
       all_papers = papers;
 
       calcAllKeys(all_papers, allKeys);
-      setTypeAhead("authors", allKeys, filters, render);
+      setTypeAhead("titles", allKeys, filters, render);
 
-      xS.domain(d3.extent(proj.map((p) => p.pos[0])));
-      yS.domain(d3.extent(proj.map((p) => p.pos[1])));
-
+      xS.domain(d3.extent(papers.map((p) => p.pos[0])));
+      yS.domain(d3.extent(papers.map((p) => p.pos[1])));
       updateVis();
     })
     .catch((e) => console.error(e));
@@ -447,4 +468,7 @@ will
 just
 don
 should
-now`.split("\n");
+now
+visual
+visualization
+`.split("\n");
