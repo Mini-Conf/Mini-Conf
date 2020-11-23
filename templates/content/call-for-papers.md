@@ -1,18 +1,14 @@
-Call for papers coming soon!
+## ACM-CHIL 2020 CFP (abridged)
 
+The ACM Conference on Health, Inference, and Learning (CHIL) solicits work across a variety of disciplines, including machine learning, statistics, epidemiology, health policy, operations, and economics. ACM-CHIL 2020 invites submissions touching on topics focused on relevant problems affecting health. Specifically, authors are invited to submit 8-10 page papers (with unlimited pages for references) to each of the tracks described below.
 
-## CHIL 2020 CFP (abridged)
+To ensure that all submissions to ACM-CHIL are reviewed by a knowledgeable and appropriate set of reviewers, the conference is divided into tracks and areas of interest. Authors will select exactly one primary track and area of interest when they register their submissions, in addition to one or more sub-disciplines.
 
-The ACM Conference on Health, Inference, and Learning (CHIL) solicits work across a variety of disciplines, including machine learning, statistics, epidemiology, health policy, operations, and economics. CHIL 2020 invites submissions touching on topics focused on relevant problems affecting health. Specifically, authors are invited to submit 8-10 page papers (with unlimited pages for references) to each of the tracks described below.
-
-To ensure that all submissions to CHIL are reviewed by a knowledgeable and appropriate set of reviewers, the conference is divided into tracks and areas of interest. Authors will select exactly one primary track and area of interest when they register their submissions, in addition to one or more sub-disciplines.
-
-Track chairs will oversee the reviewing process. In case you are not sure which track your submission fits under, feel free to contact the track or PC chairs for clarification. The PC Chairs reserve the right to move submissions between tracks and/or areas of interest if the PC believes that a submission has been misclassified.
-
+Track Chairs will oversee the reviewing process. In case you are not sure which track your submission fits under, feel free to contact the track or PC Chairs for clarification. The PC Chairs reserve the right to move submissions between tracks and/or areas of interest if the PC believes that a submission has been misclassified.
 
 #### Important dates
 
-_Note that although CHIL 2020 was held in July, the CFP timelines targeted an initial conference date in early April. The conference was delayed by the COVID-19 pandemic, but the proceedings were not._
+_Note that although ACM-CHIL 2020 was held in July, the CFP timelines targeted an initial conference date in early April. The conference was delayed by the COVID-19 pandemic, but the proceedings were not._
 
 - Submissions due – January 13, 2020 (11:59 pm AoE)
 - Notification of Acceptance – Feb 12, 2020 (11:59 pm AoE)
@@ -33,7 +29,6 @@ Advances in machine learning are critical for a better understanding of health. 
 While submissions should address problems relevant to health, the contributions themselves are not required to be directly applied to health. For example, authors may use synthetic datasets and experiments to demonstrate the properties of algorithms.
 
 Authors may consider one or more machine learning sub-discipline(s) from the following non-exhaustive list: Bayesian learning, Causal inference, Computer vision, Deep learning architectures Evaluation methods, Inference, Knowledge graphs, Natural language processing, Reinforcement Learning, Representation learning, Robust learning, Structured learning, Supervised learning, Survival analysis, Time series, Transfer learning, Unsupervised learning, Explainability, Algorithmic Fairness.
-
 
 **Track 2: Applications: Investigation, Evaluation, and Interpretation**
 
@@ -59,4 +54,4 @@ Descriptions of databases to support biomedical or health research are welcome. 
 
 #### Open Access
 
-ACM CHIL is committed to open science and ensuring our proceedings are freely available. The conference will make use of the ‘ACM Authorizer “Open Access” Service’ and ‘ACM OpenTOC Service’, allowing unrestricted access to individual papers as well as the overall proceedings, [see here](https://www.acm.org/publications/openaccess) for more details.
+ACM-CHIL is committed to open science and ensuring our proceedings are freely available. The conference will make use of the ‘ACM Authorizer “Open Access” Service’ and ‘ACM OpenTOC Service’, allowing unrestricted access to individual papers as well as the overall proceedings, [see here](https://www.acm.org/publications/openaccess) for more details.

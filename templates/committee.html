@@ -6,36 +6,36 @@
 {% endblock %}
 
 {% block tabs %}
-<div class="page-header text-center">
-  <h1>ACM CHIL Committee</h1>
-</div>
-{{ components.tabs([("governing-board", "Governing Board", "active"),
-                    ("senior-advisory-board", "Senior Advisory Board", ""),
-                  ]) }}
+  <div class="page-header text-center">
+    <h1>ACM-CHIL Committee</h1>
+  </div>
+  {{ components.tabs([("governing-board", "Governing Board", "active"),
+                      ("steering-committee", "Steering Committee", ""),
+                    ]) }}
 {% endblock %}
 
 {% block content %}
-<div class="page-content">
-  <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-    <!-- Governing Board tab -->
-    <div
-      class="tab-pane active"
-      id="tab-governing-board"
-      role="tabpanel"
-      aria-labelledby="nav-profile-tab"
-    >
-      {{ committee_governing_board | markdown }}
+  <div class="page-content">
+    <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+      <!-- Governing Board tab -->
+      <div
+        class="tab-pane active"
+        id="tab-governing-board"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+        {{ committee_governing_board | markdown }}
+      </div>
+      <!-- Steering Committee tab -->
+      <div
+        class="tab-pane fade"
+        id="tab-steering-committee"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+        {{ committee_steering_committee | markdown }}
+      </div>
     </div>
-    <!-- Senior Advisory Board tab -->
-    <div
-      class="tab-pane fade"
-      id="tab-senior-advisory-board"
-      role="tabpanel"
-      aria-labelledby="nav-profile-tab"
-    >
-      {{ committee_senior_advisory_board | markdown }}
-    </div>
+    {{ committee | markdown }}
   </div>
-  {{ committee | markdown }}
-</div>
 {% endblock %}

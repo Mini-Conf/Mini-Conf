@@ -1,13 +1,14 @@
 name: ACM-CHIL 2021
 tagline: ACM Conference on <br> Health, Inference, and Learning
 date: April 8-10, 2021
+countdown_date: April 8, 2021
 citation_date: July 2020
 proceedings_title: Proceedings of ACM-CHIL 2021
 analytics: UA-
 logo:
-  image: static/images/acm-logo-192x192.png
-  width: 50px
-  height: auto
+  image: static/images/acm-logo-full-550x192.png
+  width: auto
+  height: 50px
   alt_text: 'ACM logo'
 # uncomment the following line to show the site title next to the logo image
 site_title: ACM-CHIL 2021

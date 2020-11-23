@@ -3,22 +3,22 @@
 {% extends "base.html" %}
 
 {% block tabs %}
-{{ components.tabs([("faq", "FAQ", "active")]) }}
+  {{ components.tabs([("faq", "FAQ", "active")]) }}
 {% endblock %}
 
 {% block content %}
-<div class="page-content">
-  <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-    <!-- FAQ -->
-    <div
-      class="tab-pane active"
-      id="tab-faq"
-      role="tabpanel"
-      aria-labelledby="nav-profile-tab"
-    >
-      {{ components.section("Frequently Asked Questions") }}
-      {{ components.faqgroup(FAQ) }}
+  <div class="page-content">
+    <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+      <!-- FAQ -->
+      <div
+        class="tab-pane active"
+        id="tab-faq"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+        {{ components.section("Frequently Asked Questions") }}
+        {{ components.faqgroup(FAQ) }}
+      </div>
     </div>
   </div>
-</div>
 {% endblock %}

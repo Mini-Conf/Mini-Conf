@@ -1,180 +1,175 @@
 {% set active_page = "Papers" %}
 {% set page_title = "Papers" %}
-
 {% extends "base.html" %}
-{% block head %}
-{{ super() }}
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.4.0/dist/umd/popper.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/tippy.js@6/dist/tippy-bundle.umd.min.js"></script>
-
-<script src="static/js/modules/icons.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-
-{% endblock %}
 
 {% block tabs %}
-<ul class="nav nav-pills justify-content-center">
-  <li class="nav-item active">
-    <a
-      class="nav-link text-muted active"
-      data-toggle="tab"
-      href="#tab-browse"
-      role="tab"
-      aria-controls="nav-home"
-      aria-selected="true"
-      >Browse
-    </a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link text-muted" href="paper_vis.html">Visualization</a>
-  </li>
-</ul>
-
+  <ul class="nav nav-pills justify-content-center">
+    <li class="nav-item active">
+      <a
+        class="nav-link text-muted active"
+        data-toggle="tab"
+        href="#tab-browse"
+        role="tab"
+        aria-controls="nav-home"
+        aria-selected="true"
+        >Browse
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-muted" href="paper_vis.html">Visualization</a>
+    </li>
+  </ul>
 {% endblock %}
 
 {% block content %}
-<div class="row p-3"></div>
+  <div class="row p-3"></div>
 
-<!-- Session -->
-<div class="row d-none session_notice">
-  <div
-    class="alert alert-warning alert-dismissible fade show col-12"
-    role="alert"
-  >
-    Showing papers for
-    <span id="session_name" style="font-weight: bold;"></span>.
-    <button
-      type="button"
-      class="close remove_session"
-      data-dismiss="alert"
-      aria-label="Close"
+  <!-- Session -->
+  <div class="row d-none session_notice">
+    <div
+      class="alert alert-warning alert-dismissible fade show col-12"
+      role="alert"
     >
-      <span aria-hidden="true">&times;</span>
-    </button>
+      Showing papers for
+      <span id="session_name" style="font-weight: bold;"></span>.
+      <button
+        type="button"
+        class="close remove_session"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
   </div>
-</div>
 
-<!-- Buttons -->
-<div class="row">
-  <div class="col-12 col-sm-12 col-md-6 col-lg-4">
-    <div class="input-group mb-3">
-      <input
-        type="text"
-        class="form-control typeahead_all"
-        placeholder="Search"
-      />
-      <div class="input-group-append">
-        <button
-          class="btn btn-outline-secondary typeahead_all_clear"
-          type="button"
-        >
-          &times;
-        </button>
+  <!-- Buttons -->
+  <div class="row">
+    <div class="col-12 col-sm-12 col-md-6 col-lg-4">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control typeahead_all"
+          placeholder="Search"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary typeahead_all_clear"
+            type="button"
+          >
+            &times;
+          </button>
+        </div>
       </div>
     </div>
-  </div>
-  <div
-    class="col-12 col-sm-6 col-md-6 col-lg-4 text-center"
-    style="margin-bottom: 10px;"
-  >
-    <div class="btn-group btn-group-toggle filter_option">
-      <label
-        class="btn btn-outline-secondary"
-        data-tippy-content="Search for papers titles"
-      >
-        <input
-          type="radio"
-          name="options"
-          value="titles"
-          autocomplete="off"
-          checked
-        />
-        title
-      </label>
-      <label
-        class="btn btn-outline-secondary"
-        data-tippy-content="Search for papers with specific keywords"
-      >
-        <input
-          type="radio"
-          name="options"
-          value="keywords"
-          autocomplete="off"
-        />
-        keyword
-      </label>
-      <label
-        class="btn btn-outline-secondary active"
-        data-tippy-content="Search for papers from specific authors"
-      >
-        <input type="radio" name="options" value="authors" autocomplete="off" />
-        author
-      </label>
-    </div>
-  </div>
-  <div class="col-12 col-lg-4">
-    <button class="btn btn-outline-secondary reshuffle">shuffle</button>
-    <div class="float-right">
-      <div
-        class="btn-group btn-group-toggle render_option"
-        data-toggle="buttons"
-      >
-        <label class="btn btn-outline-secondary active">
-          <input type="radio" name="options" value="mini" autocomplete="off" />
-          mini
-        </label>
-        <label class="btn btn-outline-secondary active">
+    <div
+      class="col-12 col-sm-6 col-md-6 col-lg-4 text-center"
+      style="margin-bottom: 10px;"
+    >
+      <div class="btn-group btn-group-toggle filter_option">
+        <label
+          class="btn btn-outline-secondary"
+          data-tippy-content="Search for papers titles"
+        >
           <input
             type="radio"
             name="options"
-            value="compact"
+            value="titles"
             autocomplete="off"
             checked
           />
-          compact
+          title
         </label>
-        <label class="btn btn-outline-secondary">
+        <label
+          class="btn btn-outline-secondary"
+          data-tippy-content="Search for papers with specific keywords"
+        >
           <input
             type="radio"
             name="options"
-            value="detail"
+            value="keywords"
             autocomplete="off"
           />
-          detail
+          keyword
+        </label>
+        <label
+          class="btn btn-outline-secondary active"
+          data-tippy-content="Search for papers from specific authors"
+        >
+          <input type="radio" name="options" value="authors" autocomplete="off" />
+          author
         </label>
       </div>
     </div>
+    <div class="col-12 col-lg-4">
+      <button class="btn btn-outline-secondary reshuffle">shuffle</button>
+      <div class="float-right">
+        <div
+          class="btn-group btn-group-toggle render_option"
+          data-toggle="buttons"
+        >
+          <label class="btn btn-outline-secondary active">
+            <input type="radio" name="options" value="mini" autocomplete="off" />
+            mini
+          </label>
+          <label class="btn btn-outline-secondary active">
+            <input
+              type="radio"
+              name="options"
+              value="compact"
+              autocomplete="off"
+              checked
+            />
+            compact
+          </label>
+          <label class="btn btn-outline-secondary">
+            <input
+              type="radio"
+              name="options"
+              value="detail"
+              autocomplete="off"
+            />
+            detail
+          </label>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 
-<!-- Cards -->
-<div class="cards row"></div>
-<script src="static/js/modules/urlParams.js"></script>
-<script src="static/js/modules/typeaheadSetup.js"></script>
-<script src="static/js/modules/lazyLoad.js"></script>
-<script src="static/js/data/persistor.js"></script>
-<script src="static/js/data/wrangle.js"></script>
-<script src="static/js/views/papers.js"></script>
-<script>
-  $(document).ready(function () {
-    tippy("[data-tippy-content]", { trigger: "mouseenter focus" });
-    start();
-  });
-</script>
-
+  <!-- Cards -->
+  <div class="cards row"></div>
 {% endblock %}
 
 {% block footer %}
-
-<div
-  class="gdpr bg-dark text-light"
-  style="padding: 10pt; position: fixed; bottom: 0; display: none;"
->
-  We use cookies to store which papers have been visited.
-  <div class="gdpr-btn btn btn-sm btn-info" style="margin-left: 15pt;">
-    I agree
+  <div
+    class="gdpr bg-dark text-light"
+    style="padding: 10pt; position: fixed; bottom: 0; display: none;"
+  >
+    We use cookies to store which papers have been visited.
+    <div class="gdpr-btn btn btn-sm btn-info" style="margin-left: 15pt;">
+      I agree
+    </div>
   </div>
-</div>
-<script src="static/js/modules/gdprCookies.js"></script>
+{% endblock %}
 
+{% block scripts %}
+  {{ super() }}
+  <script src="https://cdn.jsdelivr.net/npm/tippy.js@6/dist/tippy-bundle.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
+  <script src="static/js/modules/icons.js"></script>
+  <script src="static/js/modules/gdprCookies.js"></script>
+  <script src="static/js/modules/urlParams.js"></script>
+  <script src="static/js/modules/typeaheadSetup.js"></script>
+  <script src="static/js/modules/lazyLoad.js"></script>
+  <script src="static/js/data/persistor.js"></script>
+  <script src="static/js/data/wrangle.js"></script>
+  <script src="static/js/views/papers.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      tippy("[data-tippy-content]", { trigger: "mouseenter focus" });
+      start();
+    });
+  </script>
 {% endblock %}

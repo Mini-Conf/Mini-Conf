@@ -1,4 +1,5 @@
-{# Components:
+{#
+Components:
 tabs -- Navigation tabs
 section, subsection -- bootstrap sections
 speakergroup
@@ -6,7 +7,6 @@ organizergroup
 faqgroup
 highlightgroup
 workshopgroup
-
 #}
 
 {% macro tabs(tab_group) -%}
@@ -52,7 +52,7 @@ workshopgroup
       <div class="card-header">
         <div class="row">
           <div class="col-md-2 col-sm-5">
-            <img src="{{speaker.image}}" width="100%" class="img-thumbnail" />
+            <img src="{{speaker.image}}" width="100%" class="img-thumbnail" alt="{{speaker.speaker}}" />
           </div>
           <div class="col-md-10 col-sm-6">
             <div class="m-3 text-muted">
@@ -64,7 +64,12 @@ workshopgroup
             </div>
             <div class="m-3 text-muted">
               <span class="card-title h3">
-                {{speaker.speaker}}  /  {{speaker.institution}}
+                {{speaker.speaker}} {% if speaker.institution %} / {{speaker.institution}} {% endif %}
+              </span>
+            </div>
+            <div class="m-3 text-muted">
+              <span class="card-title h3">
+                <a href="{{speaker.website}}" target="_blank" rel="noopener">{{speaker.website}}</a>
               </span>
             </div>
             <div class="m-3">

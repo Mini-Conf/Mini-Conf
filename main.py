@@ -180,6 +180,7 @@ def schedule():
             format_paper(by_uid["papers"][h["UID"]]) for h in site_data["highlighted"]
         ],
     }
+    data["speakers"] = site_data["speakers"]
     data["schedule"] = open("./templates/content/schedule.md").read()
     return render_template("schedule.html", **data)
 
@@ -211,6 +212,10 @@ def sponsor():
 def call_for_papers():
     data = _data()
     data["call_for_papers"] = open("./templates/content/call-for-papers.md").read()
+    data["call_for_papers_author_info"] = open("./templates/content/call-for-papers-author-info.md").read()
+    data["call_for_papers_track_1"] = open("./templates/content/call-for-papers-track-1.md").read()
+    data["call_for_papers_track_2"] = open("./templates/content/call-for-papers-track-2.md").read()
+    data["call_for_papers_track_3"] = open("./templates/content/call-for-papers-track-3.md").read()
     return render_template("call-for-papers.html", **data)
 
 
@@ -221,10 +226,16 @@ def committee():
     data["committee_governing_board"] = open(
         "./templates/content/committee-governing-board.md"
     ).read()
-    data["committee_senior_advisory_board"] = open(
-        "./templates/content/committee-senior-advisory-board.md"
+    data["committee_steering_committee"] = open(
+        "./templates/content/committee-steering-committee.md"
     ).read()
     return render_template("committee.html", **data)
+
+@app.route("/past-events.html")
+def past_events():
+    data = _data()
+    data["past_events_chil_2020"] = open("./templates/content/past-events-chil-2020.md").read()
+    return render_template("past-events.html", **data)
 
 
 def extract_list_field(v, key):

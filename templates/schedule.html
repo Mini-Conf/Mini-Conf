@@ -1,77 +1,97 @@
 {% set active_page = "Schedule" %}
 {% set page_title = "Schedule" %}
 {% extends "base.html" %}
+
 {% block head %}
-{{ super() }}
-{% include 'schedule_head.html' %}
+  {{ super() }}
+  {% include 'schedule_head.html' %}
 {% endblock %}
 
 {% block tabs %}
-{# COMMENTED OUT
-  {{ components.tabs([("calendar", "Calendar", "active"),
-        ("day", "Example Day", "")]) }}
-#}
+  <div class="page-header text-center">
+    <h1>Schedule</h1>
+  </div>
+  {{ components.tabs([
+        ("speakers", "Keynote Speakers", "active")
+    ])}}
 {% endblock %}
 
 
 {% block content %}
-<div class="page-header text-center">
-  <h1>Schedule</h1>
-</div>
-<div class="page-content">
-  {{ schedule | markdown }}
-</div>
-
-{# COMMENTED OUT
-<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-  <!-- Calender tab -->
-  <div
-    class="tab-pane active"
-    id="tab-calendar"
-    role="tabpanel"
-    aria-labelledby="nav-profile-tab"
-  >
-    <div class="form-group col">
-      <label for="tzOptions">Timezone:</label>
-      <select id="tzOptions" class="selectpicker" data-live-search="true">
-      </select>
-    </div>
-
-    <!-- full cal for browser-->
-    <div id="calendar" class="d-none d-sm-block"></div>
-
-    <!-- small cal for smart phones-->
-    <div id="calendar_small" class="d-sm-none"></div>
-
-    <!--    <script type="text/javascript">-->
-    <!--      // console.log(make_cal(),"-&#45;&#45; make_cal()");-->
-    <!--      make_cal().then((d) => console.log(d, "-&#45;&#45; d"));-->
-    <!--    </script>-->
-  </div>
-
-  <!-- Day Tab -->
-
-  <div
-    class="tab-pane fade"
-    id="tab-day"
-    role="tabpanel"
-    aria-labelledby="nav-profile-tab"
-  >
-    <div id="day">
-      <!-- Speakers -->
-      {{ components.section("Speakers") }}
-      <div class="speakers">
-        {{ components.speakergroup(day.speakers) }}
-      </div>
-      {{ components.section("Highlighted Papers") }}
-      <div class="papers">
-        {{ components.highlightgroup(day.highlighted, 1) }}
+  <div class="page-content">
+    {{ schedule | markdown }}
+    <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+      <!-- Keynote speakers tab -->
+      <div
+        class="tab-pane active"
+        id="tab-speakers"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+        <!-- Speakers -->
+        {% if speakers %}
+          {{ components.speakergroup(speakers) }}
+        {% endif %}
       </div>
     </div>
-
-
   </div>
 
+  {# COMMENTED OUT
+  <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+    <!-- Calender tab -->
+    <div
+      class="tab-pane active"
+      id="tab-calendar"
+      role="tabpanel"
+      aria-labelledby="nav-profile-tab"
+    >
+      <div class="form-group col">
+        <label for="tzOptions">Timezone:</label>
+        <select id="tzOptions" class="selectpicker" data-live-search="true">
+        </select>
+      </div>
+
+      <!-- full cal for browser-->
+      <div id="calendar" class="d-none d-sm-block"></div>
+
+      <!-- small cal for smart phones-->
+      <div id="calendar_small" class="d-sm-none"></div>
+
+      <!--    <script type="text/javascript">-->
+      <!--      // console.log(make_cal(),"-&#45;&#45; make_cal()");-->
+      <!--      make_cal().then((d) => console.log(d, "-&#45;&#45; d"));-->
+      <!--    </script>-->
+    </div>
+
+    <!-- Day Tab -->
+
+    <div
+      class="tab-pane fade"
+      id="tab-day"
+      role="tabpanel"
+      aria-labelledby="nav-profile-tab"
+    >
+      <div id="day">
+        <!-- Speakers -->
+        {{ components.section("Speakers") }}
+        <div class="speakers">
+          {{ components.speakergroup(day.speakers) }}
+        </div>
+        {{ components.section("Highlighted Papers") }}
+        <div class="papers">
+          {{ components.highlightgroup(day.highlighted, 1) }}
+        </div>
+      </div>
+    </div>
+  </div>
+  #}
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  {% include 'schedule_scripts.html' %}
+
+  {#
   <script type="text/javascript">
     window.onload = () => {
       const tabPanes = $(".tab-pane");
@@ -96,6 +116,5 @@
       lazyLoader();
     };
   </script>
-</div>
-#}
+  #}
 {% endblock %}
