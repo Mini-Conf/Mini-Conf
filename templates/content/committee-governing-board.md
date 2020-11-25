@@ -12,7 +12,7 @@
     * Dr. Mike Hughes of Tufts University
     * Dr. Shalmali Joshi of MIT
     * Dr. Rajesh Ranganath of New York University
-    * Dr. Rahul Krishnan of University of Toronto and Vector Institute
+    * Dr. Rahul Krishnan of Microsoft Research, University of Toronto and Vector Institute
 - ##### **Applications and Practice**
     * Dr. Andrew Beam of Harvard University
     * Dr. Tom Pollard of MIT

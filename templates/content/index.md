@@ -19,8 +19,8 @@ All ACM-CHIL events and communications must abide by the [ACM policy against dis
     </tr>
     <tr>
       <th scope="row">Submission System Opens</th>
-      <td>November 25, 2020</td>
-      <td class="text-right"><span class="countdown" data-startdate="November 25, 2020"></span></td>
+      <td>December 11, 2020</td>
+      <td class="text-right"><span class="countdown" data-startdate="December 11, 2020"></span></td>
     </tr>
     <tr>
       <th scope="row">Abstract Submissions due</th>

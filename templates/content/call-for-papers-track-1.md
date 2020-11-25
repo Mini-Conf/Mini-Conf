@@ -28,7 +28,7 @@ We welcome submissions that address research questions within any subfield of ma
 #### Approaches
 - Deep learning
 - Bayesian methods
-- Stru- ctured learning
+- Structured learning
 - Adversarial learning
 - Robust statistics
 - Interpretability
@@ -47,14 +47,14 @@ We welcome submissions that address research questions within any subfield of ma
 
 **Example papers**
 
-Shalit, Uri, Fredrik D. Johansson, and David Sontag. "Estimating individual treatment effect: generalization bounds and algorithms." Proceedings of the 34th International Conference on Machine Learning-Volume 70. JMLR. org, 2017.
+Shalit, Uri, Fredrik D. Johansson, and David Sontag. "<a href="https://arxiv.org/abs/1606.03976" target="_blank" rel="noopener">Estimating individual treatment effect: generalization bounds and algorithms.</a>" Proceedings of the 34th International Conference on Machine Learning-Volume 70. JMLR. org, 2017.
 
-Choi, Edward, et al. "MiME: Multilevel medical embedding of electronic health records for predictive healthcare." Advances in Neural Information Processing Systems. 2018.
+Choi, Edward, et al. "<a href="https://papers.nips.cc/paper/7706-mime-multilevel-medical-embedding-of-electronic-health-records-for-predictive-healthcare.pdf" target="_blank" rel="noopener">MiME: Multilevel medical embedding of electronic health records for predictive healthcare.</a>" Advances in Neural Information Processing Systems. 2018.
 
-McDermott, Matthew BA, et al. "Semi-supervised biomedical translation with cycle Wasserstein regression GANs." Thirty-Second AAAI Conference on Artificial Intelligence. 2018.
+McDermott, Matthew BA, et al. "<a href="https://www.aaai.org/ocs/index.php/AAAI/AAAI18/paper/viewFile/16938/15951" target="_blank" rel="noopener">Semi-supervised biomedical translation with cycle Wasserstein regression GANs.</a>" Thirty-Second AAAI Conference on Artificial Intelligence. 2018.
 
-Futoma, Joseph, Sanjay Hariharan, and Katherine Heller. "Learning to detect sepsis with a multitask Gaussian process RNN classifier." Proceedings of the 34th International Conference on Machine Learning-Volume 70. JMLR. org, 2017.
+Futoma, Joseph, Sanjay Hariharan, and Katherine Heller. "<a href="https://arxiv.org/abs/1706.04152" target="_blank" rel="noopener">Learning to detect sepsis with a multitask Gaussian process RNN classifier.</a>" Proceedings of the 34th International Conference on Machine Learning-Volume 70. JMLR. org, 2017.
 
-Joseph D. Janizek, Gabriel Erion, Alex J. DeGrave, and Su-In Lee. 2020. An adversarial approach for the robust classification of pneumonia from chest radiographs. In Proceedings of the ACM Conference on Health, Inference, and Learning (ACM-CHIL '20). Association for Computing Machinery, New York, NY, USA, 69–79.
+Janizek, Joseph D., et al. "<a href="https://dl.acm.org/doi/10.1145/3368555.3384458" target="_blank" rel="noopener">An adversarial approach for the robust classification of pneumonia from chest radiographs.</a>" Proceedings of the ACM Conference on Health, Inference, and Learning 2020.
 
-Mate, A., Killian, J. A., Xu, H., Perrault, A., & Tambe, M. (2020). Collapsing Bandits and Their Application to Public Health Interventions. arXiv preprint arXiv:2007.04432 (NeurIPS 2020)
+Mate, Aditya, et al. "<a href="https://arxiv.org/abs/2007.04432" target="_blank" rel="noopener">Collapsing Bandits and Their Application to Public Health Interventions.</a>" Advances in Neural Information Processing Systems 2020.
