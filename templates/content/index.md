@@ -10,7 +10,7 @@ All ACM-CHIL events and communications must abide by the [ACM policy against dis
 
 ### Conference Timeline
 
-<table class="table table-striped table-sm">
+<table class="timeline-table table table-striped table-sm">
   <tbody>
     <tr>
       <th scope="row">Call for Papers</th>

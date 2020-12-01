@@ -9,3 +9,6 @@
 
 /* COMPONENTS */
 @import "countdown.css";
+
+/* PAGES */
+@import "pages/index.css";

@@ -147,6 +147,11 @@
           var currentCountdownElement = $( this );
           // Set the date we're counting down to
           var countDownDate = new Date(currentCountdownElement.data('startdate')).getTime();
+          var currentDate = new Date().getTime();
+
+          if (countDownDate < currentDate) {
+            currentCountdownElement.closest('tr').addClass('strikeout');
+          }
 
           $(currentCountdownElement)
             .countdown(countDownDate, function(event) {
