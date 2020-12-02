@@ -9,6 +9,7 @@ MiniConf was originally built to host <a href="https://iclr.cc/virtual_2020">ICL
 * ACMC 2020 (Australian Computer Music Conference): https://acmc2020.com/index.html
 * ACM-CHIL 2020 (Conference on Health, Inference, and Learning) https://www.chilconference.org/
 * ACL 2020 (Association of Computational Linguistics): https://virtual.acl2020.org/index.html
+* AISTATS 2020 (International Conference on Artificial Intelligence and Statistics): https://aistats2020.net/
 * AKBC 2020 (Automated Knowledge Base Construction) : https://akbc.apps.allenai.org/index.html
 * EMNLP 2020 (Empirical Methods in NLP): https://virtual.2020.emnlp.org/index.html
 * ICLR 2020 (International Conference on Learning Representations): https://iclr.cc/virtual_2020
