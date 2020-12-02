@@ -13,6 +13,8 @@ MiniConf was originally built to host <a href="https://iclr.cc/virtual_2020">ICL
 * EMNLP 2020 (Empirical Methods in NLP): https://virtual.2020.emnlp.org/index.html
 * ICLR 2020 (International Conference on Learning Representations): https://iclr.cc/virtual_2020
 * ICML 2020 (International Conference on Machine Learning): https://icml.cc/virtual/2020/index.html
+* IEEE VIS 2020 (IEEE conference on Visualization and Visual Analytics): https://virtual.ieeevis.org/
+* NeurIPS 2020 (Neural Information Processing Systems Conference): https://neurips.cc/virtual/2020/public/
 * SIGIR 2020 (Information Retrieval): https://sigir-schedule.baai.ac.cn/papers
 * Data Science Capstone Exhibition, University of Pretoria: https://up-mitc-ds.github.io/808exhibition2020/index.html
 
