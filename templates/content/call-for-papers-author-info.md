@@ -22,7 +22,7 @@ These are called topics in the submission form. Authors should select one or mor
 ### Evaluation
 Works submitted to ACM-CHIL will be reviewed by 3 reviewers within the broader field of machine learning for healthcare. Reviewers will be asked to primarily judge the work according to five criteria:
 
-**Relevance**: All submissions to ACM-CHIL are expected to be relevant to health. Concretely, this means that the problem is well-placed into the relevant themes for the conference. We will instruct reviewers to gauge whether submissions are best suited for this track, or should be moved elsewhere.
+**Relevance**: All submissions to ACM-CHIL are expected to be relevant to health. Concretely, this means that the problem is well-placed into the relevant themes for the conference. We will instruct reviewers to gauge whether submissions are best suited for this track, or should be moved elsewhere. Track chairs reserve the right to change a paper’s track at any point if they feel that it is a more suitable submission in a different track.
 
 **Quality**: Is the submission technically sound? Are claims well supported by theoretical analysis or experimental results? Is this a complete piece of work or work in progress? Are the authors careful and honest about evaluating both the strengths and weaknesses of their work?
 
@@ -32,7 +32,7 @@ Works submitted to ACM-CHIL will be reviewed by 3 reviewers within the broader f
 
 **Significance**: Are the results important? Are others (researchers or practitioners) likely to use the ideas or build on them? Does the submission address a difficult task in a better way than previous work? Does it advance the state of the art in a demonstrable way? Does it provide unique data, unique conclusions about existing data, or a unique theoretical or experimental approach?
 
-Final decisions will be made in accordance with the reviewer’s overall judgement, along with their subjective ratings of confidence/expertise, and according to our own editorial judgement.
+Authors will be given an opportunity to respond to reviews with a brief comment (maximum of 250 words for a paper; violations of this word limit may result in the paper being desk-rejected). Final paper acceptance/rejection decisions will be made accounting for the reviewers' overall judgment, their subjective ratings of confidence/expertise, the author response (if there is one), and our own editorial judgment.
 
 ### Submission Format and Guidelines
 **Submission Site**
