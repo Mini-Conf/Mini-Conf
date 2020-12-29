@@ -1,0 +1,11 @@
+/* CALL FOR PAPERS CSS */
+
+a.btn.btn-primary.btn-lg.active {
+  background-color: #278eb4;
+  border-color: #278eb4;
+}
+
+a.btn.btn-primary.btn-lg.active:hover {
+  background-color: #399dbe;
+  border-color: #399dbe;
+}
