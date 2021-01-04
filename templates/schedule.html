@@ -12,7 +12,8 @@
     <h1>Program</h1>
   </div>
   {{ components.tabs([
-        ("speakers", "Keynote Speakers", "active")
+        ("speakers", "Keynote Speakers", "active"),
+        ("tutorials", "Tutorials")
     ])}}
 {% endblock %}
 
@@ -31,6 +32,17 @@
         <!-- Speakers -->
         {% if speakers %}
           {{ components.speakergroup(speakers) }}
+        {% endif %}
+      </div>
+      <!-- Tutorials tab -->
+      <div
+        class="tab-pane fade"
+        id="tab-tutorials"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+        {% if tutorials %}
+          {{ components.workshopgroup(tutorials) }}
         {% endif %}
       </div>
     </div>

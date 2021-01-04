@@ -240,3 +240,25 @@ workshopgroup
   {% endfor %}
 </div>
 {%- endmacro %}
+
+{% macro workshopgroup(tutorials) -%}
+<div class="cards row">
+  {% for tutorial in tutorials or [] %}
+  <div class="col-md-12 col-sm-12 p-3">
+    <div class="card">
+      <div class="card-header text-center">
+        <h3 class="card-title main-title">
+          {{tutorial.title}}
+        </h3>
+        <div class="card-subtitle text-muted">
+          {{ tutorial.organizers | join(", ") }}
+        </div>
+        <div class="m-3 text-left card-subtitle">
+          {{tutorial.abstract|safe}}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{%- endmacro %}

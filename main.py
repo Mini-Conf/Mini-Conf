@@ -28,7 +28,7 @@ def main(site_data_path):
         elif typ == "yml":
             site_data[name] = yaml.load(open(f).read(), Loader=yaml.SafeLoader)
 
-    for typ in ["papers", "speakers", "workshops"]:
+    for typ in ["papers", "speakers", "tutorials", "workshops"]:
         by_uid[typ] = {}
         for p in site_data[typ]:
             by_uid[typ][p["UID"]] = p
@@ -181,7 +181,11 @@ def schedule():
         ],
     }
     data["speakers"] = site_data["speakers"]
+    data["tutorials"] = [
+        format_workshop(tutorial) for tutorial in site_data["tutorials"]
+    ]
     data["schedule"] = open("./templates/content/schedule.md").read()
+
     return render_template("schedule.html", **data)
 
 
@@ -350,6 +354,8 @@ def generator():
         yield "poster", {"poster": str(paper["UID"])}
     for speaker in site_data["speakers"]:
         yield "speaker", {"speaker": str(speaker["UID"])}
+    for tutorial in site_data["tutorials"]:
+        yield "tutorial", {"tutorial": str(tutorial["UID"])}
     for workshop in site_data["workshops"]:
         yield "workshop", {"workshop": str(workshop["UID"])}
 
