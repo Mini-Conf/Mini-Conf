@@ -316,6 +316,14 @@ def workshop(workshop):
     data["workshop"] = format_workshop(v)
     return render_template("workshop.html", **data)
 
+@app.route("/tutorial_<tutorial>.html")
+def tutorial(tutorial):
+    uid = tutorial
+    v = by_uid["tutorials"][uid]
+    data = _data()
+    data["tutorial"] = format_workshop(v)
+    return render_template("tutorial.html", **data)
+
 
 @app.route("/chat.html")
 def chat():
