@@ -9,3 +9,7 @@ a.btn.btn-primary.btn-lg.active:hover {
   background-color: #399dbe;
   border-color: #399dbe;
 }
+
+.alert-text {
+  color: #d20008;
+}

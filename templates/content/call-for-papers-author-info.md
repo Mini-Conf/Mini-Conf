@@ -4,11 +4,13 @@ To ensure that all submissions to ACM-CHIL are reviewed by a knowledgeable and a
 
 Track Chairs will oversee the reviewing process. In case you are not sure which track your submission fits under, feel free to contact the Track or Proceedings Chairs for clarification. The Proceedings Chairs reserve the right to move submissions between tracks and/or areas of interest if the Proceedings Chairs believe that a submission has been misclassified.
 
+<span class="alert-text">**UPDATE:** We are extending the abstract and paper submission deadlines by 3 days. Abstracts are recommended by **January 10th**, and submissions are due by **January 14th**, both **11:59 pm AoE**. In addition, we have changed the abstract deadline to be a ***recommendation*** rather than a requirement -- submitting an abstract by this deadline is no longer required to submit a full paper.</span>
+
 <center><a class="btn btn-primary btn-lg active" role="button" aria-pressed="true" href="https://chil2021.hotcrp.com" target="_blank" rel="noopener">Submit your paper</a></center>
 
 ### Important Dates
-- Abstracts due – January 7, 2021
-- Submissions due – January 11, 2021 (11:59 pm AoE)
+- Abstracts due – January 10, 2021
+- Submissions due – January 14, 2021 (11:59 pm AoE)
 - Notification of Acceptance – February 15, 2021 (11:59 pm AoE)
 - Camera Ready Due – March 5, 2021 (11:59 pm AoE)
 - Conference Date – April 8-10, 2021

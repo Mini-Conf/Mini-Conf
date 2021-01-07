@@ -24,13 +24,13 @@ All ACM-CHIL events and communications must abide by the [ACM policy against dis
     </tr>
     <tr>
       <th scope="row">Abstract Submissions due</th>
-      <td>January 7, 2021</td>
-      <td class="text-right"><span class="countdown" data-startdate="January 7, 2021"></span></td>
+      <td>January 10, 2021</td>
+      <td class="text-right"><span class="countdown" data-startdate="January 10, 2021"></span></td>
     </tr>
     <tr>
       <th scope="row">Paper Submissions due</th>
-      <td>January 11, 2021</td>
-      <td class="text-right"><span class="countdown" data-startdate="January 11, 2021"></span></td>
+      <td>January 14, 2021</td>
+      <td class="text-right"><span class="countdown" data-startdate="January 14, 2021"></span></td>
     </tr>
     <tr>
       <th scope="row">Reviews due</th>
