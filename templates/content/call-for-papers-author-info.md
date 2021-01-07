@@ -43,7 +43,7 @@ Authors will be given an opportunity to respond to reviews with a brief comment 
 Submissions should be made via the online submission system. At least one author of each accepted paper is required to register for, attend, and present the work at the conference in order for the paper to appear in the conference proceedings in the ACM Digital Library.
 
 **Length and Formatting**
-Submitted papers must be 8-10 pages (including all figures and tables), plus unlimited pages for references. Additional supplementary materials (e.g., appendices) can be submitted with their main manuscript. Reviewers will not be required to read the supplementary materials.
+Submitted papers must be 7-10 pages (including all figures and tables), plus unlimited pages for references. Additional supplementary materials (e.g., appendices) can be submitted with their main manuscript. Reviewers will not be required to read the supplementary materials.
 
 Papers should be formatted using the [ACM Master Article Template](https://www.acm.org/publications/proceedings-template) and the reference format indicated therein. For LaTeX users, choose format=sigconf. An overleaf template is [included here](https://www.overleaf.com/gallery/tagged/acm-official#.WOuOk2e1taQ). ACM also makes a Word template available. Authors do not need to include terms, keywords, or other front matter in their submissions. Papers that are neither in ACM format or exceeding the specified page length, may be rejected without review.
 
