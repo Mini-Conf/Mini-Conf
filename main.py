@@ -4,19 +4,23 @@ import csv
 import glob
 import json
 import os
-
 import yaml
+
 from flask import Flask, jsonify, redirect, render_template, send_from_directory
 from flask_frozen import Freezer
 from flaskext.markdown import Markdown
 
 site_data = {}
 by_uid = {}
+archive_path_root = "archive"
+archive_data_exists = False
+archive_directories = []
 
 
 def main(site_data_path):
-    global site_data, extra_files
+    global site_data, extra_files, archive_path_root, archive_data_exists, archive_directories
     extra_files = ["README.md"]
+
     # Load all for your sitedata one time.
     for f in glob.glob(site_data_path + "/*"):
         extra_files.append(f)
@@ -32,10 +36,43 @@ def main(site_data_path):
         by_uid[typ] = {}
         for p in site_data[typ]:
             by_uid[typ][p["UID"]] = p
+    print("Current Data Successfully Loaded")
 
-    print("Data Successfully Loaded")
+    # check if archive data directory exists
+    archive_path_sitedata = archive_path_root + "/sitedata"
+    archive_dir_exists = archive_directory_check(archive_path_sitedata)
+
+    if archive_dir_exists:
+        archive_directories = os.listdir(archive_path_sitedata)
+
+        if len(archive_directories) > 0:
+            for archive_year in archive_directories:
+                archive_path = archive_path_sitedata + "/" + str(archive_year)
+
+                # check if the archive year has data
+                if os.path.isdir(archive_path):
+                    if not os.listdir(archive_path):
+                        print(str(archive_path) + " directory is empty")
+                    else:
+                        # Load all archive data
+                        for f in glob.glob(archive_path + "/*"):
+                            extra_files.append(f)
+                            name, typ = f.split("/")[-1].split(".")
+                            if typ == "json":
+                                site_data[archive_path_root] = {str(archive_year): {str(name): json.load(open(f))}}
+                            elif typ in {"csv", "tsv"}:
+                                site_data[archive_path_root] = {str(archive_year): {str(name): list(csv.DictReader(open(f)))}}
+                            elif typ == "yml":
+                                site_data[archive_path_root] = {str(archive_year): {str(name): yaml.load(open(f).read(), Loader=yaml.SafeLoader)}}
+
+                        for typ in ["speakers"]:
+                            by_uid[archive_path_root] = {str(archive_year): {str(typ): {}}}
+                            for p in site_data[archive_path_root][archive_year][typ]:
+                                by_uid[archive_path_root][archive_year][typ][p["UID"]] = p
+
+                        archive_data_exists = True
+                        print("Archive Data Successfully Loaded")
     return extra_files
-
 
 # ------------- SERVER CODE -------------------->
 
@@ -51,6 +88,7 @@ markdown = Markdown(app)
 def _data():
     data = {}
     data["config"] = site_data["config"]
+    # data["archive"]
     return data
 
 
@@ -235,12 +273,41 @@ def committee():
     ).read()
     return render_template("committee.html", **data)
 
+
 @app.route("/past-events.html")
 def past_events():
     data = _data()
     data["past_events_chil_2020"] = open("./templates/content/past-events-chil-2020.md").read()
     return render_template("past-events.html", **data)
 
+
+@app.route("/past-events/<year>/<template>.html")
+def archive(year, template):
+    global archive_path_root
+    data = _data()
+
+    if year not in by_uid[archive_path_root] or template not in by_uid[archive_path_root][year]:
+        error = {
+            "title": "Oops!",
+            "type": "routing",
+            "message": f"No archive data for {template} in {year}"
+        }
+        data["error"] = error
+        return render_template("error.html", **data)
+    else:
+        if template == "speakers":
+            data[template] = site_data[archive_path_root][year][template]
+            return render_template(f"past-events-{template}.html", **data)
+        elif template == "workshops":
+            return print(template)
+        elif template == "sponsors":
+            return print(template)
+        else:
+            return print(template)
+
+
+def archive_directory_check(dir_path):
+    return True if os.path.exists(dir_path) and os.path.isdir(dir_path) else False
 
 def extract_list_field(v, key):
     value = v.get(key, "")

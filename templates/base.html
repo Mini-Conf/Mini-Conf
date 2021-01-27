@@ -16,10 +16,10 @@
         var auth0_client_id = "{{config.auth0_client_id}}";
       </script>
       <script src="https://cdn.auth0.com/js/auth0-spa-js/1.7/auth0-spa-js.production.js"></script>
-      <script src="static/js/modules/auth0protect.js"></script>
+      <script src="/static/js/modules/auth0protect.js"></script>
     {% endif %}
 
-    <link rel="icon" type="image/png" href="static/images/favicon.png">
+    <link rel="icon" type="image/png" href="/static/images/favicon.png">
 
     <!-- External CSS -->
     <link rel="stylesheet"
@@ -28,11 +28,11 @@
           crossorigin="anonymous"/>
 
     <!-- External Fonts (no google for china) -->
-    <link rel="stylesheet" href="static/css/main.css"/>
-    <!-- <link rel="stylesheet" href="static/css/fa_regular.css"/> -->
-    <link rel="stylesheet" href="static/css/fa_solid.css"/>
-    <link rel="stylesheet" href="static/css/lazy_load.css"/>
-    <link rel="stylesheet" href="static/css/typeahead.css"/>
+    <link rel="stylesheet" href="/static/css/main.css"/>
+    <!-- <link rel="stylesheet" href="/static/css/fa_regular.css"/> -->
+    <link rel="stylesheet" href="/static/css/fa_solid.css"/>
+    <link rel="stylesheet" href="/static/css/lazy_load.css"/>
+    <link rel="stylesheet" href="/static/css/typeahead.css"/>
 
     <title>{{config.page_title.prefix}}
       {% if page_title%}
@@ -64,7 +64,7 @@
 
   <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light mr-auto" id="main-nav">
     <div class="container">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="/index.html">
             <img
                   class="logo" src="{{config.logo.image}}"
                   height={{config.logo.height | default("auto") | tojson}}
@@ -73,7 +73,7 @@
             />
         </a>
         {% if config.site_title %}
-          <a class="navbar-brand" href="index.html">{{config.site_title}}</a>
+          <a class="navbar-brand" href="/index.html">{{config.site_title}}</a>
         {% endif %}
         <button
                 class="navbar-toggler"
@@ -93,7 +93,7 @@
           <ul class="navbar-nav ml-auto">
               {% for href, id in navigation_bar %}
               <li class="nav-item {% if id == active_page %}active{% endif %}">
-                  <a class="nav-link" href="{{href}}">{{id}}</a>
+                  <a class="nav-link" href="/{{href}}">{{id}}</a>
               </li>
               {% endfor %}
           </ul>
@@ -159,10 +159,10 @@
           crossorigin="anonymous"></script>
 
   <!-- Library libs_ext -->
-  <script type="text/javascript" src="static/js/libs_ext/typeahead.bundle.js"></script>
+  <script type="text/javascript" src="/static/js/libs_ext/typeahead.bundle.js"></script>
 
   <!--    Internal Libs -->
-  <script type="text/javascript" src="static/js/data/api.js"></script>
+  <script type="text/javascript" src="/static/js/data/api.js"></script>
 
   <!-- Google Analytics -->
   <script
@@ -198,7 +198,7 @@
       });
     });
   </script>
-  <!-- <script src="static/js/modules/lazyLoad.js"></script> -->
+  <!-- <script src="/static/js/modules/lazyLoad.js"></script> -->
 {% endblock %}
 </body>
 </html>

@@ -1,0 +1,11 @@
+{% set page_title = error.title %}
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header text-center">
+  <h1>{{error.title}}</h1>
+</div>
+<div class="page-content text-center">
+  {{error.message}}
+</div>
+{% endblock %}
