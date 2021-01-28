@@ -72,6 +72,8 @@ def main(site_data_path):
 
                         archive_data_exists = True
                         print("Archive Data Successfully Loaded")
+            site_data["archive"]["years_list"] = archive_directories
+            site_data["archive"]["has_data"] = archive_data_exists
     return extra_files
 
 # ------------- SERVER CODE -------------------->
@@ -88,7 +90,7 @@ markdown = Markdown(app)
 def _data():
     data = {}
     data["config"] = site_data["config"]
-    # data["archive"]
+    data["archive"] = site_data["archive"]
     return data
 
 
@@ -286,7 +288,7 @@ def archive(year, template):
     global archive_path_root
     data = _data()
 
-    if year not in by_uid[archive_path_root] or template not in by_uid[archive_path_root][year]:
+    if (template != "highlights") and ((year not in by_uid[archive_path_root]) or (template not in by_uid[archive_path_root][year])):
         error = {
             "title": "Oops!",
             "type": "routing",
@@ -299,11 +301,15 @@ def archive(year, template):
             data[template] = site_data[archive_path_root][year][template]
             return render_template(f"past-events-{template}.html", **data)
         elif template == "workshops":
-            return print(template)
+            return None
         elif template == "sponsors":
-            return print(template)
+            return None
+        elif template == "highlights":
+            data["past_events_highlights"] = open(f"./templates/content/past-events-{year}-highlights.md").read()
+            data["archive_year"] = year
+            return render_template(f"past-events-{template}.html", **data)
         else:
-            return print(template)
+            return None
 
 
 def archive_directory_check(dir_path):

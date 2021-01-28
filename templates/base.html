@@ -52,7 +52,6 @@
   ('sponsor.html', 'Sponsorship'),
   ('calendar.html', 'Program'),
   ('committee.html', 'Committee'),
-  ('past-events.html', 'Past Events'),
   ] -%}
 
   {# Removed navigation_bar ENTRIES
@@ -96,6 +95,19 @@
                   <a class="nav-link" href="/{{href}}">{{id}}</a>
               </li>
               {% endfor %}
+
+              {% if archive.has_data %}
+              <li class="nav-item dropdown {% if  active_page == 'Past Events' %}active{% endif %}">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Past Events
+                </a>
+                <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
+                {% for year in archive.years_list %}
+                  <a class="dropdown-item" href="/past-events/{{year}}/highlights.html">{{year}}</a>
+                {% endfor %}
+                </div>
+              </li>
+              {% endif %}
           </ul>
         </div>
     </div>
