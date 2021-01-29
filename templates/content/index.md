@@ -2,7 +2,7 @@
 
 The ACM Conference on Health, Inference, and Learning (ACM-CHIL), targets a cross-disciplinary representation of clinicians and researchers (from industry and academia) in machine learning, health policy, causality, fairness, and other related areas.
 
-ACM-CHIL 2021 will be a virtual conference building on the success of the inaugural [ACM-CHIL conference held digitally in July 2020](/past-events.html), as well as the ML4H Unconference, held in Toronto, and the Machine Learning for Health Workshop at NeurIPS, held in Vancouver. The conference is designed to spark insight-driven discussions on new and emerging ideas that may lead to collaboration and discussion.
+ACM-CHIL 2021 will be a virtual conference building on the success of the inaugural [ACM-CHIL conference held digitally in July 2020](/past-events/2020/highlights.html), as well as the ML4H Unconference, held in Toronto, and the Machine Learning for Health Workshop at NeurIPS, held in Vancouver. The conference is designed to spark insight-driven discussions on new and emerging ideas that may lead to collaboration and discussion.
 
 All ACM-CHIL events and communications must abide by the [ACM policy against discrimination and harassment](https://www.acm.org/about-acm/policy-against-harassment). Violations of this policy should be reported [directly to the ACM](https://www.acm.org/about-acm/reporting-unacceptable-behavior), copying the event chairs.
 

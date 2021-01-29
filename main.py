@@ -276,27 +276,12 @@ def committee():
     return render_template("committee.html", **data)
 
 
-@app.route("/past-events.html")
-def past_events():
-    data = _data()
-    data["past_events_chil_2020"] = open("./templates/content/past-events-chil-2020.md").read()
-    return render_template("past-events.html", **data)
-
-
 @app.route("/past-events/<year>/<template>.html")
 def archive(year, template):
     global archive_path_root
     data = _data()
 
-    if (template != "highlights") and ((year not in by_uid[archive_path_root]) or (template not in by_uid[archive_path_root][year])):
-        error = {
-            "title": "Oops!",
-            "type": "routing",
-            "message": f"No archive data for {template} in {year}"
-        }
-        data["error"] = error
-        return render_template("error.html", **data)
-    else:
+    if ((year in by_uid[archive_path_root]) and (template in by_uid[archive_path_root][year] or template == "highlights")):
         if template == "speakers":
             data[template] = site_data[archive_path_root][year][template]
             return render_template(f"past-events-{template}.html", **data)
@@ -305,11 +290,17 @@ def archive(year, template):
         elif template == "sponsors":
             return None
         elif template == "highlights":
-            data["past_events_highlights"] = open(f"./templates/content/past-events-{year}-highlights.md").read()
+            data["highlights"] = open(f"./{archive_path_root}/sitedata/{year}/{template}.md").read()
             data["archive_year"] = year
             return render_template(f"past-events-{template}.html", **data)
-        else:
-            return None
+    else:
+        error = {
+            "title": "Oops!",
+            "type": "routing",
+            "message": f"No archive data for {template} in {year}"
+        }
+        data["error"] = error
+        return render_template("error.html", **data)
 
 
 def archive_directory_check(dir_path):
@@ -439,6 +430,9 @@ def generator():
         yield "tutorial", {"tutorial": str(tutorial["UID"])}
     for workshop in site_data["workshops"]:
         yield "workshop", {"workshop": str(workshop["UID"])}
+
+    for year in site_data["archive"]["years_list"]:
+        yield f"/past-events/{year}/highlights.html"
 
     for key in site_data:
         yield "serve", {"path": key}
