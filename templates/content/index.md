@@ -38,6 +38,16 @@ All ACM-CHIL events and communications must abide by the [ACM policy against dis
       <td class="text-right"><span class="countdown" data-startdate="February 1, 2021"></span></td>
     </tr>
     <tr>
+      <th scope="row">Author Response begins</th>
+      <td>February 4, 2021</td>
+      <td class="text-right"><span class="countdown" data-startdate="February 4, 2021"></span></td>
+    </tr>
+    <tr>
+      <th scope="row">Author Response ends</th>
+      <td>February 8, 2021</td>
+      <td class="text-right"><span class="countdown" data-startdate="2021-02-08T11:59:00.00"></span></td>
+    </tr>
+    <tr>
       <th scope="row">Notification of Acceptance</th>
       <td>February 15, 2021</td>
       <td class="text-right"><span class="countdown" data-startdate="February 15, 2021"></span></td>

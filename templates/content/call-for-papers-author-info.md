@@ -11,6 +11,8 @@ Track Chairs will oversee the reviewing process. In case you are not sure which 
 ### Important Dates
 - Abstracts due – January 10, 2021
 - Submissions due – January 14, 2021 (11:59 pm AoE)
+- Author Response begins - February 4, 2021
+- Author Response ends - February 8, 2021 (11:59pm AoE)
 - Notification of Acceptance – February 15, 2021 (11:59 pm AoE)
 - Camera Ready Due – March 5, 2021 (11:59 pm AoE)
 - Conference Date – April 8-10, 2021
