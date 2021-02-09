@@ -262,3 +262,17 @@ workshopgroup
   {% endfor %}
 </div>
 {%- endmacro %}
+
+{% macro sponsorgroup(sponsors) -%}
+<div class="row sponsors">
+  {% for sponsor in sponsors or [] %}
+  <div class="{% if sponsor.level == 'silver' %}col-md-6{% else %}col-md-4{% endif %} col-xs-6">
+    <div class="pp-card sponsor {{sponsor.level}}">
+      <div class="pp-card-header" class="text-muted">
+        <img src="{{sponsor.image}}" class="rounded {{sponsor.level}}" alt="{{sponsor.name}}" />
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{%- endmacro %}

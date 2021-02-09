@@ -10,7 +10,11 @@
 
 {% block content %}
   <div class="page-header text-center">
-    <h1>Become a Sponsor</h1>
+    <!-- Sponsors -->
+    {% if sponsors %}
+      <h1>ACM-CHIL 2021 Sponsors</h1>
+      {{ components.sponsorgroup(sponsors) }}
+    {% endif %}
   </div>
   <div class="page-content">
     {{ sponsor | markdown }}

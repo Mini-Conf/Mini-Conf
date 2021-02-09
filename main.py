@@ -28,7 +28,7 @@ def main(site_data_path):
         elif typ == "yml":
             site_data[name] = yaml.load(open(f).read(), Loader=yaml.SafeLoader)
 
-    for typ in ["papers", "speakers", "tutorials", "workshops"]:
+    for typ in ["papers", "speakers", "tutorials", "workshops", "sponsors"]:
         by_uid[typ] = {}
         for p in site_data[typ]:
             by_uid[typ][p["UID"]] = p
@@ -208,6 +208,7 @@ def register():
 @app.route("/sponsor.html")
 def sponsor():
     data = _data()
+    data["sponsors"] = site_data["sponsors"]
     data["sponsor"] = open("./templates/content/sponsor.md").read()
     return render_template("sponsor.html", **data)
 
