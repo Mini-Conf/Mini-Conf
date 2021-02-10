@@ -119,6 +119,17 @@
   </div>
 {% endblock %}
 
+{% block bottom %}
+  <!-- Sponsors -->
+  {% if sponsors %}
+    <div class="container">
+      <br />
+      <h3>{{config.site_title}} Sponsors</h3>
+      {{ components.sponsorgroup(sponsors) }}
+    </div>
+  {% endif %}
+{% endblock %}
+
 {% block footer %}
   <!-- Footer -->
   <footer class="footer bg-light p-4">

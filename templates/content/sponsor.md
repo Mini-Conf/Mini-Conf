@@ -1,5 +1,3 @@
-### Become a Sponsor
-
 Financial support ensures that ACM-CHIL remains accessible to a broad set of participants by offsetting the expenses involved in participation. We follow best practices in other ACM conferences to maintain a transparent and appropriate relationship with our funders:
 
 1. The substance and structure of the conference are determined independently by the program committees.

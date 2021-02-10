@@ -51,6 +51,7 @@ markdown = Markdown(app)
 def _data():
     data = {}
     data["config"] = site_data["config"]
+    data["sponsors"] = site_data["sponsors"]
     return data
 
 
@@ -208,7 +209,6 @@ def register():
 @app.route("/sponsor.html")
 def sponsor():
     data = _data()
-    data["sponsors"] = site_data["sponsors"]
     data["sponsor"] = open("./templates/content/sponsor.md").read()
     return render_template("sponsor.html", **data)
 
