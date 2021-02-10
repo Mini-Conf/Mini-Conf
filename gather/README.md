@@ -144,8 +144,8 @@ If this is not a concern, portals can be made without specifying a URL (simply c
 If you want examples of how to do this, you can request them and we will add examples if there is a lot of demand.
 
 -------------------------------------------------------------------------------------
-## RECAP OF EXAMPLES SCRIPTS
-You can set the `EXAMPLE_TO_RUN` paramater in `config.json` to these values/tasks:
+## RECAP OF EXAMPLES YOU CAN RUN
+You can set the `EXAMPLE_TO_RUN` paramater in `config.json` to these values/tasks, then run `node examples.js`:
 ```
 0 = UPLOAD_IMG;  ---> uploading image to Gather Town storage
 1 = BATCH_UPLOAD ---> Uploading images as a batch
