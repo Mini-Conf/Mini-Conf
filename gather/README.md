@@ -37,7 +37,7 @@ There, you can also update the zoom call links with real zoom call join links.
 ### 1) Install Node & Dependencies
 
 - Install NodeJS
-- ```npm install``` to install axios library for NodeJS, and canvas for text generation:
+- ```npm install``` to install axios library for NodeJS, and canvas for text generation.
   
 
 ### 2) Obtain Credentials for Gather Town API
@@ -104,7 +104,7 @@ More info:
 - In a shell, from the folder where this README is, run:
 `python posterList.py`
 
-This will first create csv lists of posters will be saved in data/csv.  
+This will first create csv lists of posters which will be saved in data/csv.  
 This will then open a token creation flow in a browser to save a 'data/credentials/token.pickle' file, and then create the google sheets.  
 After creating and populating google sheets, the google sheet ids will be saved in:
 ```
