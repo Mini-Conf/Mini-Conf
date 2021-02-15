@@ -50,27 +50,27 @@ All ACM-CHIL events and communications must abide by the [ACM policy against dis
     <tr>
       <th scope="row">Notification of Acceptance</th>
       <td>February 15, 2021</td>
-      <td class="text-right"><span class="countdown" data-startdate="February 15, 2021"></span></td>
+      <td class="text-right"><span class="countdown" data-startdate="2021-02-15T23:59:00.00"></span></td>
     </tr>
     <tr>
       <th scope="row">Registration opens</th>
       <td>February 15, 2021</td>
-      <td class="text-right"><span class="countdown" data-startdate="February 15, 2021"></span></td>
+      <td class="text-right"><span class="countdown" data-startdate="2021-02-15T23:59:00.00"></span></td>
     </tr>
     <tr>
       <th scope="row">Call for volunteers opens</th>
       <td>March 1, 2021</td>
-      <td class="text-right"><span class="countdown" data-startdate="March 1, 2021"></span></td>
+      <td class="text-right"><span class="countdown" data-startdate="2021-03-01T23:59:00.00"></span></td>
     </tr>
     <tr>
       <th scope="row">Camera Ready due</th>
       <td>March 5, 2021</td>
-      <td class="text-right"><span class="countdown" data-startdate="March 5, 2021"></span></td>
+      <td class="text-right"><span class="countdown" data-startdate="2021-03-05T23:59:00.00"></span></td>
     </tr>
     <tr>
       <th scope="row">Conference dates</th>
       <td>April 8-9, 2021</td>
-      <td class="text-right"><span class="countdown" data-startdate="April 8, 2021"></span></td>
+      <td class="text-right"><span class="countdown" data-startdate="2021-04-08T23:59:00.00"></span></td>
     </tr>
   </tbody>
 </table>

@@ -70,7 +70,7 @@
     $(document).ready(function () {
       // Main conference countdown flipper
       var labels = ['weeks', 'days', 'hours', 'minutes'],
-        conferenceStartDate = new Date("{{config.countdown_date|safe}}").getTime();
+        conferenceStartDate = new Date("2021-04-08T23:59:00.00").getTime();
         template = _.template($('#countdown-flipper-template').html()),
         currDate = '00:00:00:00:00',
         nextDate = '00:00:00:00:00',
