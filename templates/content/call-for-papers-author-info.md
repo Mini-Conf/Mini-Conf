@@ -15,7 +15,7 @@ Track Chairs will oversee the reviewing process. In case you are not sure which 
 - Author Response ends - February 8, 2021 (11:59pm AoE)
 - Notification of Acceptance – February 15, 2021 (11:59 pm AoE)
 - Camera Ready Due – March 5, 2021 (11:59 pm AoE)
-- Conference Date – April 8-10, 2021
+- Conference Date – April 8-9, 2021
 
 ### Tracks
 - Track 1: Models and Methods
