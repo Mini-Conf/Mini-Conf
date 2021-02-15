@@ -324,7 +324,7 @@ body .carousel-control-prev {
 
 @media only screen and (max-width: 480px) {
   .navbar-brand .logo {
-    width: 107px;
+    width: 100px;
     height: auto;
   }
 }
