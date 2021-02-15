@@ -321,3 +321,23 @@ body .carousel-control-prev {
 /*    -webkit-text-fill-color: #bed972;*/
 /*  }*/
 /*}*/
+
+@media only screen and (max-width: 480px) {
+  .navbar-brand .logo {
+    width: 107px;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .navbar-brand.logo-wrapper {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .navbar-brand .logo {
+    width: 50%;
+  }
+}
