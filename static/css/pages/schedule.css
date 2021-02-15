@@ -1,0 +1,10 @@
+/* SCHEDULE CSS */
+
+.schedule-table .table-primary {
+  background-color: #47a2bf;
+  color: #fff;
+}
+
+.schedule-table .table-secondary {
+  background-color: #efefef;
+}

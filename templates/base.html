@@ -47,11 +47,10 @@
 {% block header %}
   {% set navigation_bar = [
   ('index.html', 'Home'),
-  ('call-for-papers.html', 'Call for Papers'),
-  ('register.html', 'Registration'),
-  ('sponsor.html', 'Sponsorship'),
   ('calendar.html', 'Program'),
   ('committee.html', 'Committee'),
+  ('sponsor.html', 'Sponsorship'),
+  ('call-for-papers.html', 'Call for Papers'),
   ('past-events.html', 'Past Events'),
   ] -%}
 
@@ -60,6 +59,7 @@
     ('workshops.html', 'Workshops')
     ('chat.html', 'Chat'),
     ('help.html', 'Help'),
+    ('register.html', 'Registration'),
   #}
 
   <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light mr-auto" id="main-nav">
@@ -96,6 +96,9 @@
                   <a class="nav-link" href="{{href}}">{{id}}</a>
               </li>
               {% endfor %}
+              <li class="nav-item">
+                <a class="nav-link" href="https://cvent.me/bOa0oA" target="_blank" rel="noopener">Register</a>
+              </li>
           </ul>
         </div>
     </div>

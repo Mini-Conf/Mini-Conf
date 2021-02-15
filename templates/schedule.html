@@ -12,7 +12,8 @@
     <h1>Program</h1>
   </div>
   {{ components.tabs([
-        ("speakers", "Keynote Speakers", "active"),
+        ("schedule", "Schedule", "active"),
+        ("speakers", "Keynote Speakers"),
         ("tutorials", "Tutorials")
     ])}}
 {% endblock %}
@@ -20,11 +21,19 @@
 
 {% block content %}
   <div class="page-content">
-    {{ schedule | markdown }}
     <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-      <!-- Keynote speakers tab -->
+      <!-- Schedule tab -->
       <div
         class="tab-pane active"
+        id="tab-schedule"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+        {{ schedule | markdown }}
+      </div>
+      <!-- Keynote speakers tab -->
+      <div
+        class="tab-pane"
         id="tab-speakers"
         role="tabpanel"
         aria-labelledby="nav-profile-tab"

@@ -58,11 +58,6 @@ All ACM-CHIL events and communications must abide by the [ACM policy against dis
       <td class="text-right"><span class="countdown" data-startdate="February 15, 2021"></span></td>
     </tr>
     <tr>
-      <th scope="row">eRights forms due</th>
-      <td>February 19, 2021</td>
-      <td class="text-right"><span class="countdown" data-startdate="February 19, 2021"></span></td>
-    </tr>
-    <tr>
       <th scope="row">Call for volunteers opens</th>
       <td>March 1, 2021</td>
       <td class="text-right"><span class="countdown" data-startdate="March 1, 2021"></span></td>
@@ -74,7 +69,7 @@ All ACM-CHIL events and communications must abide by the [ACM policy against dis
     </tr>
     <tr>
       <th scope="row">Conference dates</th>
-      <td>April 8-10, 2021</td>
+      <td>April 8-9, 2021</td>
       <td class="text-right"><span class="countdown" data-startdate="April 8, 2021"></span></td>
     </tr>
   </tbody>
