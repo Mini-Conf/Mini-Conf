@@ -6,6 +6,7 @@
 
 MiniConf was originally built to host <a href="https://iclr.cc/virtual_2020">ICLR 2020</a> a virtual conference with 6000 participants and have been used to host a wide variety of major conferences.
 
+* AAAI 2021 
 * ACMC 2020 (Australian Computer Music Conference): https://acmc2020.com/index.html
 * ACM-CHIL 2020 (Conference on Health, Inference, and Learning) https://www.chilconference.org/
 * ACL 2020 (Association of Computational Linguistics): https://virtual.acl2020.org/index.html
