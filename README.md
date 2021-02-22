@@ -6,12 +6,17 @@
 
 MiniConf was originally built to host <a href="https://iclr.cc/virtual_2020">ICLR 2020</a> a virtual conference with 6000 participants and have been used to host a wide variety of major conferences.
 
+* AAAI 2021 
 * ACMC 2020 (Australian Computer Music Conference): https://acmc2020.com/index.html
 * ACM-CHIL 2020 (Conference on Health, Inference, and Learning) https://www.chilconference.org/
 * ACL 2020 (Association of Computational Linguistics): https://virtual.acl2020.org/index.html
+* AISTATS 2020 (International Conference on Artificial Intelligence and Statistics): https://aistats2020.net/
 * AKBC 2020 (Automated Knowledge Base Construction) : https://akbc.apps.allenai.org/index.html
+* EMNLP 2020 (Empirical Methods in NLP): https://virtual.2020.emnlp.org/index.html
 * ICLR 2020 (International Conference on Learning Representations): https://iclr.cc/virtual_2020
 * ICML 2020 (International Conference on Machine Learning): https://icml.cc/virtual/2020/index.html
+* IEEE VIS 2020 (IEEE conference on Visualization and Visual Analytics): https://virtual.ieeevis.org/
+* NeurIPS 2020 (Neural Information Processing Systems Conference): https://neurips.cc/virtual/2020/public/
 * SIGIR 2020 (Information Retrieval): https://sigir-schedule.baai.ac.cn/papers
 * Data Science Capstone Exhibition, University of Pretoria: https://up-mitc-ds.github.io/808exhibition2020/index.html
 
@@ -81,6 +86,17 @@ MiniConf was built by [Hendrik Strobelt](http://twitter.com/hen_str) and [Sasha 
 
 Thanks to Darren Nelson for the original design sketches. Shakir Mohamed, Martha White, Kyunghyun Cho, Lee Campbell, and Adam White for planning and feedback. Hao Fang, Junaid Rahim, Jake Tae, Yasser Souri, Soumya Chatterjee, and Ankshita Gupta for contributions. 
 
-
+### Citation
+Feel free to cite MiniConf:
+```bibtex
+@misc{RushStrobelt2020,
+    title={MiniConf -- A Virtual Conference Framework},
+    author={Alexander M. Rush and Hendrik Strobelt},
+    year={2020},
+    eprint={2007.12238},
+    archivePrefix={arXiv},
+    primaryClass={cs.HC}
+}
+```
 
 

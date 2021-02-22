@@ -1,0 +1,12 @@
+{
+    "API_KEY": "ReplaceMeWithARealKey",
+    "POSTER_INFO_FNAME": "data/postersData.json",
+    "EXAMPLE_TO_RUN": 2,
+    "TUTORIALVID_URL": "https://slideslive.com/38946995/poster-sessions-in-gathertown",
+    "URLBASE": "https://gather.town/app/",
+    "MAX_TOWN": 3,
+    "POSTER_TOWN_URLS_FNAME": "data/outPosterTownUrls.json",
+    "POSTER_LIST_GSHEET_FNAME": "data/outSpreadsheetAddresses.json",
+    "POSTER_JSON_FILLED_FNAME": "data/outPosterSpawns.json",
+    "SPACE_ID": "null"
+}

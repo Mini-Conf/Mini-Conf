@@ -1,0 +1,40 @@
+name: Deploys the docs to a remote server directly on checkin.
+
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.8]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: build docs
+      run: |
+        python main.py sitedata/ --build
+    - name: Install SSH Client
+      uses: webfactory/ssh-agent@v0.4.1
+      with:
+          ssh-private-key: ${{ secrets.DEPLOY_KEY }}
+    - name: Deploy
+      uses: "JamesIves/github-pages-deploy-action@3.7.1"
+      with:
+          REPOSITORY_NAME: mini-conf/mini-conf.github.io
+          BRANCH: master  # The branch the action should deploy to.
+          SSH: true
+          FOLDER: build/ # The folder the action should deploy.
+          CLEAN: true
