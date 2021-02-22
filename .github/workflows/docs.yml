@@ -1,4 +1,4 @@
-name: Deploy Docs
+name: Deploys the docs to a remote server directly on checkin.
 
 
 on:
