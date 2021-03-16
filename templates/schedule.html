@@ -13,8 +13,9 @@
   </div>
   {{ components.tabs([
         ("schedule", "Schedule", "active"),
-        ("speakers", "Keynote Speakers"),
-        ("tutorials", "Tutorials")
+        ("speakers", "Keynotes"),
+        ("tutorials", "Tutorials"),
+        ("proceedings", "Proceedings"),
     ])}}
 {% endblock %}
 
@@ -53,6 +54,15 @@
         {% if tutorials %}
           {{ components.workshopgroup(tutorials) }}
         {% endif %}
+      </div>
+      <!-- Proceedings tab -->
+      <div
+        class="tab-pane fade"
+        id="tab-proceedings"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+        {{ proceedings | markdown }}
       </div>
     </div>
   </div>

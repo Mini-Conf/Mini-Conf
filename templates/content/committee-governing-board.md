@@ -35,3 +35,5 @@
 ##### **Virtual Chairs**
 - Dr. Stephanie Hyland of Microsoft Research Cambridge
 - Dr. Tom Pollard of MIT
+##### **Registration Chair**
+- Tasmie Sarker of University of Toronto

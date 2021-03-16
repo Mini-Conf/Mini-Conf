@@ -186,6 +186,7 @@ def schedule():
         format_workshop(tutorial) for tutorial in site_data["tutorials"]
     ]
     data["schedule"] = open("./templates/content/schedule.md").read()
+    data["proceedings"] = open("./templates/content/schedule-proceedings.md").read()
 
     return render_template("schedule.html", **data)
 
