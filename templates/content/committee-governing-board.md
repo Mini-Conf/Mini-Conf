@@ -10,7 +10,7 @@
 ##### **Track Chairs**
 - ##### **Models and Methods**
     * Dr. Mike Hughes of Tufts University
-    * Dr. Shalmali Joshi of MIT
+    * Dr. Shalmali Joshi of Harvard University
     * Dr. Rajesh Ranganath of New York University
     * Dr. Rahul Krishnan of Microsoft Research, University of Toronto and Vector Institute
 - ##### **Applications and Practice**
@@ -19,7 +19,7 @@
     * Dr. Bobak Mortazavi of Texas A&M University
     * Dr. Uri Shalit of Technion - Israel Institute of Technology
 - ##### **Impact and Society**
-    * Dr. Alistair Johnston of The Hospital for Sick Children
+    * Dr. Alistair Johnson of The Hospital for Sick Children
     * Dr. Rumi Chunara of New York University
     * Dr. George Chen of Carnegie Mellon University
 ##### **Communications Chairs**
