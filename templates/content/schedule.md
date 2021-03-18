@@ -96,9 +96,9 @@
         <br />
         <em>Tianchen Qian</em>
         <br /><br />
-        Experimental Design and Causal Inference Methods for Micro-randomized Trials
+        Offline Reinforcement Learning
         <br />
-        <em>Guy Tennenholtz, Offline Reinforcement Learning</em>
+        <em>Guy Tennenholtz</em>
       </td>
       <td class="text-left table-tutorial-secondary"></td>
     </tr>
