@@ -98,7 +98,7 @@
         <br /><br />
         Experimental Design and Causal Inference Methods for Micro-randomized Trials
         <br />
-        <em>Guy Tennenholtz</em>
+        <em>Guy Tennenholtz, Offline Reinforcement Learning</em>
       </td>
       <td class="text-left table-tutorial-secondary"></td>
     </tr>
@@ -321,7 +321,7 @@
       <td class="text-left table-keynote-secondary"></td>
     </tr>
     <tr>
-      <td class="table-secondary time">4:25 PM</td>
+      <td class="table-secondary time">4:00 PM</td>
       <td class="text-left">
         Closing Remarks
         <br />
