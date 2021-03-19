@@ -243,6 +243,12 @@ def past_events():
     data["past_events_chil_2020"] = open("./templates/content/past-events-chil-2020.md").read()
     return render_template("past-events.html", **data)
 
+@app.route("/live.html")
+def live():
+    data = _data()
+    data["live"] = open("./templates/content/live.md").read()
+    return render_template("live.html", **data)
+
 
 def extract_list_field(v, key):
     value = v.get(key, "")

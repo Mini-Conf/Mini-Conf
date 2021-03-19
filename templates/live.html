@@ -1,0 +1,32 @@
+{% set active_page = "Live" %}
+{% set page_title = "Live" %}
+{% extends "base.html" %}
+
+{% block top %}
+{% endblock %}
+
+{% block tabs %}
+{% endblock %}
+
+{% block content %}
+  <div class="page-header text-center">
+    <h1>CHIL Conference LIVE!</h1>
+  </div>
+  <div class="page-content live text-center">
+    <!-- Slides Live-->
+    <div class="col-md-12 col-xs-12 my-auto p-2">
+        <div id="presentation-embed-38952850" class="slp my-auto"></div>
+        <script src='https://slideslive.com/embed_presentation.js'></script>
+        <script>
+        embed = new SlidesLiveEmbed("presentation-embed-38952850", {
+            presentationId: "{{config.default_presentation_id}}",
+            autoPlay: false, // change to true to autoplay the embedded presentation
+            verticalEnabled: true,
+            verticalWhenWidthLte: 480,
+        });
+        </script>
+    </div>
+
+    {{ live | markdown }}
+  </div>
+{% endblock %}
