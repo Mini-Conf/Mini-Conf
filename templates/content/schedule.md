@@ -12,12 +12,12 @@
         <br />
         <em>Marzyeh Ghassemi, General Chair, ACM CHIL 2021</em>
       </td>
-      <td class="text-left">Zoom</td>
+      <td class="text-left">Livestreamed</td>
     </tr>
     <tr>
       <td class="table-secondary time" rowspan="2">10:05 AM</td>
       <td class="table-keynote">Keynote</td>
-      <td class="text-left table-keynote">Zoom</td>
+      <td class="text-left table-keynote">Livestreamed</td>
     </tr>
     <tr>
       <td class="text-left table-keynote-secondary">
@@ -30,7 +30,7 @@
     <tr>
       <td class="table-secondary time" rowspan="2">10:50 AM</td>
       <td class="table-proceedings">Proceedings Talks Session A</td>
-      <td class="text-left table-proceedings">Zoom</td>
+      <td class="text-left table-proceedings">Livestreamed</td>
     </tr>
     <tr>
       <td class="text-left table-proceedings-secondary">
@@ -84,7 +84,7 @@
     <tr>
       <td class="table-secondary time" rowspan="2">12:30 PM</td>
       <td class="table-tutorial">Tutorial Session A</td>
-      <td class="text-left table-tutorial">Zoom</td>
+      <td class="text-left table-tutorial">Livestreamed</td>
     </tr>
     <tr>
       <td class="text-left table-tutorial-secondary">
@@ -105,7 +105,7 @@
     <tr>
       <td class="table-secondary time" rowspan="2">1:30 PM</td>
       <td class="table-keynote">Keynote</td>
-      <td class="text-left table-keynote">Zoom</td>
+      <td class="text-left table-keynote">Livestreamed</td>
     </tr>
     <tr>
       <td class="text-left table-keynote-secondary">
@@ -118,7 +118,7 @@
     <tr>
       <td class="table-secondary time" rowspan="2">2:15 PM</td>
       <td class="table-proceedings">Proceedings Talks Session B</td>
-      <td class="text-left table-proceedings">Zoom</td>
+      <td class="text-left table-proceedings">Livestreamed</td>
     </tr>
     <tr>
       <td class="text-left table-proceedings-secondary">
@@ -163,7 +163,7 @@
     <tr>
       <td class="table-secondary time" rowspan="2">3:40 PM</td>
       <td class="table-keynote">Keynote</td>
-      <td class="text-left table-keynote">Zoom</td>
+      <td class="text-left table-keynote">Livestreamed</td>
     </tr>
     <tr>
       <td class="text-left table-keynote-secondary">
@@ -201,12 +201,12 @@
         <br />
         <em>Tristan Naumann, Program Co-Chair, ACM CHIL 2021</em>
       </td>
-      <td class="text-left">Zoom</td>
+      <td class="text-left">Livestreamed</td>
     </tr>
     <tr>
       <td class="table-secondary time" rowspan="2">10:05 AM</td>
       <td class="table-keynote">Keynote</td>
-      <td class="text-left table-keynote">Zoom</td>
+      <td class="text-left table-keynote">Livestreamed</td>
     </tr>
     <tr>
       <td class="text-left table-keynote-secondary">
@@ -219,7 +219,7 @@
     <tr>
       <td class="table-secondary time" rowspan="2">10:50 AM</td>
       <td class="table-proceedings">Proceedings Talks Session C</td>
-      <td class="text-left table-proceedings">Zoom</td>
+      <td class="text-left table-proceedings">Livestreamed</td>
     </tr>
     <tr>
       <td class="text-left table-proceedings-secondary">
@@ -273,7 +273,7 @@
     <tr>
       <td class="table-secondary time" rowspan="2">12:30 PM</td>
       <td class="table-tutorial">Tutorial Session B</td>
-      <td class="text-left table-tutorial">Zoom</td>
+      <td class="text-left table-tutorial">Livestreamed</td>
     </tr>
     <tr>
       <td class="text-left table-tutorial-secondary">
@@ -285,12 +285,12 @@
         <br />
         <em>Jesse Gronsbell</em>
       </td>
-      <td class="text-left table-tutorial-secondary">Zoom <br /><br /><br />Zoom</td>
+      <td class="text-left table-tutorial-secondary">Livestreamed <br /><br /><br />Livestreamed</td>
     </tr>
     <tr>
       <td class="table-secondary time" rowspan="2">1:30 PM</td>
       <td class="table-keynote">Keynote</td>
-      <td class="text-left table-keynote">Zoom</td>
+      <td class="text-left table-keynote">Livestreamed</td>
     </tr>
     <tr>
       <td class="text-left table-keynote-secondary">
@@ -310,7 +310,7 @@
     <tr>
       <td class="table-secondary time" rowspan="2">3:15 PM</td>
       <td class="table-keynote">Keynote</td>
-      <td class="text-left table-keynote">Zoom</td>
+      <td class="text-left table-keynote">Livestreamed</td>
     </tr>
     <tr>
       <td class="text-left table-keynote-secondary">
@@ -327,7 +327,7 @@
         <br />
         <em>Marzyeh Ghassemi, General Chair, ACM CHIL 2021</em>
       </td>
-      <td class="text-left">Zoom</td>
+      <td class="text-left">Livestreamed</td>
     </tr>
   </tbody>
 </table>
