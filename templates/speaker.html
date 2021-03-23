@@ -2,10 +2,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="page-content speaker">
   <!-- Title -->
-  <div class="pp-card m-3" style="">
+  <div class="pp-card m-3">
     <div class="card-header">
-      <h2 class="card-title main-title text-center" style="">
+      <h2 class="card-title main-title text-center">
         {{speaker.title}}
       </h2>
       <h3 class="card-subtitle mb-2 text-muted text-center">
@@ -33,5 +34,35 @@
     </div>
   </div>
 
-  <!-- Presentation Embed -->
+  <!-- Slides Live Presentation Embed -->
+  <div id="slideslive-embed" class="col-md-12 col-xs-12 my-auto p-2 hide" data-activedate="{{speaker.slideslive_active_date}}">
+    <div id="presentation-embed-{{speaker.slideslive_id}}" class="slp my-auto"></div>
+    <script src='https://slideslive.com/embed_presentation.js'></script>
+    <script>
+      embed = new SlidesLiveEmbed("presentation-embed-{{speaker.slideslive_id}}", {
+          presentationId: "{{speaker.slideslive_id}}",
+          autoPlay: false, // change to true to autoplay the embedded presentation
+          verticalEnabled: true,
+          verticalWhenWidthLte: 480,
+      });
+    </script>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script type="text/javascript">
+    $(document).ready(function () {
+          var slidesliveEmbed = $('#slideslive-embed');
+          var details = $('.card-link');
+          var countDownDate = new Date(slidesliveEmbed.data('activedate')).getTime();
+          var currentDate = new Date().getTime();
+
+          if (countDownDate > currentDate) {
+            slidesliveEmbed.hide();
+            details.click();
+          }
+    });
+  </script>
 {% endblock %}

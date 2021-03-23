@@ -2,4 +2,67 @@
 {% extends "base.html" %}
 
 {% block content %}
+<div class="page-content tutorial">
+  <!-- Title -->
+  <div class="pp-card m-3">
+    <div class="card-header">
+      <h2 class="card-title main-title text-center">
+        {{tutorial.title}}
+      </h2>
+      <h3 class="card-subtitle mb-2 text-muted text-center">
+        {{ tutorial.organizers | join(", ") }}
+      </h3>
+      <div class="text-center p-3">
+        <a class="card-link" data-toggle="collapse" role="button" href="#details">
+          Abstract & Bio
+        </a>
+      </div>
+    </div>
+  </div>
+  <div id="details" class="pp-card m-3 collapse">
+    <div class="card-body">
+      <div class="card-text">
+        <div id="abstractExample">
+          <span class="font-weight-bold">Abstract:</span>
+          {{tutorial.abstract|safe}}
+          <br /><br />
+          <span class="font-weight-bold">Bio:</span>
+          {{tutorial.bio|safe}}
+        </div>
+      </div>
+      <p></p>
+    </div>
+  </div>
+
+  <!-- Slides Live Presentation Embed -->
+  <div id="slideslive-embed" class="col-md-12 col-xs-12 my-auto p-2 hide" data-activedate="{{tutorial.slideslive_active_date}}">
+    <div id="presentation-embed-{{tutorial.slideslive_id}}" class="slp my-auto"></div>
+    <script src='https://slideslive.com/embed_presentation.js'></script>
+    <script>
+      embed = new SlidesLiveEmbed("presentation-embed-{{tutorial.slideslive_id}}", {
+          presentationId: "{{tutorial.slideslive_id}}",
+          autoPlay: false, // change to true to autoplay the embedded presentation
+          verticalEnabled: true,
+          verticalWhenWidthLte: 480,
+      });
+    </script>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script type="text/javascript">
+    $(document).ready(function () {
+          var slidesliveEmbed = $('#slideslive-embed');
+          var details = $('.card-link');
+          var countDownDate = new Date(slidesliveEmbed.data('activedate')).getTime();
+          var currentDate = new Date().getTime();
+
+          if (countDownDate > currentDate) {
+            slidesliveEmbed.hide();
+            details.click();
+          }
+    });
+  </script>
 {% endblock %}

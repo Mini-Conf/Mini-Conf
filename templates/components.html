@@ -73,7 +73,7 @@ workshopgroup
               </span>
             </div>
             <div class="m-3">
-              {{speaker.abstract|safe}}
+              {{speaker.bio|safe}}
             </div>
           </div>
         </div>
@@ -248,13 +248,17 @@ workshopgroup
     <div class="card">
       <div class="card-header text-center">
         <h3 class="card-title main-title">
-          {{tutorial.title}}
+          <a href="tutorial_{{tutorial.id}}.html" class="main-title">
+            {{tutorial.title}}
+          </a>
         </h3>
         <div class="card-subtitle text-muted">
           {{ tutorial.organizers | join(", ") }}
         </div>
         <div class="m-3 text-left card-subtitle">
-          {{tutorial.abstract|safe}}
+          <strong>Abstract:</strong> {{tutorial.abstract|safe}}
+          <br /><br />
+          {{tutorial.bio|safe}}
         </div>
       </div>
     </div>

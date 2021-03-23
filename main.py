@@ -292,6 +292,7 @@ def format_workshop(v):
         "title": v["title"],
         "organizers": list_fields["authors"],
         "abstract": v["abstract"],
+        "bio": v["bio"],
     }
 
 
