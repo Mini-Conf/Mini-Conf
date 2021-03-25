@@ -299,8 +299,16 @@ def format_workshop(v):
         "abstract": v["abstract"],
     }
 
-    if hasattr(v, 'bio'):
-        formatted_workshop["bio"] = v.bio
+    if "bio" in v:
+        formatted_workshop["bio"] = v["bio"]
+    if "slideslive_id" in v:
+        formatted_workshop["slideslive_id"] = v["slideslive_id"]
+    if "slideslive_active_date" in v:
+        formatted_workshop["slideslive_active_date"] = v["slideslive_active_date"]
+    if "rocketchat_id" in v:
+        formatted_workshop["rocketchat_id"] = v["rocketchat_id"]
+    if "doi_link" in v:
+        formatted_workshop["doi_link"] = v["doi_link"]
 
     return formatted_workshop
 
