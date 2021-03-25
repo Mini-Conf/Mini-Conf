@@ -10,7 +10,11 @@
 }
 
 .schedule-table .table-secondary.time {
-  min-width: 100px;
+  min-width: 85px;
+}
+
+.schedule-table .method {
+  width: 110px;
 }
 
 .schedule-table .table-keynote {

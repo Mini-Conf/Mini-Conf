@@ -1,6 +1,6 @@
 <p class="text-center">This schedule is subject to change. All times are in ET.</p>
 
-<table class="schedule-table table table-bordered">
+<table class="schedule-table table table-bordered table-sm table-responsive-sm">
   <tbody>
     <tr>
       <th colspan="3" class="table-primary" scope="row">Thursday, April 8, 2021</th>
@@ -12,28 +12,27 @@
         <br />
         <em>Marzyeh Ghassemi, General Chair, ACM CHIL 2021</em>
       </td>
-      <td class="text-left">Livestreamed</td>
+      <td class="text-left method">Livestreamed</td>
     </tr>
     <tr>
       <td class="table-secondary time" rowspan="2">10:05 AM</td>
       <td class="table-keynote">Keynote</td>
-      <td class="text-left table-keynote">Livestreamed</td>
+      <td class="text-left table-keynote method">Livestreamed</td>
     </tr>
     <tr>
-      <td class="text-left table-keynote-secondary">
+      <td colspan="2" class="text-left table-keynote-secondary">
         AI for Drug Discovery: Challenges and Opportunities
         <br />
         <em>Regina Barzilay, MIT Computer Science & Artificial Intelligence Lab</em>
       </td>
-      <td class="text-left table-keynote-secondary"></td>
     </tr>
     <tr>
       <td class="table-secondary time" rowspan="2">10:50 AM</td>
       <td class="table-proceedings">Proceedings Talks Session A</td>
-      <td class="text-left table-proceedings">Livestreamed</td>
+      <td class="text-left table-proceedings method">Livestreamed</td>
     </tr>
     <tr>
-      <td class="text-left table-proceedings-secondary">
+      <td colspan="2" class="text-left table-proceedings-secondary">
         Variationally Regularized Graph-based Representation Learning for Electronic Health Records
         <br />
         <em>Weicheng Zhu; Narges Razavian</em>
@@ -70,7 +69,6 @@
         <br />
         <em>Aniruddh Raghu, John Guttag; Katherine Young; Eugene Pomerantsev; Adrian V. Dalca; Collin M. Stultz</em>
       </td>
-      <td class="text-left table-proceedings-secondary"></td>
     </tr>
     <tr>
       <td class="table-secondary time">12:15 PM</td>
@@ -84,10 +82,10 @@
     <tr>
       <td class="table-secondary time" rowspan="2">12:30 PM</td>
       <td class="table-tutorial">Tutorial Session A</td>
-      <td class="text-left table-tutorial">Livestreamed</td>
+      <td class="text-left table-tutorial method">Zoom</td>
     </tr>
     <tr>
-      <td class="text-left table-tutorial-secondary">
+      <td colspan="2" class="text-left table-tutorial-secondary">
         Causal Inference in Clinical Research: From Theory to Practice
         <br />
         <em>Linbo Wang</em>
@@ -100,28 +98,26 @@
         <br />
         <em>Guy Tennenholtz</em>
       </td>
-      <td class="text-left table-tutorial-secondary"></td>
     </tr>
     <tr>
       <td class="table-secondary time" rowspan="2">1:30 PM</td>
       <td class="table-keynote">Keynote</td>
-      <td class="text-left table-keynote">Livestreamed</td>
+      <td class="text-left table-keynote method">Livestreamed</td>
     </tr>
     <tr>
-      <td class="text-left table-keynote-secondary">
+      <td colspan="2" class="text-left table-keynote-secondary">
         Machine Learning in Healthcare: From Modeling to Clinical Impact
         <br />
         <em>Narges Razavian, New York University Langone Medical Center</em>
       </td>
-      <td class="text-left table-keynote-secondary"></td>
     </tr>
     <tr>
       <td class="table-secondary time" rowspan="2">2:15 PM</td>
       <td class="table-proceedings">Proceedings Talks Session B</td>
-      <td class="text-left table-proceedings">Livestreamed</td>
+      <td class="text-left table-proceedings method">Livestreamed</td>
     </tr>
     <tr>
-      <td class="text-left table-proceedings-secondary">
+      <td colspan="2" class="text-left table-proceedings-secondary">
         VisualCheXbert: Addressing the Discrepancy Between Radiology Report Labels and Image Labels
         <br />
         <em>Saahil Jain, Akshay Smit; Steven QH Truong, Chanh DT Nguyen, Minh-Thanh Huynh; Mudit Jain; Victoria A. Young, Andrew Y. Ng, Matthew P. Lungren, Pranav Rajpurkar</em>
@@ -158,20 +154,18 @@
         <br />
         <em>Mohamed Ghalwash, Zijun Yao, Prithwish Chakraborty, James Codella, and Daby Sow</em>
       </td>
-      <td class="text-left table-proceedings-secondary"></td>
     </tr>
     <tr>
       <td class="table-secondary time" rowspan="2">3:40 PM</td>
       <td class="table-keynote">Keynote</td>
-      <td class="text-left table-keynote">Livestreamed</td>
+      <td class="text-left table-keynote method">Livestreamed</td>
     </tr>
     <tr>
-      <td class="text-left table-keynote-secondary">
+      <td colspan="2" class="text-left table-keynote-secondary">
         Holding a Hammer When There are No Nails - Rapid Iteration to Build COVID-19 Support Programs for Historically Marginalized Communities
         <br />
         <em>Mark Sendak, Duke Institute for Health Innovation</em>
       </td>
-      <td class="text-left table-keynote-secondary"></td>
     </tr>
     <tr>
       <td class="table-secondary time">4:25 PM</td>
@@ -180,14 +174,14 @@
         <br />
         <em>Emma Pierson, Program Co-Chair, ACM CHIL 2021</em>
       </td>
-      <td class="text-left"></td>
+      <td class="text-left method">Livestreamed</td>
     </tr>
     <tr>
       <td class="table-secondary time">4:35 PM</td>
       <td class="text-left table-poster">
         Poster Session A (Workshop)
       </td>
-      <td class="text-left table-poster">Gather.town</td>
+      <td class="text-left table-poster method">Gather.town</td>
     </tr>
   </tbody>
   <tbody>
@@ -201,28 +195,27 @@
         <br />
         <em>Tristan Naumann, Program Co-Chair, ACM CHIL 2021</em>
       </td>
-      <td class="text-left">Livestreamed</td>
+      <td class="text-left method">Livestreamed</td>
     </tr>
     <tr>
       <td class="table-secondary time" rowspan="2">10:05 AM</td>
       <td class="table-keynote">Keynote</td>
-      <td class="text-left table-keynote">Livestreamed</td>
+      <td class="text-left table-keynote method">Livestreamed</td>
     </tr>
     <tr>
-      <td class="text-left table-keynote-secondary">
+      <td colspan="2" class="text-left table-keynote-secondary">
         Lessons on the Path from Code to Clinic - Some Common Myths in Machine Learning for Healthcare
         <br />
         <em>Alan Karthikesalingam, Google Health - London</em>
       </td>
-      <td class="text-left table-keynote-secondary"></td>
     </tr>
     <tr>
       <td class="table-secondary time" rowspan="2">10:50 AM</td>
       <td class="table-proceedings">Proceedings Talks Session C</td>
-      <td class="text-left table-proceedings">Livestreamed</td>
+      <td class="text-left table-proceedings method">Livestreamed</td>
     </tr>
     <tr>
-      <td class="text-left table-proceedings-secondary">
+      <td colspan="2" class="text-left table-proceedings-secondary">
         RNA Alternative Splicing Prediction with Discrete Compositional Energy Network
         <br />
         <em>Alvin Chan, Anna Korsakova, Yew-Soon Ong, Fernaldo Richtia Winnerdy, Kah Wai Lim, Anh Tuan Phan</em>
@@ -259,7 +252,6 @@
         <br />
         <em>Guimin Dong, Lihua Cai, Debajyoti Datta, Shashwat Kumar, Laura E. Barnes, Mehdi Boukhechba</em>
       </td>
-      <td class="text-left table-proceedings-secondary"></td>
     </tr>
     <tr>
       <td class="table-secondary time">12:15 PM</td>
@@ -268,15 +260,15 @@
         <br />
         <em>Sponsored by Google</em>
       </td>
-      <td class="text-left">Gather.town</td>
+      <td class="text-left method">Gather.town</td>
     </tr>
     <tr>
       <td class="table-secondary time" rowspan="2">12:30 PM</td>
       <td class="table-tutorial">Tutorial Session B</td>
-      <td class="text-left table-tutorial">Livestreamed</td>
+      <td class="text-left table-tutorial method">Zoom</td>
     </tr>
     <tr>
-      <td class="text-left table-tutorial-secondary">
+      <td colspan="2" class="text-left table-tutorial-secondary">
         Explainable ML: Understanding the Limits and Pushing the Boundaries
         <br />
         <em>Hima Lakkaraju</em>
@@ -285,40 +277,37 @@
         <br />
         <em>Jesse Gronsbell</em>
       </td>
-      <td class="text-left table-tutorial-secondary">Livestreamed <br /><br /><br />Livestreamed</td>
     </tr>
     <tr>
       <td class="table-secondary time" rowspan="2">1:30 PM</td>
       <td class="table-keynote">Keynote</td>
-      <td class="text-left table-keynote">Livestreamed</td>
+      <td class="text-left table-keynote method">Livestreamed</td>
     </tr>
     <tr>
-      <td class="text-left table-keynote-secondary">
+      <td colspan="2" class="text-left table-keynote-secondary">
         Bring AI to the Bedside with User Centered Design
         <br />
         <em>Maia Jacobs, Northwestern University</em>
       </td>
-      <td class="text-left table-keynote-secondary"></td>
     </tr>
     <tr>
       <td class="table-secondary time">2:15 PM</td>
       <td class="text-left table-poster">
-        Poster Session B (Workshop)
+        Poster Session B (Proceedings)
       </td>
-      <td class="text-left table-poster">Gather.town</td>
+      <td class="text-left table-poster method">Gather.town</td>
     </tr>
     <tr>
       <td class="table-secondary time" rowspan="2">3:15 PM</td>
       <td class="table-keynote">Keynote</td>
-      <td class="text-left table-keynote">Livestreamed</td>
+      <td class="text-left table-keynote method">Livestreamed</td>
     </tr>
     <tr>
-      <td class="text-left table-keynote-secondary">
+      <td colspan="2" class="text-left table-keynote-secondary">
         Precision Medicine with Imprecise EHR Data
         <br />
         <em>Tianxi Cai, Harvard Medical School</em>
       </td>
-      <td class="text-left table-keynote-secondary"></td>
     </tr>
     <tr>
       <td class="table-secondary time">4:00 PM</td>
@@ -327,7 +316,7 @@
         <br />
         <em>Marzyeh Ghassemi, General Chair, ACM CHIL 2021</em>
       </td>
-      <td class="text-left">Livestreamed</td>
+      <td class="text-left method">Livestreamed</td>
     </tr>
   </tbody>
 </table>
