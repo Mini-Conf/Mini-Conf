@@ -28,7 +28,7 @@ def main(site_data_path):
         elif typ == "yml":
             site_data[name] = yaml.load(open(f).read(), Loader=yaml.SafeLoader)
 
-    for typ in ["papers", "speakers", "tutorials", "workshops", "sponsors"]:
+    for typ in ["papers", "speakers", "tutorials", "proceedings", "workshops", "sponsors"]:
         by_uid[typ] = {}
         for p in site_data[typ]:
             by_uid[typ][p["UID"]] = p
@@ -185,8 +185,13 @@ def schedule():
     data["tutorials"] = [
         format_workshop(tutorial) for tutorial in site_data["tutorials"]
     ]
+    data["proceedings"] = [
+        format_workshop(proceeding) for proceeding in site_data["proceedings"]
+    ]
+    data["workshops"] = [
+        format_workshop(workshop) for workshop in site_data["workshops"]
+    ]
     data["schedule"] = open("./templates/content/schedule.md").read()
-    data["proceedings"] = open("./templates/content/schedule-proceedings.md").read()
 
     return render_template("schedule.html", **data)
 
@@ -287,14 +292,17 @@ def format_workshop(v):
     for key in list_keys:
         list_fields[key] = extract_list_field(v, key)
 
-    return {
+    formatted_workshop = {
         "id": v["UID"],
         "title": v["title"],
         "organizers": list_fields["authors"],
         "abstract": v["abstract"],
-        "bio": v["bio"],
     }
 
+    if hasattr(v, 'bio'):
+        formatted_workshop["bio"] = v.bio
+
+    return formatted_workshop
 
 # ITEM PAGES
 
@@ -333,6 +341,13 @@ def tutorial(tutorial):
     data["tutorial"] = format_workshop(v)
     return render_template("tutorial.html", **data)
 
+@app.route("/proceeding_<proceeding>.html")
+def proceeding(proceeding):
+    uid = proceeding
+    v = by_uid["proceedings"][uid]
+    data = _data()
+    data["proceeding"] = format_workshop(v)
+    return render_template("proceeding.html", **data)
 
 @app.route("/chat.html")
 def chat():
@@ -373,6 +388,8 @@ def generator():
         yield "speaker", {"speaker": str(speaker["UID"])}
     for tutorial in site_data["tutorials"]:
         yield "tutorial", {"tutorial": str(tutorial["UID"])}
+    for proceeding in site_data["proceedings"]:
+        yield "proceeding", {"proceeding": str(proceeding["UID"])}
     for workshop in site_data["workshops"]:
         yield "workshop", {"workshop": str(workshop["UID"])}
 

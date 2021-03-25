@@ -16,6 +16,7 @@
         ("speakers", "Keynotes"),
         ("tutorials", "Tutorials"),
         ("proceedings", "Proceedings"),
+        ("posters", "Posters"),
     ])}}
 {% endblock %}
 
@@ -52,7 +53,7 @@
         aria-labelledby="nav-profile-tab"
       >
         {% if tutorials %}
-          {{ components.workshopgroup(tutorials) }}
+          {{ components.tutorialgroup(tutorials) }}
         {% endif %}
       </div>
       <!-- Proceedings tab -->
@@ -62,7 +63,26 @@
         role="tabpanel"
         aria-labelledby="nav-profile-tab"
       >
-        {{ proceedings | markdown }}
+        {% if proceedings %}
+          {{ components.proceedingpgroup(proceedings) }}
+        {% endif %}
+      </div>
+      <!-- Posters tab -->
+        <div
+        class="tab-pane fade"
+        id="tab-posters"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+        {% if workshops %}
+          {{ components.section("Poster Session A: Workshop") }}
+          {{ components.workshopgroup(workshops) }}
+        {% endif %}
+
+        {% if proceedings %}
+          {{ components.section("Poster Session B: Proceedings") }}
+          {{ components.workshopgroup(proceedings, 'proceeding') }}
+        {% endif %}
       </div>
     </div>
   </div>

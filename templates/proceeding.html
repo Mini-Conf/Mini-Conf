@@ -1,0 +1,70 @@
+{% set page_title = proceeding.title %}
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-content proceeding">
+  <!-- Title -->
+  <div class="pp-card m-3">
+    <div class="card-header">
+      <h2 class="card-title main-title text-center">
+        {{proceeding.title}}
+      </h2>
+      <h3 class="card-subtitle mb-2 text-muted text-center">
+        {{ proceeding.organizers | join(", ") }}
+      </h3>
+      {% if proceeding.doi_link %}
+      <h3 class="card-subtitle mb-2 text-muted text-center">
+        <a href="{{proceeding.doi_link}}" target="_blank" rel="noopener">View paper in the ACM journal</a>
+      </h3>
+      {% endif %}
+      <div class="text-center p-3">
+        <a class="card-link" data-toggle="collapse" role="button" href="#details">
+          Abstract
+        </a>
+      </div>
+    </div>
+  </div>
+  <div id="details" class="pp-card m-3 collapse">
+    <div class="card-body">
+      <div class="card-text">
+        <div id="abstractExample">
+          <span class="font-weight-bold">Abstract:</span>
+          {{proceeding.abstract|safe}}
+        </div>
+      </div>
+      <p></p>
+    </div>
+  </div>
+
+  <!-- Slides Live Presentation Embed -->
+  <div id="slideslive-embed" class="col-md-12 col-xs-12 my-auto p-2 hide" data-activedate="{{proceeding.slideslive_active_date}}">
+    <div id="presentation-embed-{{proceeding.slideslive_id}}" class="slp my-auto"></div>
+    <script src='https://slideslive.com/embed_presentation.js'></script>
+    <script>
+      embed = new SlidesLiveEmbed("presentation-embed-{{proceeding.slideslive_id}}", {
+          presentationId: "{{proceeding.slideslive_id}}",
+          autoPlay: false, // change to true to autoplay the embedded presentation
+          verticalEnabled: true,
+          verticalWhenWidthLte: 480,
+      });
+    </script>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script type="text/javascript">
+    $(document).ready(function () {
+          var slidesliveEmbed = $('#slideslive-embed');
+          var details = $('.card-link');
+          var countDownDate = new Date(slidesliveEmbed.data('activedate')).getTime();
+          var currentDate = new Date().getTime();
+
+          if (countDownDate > currentDate) {
+            slidesliveEmbed.hide();
+            details.click();
+          }
+    });
+  </script>
+{% endblock %}

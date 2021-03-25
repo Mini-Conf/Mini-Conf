@@ -6,6 +6,8 @@ speakergroup
 organizergroup
 faqgroup
 highlightgroup
+tutorialgroup
+proceedingpgroup
 workshopgroup
 #}
 
@@ -214,34 +216,7 @@ workshopgroup
 </div>
 {%- endmacro %}
 
-{% macro workshopgroup(workshops) -%}
-<div class="cards row">
-  {% for workshop in workshops or [] %}
-  <div class="col-md-6 col-sm-12 p-3" style="box-sizing: border-box;">
-    <div class="card" style="display: block; overflow: hidden; width: 100%;">
-      <div
-        class="card-header text-center"
-        style="min-height: 200px; width: 100%;"
-      >
-        <a class="text-muted" href="workshop_{{workshop.id}}.html">
-          <h3 class="card-title main-title">
-            {{workshop.title}}
-          </h3>
-        </a>
-        <div class="card-subtitle text-muted">
-          {{ workshop.organizers | join(", ") }}
-        </div>
-        <div class="m-3 text-left card-subtitle font-italic">
-          {{workshop.abstract|safe}}
-        </div>
-      </div>
-    </div>
-  </div>
-  {% endfor %}
-</div>
-{%- endmacro %}
-
-{% macro workshopgroup(tutorials) -%}
+{% macro tutorialgroup(tutorials) -%}
 <div class="cards row">
   {% for tutorial in tutorials or [] %}
   <div class="col-md-12 col-sm-12 p-3">
@@ -259,6 +234,51 @@ workshopgroup
           <strong>Abstract:</strong> {{tutorial.abstract|safe}}
           <br /><br />
           {{tutorial.bio|safe}}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{%- endmacro %}
+
+{% macro proceedingpgroup(proceedings) -%}
+<div class="cards row">
+  {% for proceeding in proceedings or [] %}
+  <div class="col-md-12 col-sm-12 p-3">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title main-title">
+          <a href="proceeding_{{proceeding.id}}.html" class="main-title">
+            {{proceeding.title}}
+          </a>
+        </h3>
+        <div class="card-subtitle text-muted text-left">
+          {{ proceeding.organizers | join("; ") }}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{%- endmacro %}
+
+{% macro workshopgroup(workshops, type) -%}
+<div class="cards row">
+  {% for workshop in workshops or [] %}
+  <div class="col-md-6 col-sm-12 p-3" style="box-sizing: border-box;">
+    <div class="card" style="display: block; overflow: hidden; width: 100%;">
+      <div
+        class="card-header text-center"
+        style="min-height: 200px; width: 100%;"
+      >
+        <a class="text-muted" href="{% if type == 'proceeding' %}proceeding{% else %}workshop{% endif %}_{{workshop.id}}.html">
+          <h3 class="card-title main-title">
+            {{workshop.id}} - {{workshop.title}}
+          </h3>
+        </a>
+        <div class="card-subtitle text-muted">
+          {{ workshop.organizers | join(", ") }}
         </div>
       </div>
     </div>
