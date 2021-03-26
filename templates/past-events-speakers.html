@@ -1,0 +1,10 @@
+{% set active_page = "Past Events" %}
+{% set page_title = "Past Events - Speakers" %}
+{% extends "base.html" %}
+
+{% block content %}
+  <!-- Speakers -->
+  {% if speakers %}
+    {{ components.speakergroup(speakers) }}
+  {% endif %}
+{% endblock %}

@@ -6,7 +6,7 @@ citation_date: July 2020
 proceedings_title: Proceedings of ACM CHIL 2021
 analytics: UA-
 logo:
-  image: static/images/acm-logo-full-550x192.png
+  image: /static/images/acm-logo-full-550x192.png
   width: auto
   height: 50px
   alt_text: 'ACM logo'
@@ -15,7 +15,7 @@ site_title: ACM CHIL 2021
 page_title:
   prefix: 'ACM CHIL'
   separator: ': '
-background_image: static/images/main.jpg
+background_image: /static/images/main.jpg
 organization: ACM CHIL Organization Committee
 registration:
   url: 'register.html'

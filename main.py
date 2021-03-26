@@ -4,19 +4,24 @@ import csv
 import glob
 import json
 import os
-
 import yaml
+
 from flask import Flask, jsonify, redirect, render_template, send_from_directory
 from flask_frozen import Freezer
 from flaskext.markdown import Markdown
 
 site_data = {}
 by_uid = {}
+archive_path_root = "archive"
+archive_data_exists = False
+archive_summary_exists = False
+archive_directories = []
 
 
 def main(site_data_path):
-    global site_data, extra_files
+    global site_data, extra_files, archive_path_root, archive_data_exists, archive_summary_exists, archive_directories
     extra_files = ["README.md"]
+
     # Load all for your sitedata one time.
     for f in glob.glob(site_data_path + "/*"):
         extra_files.append(f)
@@ -32,10 +37,56 @@ def main(site_data_path):
         by_uid[typ] = {}
         for p in site_data[typ]:
             by_uid[typ][p["UID"]] = p
+    print("Current Data Successfully Loaded")
 
-    print("Data Successfully Loaded")
+    # check if archive data directory exists
+    archive_path_sitedata = archive_path_root + "/sitedata"
+    archive_dir_exists = archive_directory_check(archive_path_sitedata)
+
+    if archive_dir_exists:
+        archive_directories = os.listdir(archive_path_sitedata)
+
+        if len(archive_directories) > 0:
+            for archive_year in archive_directories:
+                archive_path = archive_path_sitedata + "/" + str(archive_year)
+
+                # check if the archive year has data
+                if os.path.isdir(archive_path):
+                    if not os.listdir(archive_path):
+                        site_data[archive_path_root] = {}
+                        print(str(archive_path) + " directory is empty")
+                    else:
+                        # Load all archive data
+                        archive_data_types = []
+                        for f in glob.glob(archive_path + "/*"):
+                            extra_files.append(f)
+                            name, typ = f.split("/")[-1].split(".")
+                            if typ == "json":
+                                site_data[archive_path_root] = {str(archive_year): {str(name): json.load(open(f))}}
+                                archive_data_types.append(name)
+                            elif typ in {"csv", "tsv"}:
+                                site_data[archive_path_root] = {str(archive_year): {str(name): list(csv.DictReader(open(f)))}}
+                                archive_data_types.append(name)
+                            elif typ == "yml":
+                                site_data[archive_path_root] = {str(archive_year): {str(name): yaml.load(open(f).read(), Loader=yaml.SafeLoader)}}
+                                archive_data_types.append(name)
+                            elif typ == "md" and name == "highlights":
+                                archive_summary_exists = True
+                                site_data[archive_path_root] = {str(archive_year): {str(name): open(f"./{archive_path_root}/sitedata/{archive_year}/{name}.md").read()}}
+
+                        if len(archive_data_types) > 0:
+                            archive_data_exists = True
+                            # list of archived site data file names
+                            for typ in archive_data_types:
+                                by_uid[archive_path_root] = {str(archive_year): {str(typ): {}}}
+                                for p in site_data[archive_path_root][archive_year][typ]:
+                                    by_uid[archive_path_root][archive_year][typ][p["UID"]] = p
+
+                        print("Archive Data Successfully Loaded")
+                        site_data["archive"]["years_list"] = archive_directories
+                    site_data["archive"]["has_data"] = archive_data_exists
+                    site_data["archive"]["has_summary"] = archive_summary_exists
     return extra_files
-
 
 # ------------- SERVER CODE -------------------->
 
@@ -51,6 +102,7 @@ markdown = Markdown(app)
 def _data():
     data = {}
     data["config"] = site_data["config"]
+    data["archive"] = site_data["archive"]
     data["sponsors"] = site_data["sponsors"]
     return data
 
@@ -242,11 +294,6 @@ def committee():
     ).read()
     return render_template("committee.html", **data)
 
-@app.route("/past-events.html")
-def past_events():
-    data = _data()
-    data["past_events_chil_2020"] = open("./templates/content/past-events-chil-2020.md").read()
-    return render_template("past-events.html", **data)
 
 @app.route("/live.html")
 def live():
@@ -254,6 +301,36 @@ def live():
     data["live"] = open("./templates/content/live.md").read()
     return render_template("live.html", **data)
 
+
+@app.route("/past-events/<year>/<template>.html")
+def archive(year, template):
+    global archive_path_root
+    data = _data()
+
+    if ((year in site_data[archive_path_root]) and (template in site_data[archive_path_root][year])):
+        if template == "speakers":
+            data[template] = site_data[archive_path_root][year][template]
+            return render_template(f"past-events-{template}.html", **data)
+        elif template == "workshops":
+            return None
+        elif template == "sponsors":
+            return None
+        elif template == "highlights":
+            data["highlights"] = site_data[archive_path_root][year][template]
+            data["archive_year"] = year
+            return render_template(f"past-events-{template}.html", **data)
+    else:
+        error = {
+            "title": "Oops!",
+            "type": "routing",
+            "message": f"No archive data for {template} in {year}"
+        }
+        data["error"] = error
+        return render_template("error.html", **data)
+
+
+def archive_directory_check(dir_path):
+    return True if os.path.exists(dir_path) and os.path.isdir(dir_path) else False
 
 def extract_list_field(v, key):
     value = v.get(key, "")
@@ -400,6 +477,9 @@ def generator():
         yield "proceeding", {"proceeding": str(proceeding["UID"])}
     for workshop in site_data["workshops"]:
         yield "workshop", {"workshop": str(workshop["UID"])}
+
+    for year in site_data["archive"]["years_list"]:
+        yield f"/past-events/{year}/highlights.html"
 
     for key in site_data:
         yield "serve", {"path": key}
