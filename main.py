@@ -289,6 +289,7 @@ def live():
     data["live"] = open("./templates/content/live.md").read()
     return render_template("live.html", **data)
 
+
 @app.route("/past-events/<year>/<template>.html")
 def archive(year, template):
     global archive_path_root
