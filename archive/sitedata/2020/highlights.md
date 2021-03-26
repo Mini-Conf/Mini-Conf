@@ -1,4 +1,4 @@
-ACM-CHIL 2020 was held virtually on July 23rd and 24th. It featured 23 research talks from accepted papers, 23 workshop spotlights, and 15 participants in the doctoral symposium.
+ACM CHIL 2020 was held virtually on July 23rd and 24th. It featured 23 research talks from accepted papers, 23 workshop spotlights, and 15 participants in the doctoral symposium.
 
 ### Keynotes
 
@@ -19,7 +19,7 @@ ACM-CHIL 2020 was held virtually on July 23rd and 24th. It featured 23 research 
 
 ### Papers
 
-Proceedings from the 2020 ACM-CHIL Conference are available at the ACM Digital Library: <a href="https://dl.acm.org/doi/proceedings/10.1145/3368555" target="_blank" rel="noopener">https://dl.acm.org/doi/proceedings/10.1145/3368555</a>
+Proceedings from the 2020 ACM CHIL Conference are available at the ACM Digital Library: <a href="https://dl.acm.org/doi/proceedings/10.1145/3368555" target="_blank" rel="noopener">https://dl.acm.org/doi/proceedings/10.1145/3368555</a>
 
 ### Sponsors
 We thank our 2020 sponsors for making the inaugural CHIL conference a success.

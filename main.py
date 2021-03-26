@@ -14,11 +14,12 @@ site_data = {}
 by_uid = {}
 archive_path_root = "archive"
 archive_data_exists = False
+archive_summary_exists = False
 archive_directories = []
 
 
 def main(site_data_path):
-    global site_data, extra_files, archive_path_root, archive_data_exists, archive_directories
+    global site_data, extra_files, archive_path_root, archive_data_exists, archive_summary_exists, archive_directories
     extra_files = ["README.md"]
 
     # Load all for your sitedata one time.
@@ -52,28 +53,39 @@ def main(site_data_path):
                 # check if the archive year has data
                 if os.path.isdir(archive_path):
                     if not os.listdir(archive_path):
+                        site_data[archive_path_root] = {}
                         print(str(archive_path) + " directory is empty")
                     else:
                         # Load all archive data
+                        archive_data_types = []
                         for f in glob.glob(archive_path + "/*"):
                             extra_files.append(f)
                             name, typ = f.split("/")[-1].split(".")
                             if typ == "json":
                                 site_data[archive_path_root] = {str(archive_year): {str(name): json.load(open(f))}}
+                                archive_data_types.append(name)
                             elif typ in {"csv", "tsv"}:
                                 site_data[archive_path_root] = {str(archive_year): {str(name): list(csv.DictReader(open(f)))}}
+                                archive_data_types.append(name)
                             elif typ == "yml":
                                 site_data[archive_path_root] = {str(archive_year): {str(name): yaml.load(open(f).read(), Loader=yaml.SafeLoader)}}
+                                archive_data_types.append(name)
+                            elif typ == "md" and name == "highlights":
+                                archive_summary_exists = True
+                                site_data[archive_path_root] = {str(archive_year): {str(name): open(f"./{archive_path_root}/sitedata/{archive_year}/{name}.md").read()}}
 
-                        for typ in ["speakers"]:
-                            by_uid[archive_path_root] = {str(archive_year): {str(typ): {}}}
-                            for p in site_data[archive_path_root][archive_year][typ]:
-                                by_uid[archive_path_root][archive_year][typ][p["UID"]] = p
+                        if len(archive_data_types) > 0:
+                            archive_data_exists = True
+                            # list of archived site data file names
+                            for typ in archive_data_types:
+                                by_uid[archive_path_root] = {str(archive_year): {str(typ): {}}}
+                                for p in site_data[archive_path_root][archive_year][typ]:
+                                    by_uid[archive_path_root][archive_year][typ][p["UID"]] = p
 
-                        archive_data_exists = True
                         print("Archive Data Successfully Loaded")
-            site_data["archive"]["years_list"] = archive_directories
-            site_data["archive"]["has_data"] = archive_data_exists
+                        site_data["archive"]["years_list"] = archive_directories
+                    site_data["archive"]["has_data"] = archive_data_exists
+                    site_data["archive"]["has_summary"] = archive_summary_exists
     return extra_files
 
 # ------------- SERVER CODE -------------------->
@@ -295,7 +307,7 @@ def archive(year, template):
     global archive_path_root
     data = _data()
 
-    if ((year in by_uid[archive_path_root]) and (template in by_uid[archive_path_root][year] or template == "highlights")):
+    if ((year in site_data[archive_path_root]) and (template in site_data[archive_path_root][year])):
         if template == "speakers":
             data[template] = site_data[archive_path_root][year][template]
             return render_template(f"past-events-{template}.html", **data)
@@ -304,7 +316,7 @@ def archive(year, template):
         elif template == "sponsors":
             return None
         elif template == "highlights":
-            data["highlights"] = open(f"./{archive_path_root}/sitedata/{year}/{template}.md").read()
+            data["highlights"] = site_data[archive_path_root][year][template]
             data["archive_year"] = year
             return render_template(f"past-events-{template}.html", **data)
     else:
