@@ -298,3 +298,33 @@ workshopgroup
   {% endfor %}
 </div>
 {%- endmacro %}
+
+{% macro slideslive(slideslive_id, slideslive_active_date) -%}
+{% if slideslive_id %}
+<div id="slideslive-embed" class="col-md-12 col-xs-12 my-auto p-2 hide" data-activedate="{{slideslive_active_date}}">
+  <div id="presentation-embed-{{slideslive_id}}" class="slp my-auto"></div>
+  <script src='https://slideslive.com/embed_presentation.js'></script>
+  <script>
+    embed = new SlidesLiveEmbed("presentation-embed-{{slideslive_id}}", {
+        presentationId: "{{slideslive_id}}",
+        autoPlay: false, // change to true to autoplay the embedded presentation
+        verticalEnabled: true,
+        verticalWhenWidthLte: 480,
+    });
+  </script>
+</div>
+{% endif %}
+{%- endmacro %}
+
+{% macro rocketchat(rocketchat_id,chat_server) -%}
+{% if rocketchat_id %}
+{{ section("Chat") }}
+<div class="col-md-12 col-xs-12 p-2">
+  <div id="gitter" class="slp">
+    <center>
+      <iframe frameborder="0" src="https://{{chat_server}}/channel/{{rocketchat_id}}?layout=embedded" height="400px" width="100%" ></iframe>
+    </center>
+  </div>
+</div>
+{% endif %}
+{%- endmacro %}

@@ -37,18 +37,7 @@
   </div>
 
   <!-- Slides Live Presentation Embed -->
-  <div id="slideslive-embed" class="col-md-12 col-xs-12 my-auto p-2 hide" data-activedate="{{proceeding.slideslive_active_date}}">
-    <div id="presentation-embed-{{proceeding.slideslive_id}}" class="slp my-auto"></div>
-    <script src='https://slideslive.com/embed_presentation.js'></script>
-    <script>
-      embed = new SlidesLiveEmbed("presentation-embed-{{proceeding.slideslive_id}}", {
-          presentationId: "{{proceeding.slideslive_id}}",
-          autoPlay: false, // change to true to autoplay the embedded presentation
-          verticalEnabled: true,
-          verticalWhenWidthLte: 480,
-      });
-    </script>
-  </div>
+  {{ components.slideslive(proceeding.slideslive_id, proceeding.slideslive_active_date) }}
 </div>
 {% endblock %}
 
