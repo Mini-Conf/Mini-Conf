@@ -48,6 +48,9 @@
   {% set navigation_bar = [
   ('index.html', 'Home'),
   ('calendar.html', 'Program'),
+  ] -%}
+
+  {% set organization_dropdown_bar = [
   ('committee.html', 'Committee'),
   ('sponsor.html', 'Sponsorship'),
   ('call-for-papers.html', 'Call for Papers'),
@@ -95,6 +98,18 @@
                   <a class="nav-link" href="/{{href}}">{{id}}</a>
               </li>
               {% endfor %}
+              {% if organization_dropdown_bar %}
+              <li class="nav-item dropdown {% if {% if  active_page == 'Organization' %}active{% endif %}">
+                <a class="nav-link dropdown-toggle" href="#" id="organizationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Organization
+                </a>
+                <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="organizationDropdown">
+                {% for href, id in organization_dropdown_bar %}
+                  <a class="dropdown-item" href="/{{href}}">{{id}}</a>
+                {% endfor %}
+                </div>
+              </li>
+              {% endif %}
               {% if archive.has_data or archive.has_summary %}
               <li class="nav-item dropdown {% if  active_page == 'Past Events' %}active{% endif %}">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
