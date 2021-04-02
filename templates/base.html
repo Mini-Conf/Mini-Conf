@@ -47,7 +47,9 @@
 {% block header %}
   {% set navigation_bar = [
   ('index.html', 'Home'),
-  ('calendar.html', 'Program'),
+  ('program.html', 'Program'),
+  ('calendar.html', 'Schedule'),
+  ('proceedings.html', 'Papers'),
   ] -%}
 
   {% set organization_dropdown_bar = [
@@ -98,6 +100,9 @@
                   <a class="nav-link" href="/{{href}}">{{id}}</a>
               </li>
               {% endfor %}
+              <li class="nav-item">
+                <a class="nav-link" href="https://cvent.me/bOa0oA" target="_blank" rel="noopener">Register</a>
+              </li>
               {% if organization_dropdown_bar %}
               <li class="nav-item dropdown {% if active_page == 'Organization' %}active{% endif %}">
                 <a class="nav-link dropdown-toggle" href="#" id="organizationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -122,9 +127,6 @@
                 </div>
               </li>
               {% endif %}
-              <li class="nav-item">
-                <a class="nav-link" href="https://cvent.me/bOa0oA" target="_blank" rel="noopener">Register</a>
-              </li>
           </ul>
         </div>
     </div>

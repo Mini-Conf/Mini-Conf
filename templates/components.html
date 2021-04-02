@@ -328,3 +328,36 @@ workshopgroup
 </div>
 {% endif %}
 {%- endmacro %}
+
+{% macro schedule(day) -%}
+<div class="cards row">
+  <table class="table-schedule table table-striped table-responsive">
+  <thead>
+    <tr>
+      <th scope="col" width=150px>Time (EDT)</th>
+      <th scope="col">Type</th>
+      <th scope="col">Title</th>
+      <th scope="col">Speaker</th>
+      <th scope="col">Moderator</th>
+      <th scope="col" width=100px></th>
+    </tr>
+  </thead>
+    <tbody>
+    {% for row in day %}
+    <tr>
+      <td>{% if row.time %}{{ row.time }}{% endif %}</td>
+      <td>{% if row.type %}{{ row.type }}{% endif %}</td>
+      <td>{% if row.doclink %}<a href="{{ row.doclink }}" />{% endif %}
+          {% if row.title %}{{ row.title }}{% endif %}
+          {% if row.doclink %}</a>{% endif %}</td>
+      <td>{% if row.speaker %}{{ row.speaker }}{% endif %}</td>
+      <td>{% if row.moderator %}{{ row.moderator }}{% endif %}</td>
+      <td>{% if row.link and row.linkactive %}<a href="{{ row.link }}" target="_blank"  rel="noopener">{% endif %}
+          {% if row.linktext %}{{ row.linktext }}{% endif %}
+          {% if row.link and row.linkactive %}</a>{% endif %}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{%- endmacro %}

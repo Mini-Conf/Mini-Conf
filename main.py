@@ -243,9 +243,40 @@ def schedule():
     data["workshops"] = [
         format_workshop(workshop) for workshop in site_data["workshops"]
     ]
-    data["schedule"] = open("./templates/content/schedule.md").read()
+    data["schedule"] = {
+        "thursday": site_data['schedule']['thursday'],
+        "friday": site_data['schedule']['friday']
+    }
+    data["schedule_content"] = open("./templates/content/schedule.md").read()
 
     return render_template("schedule.html", **data)
+
+
+@app.route("/program.html")
+def program():
+    data = _data()
+    data["speakers"] = site_data["speakers"]
+    data["tutorials"] = [
+        format_workshop(tutorial) for tutorial in site_data["tutorials"]
+    ]
+    data["proceedings"] = [
+        format_workshop(proceeding) for proceeding in site_data["proceedings"]
+    ]
+    data["workshops"] = [
+        format_workshop(workshop) for workshop in site_data["workshops"]
+    ]
+
+    return render_template("program.html", **data)
+
+
+@app.route("/proceedings.html")
+def proceedings():
+    data = _data()
+    data["proceedings"] = [
+        format_workshop(proceeding) for proceeding in site_data["proceedings"]
+    ]
+
+    return render_template("proceedings.html", **data)
 
 
 @app.route("/workshops.html")

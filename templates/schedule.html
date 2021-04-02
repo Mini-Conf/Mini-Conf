@@ -1,5 +1,5 @@
-{% set active_page = "Program" %}
-{% set page_title = "Program" %}
+{% set active_page = "Schedule" %}
+{% set page_title = "Schedule" %}
 {% extends "base.html" %}
 
 {% block head %}
@@ -9,14 +9,11 @@
 
 {% block tabs %}
   <div class="page-header text-center">
-    <h1>Program</h1>
+    <h1>Schedule</h1>
   </div>
   {{ components.tabs([
-        ("schedule", "Schedule", "active"),
-        ("speakers", "Keynotes"),
-        ("tutorials", "Tutorials"),
-        ("proceedings", "Proceedings"),
-        ("posters", "Posters"),
+        ("thursday", "Thursday, April 8", "active"),
+        ("friday", "Friday, April 9"),
     ])}}
 {% endblock %}
 
@@ -24,65 +21,25 @@
 {% block content %}
   <div class="page-content">
     <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-      <!-- Schedule tab -->
+      {{ schedule_content | markdown }}
+
+      <!-- Thursday tab -->
       <div
         class="tab-pane active"
-        id="tab-schedule"
+        id="tab-thursday"
         role="tabpanel"
         aria-labelledby="nav-profile-tab"
       >
-        {{ schedule | markdown }}
+        {{ components.schedule(schedule["thursday"]) }}
       </div>
-      <!-- Keynote speakers tab -->
+      <!-- Friday tab -->
       <div
         class="tab-pane"
-        id="tab-speakers"
+        id="tab-friday"
         role="tabpanel"
         aria-labelledby="nav-profile-tab"
       >
-        <!-- Speakers -->
-        {% if speakers %}
-          {{ components.speakergroup(speakers) }}
-        {% endif %}
-      </div>
-      <!-- Tutorials tab -->
-      <div
-        class="tab-pane fade"
-        id="tab-tutorials"
-        role="tabpanel"
-        aria-labelledby="nav-profile-tab"
-      >
-        {% if tutorials %}
-          {{ components.tutorialgroup(tutorials) }}
-        {% endif %}
-      </div>
-      <!-- Proceedings tab -->
-      <div
-        class="tab-pane fade"
-        id="tab-proceedings"
-        role="tabpanel"
-        aria-labelledby="nav-profile-tab"
-      >
-        {% if proceedings %}
-          {{ components.proceedingpgroup(proceedings) }}
-        {% endif %}
-      </div>
-      <!-- Posters tab -->
-        <div
-        class="tab-pane fade"
-        id="tab-posters"
-        role="tabpanel"
-        aria-labelledby="nav-profile-tab"
-      >
-        {% if workshops %}
-          {{ components.section("Poster Session A: Workshop") }}
-          {{ components.workshopgroup(workshops) }}
-        {% endif %}
-
-        {% if proceedings %}
-          {{ components.section("Poster Session B: Proceedings") }}
-          {{ components.workshopgroup(proceedings, 'proceeding') }}
-        {% endif %}
+        {{ components.schedule(schedule["friday"]) }}
       </div>
     </div>
   </div>
@@ -142,7 +99,7 @@
   {{ super() }}
   {% include 'schedule_scripts.html' %}
 
-  {#
+  {# COMMENTED OUT
   <script type="text/javascript">
     window.onload = () => {
       const tabPanes = $(".tab-pane");
