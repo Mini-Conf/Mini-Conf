@@ -11,12 +11,12 @@
     />
 
     {% if config.use_auth0 %}
-      <script>
-        var auth0_domain = "{{config.auth0_domain}}";
-        var auth0_client_id = "{{config.auth0_client_id}}";
-      </script>
-      <script src="https://cdn.auth0.com/js/auth0-spa-js/1.7/auth0-spa-js.production.js"></script>
-      <script src="/static/js/modules/auth0protect.js"></script>
+    <script type="text/javascript">
+      var auth0_domain = "{{config.auth0_domain}}";
+      var auth0_client_id = "{{config.auth0_client_id}}";
+    </script>
+    <script src="https://cdn.auth0.com/js/auth0-spa-js/1.7/auth0-spa-js.production.js"></script>
+    <script type="text/javascript" src="/static/js/modules/auth0protect.js"></script>
     {% endif %}
 
     <link rel="icon" type="image/png" href="/static/images/favicon.png">
@@ -47,6 +47,7 @@
 {% block header %}
   {% set navigation_bar = [
   ('index.html', 'Home'),
+  ('live.html', 'Live'),
   ('program.html', 'Program'),
   ('calendar.html', 'Schedule'),
   ('proceedings.html', 'Papers'),

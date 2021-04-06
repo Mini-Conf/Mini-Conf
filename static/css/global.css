@@ -26,6 +26,32 @@ body {
   font-family: "Lato", sans-serif;
 }
 
+button#btn-login-toggle {
+  border: none;
+  background: none;
+  color: rgba(0,0,0,.5);
+  padding: 0 0.5rem;
+  height: 40px;
+  vertical-align: middle;
+}
+
+button#btn-login-toggle:hover {
+  color: rgba(0,0,0,.7);
+}
+
+button#btn-login-toggle:focus {
+  outline: none;
+}
+
+.hidden,
+.gated-content {
+  display: none;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
 .container a:hover {
   text-decoration: none;
 }

@@ -34,9 +34,10 @@ default_poster_pdf: /static/images/GLTR_poster.pdf
 #user: miniconf@miniconf.com
 #pass: mIniconf1_
 
-use_auth0:
-auth0_client_id : JIdr6wi0z27LyLgwkJF0fpk700aj7MNH
-auth0_domain : miniconf.auth0.com
+use_auth0: true
+auth0_client_id : xzIZGAdejTq7QGPYJdZiB9KCooW7aYK9
+auth0_domain : acmchil.us.auth0.com
+auth0_authorize_endpoint: https://acmchil.us.auth0.com/authorize
 
 calendar:
   colors: #  Colors for the different event hashtags:
