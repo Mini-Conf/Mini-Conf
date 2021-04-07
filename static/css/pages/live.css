@@ -6,7 +6,7 @@
 
 .live .gather-town {
   display: flex;
-  margin: 60px auto 0 auto;
+  margin: 60px auto;
   align-items: center;
   justify-content: center;
 }
@@ -23,4 +23,16 @@
 .live .gather-town-text {
   width: 283px;
   font-size: 18px;
+}
+
+.live .table-tutorials {
+  margin-bottom: 60px;
+}
+
+.live .table-tutorials td {
+  width: 33.33%;
+}
+
+.live .table-tutorials a {
+  font-size: 1.2rem;
 }

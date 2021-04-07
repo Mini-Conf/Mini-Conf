@@ -203,7 +203,7 @@ thursday:
   - time: "2:21 PM"
     type: Paper Talk 11
     title: "CheXtransfer: Performance and Parameter Efficiency of ImageNet Models for Chest X-Ray Interpretation"
-    speaker: Alexander Ke
+    speaker: William Ellsworth
     moderator: Alistair Johnson
     doclink: "/proceeding_P11.html"
     link: "/live.html"
@@ -384,7 +384,7 @@ friday:
   - time: "11:02 AM"
     type: Paper Talk 21
     title: "B-SegNet : Branched-SegMentor Network For Skin Lesion Segmentation"
-    speaker: Shreshth Saini
+    speaker: Mengling Feng
     moderator: Rumi Chunara
     doclink: "/proceeding_P21.html"
     link: "/live.html"
