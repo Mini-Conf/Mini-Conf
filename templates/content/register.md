@@ -1,7 +1,7 @@
 The 2021 ACM Conference on Health, Inference, and Learning will be held online. Full registration is now open.
 
 
-<a href="https://cvent.me/bOa0o" class="btn-lg btn-primary" target="_blank" rel="noopener" role="button">Click here to register!</a>
+<a href="https://cvent.me/bOa0oA" class="btn-lg btn-primary" target="_blank" rel="noopener" role="button">Click here to register!</a>
 <br /><br/ >
 
 ### Pricing ###
