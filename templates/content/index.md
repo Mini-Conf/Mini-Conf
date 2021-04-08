@@ -70,7 +70,7 @@ All ACM CHIL events and communications must abide by the [ACM policy against dis
     <tr>
       <th scope="row">Conference dates</th>
       <td>April 8-9, 2021</td>
-      <td class="text-right"><span class="countdown" data-startdate="2021-04-08T23:59:00.00"></span></td>
+      <td class="text-right"><span class="" data-startdate="2021-04-08T23:59:00.00">LIVE!</span></td>
     </tr>
   </tbody>
 </table>
