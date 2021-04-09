@@ -25,7 +25,7 @@ registration:
 chat_server: chat.chilconference.org
 default_chat_channel: live
 # Live stream presentation ID
-default_presentation_id: 38954749
+default_presentation_id: 38954751
 default_poster_pdf: /static/images/GLTR_poster.pdf
 
 

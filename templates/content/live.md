@@ -9,24 +9,18 @@
         <tbody>
             <tr>
                 <td>
-                    <p>Tutorial: Causal Inference in Clinical Research: From Theory to Practice</p>
+                    <p>Explainable ML: Understanding the Limits and Pushing the Boundaries</p>
                 </td>
                 <td>
-                    <p>Tutorial: Experimental Design and Causal Inference Methods for Micro-Randomized Trials</p>
-                </td>
-                <td>
-                    <p>Tutorial: Offline Reinforcement Learning</p>
+                    <p>Semi-supervised Phenotyping with Electronic Health Records</p>
                 </td>
             </tr>
             <tr>
                 <td>
-                     <a href="https://acm-org.zoom.us/j/91226376270?pwd=ZEVaOW9JcjRRZFRtQW1KTERpN1Zadz09" target="_blank" rel="noopener">Zoom 1</a>
+                     <a href="https://acm-org.zoom.us/j/98794992147?pwd=c2tmbG5hb1hxU094U0c1MEZRcEdiUT09" target="_blank" rel="noopener">Zoom 1</a>
                 </td>
                 <td>
-                     <a href="https://acm-org.zoom.us/j/94454171498?pwd=VitCTUsvZ3dVcmhONDh0ZmRyUTVsdz09" target="_blank" rel="noopener">Zoom 2</a>
-                </td>
-                <td>
-                     <a href="https://acm-org.zoom.us/j/92981243808?pwd=YTdqNnRaaXdTMVZIUzZtdEQ2TG1tQT09" target="_blank" rel="noopener">Zoom 3</a>
+                     <a href="https://acm-org.zoom.us/j/99786872797?pwd=clhvWmg2TWxqRnJsMzNha0ZOaW15dz09" target="_blank" rel="noopener">Zoom 2</a>
                 </td>
             </tr>
         </tbody>
