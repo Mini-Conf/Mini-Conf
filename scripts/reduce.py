@@ -18,7 +18,7 @@ def parse_arguments():
 if __name__ == "__main__":
     args = parse_arguments()
     emb = torch.load(args.embeddings)
-    out = sklearn.manifold.TSNE(n_components=2).fit_transform(emb.numpy())
+    out = sklearn.manifold.TSNE(n_components=2).fit_transform(emb.cpu().numpy())
     d = []
     with open(args.papers, "r") as f:
         abstracts = list(csv.DictReader(f))
