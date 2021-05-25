@@ -93,3 +93,20 @@ Feel free to cite MiniConf:
     primaryClass={cs.HC}
 }
 ```
+
+### Archiving
+Dynamic archiving has been built-in to automatically add a Past Events main menu item if data exists in the archive folder.
+
+Currently, past event pages have been built for the following sitedata files:
+- proceedings.csv
+- speakers.csv (this file is used for Keynotes pages)
+- symposiums.csv
+- tutorials.csv
+- workshops.csv
+
+There is also a highlights.md file which you can be added if you would like to manually currate or display additional page for a given archived year.
+
+Steps to archive the current year's data (assuming 2022 is the current year):
+1. Create a folder in `./archive/sitedata` with the name of the current year (2022)
+2. Copy files mentioned above from `./sitedata` to `./archive/sitedata/2022`
+3. Restart/Redeploy the server.

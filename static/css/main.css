@@ -9,6 +9,7 @@
 
 /* COMPONENTS */
 @import "countdown.css";
+@import "dropdownmenu.css";
 
 /* PAGES */
 @import "pages/index.css";
@@ -19,3 +20,4 @@
 @import "pages/speaker.css";
 @import "pages/tutorial.css";
 @import "pages/proceeding.css";
+@import "pages/symposium.css";

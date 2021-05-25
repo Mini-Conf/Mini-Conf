@@ -8,6 +8,7 @@ faqgroup
 highlightgroup
 tutorialgroup
 proceedingpgroup
+symposiumpgroup
 workshopgroup
 sponsorgroup
 slideslive
@@ -58,7 +59,7 @@ schedule
       <div class="card-header">
         <div class="row">
           <div class="col-md-2 col-sm-5">
-            <img src="{{speaker.image}}" width="100%" class="img-thumbnail" alt="{{speaker.speaker}}" />
+            <img src="/{{speaker.image}}" width="100%" class="img-thumbnail" alt="{{speaker.speaker}}" />
           </div>
           <div class="col-md-10 col-sm-6">
             <div class="m-3 text-muted">
@@ -257,6 +258,27 @@ schedule
         </h3>
         <div class="card-subtitle text-muted text-left">
           {{ proceeding.organizers | join("; ") }}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{%- endmacro %}
+
+{% macro symposiumpgroup(symposiums) -%}
+<div class="cards row">
+  {% for symposium in symposiums or [] %}
+  <div class="col-md-12 col-sm-12 p-3">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title main-title">
+          <a href="symposium_{{symposium.id}}.html" class="main-title">
+            {{symposium.title}}
+          </a>
+        </h3>
+        <div class="card-subtitle text-muted text-left">
+          {{ symposium.organizers | join("; ") }}
         </div>
       </div>
     </div>

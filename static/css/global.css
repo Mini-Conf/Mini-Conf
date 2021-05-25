@@ -67,6 +67,10 @@ button#btn-login-toggle:focus {
   background-color: rgba(236, 241, 246, 1);
 }
 
+.jumbotron + .container.content-wrapper {
+  min-height: 0;
+}
+
 .page-header {
   padding: 10px 0;
 }
@@ -352,6 +356,18 @@ body .carousel-control-prev {
   .navbar-brand .logo {
     width: 100px;
     height: auto;
+  }
+
+  .navbar .container {
+    flex-direction: row-reverse;
+  }
+
+  .navbar-collapse {
+    padding: 0 16px;
+  }
+
+  .navbar-toggler {
+    margin-left: 16px;
   }
 }
 

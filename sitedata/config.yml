@@ -1,22 +1,22 @@
-name: ACM CHIL 2021
-tagline: ACM Conference on <br> Health, Inference, and Learning
-date: April 8-9, 2021
+name: CHIL 2022
+tagline: Conference on <br> Health, Inference, and Learning
+date: April 2022
 countdown_date: April 8, 2021
 citation_date: July 2020
-proceedings_title: Proceedings of ACM CHIL 2021
+proceedings_title: Proceedings of CHIL 2021
 analytics: UA-
 logo:
-  image: /static/images/acm-logo-full-550x192.png
+  image:
   width: auto
   height: 50px
-  alt_text: 'ACM logo'
+  alt_text: 'CHIL logo'
 # uncomment the following line to show the site title next to the logo image
-site_title: ACM CHIL 2021
+site_title: CHIL 2022
 page_title:
-  prefix: 'ACM CHIL'
+  prefix: 'CHIL'
   separator: ': '
 background_image: /static/images/main.jpg
-organization: ACM CHIL Organization Committee
+organization: CHIL Organization Committee
 registration:
   url: 'register.html'
   link_text: Registration opens February 2021
@@ -34,7 +34,7 @@ default_poster_pdf: /static/images/GLTR_poster.pdf
 #user: miniconf@miniconf.com
 #pass: mIniconf1_
 
-use_auth0: true
+use_auth0: false
 auth0_client_id : xzIZGAdejTq7QGPYJdZiB9KCooW7aYK9
 auth0_domain : acmchil.us.auth0.com
 auth0_authorize_endpoint: https://acmchil.us.auth0.com/authorize

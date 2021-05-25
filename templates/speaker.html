@@ -1,3 +1,4 @@
+{% set active_page = "Past Events" if isArchive else "Speakers" %}
 {% set page_title = speaker.title %}
 {% extends "base.html" %}
 
@@ -38,6 +39,11 @@
   {{ components.slideslive(speaker.slideslive_id, speaker.slideslive_active_date) }}
 </div>
 {% endblock %}
+
+{% if isArchive %}
+  {% block bottom %}
+  {% endblock %}
+{% endif %}
 
 {% block scripts %}
   {{ super() }}

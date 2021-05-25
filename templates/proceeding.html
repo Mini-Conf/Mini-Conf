@@ -1,4 +1,4 @@
-{% set active_page = "Papers" %}
+{% set active_page = "Past Events" if isArchive else "Papers" %}
 {% set page_title = proceeding.title %}
 {% extends "base.html" %}
 
@@ -41,6 +41,11 @@
   {{ components.slideslive(proceeding.slideslive_id, proceeding.slideslive_active_date) }}
 </div>
 {% endblock %}
+
+{% if isArchive %}
+  {% block bottom %}
+  {% endblock %}
+{% endif %}
 
 {% block scripts %}
   {{ super() }}

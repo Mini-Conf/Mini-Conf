@@ -1,4 +1,4 @@
-Financial support ensures that ACM CHIL remains accessible to a broad set of participants by offsetting the expenses involved in participation. We follow best practices in other ACM conferences to maintain a transparent and appropriate relationship with our funders:
+Financial support ensures that CHIL remains accessible to a broad set of participants by offsetting the expenses involved in participation. We follow best practices in other ACM conferences to maintain a transparent and appropriate relationship with our funders:
 
 1. The substance and structure of the conference are determined independently by the program committees.
 2. All papers are chosen through a rigorous, double-blind peer review process, where authors disclose conflicts of interest.
@@ -11,7 +11,7 @@ Financial support ensures that ACM CHIL remains accessible to a broad set of par
 
 ### 2021 Sponsorship Levels
 
-Sponsorship of the annual ACM Conference on Health, Inference and Learning (ACM CHIL) contributes to furthering research and interdisciplinary dialogue around machine learning and health. We deeply appreciate any amount of support your company or foundation can provide.
+Sponsorship of the annual Conference on Health, Inference and Learning (CHIL) contributes to furthering research and interdisciplinary dialogue around machine learning and health. We deeply appreciate any amount of support your company or foundation can provide.
 <br />
 
 #### Gold ($25,000 USD)
@@ -42,4 +42,4 @@ Sponsorship of the annual ACM Conference on Health, Inference and Learning (ACM 
 
 <br />
 
-To become an ACM CHIL 2021 sponsor, please email [info@chilconference.org](mailto:info@chilconference.org)
+To become an CHIL 2022 sponsor, please email [info@chilconference.org](mailto:info@chilconference.org)

@@ -1,0 +1,20 @@
+{% set active_page = "Symposiums" %}
+{% set page_title = "Symposiums" %}
+{% extends "base.html" %}
+
+{% block top %}
+{% endblock %}
+
+{% block tabs %}
+  <div class="page-header text-center">
+    <h1>Symposiums</h1>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="page-content">
+    {% if symposiums %}
+      {{ components.symposiumpgroup(symposiums) }}
+    {% endif %}
+  </div>
+{% endblock %}

@@ -47,19 +47,13 @@
 {% block header %}
   {% set navigation_bar = [
   ('index.html', 'Home'),
-  ('live.html', 'Live'),
-  ('program.html', 'Program'),
-  ('calendar.html', 'Schedule'),
-  ('proceedings.html', 'Papers'),
-  ] -%}
-
-  {% set organization_dropdown_bar = [
-  ('committee.html', 'Committee'),
-  ('sponsor.html', 'Sponsorship'),
-  ('call-for-papers.html', 'Call for Papers'),
   ] -%}
 
   {# Removed navigation_bar ENTRIES
+    ('program.html', 'Program'),
+    ('calendar.html', 'Schedule'),
+    ('proceedings.html', 'Papers'),
+    ('live.html', 'Live'),
     ('papers.html', 'Papers'),
     ('workshops.html', 'Workshops')
     ('chat.html', 'Chat'),
@@ -67,9 +61,19 @@
     ('register.html', 'Registration'),
   #}
 
-  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light mr-auto" id="main-nav">
+  {% set organization_dropdown_bar = [
+  ('committee.html', 'Committee'),
+  ] -%}
+
+  {# Removed organization_dropdown_bar ENTRIES
+    ('sponsor.html', 'Sponsorship'),
+    ('call-for-papers.html', 'Call for Papers'),
+  #}
+
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light mr-auto btco-hover-menu" id="main-nav">
     <div class="container">
-        <a class="navbar-brand logo-wrapper" href="index.html">
+        {% if config.logo.image %}
+        <a class="navbar-brand logo-wrapper" href="/index.html">
             <img
                   class="logo" src="{{config.logo.image}}"
                   height={{config.logo.height | default("auto") | tojson}}
@@ -77,6 +81,7 @@
                   alt="{{config.logo.alt_text}}"
             />
         </a>
+        {% endif %}
         {% if config.site_title %}
           <a class="navbar-brand" href="/index.html">{{config.site_title}}</a>
         {% endif %}
@@ -92,7 +97,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div
-              class="collapse navbar-collapse text-right flex-grow-1"
+              class="collapse navbar-collapse flex-grow-1"
               id="navbarNav"
         >
           <ul class="navbar-nav ml-auto">
@@ -101,31 +106,41 @@
                   <a class="nav-link" href="/{{href}}">{{id}}</a>
               </li>
               {% endfor %}
-              <li class="nav-item">
-                <a class="nav-link" href="https://cvent.me/bOa0oA" target="_blank" rel="noopener">Register</a>
-              </li>
               {% if organization_dropdown_bar %}
               <li class="nav-item dropdown {% if active_page == 'Organization' %}active{% endif %}">
-                <a class="nav-link dropdown-toggle" href="#" id="organizationDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="organizationDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Organization
                 </a>
-                <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="organizationDropdown">
-                {% for href, id in organization_dropdown_bar %}
-                  <a class="dropdown-item" href="/{{href}}">{{id}}</a>
-                {% endfor %}
-                </div>
+                <ul class="dropdown-menu" aria-labelledby="organizationDropdown">
+                  <li>
+                    {% for href, id in organization_dropdown_bar %}
+                      <a class="dropdown-item" href="/{{href}}">{{id}}</a>
+                    {% endfor %}
+                  </li>
+                </ul>
               </li>
               {% endif %}
               {% if archive.has_data or archive.has_summary %}
               <li class="nav-item dropdown {% if  active_page == 'Past Events' %}active{% endif %}">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Past Events
                 </a>
-                <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
-                {% for year in archive.years_list %}
-                  <a class="dropdown-item" href="/past-events/{{year}}/highlights.html">{{year}}</a>
-                {% endfor %}
-                </div>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  {% for year in archive.years_list|reverse %}
+                  <li>
+                      <a class="dropdown-item dropdown-toggle" href="#">{{year}}</a>
+                      <ul class="dropdown-menu">
+                          {% for key, value in archive.items() %}
+                            {% if key == year %}
+                              {% for item, data in value.items() %}
+                              <li><a class="dropdown-item" href="/{{year}}/{{item}}.html">{{item.capitalize()}}</a></li>
+                              {% endfor %}
+                            {% endif %}
+                          {% endfor %}
+                      </ul>
+                  </li>
+                  {% endfor %}
+                </ul>
               </li>
               {% endif %}
           </ul>
@@ -156,8 +171,9 @@
   {% if sponsors %}
     <div class="container">
       <br />
-      <h3>{{config.site_title}} Sponsors</h3>
-      {{ components.sponsorgroup(sponsors) }}
+      <h3>{{config.page_title.prefix}} Sponsors</h3>
+      <p>We thank our <a href="/2021/highlights.html">sponsors</a> for making the CHIL 2021 conference a success.</p>
+      <!-- {{ components.sponsorgroup(sponsors) }} -->
     </div>
   {% endif %}
 {% endblock %}
@@ -239,6 +255,36 @@
           $(window).scrollTop(position);
         }
       });
+
+      // Nested dropdown navigation menu
+      var ddHoverOrClick = function (e) {
+        var $el = $(this);
+        var $parent = $(this).offsetParent('.dropdown-menu');
+
+        if (!$(this).next().hasClass('show')) {
+            $(this).parents('.dropdown-menu').first().find('.show').removeClass('show');
+        }
+
+        var $subMenu = $(this).next('.dropdown-menu');
+        $subMenu.toggleClass('show');
+
+        $(this).parent('li').toggleClass('show');
+
+        $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function (e) {
+            $('.dropdown-menu .show').removeClass('show');
+        });
+
+         if (!$parent.parent().hasClass('navbar-nav')) {
+            $el.next().css({
+              "top": $el[0].offsetTop,
+              "left": -$parent.outerWidth()
+            });
+        }
+
+        return false;
+      };
+
+      $('.dropdown-menu a.dropdown-toggle').click(ddHoverOrClick).hover(ddHoverOrClick);
     });
   </script>
   <!-- <script src="/static/js/modules/lazyLoad.js"></script> -->

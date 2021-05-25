@@ -14,12 +14,11 @@ site_data = {}
 by_uid = {}
 archive_path_root = "archive"
 archive_data_exists = False
-archive_summary_exists = False
 archive_directories = []
 
 
 def main(site_data_path):
-    global site_data, extra_files, archive_path_root, archive_data_exists, archive_summary_exists, archive_directories
+    global site_data, extra_files, archive_path_root, archive_data_exists, archive_directories
     extra_files = ["README.md"]
 
     # Load all for your sitedata one time.
@@ -33,7 +32,7 @@ def main(site_data_path):
         elif typ == "yml":
             site_data[name] = yaml.load(open(f).read(), Loader=yaml.SafeLoader)
 
-    for typ in ["papers", "speakers", "tutorials", "proceedings", "workshops", "sponsors"]:
+    for typ in ["papers", "speakers", "tutorials", "proceedings", "workshops", "sponsors", "symposiums"]:
         by_uid[typ] = {}
         for p in site_data[typ]:
             by_uid[typ][p["UID"]] = p
@@ -45,47 +44,71 @@ def main(site_data_path):
 
     if archive_dir_exists:
         archive_directories = os.listdir(archive_path_sitedata)
+        site_data[archive_path_root] = {}
+        archive_root_dict = {}
+        archive_year_summary_dict = {}
+        archive_dict = {}
+        by_uid_archive_path_root_dict = {}
 
         if len(archive_directories) > 0:
             for archive_year in archive_directories:
                 archive_path = archive_path_sitedata + "/" + str(archive_year)
+                archive_data_types = []
 
                 # check if the archive year has data
                 if os.path.isdir(archive_path):
                     if not os.listdir(archive_path):
-                        site_data[archive_path_root] = {}
                         print(str(archive_path) + " directory is empty")
                     else:
                         # Load all archive data
-                        archive_data_types = []
+                        if not hasattr(archive_dict, archive_year):
+                            archive_dict.update({str(archive_year): {}})
+
+                        archive_year_summary_dict.update({str(archive_year): False})
+
                         for f in glob.glob(archive_path + "/*"):
                             extra_files.append(f)
                             name, typ = f.split("/")[-1].split(".")
+
                             if typ == "json":
-                                site_data[archive_path_root] = {str(archive_year): {str(name): json.load(open(f))}}
+                                archive_dict[archive_year][name] = json.load(open(f))
                                 archive_data_types.append(name)
                             elif typ in {"csv", "tsv"}:
-                                site_data[archive_path_root] = {str(archive_year): {str(name): list(csv.DictReader(open(f)))}}
+                                archive_dict[archive_year][name] = list(csv.DictReader(open(f)))
                                 archive_data_types.append(name)
                             elif typ == "yml":
-                                site_data[archive_path_root] = {str(archive_year): {str(name): yaml.load(open(f).read(), Loader=yaml.SafeLoader)}}
+                                archive_dict[archive_year][name] = yaml.load(open(f).read(), Loader=yaml.SafeLoader)
                                 archive_data_types.append(name)
                             elif typ == "md" and name == "highlights":
-                                archive_summary_exists = True
-                                site_data[archive_path_root] = {str(archive_year): {str(name): open(f"./{archive_path_root}/sitedata/{archive_year}/{name}.md").read()}}
+                                archive_year_summary_dict.update({str(archive_year): True})
+                                archive_dict[archive_year][name] = open(f"./{archive_path_root}/sitedata/{archive_year}/{name}.md").read()
 
                         if len(archive_data_types) > 0:
                             archive_data_exists = True
+                            by_uid_archive_year_type = {}
+
+                            if not hasattr(by_uid_archive_path_root_dict, archive_year):
+                                by_uid_archive_path_root_dict.update({str(archive_year): {}})
+
                             # list of archived site data file names
                             for typ in archive_data_types:
-                                by_uid[archive_path_root] = {str(archive_year): {str(typ): {}}}
-                                for p in site_data[archive_path_root][archive_year][typ]:
-                                    by_uid[archive_path_root][archive_year][typ][p["UID"]] = p
+                                by_uid_archive_year_type_data = {}
 
-                        print("Archive Data Successfully Loaded")
-                        site_data["archive"]["years_list"] = archive_directories
-                    site_data["archive"]["has_data"] = archive_data_exists
-                    site_data["archive"]["has_summary"] = archive_summary_exists
+                                for p in archive_dict[archive_year][typ]:
+                                    by_uid_archive_year_type_data.update({str(p["UID"]): p})
+
+                                by_uid_archive_year_type.update({str(typ):by_uid_archive_year_type_data})
+
+                            by_uid_archive_path_root_dict[archive_year] = by_uid_archive_year_type
+                            by_uid.update({str(archive_path_root): by_uid_archive_path_root_dict})
+
+                        archive_root_dict.update(archive_dict)
+
+            site_data["archive"] = archive_root_dict
+            site_data["archive"]["years_list"] = archive_directories
+            site_data["archive"]["has_data"] = archive_data_exists
+            site_data["archive"]["has_summary"] = archive_year_summary_dict
+            print("Archive Data Successfully Loaded")
     return extra_files
 
 # ------------- SERVER CODE -------------------->
@@ -279,6 +302,16 @@ def proceedings():
     return render_template("proceedings.html", **data)
 
 
+@app.route("/symposiums.html")
+def symposiums():
+    data = _data()
+    data["symposiums"] = [
+        format_workshop(symposium) for symposium in site_data["symposiums"]
+    ]
+
+    return render_template("symposiums.html", **data)
+
+
 @app.route("/workshops.html")
 def workshops():
     data = _data()
@@ -333,22 +366,39 @@ def live():
     return render_template("live.html", **data)
 
 
-@app.route("/past-events/<year>/<template>.html")
+@app.route("/<year>/<template>.html")
 def archive(year, template):
     global archive_path_root
     data = _data()
+    data["isArchive"] = True
+    data["archive_year"] = year
 
     if ((year in site_data[archive_path_root]) and (template in site_data[archive_path_root][year])):
         if template == "speakers":
             data[template] = site_data[archive_path_root][year][template]
             return render_template(f"past-events-{template}.html", **data)
+        elif template == "proceedings":
+            data[template] = [
+                format_workshop(proceeding) for proceeding in site_data[archive_path_root][year][template]
+            ]
+            return render_template(f"past-events-{template}.html", **data)
+        elif template == "symposiums":
+            data[template] = [
+                format_workshop(symposium) for symposium in site_data[archive_path_root][year][template]
+            ]
+            return render_template(f"past-events-{template}.html", **data)
         elif template == "workshops":
-            return None
-        elif template == "sponsors":
-            return None
+            data[template] = [
+                format_workshop(workshop) for workshop in site_data[archive_path_root][year][template]
+            ]
+            return render_template(f"past-events-{template}.html", **data)
+        elif template == "tutorials":
+            data[template] = [
+                format_workshop(tutorial) for tutorial in site_data[archive_path_root][year][template]
+            ]
+            return render_template(f"past-events-{template}.html", **data)
         elif template == "highlights":
-            data["highlights"] = site_data[archive_path_root][year][template]
-            data["archive_year"] = year
+            data[template] = site_data[archive_path_root][year][template]
             return render_template(f"past-events-{template}.html", **data)
     else:
         error = {
@@ -438,6 +488,18 @@ def speaker(speaker):
     v = by_uid["speakers"][uid]
     data = _data()
     data["speaker"] = v
+    data["by_uid"] = by_uid
+    return render_template("speaker.html", **data)
+
+@app.route("/<year>/speaker_<speaker>.html")
+def past_speaker(year, speaker):
+    uid = speaker
+    v = by_uid["archive"][year]["speakers"][uid]
+    data = _data()
+    data["speaker"] = v
+    data["year"] = year
+    data["isArchive"] = True
+    data["by_uid"] = by_uid
     return render_template("speaker.html", **data)
 
 
@@ -449,11 +511,31 @@ def workshop(workshop):
     data["workshop"] = format_workshop(v)
     return render_template("workshop.html", **data)
 
+@app.route("/<year>/workshop_<workshop>.html")
+def past_workshop(year, workshop):
+    uid = workshop
+    v = by_uid["archive"][year]["workshops"][uid]
+    data = _data()
+    data["year"] = year
+    data["isArchive"] = True
+    data["workshop"] = format_workshop(v)
+    return render_template("workshop.html", **data)
+
 @app.route("/tutorial_<tutorial>.html")
 def tutorial(tutorial):
     uid = tutorial
     v = by_uid["tutorials"][uid]
     data = _data()
+    data["tutorial"] = format_workshop(v)
+    return render_template("tutorial.html", **data)
+
+@app.route("/<year>/tutorial_<tutorial>.html")
+def past_tutorial(year,tutorial):
+    uid = tutorial
+    v = by_uid["archive"][year]["tutorials"][uid]
+    data = _data()
+    data["year"] = year
+    data["isArchive"] = True
     data["tutorial"] = format_workshop(v)
     return render_template("tutorial.html", **data)
 
@@ -464,6 +546,34 @@ def proceeding(proceeding):
     data = _data()
     data["proceeding"] = format_workshop(v)
     return render_template("proceeding.html", **data)
+
+@app.route("/<year>/proceeding_<proceeding>.html")
+def past_proceeding(year, proceeding):
+    uid = proceeding
+    v = by_uid["archive"][year]["proceedings"][uid]
+    data = _data()
+    data["year"] = year
+    data["isArchive"] = True
+    data["proceeding"] = format_workshop(v)
+    return render_template("proceeding.html", **data)
+
+@app.route("/symposium_<symposium>.html")
+def symposium(symposium):
+    uid = symposium
+    v = by_uid["symposiums"][uid]
+    data = _data()
+    data["symposium"] = format_workshop(v)
+    return render_template("symposium.html", **data)
+
+@app.route("/<year>/symposium_<symposium>.html")
+def past_symposium(year, symposium):
+    uid = symposium
+    v = by_uid["archive"][year]["symposiums"][uid]
+    data = _data()
+    data["year"] = year
+    data["isArchive"] = True
+    data["symposium"] = format_workshop(v)
+    return render_template("symposium.html", **data)
 
 @app.route("/chat.html")
 def chat():
@@ -506,11 +616,22 @@ def generator():
         yield "tutorial", {"tutorial": str(tutorial["UID"])}
     for proceeding in site_data["proceedings"]:
         yield "proceeding", {"proceeding": str(proceeding["UID"])}
+    for symposium in site_data["symposiums"]:
+        yield "symposium", {"symposium": str(symposium["UID"])}
     for workshop in site_data["workshops"]:
         yield "workshop", {"workshop": str(workshop["UID"])}
 
     for year in site_data["archive"]["years_list"]:
-        yield f"/past-events/{year}/highlights.html"
+        if site_data["archive"]["has_summary"][year] is True:
+            yield f"/{year}/highlights.html"
+
+        for typ in site_data["archive"][year]:
+            if not typ == "highlights":
+                yield "archive", {"year": year, "template": typ}
+                routeName = "past_" + typ[:-1]
+
+                for item in site_data["archive"][year][typ]:
+                    yield str(routeName), {"year": year, str(typ[:-1]): str(item["UID"])}
 
     for key in site_data:
         yield "serve", {"path": key}

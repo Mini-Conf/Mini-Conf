@@ -1,21 +1,26 @@
 {% set active_page = "Past Events" if isArchive else "Papers" %}
-{% set page_title = tutorial.title %}
+{% set page_title = symposium.title %}
 {% extends "base.html" %}
 
 {% block content %}
-<div class="page-content tutorial">
+<div class="page-content symposium">
   <!-- Title -->
   <div class="pp-card m-3">
     <div class="card-header">
       <h2 class="card-title main-title text-center">
-        {{tutorial.title}}
+        {{symposium.title}}
       </h2>
       <h3 class="card-subtitle mb-2 text-muted text-center">
-        {{ tutorial.organizers | join(", ") }}
+        {{ symposium.organizers | join(", ") }}
       </h3>
+      {% if symposium.doi_link %}
+      <h3 class="card-subtitle mb-2 text-muted text-center">
+        <a href="{{symposium.doi_link}}" target="_blank" rel="noopener">View paper in the ACM journal</a>
+      </h3>
+      {% endif %}
       <div class="text-center p-3">
         <a class="card-link" data-toggle="collapse" role="button" href="#details">
-          Abstract & Bio
+          Abstract
         </a>
       </div>
     </div>
@@ -25,10 +30,7 @@
       <div class="card-text">
         <div id="abstractExample">
           <span class="font-weight-bold">Abstract:</span>
-          {{tutorial.abstract|safe}}
-          <br /><br />
-          <span class="font-weight-bold">Bio:</span>
-          {{tutorial.bio|safe}}
+          {{symposium.abstract|safe}}
         </div>
       </div>
       <p></p>
@@ -36,7 +38,7 @@
   </div>
 
   <!-- Slides Live Presentation Embed -->
-  {{ components.slideslive(tutorial.slideslive_id, tutorial.slideslive_active_date) }}
+  {{ components.slideslive(symposium.slideslive_id, symposium.slideslive_active_date) }}
 </div>
 {% endblock %}
 

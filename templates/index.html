@@ -19,7 +19,7 @@
     }
   </style>
 
-  <div class="jumbotron jumbotron-fluid back" style="padding-bottom: 20px;">
+  <div class="jumbotron jumbotron-fluid back">
     <div class="row header p-6 m-5">
       <div class="p-1 mx-auto text-center text-white col-md-9 col-sm-12">
         <h2>
@@ -30,7 +30,7 @@
         </h2>
         <div class="countdown-flipper">
           <div class="wrapper hidden" id="countdown-flipper" data-is-active="false"></div>
-          <a class="btn-primary btn-lg" href="/live.html">WATCH REPLAY!</a>
+          <a class="btn-primary btn-lg" href="/2021/highlights.html">WATCH 2021 REPLAY!</a>
         </div>
       </div>
     </div>
@@ -47,6 +47,9 @@
       {{ components.organizergroup(committee) }}
     {% endif %}
   </div>
+{% endblock %}
+
+{% block bottom %}
 {% endblock %}
 
 {% block scripts %}

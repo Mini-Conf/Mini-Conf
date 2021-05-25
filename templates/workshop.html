@@ -1,3 +1,4 @@
+{% set active_page = "Past Events" if isArchive else "Papers" %}
 {% set page_title = workshop.title %}
 {% extends "base.html" %}
 
@@ -30,3 +31,8 @@
     </div>
   </div>
 {% endblock %}
+
+{% if isArchive %}
+  {% block bottom %}
+  {% endblock %}
+{% endif %}

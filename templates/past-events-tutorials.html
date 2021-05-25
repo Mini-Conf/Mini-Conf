@@ -1,0 +1,18 @@
+{% set active_page = "Past Events" %}
+{% set page_title = "Past Events - Tutorials" %}
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="page-header text-center">
+    <h1>Tutorials from {% if (archive_year | int) < 2022 %}ACM{% endif %} CHIL {{archive_year}}</h1>
+  </div>
+  <div class="page-content">
+    <!-- Tutorials -->
+    {% if tutorials %}
+    {{ components.tutorialgroup(tutorials) }}
+    {% endif %}
+  </div>
+{% endblock %}
+
+{% block bottom %}
+{% endblock %}
