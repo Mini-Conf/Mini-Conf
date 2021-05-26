@@ -1,0 +1,13 @@
+- Dr. Yindalon Aphinyanaphongs of NYU
+- Dr. Leo Celi of MIT
+- Dr. Nigam Shah of Stanford University
+- Dr. Stephen Friend of Oxford University
+- Dr. Alan Karthikesalingam of Google Health UK
+- Dr. Ziad Obermeyer of University of California, Berkeley
+- Dr. Samantha Kleinberg of Stevens Institute of Technology
+- Dr. Anna Goldenberg of The Hospital for Sick Children Research Institute
+- Dr. Lucila Ohno-Machado of University of California, San Diego
+- Dr. Noemie Elhadad of Columbia University
+- Dr. Katherine Heller at Google Research
+- Dr. Laura Rosella of Dalla Lana School of Public Health, University of Toronto
+- Dr. Shakir Mohamed of DeepMind

@@ -1,42 +1,170 @@
 {% set active_page = "Home" %}
 {% extends "base.html" %}
-{% block top %}
-<style>
-  .back {
-    background: 
-    linear-gradient(
-      rgba(30, 100, 160, 0.90), 
-      rgba(0, 0, 0, 0.01)
-    ),
-    url("{{config.background_image}}") no-repeat center;
-    background-size: cover;
-  }
-  .back h2 {
-    font-family: "Lato", sans-serif;
-    font-weight: 500;
-    font-size: 3rem;
-  }
-</style>
 
-<div class="jumbotron jumbotron-fluid back" style="padding-bottom: 180px; padding-top: 10px;">
-  <div class="row header p-6 m-5">
-    <div class="p-1 mx-auto text-center text-white col-md-9 col-sm-12">
-      <h2>
-        {{config.tagline|safe}}
-      </h2>
-      <h2 class="p-2" style="font-size: 2rem">
-        {{config.date|safe}}
-      </h2>
-      <h2 class="p-2">
-          <a href={{config.registration}} class="btn btn-light btn-lg" role="button">Register now!</a>
-      </h2>
+{% block top %}
+  <style>
+    .back {
+      background:
+        linear-gradient(
+          rgba(30, 100, 160, 0.90),
+          rgba(0, 0, 0, 0.01)
+        ),
+        url("static/images/main.jpg") no-repeat center;
+      background-size: cover;
+    }
+    .back h2 {
+      font-family: "Lato", sans-serif;
+      font-weight: 500;
+      font-size: 3rem;
+    }
+  </style>
+
+  <div class="jumbotron jumbotron-fluid back">
+    <div class="row header p-6 m-5">
+      <div class="p-1 mx-auto text-center text-white col-md-9 col-sm-12">
+        <h2>
+          {{config.tagline|safe}}
+        </h2>
+        <h2 class="p-5">
+          {{config.date|safe}}
+        </h2>
+        <div class="countdown-flipper">
+          <div class="wrapper hidden" id="countdown-flipper" data-is-active="false"></div>
+          <a class="btn-primary btn-lg" href="/2021/highlights.html">WATCH 2021 REPLAY!</a>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 {% endblock %}
 
 {% block content %}
+  <div class="page-content">
+    {{ index | markdown }}
 
-{{ index | markdown }}
+    <!-- Organizers -->
+    {% if committee %}
+      {{ components.section("Organizers") }}
+      {{ components.organizergroup(committee) }}
+    {% endif %}
+  </div>
+{% endblock %}
 
+{% block bottom %}
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  <script src="https://cdn.jsdelivr.net/npm/jquery-countdown@2.2.0/dist/jquery.countdown.min.js"
+          integrity="sha256-Ikk5myJowmDQaYVCUD0Wr+vIDkN8hGI58SGWdE671A8="
+          crossorigin="anonymous"></script>
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+
+  <script type="text/template" id="countdown-flipper-template">
+    <div class="time <%= label %>">
+      <span class="count curr top"><%= curr %></span>
+      <span class="count next top"><%= next %></span>
+      <span class="count next bottom"><%= next %></span>
+      <span class="count curr bottom"><%= curr %></span>
+      <span class="label"><%= label.length < 6 ? label : label.substr(0, 3)  %></span>
+    </div>
+  </script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      // Main conference countdown flipper
+      var labels = ['weeks', 'days', 'hours', 'minutes'],
+        conferenceStartDate = new Date("2021-04-08T23:59:00.00").getTime();
+        template = _.template($('#countdown-flipper-template').html()),
+        currDate = '00:00:00:00:00',
+        nextDate = '00:00:00:00:00',
+        parser = /([0-9]{2})/gi,
+        $countdownFlipper = $('#countdown-flipper');
+        isCountdownActive = $countdownFlipper.data("isActive");
+
+      // Parse countdown string to an object
+      function strfobj(str) {
+        var parsed = str.match(parser),
+          obj = {};
+        labels.forEach(function(label, i) {
+          obj[label] = parsed[i]
+        });
+        return obj;
+      }
+
+      // Return the time components that diffs
+      function diff(obj1, obj2) {
+        var diff = [];
+        labels.forEach(function(key) {
+          if (obj1[key] !== obj2[key]) {
+            diff.push(key);
+          }
+        });
+        return diff;
+      }
+
+      // Build the layout
+      var initData = strfobj(currDate);
+      labels.forEach(function(label, i) {
+        $countdownFlipper.append(template({
+          curr: initData[label],
+          next: initData[label],
+          label: label
+        }));
+      });
+
+      // Starts the countdown
+      if (isCountdownActive) {
+        $countdownFlipper.removeClass('hidden');
+        $countdownFlipper.countdown(conferenceStartDate, function(event) {
+          var newDate = event.strftime('%w:%d:%H:%M:%S'),
+            data;
+          if (newDate !== nextDate) {
+            currDate = nextDate;
+            nextDate = newDate;
+            // Setup the data
+            data = {
+              'curr': strfobj(currDate),
+              'next': strfobj(nextDate)
+            };
+
+            // Apply the new values to each node that changed
+            diff(data.curr, data.next).forEach(function(label) {
+              var selector = '.%s'.replace(/%s/, label),
+                  $node = $countdownFlipper.find(selector);
+
+              // Update the node
+              $node.removeClass('flip');
+              $node.find('.curr').text(data.curr[label]);
+              $node.find('.next').text(data.next[label]);
+
+              // Wait for a repaint to then flip
+              _.delay(function($node) {
+                $node.addClass('flip');
+              }, 50, $node);
+            });
+          }
+        });
+      } else {
+        $countdownFlipper.addClass('hidden');
+      }
+
+      // Get all other countdown elements
+      $('.countdown').each(function( index ) {
+          var currentCountdownElement = $( this );
+          // Set the date we're counting down to
+          var countDownDate = new Date(currentCountdownElement.data('startdate')).getTime();
+          var currentDate = new Date().getTime();
+
+          if (countDownDate < currentDate) {
+            currentCountdownElement.closest('tr').addClass('strikeout');
+          }
+
+          $(currentCountdownElement)
+            .countdown(countDownDate, function(event) {
+              currentCountdownElement.html(event.strftime('%w weeks %d days %H:%M'));
+            });
+      });
+    });
+  </script>
 {% endblock %}

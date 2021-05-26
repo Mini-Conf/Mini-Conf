@@ -1,0 +1,20 @@
+{% set active_page = "Papers" %}
+{% set page_title = "Papers" %}
+{% extends "base.html" %}
+
+{% block top %}
+{% endblock %}
+
+{% block tabs %}
+  <div class="page-header text-center">
+    <h1>Papers</h1>
+  </div>
+{% endblock %}
+
+{% block content %}
+  <div class="page-content">
+    {% if proceedings %}
+      {{ components.proceedingpgroup(proceedings) }}
+    {% endif %}
+  </div>
+{% endblock %}

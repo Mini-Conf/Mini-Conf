@@ -1,0 +1,19 @@
+/* INDEX CSS */
+.timeline-table {
+  border-collapse: collapse;
+}
+
+.timeline-table td,
+.timeline-table th {
+  position: relative;
+}
+
+.timeline-table tr.strikeout td:before,
+.timeline-table tr.strikeout th:before {
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  border-bottom: 1px solid #444;
+  width: 100%;
+}

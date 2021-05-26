@@ -3,13 +3,13 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-  <div id="day">
-    <!-- Workshops -->
-    {{ components.section("Workshop Spotlights") }}
-    <div class="speakers">
-      {{ components.workshopgroup(workshops) }}
+  <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+    <div id="day">
+      <!-- Workshops -->
+      {{ components.section("Workshops") }}
+      <div class="speakers">
+        {{ components.workshopgroup(workshops) }}
+      </div>
     </div>
   </div>
-</div>
 {% endblock %}

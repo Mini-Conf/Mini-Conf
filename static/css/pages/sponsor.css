@@ -1,0 +1,25 @@
+/* SPONSOR CSS */
+.sponsors {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.pp-card.sponsor .pp-card-header {
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+
+.pp-card.sponsor.bronze .pp-card-header {
+  height: 100px;
+}
+
+.pp-card.sponsor img {
+  height: 100px;
+}
+
+.pp-card.sponsor img.bronze {
+  height: 60px;
+}

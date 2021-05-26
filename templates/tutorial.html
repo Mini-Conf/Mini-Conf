@@ -1,34 +1,63 @@
+{% set active_page = "Past Events" if isArchive else "Papers" %}
 {% set page_title = tutorial.title %}
 {% extends "base.html" %}
-{% block content %}
 
-<!-- Title -->
-<div class="pp-card m-3" style="">
-  <div class="card-header">
-    <h2 class="card-title main-title text-center" style="">
-      {{ tutorial.title }}
-    </h2>
-    <h3 class="card-subtitle mb-2 text-muted text-center">
-      {{ tutorial.organizers | join(", ") }}
-    </h3>
-  </div>
-</div>
-<div id="details" class="pp-card m-3">
-  <div class="card-body">
-    <div class="card-text">
-      <div id="abstractExample">
-        <span class="font-weight-bold">Abstract:</span>
-        {{ tutorial.abstract|safe }} <br /><br />
+{% block content %}
+<div class="page-content tutorial">
+  <!-- Title -->
+  <div class="pp-card m-3">
+    <div class="card-header">
+      <h2 class="card-title main-title text-center">
+        {{tutorial.title}}
+      </h2>
+      <h3 class="card-subtitle mb-2 text-muted text-center">
+        {{ tutorial.organizers | join(", ") }}
+      </h3>
+      <div class="text-center p-3">
+        <a class="card-link" data-toggle="collapse" role="button" href="#details">
+          Abstract & Bio
+        </a>
       </div>
     </div>
-    <p></p>
   </div>
+  <div id="details" class="pp-card m-3 collapse">
+    <div class="card-body">
+      <div class="card-text">
+        <div id="abstractExample">
+          <span class="font-weight-bold">Abstract:</span>
+          {{tutorial.abstract|safe}}
+          <br /><br />
+          <span class="font-weight-bold">Bio:</span>
+          {{tutorial.bio|safe}}
+        </div>
+      </div>
+      <p></p>
+    </div>
+  </div>
+
+  <!-- Slides Live Presentation Embed -->
+  {{ components.slideslive(tutorial.slideslive_id, tutorial.slideslive_active_date) }}
 </div>
+{% endblock %}
 
-<!-- Presentation Embed -->
-{{ components.slideslive(tutorial.slideslive_id) }}
+{% if isArchive %}
+  {% block bottom %}
+  {% endblock %}
+{% endif %}
 
-<!-- Chat Embed -->
-{{ components.rocketchat(tutorial.rocketchat_id,config.chat_server) }}
+{% block scripts %}
+  {{ super() }}
+  <script type="text/javascript">
+    $(document).ready(function () {
+          var slidesliveEmbed = $('#slideslive-embed');
+          var details = $('.card-link');
+          var countDownDate = new Date(slidesliveEmbed.data('activedate')).getTime();
+          var currentDate = new Date().getTime();
 
+          if (countDownDate > currentDate) {
+            slidesliveEmbed.hide();
+            details.click();
+          }
+    });
+  </script>
 {% endblock %}

@@ -1,0 +1,70 @@
+{% set active_page = "Program" %}
+{% set page_title = "Program" %}
+{% extends "base.html" %}
+
+{% block tabs %}
+  <div class="page-header text-center">
+    <h1>Program</h1>
+  </div>
+  {{ components.tabs([
+        ("speakers", "Keynotes", "active"),
+        ("tutorials", "Tutorials"),
+        ("workshops", "Workshop Posters"),
+        ("proceedings", "Proceedings Posters"),
+    ])}}
+{% endblock %}
+
+
+{% block content %}
+  <div class="page-content">
+    <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+      <!-- Keynote speakers tab -->
+      <div
+        class="tab-pane active"
+        id="tab-speakers"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+        <!-- Speakers -->
+        {% if speakers %}
+          {{ components.speakergroup(speakers) }}
+        {% endif %}
+      </div>
+      <!-- Tutorials tab -->
+      <div
+        class="tab-pane fade"
+        id="tab-tutorials"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+        {% if tutorials %}
+          {{ components.tutorialgroup(tutorials) }}
+        {% endif %}
+      </div>
+      <!-- Workshop Posters tab -->
+        <div
+        class="tab-pane fade"
+        id="tab-workshops"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+        {% if workshops %}
+          {{ components.section("Thursday, April 8th, 4:30pm - 6:00pm - Poster Session A (Workshop)") }}
+          {{ components.workshopgroup(workshops) }}
+        {% endif %}
+      </div>
+      <!-- Workshop Posters tab -->
+      <div
+        class="tab-pane fade"
+        id="tab-proceedings"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+        {% if proceedings %}
+          {{ components.section("Friday, April 9th, 2:15pm - 3:10pm - Poster Session B (Proceedings)") }}
+          {{ components.workshopgroup(proceedings, 'proceeding') }}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

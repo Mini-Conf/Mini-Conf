@@ -1,34 +1,38 @@
+{% set active_page = "Past Events" if isArchive else "Papers" %}
 {% set page_title = workshop.title %}
 {% extends "base.html" %}
-{% block content %}
 
-<!-- Title -->
-<div class="pp-card m-3" style="">
-  <div class="card-header">
-    <h2 class="card-title main-title text-center" style="">
-      {{ workshop.title }}
-    </h2>
-    <h3 class="card-subtitle mb-2 text-muted text-center">
-      {{ workshop.organizers | join(", ") }}
-    </h3>
-  </div>
-</div>
-<div id="details" class="pp-card m-3">
-  <div class="card-body">
-    <div class="card-text">
-      <div id="abstractExample">
-        <span class="font-weight-bold">Abstract:</span>
-        {{ workshop.abstract |safe }} <br /><br />
+{% block content %}
+  <!-- Title -->
+  <div class="pp-card m-3" style="">
+    <div class="card-header">
+      <h2 class="card-title main-title text-center" style="">
+        {{workshop.title}}
+      </h2>
+      <h3 class="card-subtitle mb-2 text-muted text-center">
+        {{ workshop.organizers | join(", ") }}
+      </h3>
+      <div class="text-center p-3">
+        <a class="card-link" data-toggle="collapse" role="button" href="#details">
+          Abstract
+        </a>
       </div>
     </div>
-    <p></p>
   </div>
-</div>
-
-<!-- Presentation Embed -->
-{{ components.slideslive(workshop.slideslive_id) }}
-
-<!-- Chat Embed -->
-{{ components.rocketchat(workshop.rocketchat_id,config.chat_server) }}
-
+  <div id="details" class="pp-card m-3 show">
+    <div class="card-body">
+      <div class="card-text">
+        <div id="abstractExample">
+          <span class="font-weight-bold">Abstract:</span>
+          {{workshop.abstract|safe}} <br /><br />
+        </div>
+      </div>
+      <p></p>
+    </div>
+  </div>
 {% endblock %}
+
+{% if isArchive %}
+  {% block bottom %}
+  {% endblock %}
+{% endif %}

@@ -1,0 +1,552 @@
+thursday:
+  - time: "10:00-10:05 AM"
+    type: Opening
+    title: Welcome and Opening Remarks
+    speaker: Marzyeh Ghassemi
+    moderator:
+    doclink:
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "10:05-10:50 AM"
+    type: Keynote
+    title: "AI for Drug Discovery: Challenges and Opportunities"
+    speaker: Regina Barzilay
+    moderator: Marzyeh Ghassemi
+    doclink: "/speaker_S01.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+
+  - time: "10:50 AM"
+    type: Paper Talk 01
+    title: "Variationally Regularized Graph-based Representation Learning for Electronic Health Records"
+    speaker: Weicheng Zhu
+    moderator: Matthew McDermott
+    doclink: "/proceeding_P01.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "10:56 AM"
+    type: Paper Talk 02
+    title: "Affinitention Nets: Kernel Perspective on Attention Architectures for Set Classification with Applications to Medical Text and Images"
+    speaker: David Dov
+    moderator: Matthew McDermott
+    doclink: "/proceeding_P02.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "11:02 AM"
+    type: Paper Talk 03
+    title: "Privacy-Preserving and Bandwidth-Efficient Federated Learning: An Application to In-Hospital Mortality Prediction"
+    speaker: Raouf Kerkouche
+    moderator: Matthew McDermott
+    doclink: "/proceeding_P03.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "11:08 AM"
+    type: Q&A
+    title: Papers 01 - 03
+    speaker:
+    moderator: Matthew McDermott
+    doclink:
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "11:17 AM"
+    type: Paper Talk 04
+    title: "Concept-based Model Explanations for Electronic Health Records"
+    speaker: Diana Mincu
+    moderator: Sanja Šćepanović
+    doclink: "/proceeding_P04.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "11:23 AM"
+    type: Paper Talk 05
+    title: "Trustworthy Machine Learning for Health Care: Scalable Data Valuation with the Shapley Value"
+    speaker: Konstantin D Pandl
+    moderator: Sanja Šćepanović
+    doclink: "/proceeding_P05.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "11:29 AM"
+    type: Paper Talk 06
+    title: "Temporal Pointwise Convolutional Networks for Length of Stay Prediction in the Intensive Care Unit"
+    speaker: Emma Rocheteau
+    moderator: Sanja Šćepanović
+    doclink: "/proceeding_P06.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "11:35 AM"
+    type: Q&A
+    title: Papers 04 - 06
+    speaker:
+    moderator: Sanja Šćepanović
+    doclink:
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "11:44 AM"
+    type: Paper Talk 07
+    title: "Self-supervised Transfer Learning of Physiological Representations from Free-living Wearable Data"
+    speaker: Dimitris Spathis
+    moderator: Brett Beaulieu-Jones
+    doclink: "/proceeding_P07.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "11:50 AM"
+    type: Paper Talk 08
+    title: "Generative ODE Modeling with Known Unknowns"
+    speaker: Ori Linial
+    moderator: Brett Beaulieu-Jones
+    doclink: "/proceeding_P08.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "11:56 AM"
+    type: Paper Talk 09
+    title: "Learning to Predict with Supporting Evidence: Applications to Clinical Risk Prediction"
+    speaker: Aniruddh Raghu
+    moderator: Brett Beaulieu-Jones
+    doclink: "/proceeding_P09.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "12:02 PM"
+    type: Q&A
+    title: Papers 07 - 09
+    speaker:
+    moderator: Brett Beaulieu-Jones
+    doclink:
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "12:15-12:30 PM"
+    type: Break
+    title: Lunch Social
+    speaker: N/A
+    moderator: Joyce Ho, Brett Beaulieu-Jones
+    doclink:
+    link: "https://gather.town/app/j4TbOZN9zwDb9xsP/CHIL"
+    linktext: GatherTown
+    linkactive: true
+
+  - time: "12:30-1:30 PM"
+    type: Tutorial
+    title: "Causal Inference in Clinical Research: From Theory to Practice"
+    speaker: Linbo Wang
+    moderator: Jesse Gronsbell
+    doclink: "/tutorial_T01.html"
+    link:
+    linktext: Zoom 1
+    linkactive: true
+
+  - time: "12:30-1:30 PM"
+    type: Tutorial
+    title: Experimental Design and Causal Inference Methods for Micro-Randomized Trials
+    speaker: Tianchen Qian
+    moderator: Irene Chen
+    doclink: "/tutorial_T02.html"
+    link:
+    linktext: Zoom 2
+    linkactive: true
+
+  - time: "12:30-1:30 PM"
+    type: Tutorial
+    title: Offline Reinforcement Learning
+    speaker: Guy Tennenholtz
+    moderator: Tristan Naumann
+    doclink: "/tutorial_T03.html"
+    link:
+    linktext: Zoom 3
+    linkactive: true
+
+  - time: "1:30-2:15 PM"
+    type: Keynote
+    title: "Machine Learning in Healthcare: From Modeling to Clinical Impact"
+    speaker: Narges Razavian
+    moderator: Emma Pierson
+    doclink: "/speaker_S02.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "2:15 PM"
+    type: Paper Talk 10
+    title: "VisualCheXbert: Addressing the Discrepancy Between Radiology Report Labels and Image Labels"
+    speaker: Saahil Jain
+    moderator: Alistair Johnson
+    doclink: "/proceeding_P10.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "2:21 PM"
+    type: Paper Talk 11
+    title: "CheXtransfer: Performance and Parameter Efficiency of ImageNet Models for Chest X-Ray Interpretation"
+    speaker: William Ellsworth
+    moderator: Alistair Johnson
+    doclink: "/proceeding_P11.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "2:27 PM"
+    type: Paper Talk 12
+    title: "CheXternal: Generalization of Deep Learning Models for Chest X-ray Interpretation to Photos of Chest X-rays and External Clinical Settings"
+    speaker: Anirudh Joshi
+    moderator: Alistair Johnson
+    doclink: "/proceeding_P12.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "2:33 PM"
+    type: Q&A
+    title: Papers 10 - 12
+    speaker:
+    moderator: Alistair Johnson
+    doclink:
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "2:42 PM"
+    type: Paper Talk 13
+    title: "Enabling Counterfactual Survival Analysis with Balanced Representations"
+    speaker: Paidamoyo Chapfuwa
+    moderator: Irene Chen
+    doclink: "/proceeding_P13.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "2:48 PM"
+    type: Paper Talk 14
+    title: "Controlled Molecule Generator for Optimizing Multiple Chemical Properties"
+    speaker: Bonggun Shin
+    moderator: Irene Chen
+    doclink: "/proceeding_P14.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "2:54 PM"
+    type: Paper Talk 15
+    title: "MetaPhys: Few-Shot Adaptation for Non-Contact Physiological Measurement"
+    speaker: Xin Liu
+    moderator: Irene Chen
+    doclink: "/proceeding_P15.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "3:00 PM"
+    type: Q&A
+    title: Papers 13 - 15
+    speaker:
+    moderator: Irene Chen
+    doclink:
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "3:09 PM"
+    type: Paper Talk 16
+    title: "Learning to Safely Approve Updates to Machine Learning Algorithms"
+    speaker: Jean Feng
+    moderator: Shalmali Joshi
+    doclink: "/proceeding_P16.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "3:15 PM"
+    type: Paper Talk 17
+    title: "iGOS++: Integrated Gradient Optimized Saliency by Bilateral Perturbations"
+    speaker: Saeed Khorram
+    moderator: Shalmali Joshi
+    doclink: "/proceeding_P17.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "3:21 PM"
+    type: Paper Talk 18
+    title: "Phenotypical Ontology Driven Framework for Multi-Task Learning"
+    speaker: Mohamed Ghalwash
+    moderator: Shalmali Joshi
+    doclink: "/proceeding_P18.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "3:27 PM"
+    type: Q&A
+    title: Papers 16 - 18
+    speaker:
+    moderator: Shalmali Joshi
+    doclink:
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "3:40-4:25 PM"
+    type: Keynote
+    title: "Holding a Hammer When There are No Nails: Rapid Iteration to Build COVID-19 Support Programs for Historically Marginalized Communities"
+    speaker: Mark Sendak
+    moderator: Emma Pierson
+    doclink: "/speaker_S03.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "4:25-4:30 PM"
+    type: Closing
+    title: Day 1 Closing Remarks
+    speaker: Emma Pierson
+    moderator:
+    doclink:
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "4:35-6:00 PM"
+    type: Poster Session
+    title: Workshop Posters
+    speaker:
+    moderator:
+    doclink: "/program.html#tab-workshops"
+    link: "https://gather.town/app/j4TbOZN9zwDb9xsP/CHIL"
+    linktext: GatherTown
+    linkactive: true
+
+friday:
+  - time: "10:00-10:05 AM"
+    type: Opening
+    title: Opening Remarks
+    speaker: Tristan Naumann
+    moderator:
+    doclink:
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "10:05-10:50 AM"
+    type: Keynote
+    title: "Lessons on the Path from Code to Clinic - Some Common Myths in Machine Learning for Healthcare"
+    speaker: Alan Karthikesalingam
+    moderator: Tristan Naumann
+    doclink: "/speaker_S04.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "10:50 AM"
+    type: Paper Talk 19
+    title: "RNA Alternative Splicing Prediction with Discrete Compositional Energy Network"
+    speaker: Alvin Chan
+    moderator: Rumi Chunara
+    doclink: "/proceeding_P19.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "10:56 AM"
+    type: Paper Talk 20
+    title: "Predictive Models for Colorectal Cancer Recurrence Using Multi-modal Healthcare Data"
+    speaker: Danliang Ho
+    moderator: Rumi Chunara
+    doclink: "/proceeding_P20.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "11:02 AM"
+    type: Paper Talk 21
+    title: "B-SegNet : Branched-SegMentor Network For Skin Lesion Segmentation"
+    speaker: Mengling Feng
+    moderator: Rumi Chunara
+    doclink: "/proceeding_P21.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "11:08 AM"
+    type: Q&A
+    title: Papers 19 - 21
+    speaker:
+    moderator: Rumi Chunara
+    doclink:
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "11:17 AM"
+    type: Paper Talk 22
+    title: "Modeling Longitudinal Dynamics of Comorbidities"
+    speaker: Basil Maag
+    moderator: Bobak Mortazavi
+    doclink: "/proceeding_P22.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "11:23 AM"
+    type: Paper Talk 23
+    title: "T-DPSOM - An Interpretable Clustering Method for Unsupervised Learning of Patient Health States"
+    speaker: Laura Manduchi
+    moderator: Bobak Mortazavi
+    doclink: "/proceeding_P23.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "11:29 AM"
+    type: Paper Talk 24
+    title: "Contextualization and Individualization for Just-in-Time Adaptive Interventions to Reduce Sedentary Behavior"
+    speaker: Matthew Saponaro
+    moderator: Bobak Mortazavi
+    doclink: "/proceeding_P24.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "11:35 AM"
+    type: Q&A
+    title: Papers 22 - 24
+    speaker:
+    moderator: Bobak Mortazavi
+    doclink:
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "11:44 AM"
+    type: Paper Talk 25
+    title: "A Comprehensive EHR Timeseries Pre-training Benchmark"
+    speaker: Matthew McDermott
+    moderator: Joyce Ho
+    doclink: "/proceeding_P25.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "11:50 AM"
+    type: Paper Talk 26
+    title: "An Empirical Framework for Domain Generalization In Clinical Settings"
+    speaker: Haoran Zhang
+    moderator: Joyce Ho
+    doclink: "/proceeding_P26.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "11:56 AM"
+    type: Paper Talk 27
+    title: "Influenza-like Symptom Recognition using Mobile Sensing and Graph Neural Networks"
+    speaker: Guimin Dong
+    moderator: Joyce Ho
+    doclink: "/proceeding_P27.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "12:02 PM"
+    type: Q&A
+    title: Papers 25 - 27
+    speaker:
+    moderator: Joyce Ho
+    doclink:
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "12:15-12:30 PM"
+    type: Break
+    title: Lunch Social
+    speaker: N/A
+    moderator: Joyce Ho, Brett Beaulieu-Jones
+    doclink:
+    link: "https://gather.town/app/j4TbOZN9zwDb9xsP/CHIL"
+    linktext: GatherTown
+    linkactive: true
+
+  - time: "12:30-1:30 PM"
+    type: Tutorial
+    title: "Explainable ML: Understanding the Limits and Pushing the Boundaries"
+    speaker: Hima Lakkaraju
+    moderator: Marzyeh Ghassemi
+    doclink: "/tutorial_T04.html"
+    link:
+    linktext: Zoom 1
+    linkactive: true
+
+  - time: "12:30-1:30 PM"
+    type: Tutorial
+    title: Semi-supervised Phenotyping with Electronic Health Records
+    speaker: Jesse Gronsbell
+    moderator: Brett Beaulieu-Jones
+    doclink: "/tutorial_T05.html"
+    link:
+    linktext: Zoom 2
+    linkactive: true
+
+  - time: "1:30-2:15 PM"
+    type: Keynote
+    title: Bring AI to the Bedside with User Centered Design
+    speaker: Maia Jacobs
+    moderator: Tristan Naumann
+    doclink: "/speaker_S05.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "2:15-3:10 PM"
+    type: Poster Session
+    title: Proceedings Posters
+    speaker:
+    moderator:
+    doclink: "/program.html#tab-proceedings"
+    link: "https://gather.town/app/j4TbOZN9zwDb9xsP/CHIL"
+    linktext: GatherTown
+    linkactive: true
+
+  - time: "3:15-4:00 PM"
+    type: Keynote
+    title: "Precision Medicine with Imprecise EHR Data"
+    speaker: Tianxi Cai
+    moderator: Marzyeh Ghassemi
+    doclink: "/speaker_S06.html"
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true
+
+  - time: "4:00-4:10 PM"
+    type: Closing
+    title: Day 2 Closing Remarks
+    speaker: Marzyeh Ghassemi
+    moderator:
+    doclink:
+    link: "/live.html"
+    linktext: Watch Live
+    linkactive: true

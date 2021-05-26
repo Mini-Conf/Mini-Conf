@@ -1,0 +1,60 @@
+{% set active_page = "Organization" %}
+{% set page_title = "Call for Papers" %}
+{% extends "base.html" %}
+
+{% block top %}
+{% endblock %}
+
+{% block tabs %}
+  <div class="page-header text-center">
+    <h1>Call for Papers</h1>
+  </div>
+  {{ components.tabs([("author-info", "Author Information", "active"),
+                      ("track-1", "Track 1: Models and Methods", ""),
+                      ("track-2", "Track 2: Applications and Practice", ""),
+                      ("track-3", "Track 3: Impact and Society", ""),
+                    ]) }}
+{% endblock %}
+
+{% block content %}
+  <div class="page-content">
+    <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+      <!-- Author Information tab -->
+      <div
+        class="tab-pane active"
+        id="tab-author-info"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+        {{ call_for_papers_author_info | markdown }}
+      </div>
+      <!-- Track 1 -->
+      <div
+        class="tab-pane fade"
+        id="tab-track-1"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+        {{ call_for_papers_track_1 | markdown }}
+      </div>
+      <!-- Track 2 -->
+      <div
+        class="tab-pane fade"
+        id="tab-track-2"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+        {{ call_for_papers_track_2 | markdown }}
+      </div>
+      <!-- Track 3 -->
+      <div
+        class="tab-pane fade"
+        id="tab-track-3"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+        {{ call_for_papers_track_3 | markdown }}
+      </div>
+    </div>
+  </div>
+{% endblock %}

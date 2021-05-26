@@ -4,19 +4,23 @@ import csv
 import glob
 import json
 import os
-
 import yaml
+
 from flask import Flask, jsonify, redirect, render_template, send_from_directory
 from flask_frozen import Freezer
 from flaskext.markdown import Markdown
 
 site_data = {}
 by_uid = {}
+archive_path_root = "archive"
+archive_data_exists = False
+archive_directories = []
 
 
 def main(site_data_path):
-    global site_data, extra_files
-    extra_files = ["index.md"]
+    global site_data, extra_files, archive_path_root, archive_data_exists, archive_directories
+    extra_files = ["README.md"]
+
     # Load all for your sitedata one time.
     for f in glob.glob(site_data_path + "/*"):
         extra_files.append(f)
@@ -28,14 +32,84 @@ def main(site_data_path):
         elif typ == "yml":
             site_data[name] = yaml.load(open(f).read(), Loader=yaml.SafeLoader)
 
-    for typ in ["papers", "speakers", "tutorials", "workshops", "dss"]:
+    for typ in ["papers", "speakers", "tutorials", "proceedings", "workshops", "sponsors", "symposiums"]:
         by_uid[typ] = {}
         for p in site_data[typ]:
             by_uid[typ][p["UID"]] = p
+    print("Current Data Successfully Loaded")
 
-    print("Data Successfully Loaded")
+    # check if archive data directory exists
+    archive_path_sitedata = archive_path_root + "/sitedata"
+    archive_dir_exists = archive_directory_check(archive_path_sitedata)
+
+    if archive_dir_exists:
+        archive_directories = os.listdir(archive_path_sitedata)
+        site_data[archive_path_root] = {}
+        archive_root_dict = {}
+        archive_year_summary_dict = {}
+        archive_dict = {}
+        by_uid_archive_path_root_dict = {}
+
+        if len(archive_directories) > 0:
+            for archive_year in archive_directories:
+                archive_path = archive_path_sitedata + "/" + str(archive_year)
+                archive_data_types = []
+
+                # check if the archive year has data
+                if os.path.isdir(archive_path):
+                    if not os.listdir(archive_path):
+                        print(str(archive_path) + " directory is empty")
+                    else:
+                        # Load all archive data
+                        if not hasattr(archive_dict, archive_year):
+                            archive_dict.update({str(archive_year): {}})
+
+                        archive_year_summary_dict.update({str(archive_year): False})
+
+                        for f in glob.glob(archive_path + "/*"):
+                            extra_files.append(f)
+                            name, typ = f.split("/")[-1].split(".")
+
+                            if typ == "json":
+                                archive_dict[archive_year][name] = json.load(open(f))
+                                archive_data_types.append(name)
+                            elif typ in {"csv", "tsv"}:
+                                archive_dict[archive_year][name] = list(csv.DictReader(open(f)))
+                                archive_data_types.append(name)
+                            elif typ == "yml":
+                                archive_dict[archive_year][name] = yaml.load(open(f).read(), Loader=yaml.SafeLoader)
+                                archive_data_types.append(name)
+                            elif typ == "md" and name == "highlights":
+                                archive_year_summary_dict.update({str(archive_year): True})
+                                archive_dict[archive_year][name] = open(f"./{archive_path_root}/sitedata/{archive_year}/{name}.md").read()
+
+                        if len(archive_data_types) > 0:
+                            archive_data_exists = True
+                            by_uid_archive_year_type = {}
+
+                            if not hasattr(by_uid_archive_path_root_dict, archive_year):
+                                by_uid_archive_path_root_dict.update({str(archive_year): {}})
+
+                            # list of archived site data file names
+                            for typ in archive_data_types:
+                                by_uid_archive_year_type_data = {}
+
+                                for p in archive_dict[archive_year][typ]:
+                                    by_uid_archive_year_type_data.update({str(p["UID"]): p})
+
+                                by_uid_archive_year_type.update({str(typ):by_uid_archive_year_type_data})
+
+                            by_uid_archive_path_root_dict[archive_year] = by_uid_archive_year_type
+                            by_uid.update({str(archive_path_root): by_uid_archive_path_root_dict})
+
+                        archive_root_dict.update(archive_dict)
+
+            site_data["archive"] = archive_root_dict
+            site_data["archive"]["years_list"] = archive_directories
+            site_data["archive"]["has_data"] = archive_data_exists
+            site_data["archive"]["has_summary"] = archive_year_summary_dict
+            print("Archive Data Successfully Loaded")
     return extra_files
-
 
 # ------------- SERVER CODE -------------------->
 
@@ -44,12 +118,15 @@ app.config.from_object(__name__)
 freezer = Freezer(app)
 markdown = Markdown(app)
 
+
 # MAIN PAGES
 
 
 def _data():
     data = {}
     data["config"] = site_data["config"]
+    data["archive"] = site_data["archive"]
+    data["sponsors"] = site_data["sponsors"]
     return data
 
 
@@ -58,10 +135,24 @@ def index():
     return redirect("/index.html")
 
 
+@app.route("/favicon.ico")
+def favicon():
+    return send_from_directory(site_data_path, "favicon.ico")
+
+
 # REDIRECTS TO SUPPORT EARLIER LINKS
+@app.route("/registration")
+def registration():
+    return redirect("/register.html", code=302)
+
 
 @app.route("/agenda")
 def agenda():
+    return redirect("/calendar.html", code=302)
+
+
+@app.route("/keynote")
+def keynote():
     return redirect("/calendar.html", code=302)
 
 
@@ -70,49 +161,39 @@ def toc():
     return redirect("/papers.html", code=302)
 
 
-@app.route("/keynote")
-def keynote():
-    return redirect("/calendar.html", code=302)
-
-
-@app.route("/registration")
-def registration():
-    return redirect("/register.html", code=302)
-
-
 @app.route("/acm-chil-track-1-cfp")
 def track1():
-    return redirect("/call_papers.html", code=302)
+    return redirect("/call-for-papers.html", code=302)
 
 
 @app.route("/acm-chil-track-2-cfp")
 def track2():
-    return redirect("/call_papers.html", code=302)
+    return redirect("/call-for-papers.html", code=302)
 
 
 @app.route("/acm-chil-track-3-cfp")
 def track3():
-    return redirect("/call_papers.html", code=302)
+    return redirect("/call-for-papers.html", code=302)
 
 
 @app.route("/acm-chil-track-4-cfp")
 def track4():
-    return redirect("/call_papers.html", code=302)
+    return redirect("/call-for-papers.html", code=302)
 
 
 @app.route("/call-for-tutorials")
 def call_tutorials():
-    return redirect("/call_papers.html", code=302)
+    return redirect("/call-for-papers.html", code=302)
 
 
 @app.route("/doctoral-consortium-call-for-phd-students")
 def call_doctoral():
-    return redirect("/call_papers.html", code=302)
+    return redirect("/call-for-papers.html", code=302)
 
 
 @app.route("/financial-support")
 def financial_support():
-    return redirect("/register.html#tab-support", code=302)
+    return redirect("/sponsor.html", code=302)
 
 
 @app.route("/acm-chil-2020-sponsorship-policy")
@@ -132,7 +213,7 @@ def reviewers():
 
 @app.route("/faqs")
 def faqs():
-    return redirect("/about.html", code=302)
+    return redirect("/help.html", code=302)
 
 
 # TOP LEVEL PAGES
@@ -141,15 +222,16 @@ def faqs():
 @app.route("/index.html")
 def home():
     data = _data()
-    data["index"] = open("index.md").read()
+    data["index"] = open("./templates/content/index.md").read()
+    data["committee"] = site_data["committee"]["committee"]
     return render_template("index.html", **data)
 
 
-@app.route("/about.html")
+@app.route("/help.html")
 def about():
     data = _data()
     data["FAQ"] = site_data["faq"]["FAQ"]
-    return render_template("about.html", **data)
+    return render_template("help.html", **data)
 
 
 @app.route("/papers.html")
@@ -157,31 +239,6 @@ def papers():
     data = _data()
     data["papers"] = site_data["papers"]
     return render_template("papers.html", **data)
-
-
-@app.route("/committee.html")
-def committee():
-    data = _data()
-    data["committee"] = site_data["committee"]["committee"]
-    return render_template("committee.html", **data)
-
-
-@app.route("/sponsor.html")
-def sponsor():
-    data = _data()
-    return render_template("sponsor.html", **data)
-
-
-@app.route("/register.html")
-def register():
-    data = _data()
-    return render_template("register.html", **data)
-
-
-@app.route("/call_papers.html")
-def callpapers():
-    data = _data()
-    return render_template("callpapers.html", **data)
 
 
 @app.route("/paper_vis.html")
@@ -193,43 +250,168 @@ def paper_vis():
 @app.route("/calendar.html")
 def schedule():
     data = _data()
-    # Hacky hardcoding of days
-    data["thu"] = {
-        "speakers": [x for x in site_data['speakers'] if x['day'] == 'thu'],
-        "schedule": site_data['daytoview']['thursday'],
+    data["day"] = {
+        "speakers": site_data["speakers"],
         "highlighted": [
             format_paper(by_uid["papers"][h["UID"]]) for h in site_data["highlighted"]
         ],
     }
-    data["fri"] = {
-        "speakers": [x for x in site_data['speakers'] if x['day'] == 'fri'],
-        "schedule": site_data['daytoview']['friday'],
-        "highlighted": [
-            format_paper(by_uid["papers"][h["UID"]]) for h in site_data["highlighted"]
-        ],
-    }
-    data["speakers"] = [x for x in site_data['speakers']]
-    data["workshops"] = [
-        format_workshop(workshop) for workshop in site_data["workshops"]
-    ]
+    data["speakers"] = site_data["speakers"]
     data["tutorials"] = [
         format_workshop(tutorial) for tutorial in site_data["tutorials"]
     ]
-    data["dss"] = [
-        format_workshop(ds) for ds in site_data["dss"]
+    data["proceedings"] = [
+        format_workshop(proceeding) for proceeding in site_data["proceedings"]
     ]
-    data["preview"] = site_data["preview"]
+    data["workshops"] = [
+        format_workshop(workshop) for workshop in site_data["workshops"]
+    ]
+    data["schedule"] = {
+        "thursday": site_data['schedule']['thursday'],
+        "friday": site_data['schedule']['friday']
+    }
+    data["schedule_content"] = open("./templates/content/schedule.md").read()
+
     return render_template("schedule.html", **data)
 
 
-# @app.route("/workshops.html")
-# def workshops():
-#     data = _data()
-#     data["workshops"] = [
-#         format_workshop(workshop) for workshop in site_data["workshops"]
-#     ]
-#     return render_template("workshops.html", **data)
+@app.route("/program.html")
+def program():
+    data = _data()
+    data["speakers"] = site_data["speakers"]
+    data["tutorials"] = [
+        format_workshop(tutorial) for tutorial in site_data["tutorials"]
+    ]
+    data["proceedings"] = [
+        format_workshop(proceeding) for proceeding in site_data["proceedings"]
+    ]
+    data["workshops"] = [
+        format_workshop(workshop) for workshop in site_data["workshops"]
+    ]
 
+    return render_template("program.html", **data)
+
+
+@app.route("/proceedings.html")
+def proceedings():
+    data = _data()
+    data["proceedings"] = [
+        format_workshop(proceeding) for proceeding in site_data["proceedings"]
+    ]
+
+    return render_template("proceedings.html", **data)
+
+
+@app.route("/symposiums.html")
+def symposiums():
+    data = _data()
+    data["symposiums"] = [
+        format_workshop(symposium) for symposium in site_data["symposiums"]
+    ]
+
+    return render_template("symposiums.html", **data)
+
+
+@app.route("/workshops.html")
+def workshops():
+    data = _data()
+    data["workshops"] = [
+        format_workshop(workshop) for workshop in site_data["workshops"]
+    ]
+    return render_template("workshops.html", **data)
+
+
+@app.route("/register.html")
+def register():
+    data = _data()
+    data["register"] = open("./templates/content/register.md").read()
+    return render_template("register.html", **data)
+
+
+@app.route("/sponsor.html")
+def sponsor():
+    data = _data()
+    data["sponsor"] = open("./templates/content/sponsor.md").read()
+    return render_template("sponsor.html", **data)
+
+
+@app.route("/call-for-papers.html")
+def call_for_papers():
+    data = _data()
+    data["call_for_papers"] = open("./templates/content/call-for-papers.md").read()
+    data["call_for_papers_author_info"] = open("./templates/content/call-for-papers-author-info.md").read()
+    data["call_for_papers_track_1"] = open("./templates/content/call-for-papers-track-1.md").read()
+    data["call_for_papers_track_2"] = open("./templates/content/call-for-papers-track-2.md").read()
+    data["call_for_papers_track_3"] = open("./templates/content/call-for-papers-track-3.md").read()
+    return render_template("call-for-papers.html", **data)
+
+
+@app.route("/committee.html")
+def committee():
+    data = _data()
+    data["committee"] = open("./templates/content/committee.md").read()
+    data["committee_governing_board"] = open(
+        "./templates/content/committee-governing-board.md"
+    ).read()
+    data["committee_steering_committee"] = open(
+        "./templates/content/committee-steering-committee.md"
+    ).read()
+    return render_template("committee.html", **data)
+
+
+@app.route("/live.html")
+def live():
+    data = _data()
+    data["live"] = open("./templates/content/live.md").read()
+    return render_template("live.html", **data)
+
+
+@app.route("/<year>/<template>.html")
+def archive(year, template):
+    global archive_path_root
+    data = _data()
+    data["isArchive"] = True
+    data["archive_year"] = year
+
+    if ((year in site_data[archive_path_root]) and (template in site_data[archive_path_root][year])):
+        if template == "speakers":
+            data[template] = site_data[archive_path_root][year][template]
+            return render_template(f"past-events-{template}.html", **data)
+        elif template == "proceedings":
+            data[template] = [
+                format_workshop(proceeding) for proceeding in site_data[archive_path_root][year][template]
+            ]
+            return render_template(f"past-events-{template}.html", **data)
+        elif template == "symposiums":
+            data[template] = [
+                format_workshop(symposium) for symposium in site_data[archive_path_root][year][template]
+            ]
+            return render_template(f"past-events-{template}.html", **data)
+        elif template == "workshops":
+            data[template] = [
+                format_workshop(workshop) for workshop in site_data[archive_path_root][year][template]
+            ]
+            return render_template(f"past-events-{template}.html", **data)
+        elif template == "tutorials":
+            data[template] = [
+                format_workshop(tutorial) for tutorial in site_data[archive_path_root][year][template]
+            ]
+            return render_template(f"past-events-{template}.html", **data)
+        elif template == "highlights":
+            data[template] = site_data[archive_path_root][year][template]
+            return render_template(f"past-events-{template}.html", **data)
+    else:
+        error = {
+            "title": "Oops!",
+            "type": "routing",
+            "message": f"No archive data for {template} in {year}"
+        }
+        data["error"] = error
+        return render_template("error.html", **data)
+
+
+def archive_directory_check(dir_path):
+    return True if os.path.exists(dir_path) and os.path.isdir(dir_path) else False
 
 def extract_list_field(v, key):
     value = v.get(key, "")
@@ -240,28 +422,25 @@ def extract_list_field(v, key):
 
 
 def format_paper(v):
-    list_keys = ["authors", "keywords", "session"]
+    list_keys = ["authors", "keywords", "sessions"]
     list_fields = {}
     for key in list_keys:
         list_fields[key] = extract_list_field(v, key)
 
     return {
-        "id": v["UID"],
+        "UID": v["UID"],
+        "title": v["title"],
         "forum": v["UID"],
-        "content": {
-            "title": v["title"],
-            "authors": list_fields["authors"],
-            "keywords": list_fields["keywords"],
-            "abstract": v["abstract"],
-            "TLDR": v["abstract"],
-            "recs": [],
-            "session": list_fields["session"],
-            "pdf_url": v.get("pdf_url", ""),
-            "acm_pdf_url": v.get("acm_pdf_url", ""),
-            "acm_html_url": v.get("acm_html_url", ""),
-            "slideslive_id": v["slideslive_id"],
-            "rocketchat_id": v["rocketchat_id"],
-        },
+        "authors": list_fields["authors"],
+        "keywords": list_fields["keywords"],
+        "abstract": v["abstract"],
+        "TLDR": v["abstract"],
+        "recs": [],
+        "sessions": list_fields["sessions"],
+        # links to external content per poster
+        "pdf_url": v.get("pdf_url", ""),  # render poster from this PDF
+        "code_link": "https://github.com/Mini-Conf/Mini-Conf",  # link to code
+        "link": "https://arxiv.org/abs/2007.12238",  # link to paper
     }
 
 
@@ -271,15 +450,25 @@ def format_workshop(v):
     for key in list_keys:
         list_fields[key] = extract_list_field(v, key)
 
-    return {
+    formatted_workshop = {
         "id": v["UID"],
         "title": v["title"],
         "organizers": list_fields["authors"],
         "abstract": v["abstract"],
-        "slideslive_id": v["slideslive_id"],
-        "rocketchat_id": v["rocketchat_id"]
     }
 
+    if "bio" in v:
+        formatted_workshop["bio"] = v["bio"]
+    if "slideslive_id" in v:
+        formatted_workshop["slideslive_id"] = v["slideslive_id"]
+    if "slideslive_active_date" in v:
+        formatted_workshop["slideslive_active_date"] = v["slideslive_active_date"]
+    if "rocketchat_id" in v:
+        formatted_workshop["rocketchat_id"] = v["rocketchat_id"]
+    if "doi_link" in v:
+        formatted_workshop["doi_link"] = v["doi_link"]
+
+    return formatted_workshop
 
 # ITEM PAGES
 
@@ -299,6 +488,18 @@ def speaker(speaker):
     v = by_uid["speakers"][uid]
     data = _data()
     data["speaker"] = v
+    data["by_uid"] = by_uid
+    return render_template("speaker.html", **data)
+
+@app.route("/<year>/speaker_<speaker>.html")
+def past_speaker(year, speaker):
+    uid = speaker
+    v = by_uid["archive"][year]["speakers"][uid]
+    data = _data()
+    data["speaker"] = v
+    data["year"] = year
+    data["isArchive"] = True
+    data["by_uid"] = by_uid
     return render_template("speaker.html", **data)
 
 
@@ -310,6 +511,16 @@ def workshop(workshop):
     data["workshop"] = format_workshop(v)
     return render_template("workshop.html", **data)
 
+@app.route("/<year>/workshop_<workshop>.html")
+def past_workshop(year, workshop):
+    uid = workshop
+    v = by_uid["archive"][year]["workshops"][uid]
+    data = _data()
+    data["year"] = year
+    data["isArchive"] = True
+    data["workshop"] = format_workshop(v)
+    return render_template("workshop.html", **data)
+
 @app.route("/tutorial_<tutorial>.html")
 def tutorial(tutorial):
     uid = tutorial
@@ -318,13 +529,51 @@ def tutorial(tutorial):
     data["tutorial"] = format_workshop(v)
     return render_template("tutorial.html", **data)
 
-@app.route("/ds_<ds>.html")
-def ds(ds):
-    uid = ds
-    v = by_uid["dss"][uid]
+@app.route("/<year>/tutorial_<tutorial>.html")
+def past_tutorial(year,tutorial):
+    uid = tutorial
+    v = by_uid["archive"][year]["tutorials"][uid]
     data = _data()
-    data["ds"] = format_workshop(v)
-    return render_template("ds.html", **data)
+    data["year"] = year
+    data["isArchive"] = True
+    data["tutorial"] = format_workshop(v)
+    return render_template("tutorial.html", **data)
+
+@app.route("/proceeding_<proceeding>.html")
+def proceeding(proceeding):
+    uid = proceeding
+    v = by_uid["proceedings"][uid]
+    data = _data()
+    data["proceeding"] = format_workshop(v)
+    return render_template("proceeding.html", **data)
+
+@app.route("/<year>/proceeding_<proceeding>.html")
+def past_proceeding(year, proceeding):
+    uid = proceeding
+    v = by_uid["archive"][year]["proceedings"][uid]
+    data = _data()
+    data["year"] = year
+    data["isArchive"] = True
+    data["proceeding"] = format_workshop(v)
+    return render_template("proceeding.html", **data)
+
+@app.route("/symposium_<symposium>.html")
+def symposium(symposium):
+    uid = symposium
+    v = by_uid["symposiums"][uid]
+    data = _data()
+    data["symposium"] = format_workshop(v)
+    return render_template("symposium.html", **data)
+
+@app.route("/<year>/symposium_<symposium>.html")
+def past_symposium(year, symposium):
+    uid = symposium
+    v = by_uid["archive"][year]["symposiums"][uid]
+    data = _data()
+    data["year"] = year
+    data["isArchive"] = True
+    data["symposium"] = format_workshop(v)
+    return render_template("symposium.html", **data)
 
 @app.route("/chat.html")
 def chat():
@@ -359,17 +608,30 @@ def serve(path):
 
 @freezer.register_generator
 def generator():
-
     for paper in site_data["papers"]:
         yield "poster", {"poster": str(paper["UID"])}
     for speaker in site_data["speakers"]:
         yield "speaker", {"speaker": str(speaker["UID"])}
-    for workshop in site_data["workshops"]:
-        yield "workshop", {"workshop": str(workshop["UID"])}
     for tutorial in site_data["tutorials"]:
         yield "tutorial", {"tutorial": str(tutorial["UID"])}
-    for ds in site_data["dss"]:
-        yield "ds", {"ds": str(ds["UID"])}
+    for proceeding in site_data["proceedings"]:
+        yield "proceeding", {"proceeding": str(proceeding["UID"])}
+    for symposium in site_data["symposiums"]:
+        yield "symposium", {"symposium": str(symposium["UID"])}
+    for workshop in site_data["workshops"]:
+        yield "workshop", {"workshop": str(workshop["UID"])}
+
+    for year in site_data["archive"]["years_list"]:
+        if site_data["archive"]["has_summary"][year] is True:
+            yield f"/{year}/highlights.html"
+
+        for typ in site_data["archive"][year]:
+            if not typ == "highlights":
+                yield "archive", {"year": year, "template": typ}
+                routeName = "past_" + typ[:-1]
+
+                for item in site_data["archive"][year][typ]:
+                    yield str(routeName), {"year": year, str(typ[:-1]): str(item["UID"])}
 
     for key in site_data:
         yield "serve", {"path": key}

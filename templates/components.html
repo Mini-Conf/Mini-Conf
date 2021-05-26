@@ -1,3 +1,21 @@
+{#
+Components:
+tabs -- Navigation tabs
+section, subsection -- bootstrap sections
+speakergroup
+organizergroup
+faqgroup
+highlightgroup
+tutorialgroup
+proceedingpgroup
+symposiumpgroup
+workshopgroup
+sponsorgroup
+slideslive
+rocketchat
+schedule
+#}
+
 {% macro tabs(tab_group) -%}
 <ul class="nav nav-pills justify-content-center">
   {% for tab in tab_group %}
@@ -27,29 +45,21 @@
 
 {% macro subsection(name) -%}
 <div class="row p-3">
-  <div class="bd-content">
+  <div class="col-12 bd-content">
     <h3>{{name}}</h3>
   </div>
 </div>
 {%- endmacro %}
 
-{% macro subsubsection(name) -%}
-<div class="row p-3">
-  <div class="bd-content">
-    <h4>{{name}}</h4>
-  </div>
-</div>
-{%- endmacro %}
-
 {% macro speakergroup(speakers) -%}
-{% for speaker in speakers %}
+{% for speaker in speakers or [] %}
 <div class="row p-4">
   <div class="col-md-12">
     <div class="card">
       <div class="card-header">
         <div class="row">
           <div class="col-md-2 col-sm-5">
-            <img src="{{speaker.image}}" width="100%" class="img-thumbnail" />
+            <img src="/{{speaker.image}}" width="100%" class="img-thumbnail" alt="{{speaker.speaker}}" />
           </div>
           <div class="col-md-10 col-sm-6">
             <div class="m-3 text-muted">
@@ -61,7 +71,12 @@
             </div>
             <div class="m-3 text-muted">
               <span class="card-title h3">
-                {{speaker.speaker}}  /  {{speaker.institution}}
+                {{speaker.speaker}} {% if speaker.institution %} / {{speaker.institution}} {% endif %}
+              </span>
+            </div>
+            <div class="m-3 text-muted">
+              <span class="card-title h3">
+                <a href="{{speaker.website}}" target="_blank" rel="noopener">{{speaker.website}}</a>
               </span>
             </div>
             <div class="m-3">
@@ -78,7 +93,7 @@
 
 {% macro organizergroup(committee) -%}
 <div class="row">
-  {% for org in committee %}
+  {% for org in committee or [] %}
   <div class="col-md-4 col-xs-6">
     <div class="pp-card">
       <div class="pp-card-header" class="text-muted">
@@ -152,27 +167,27 @@
     data-interval="false"
   >
     <div class="carousel-inner cards" role="listbox">
-      {% for openreview in papers %}
+      {% for openreview in papers or [] %}
       {% if loop.index % 3 == 1 %}
       <div class="carousel-item {% if loop.index == 1%} active{% endif %}">
         {% endif %}
         <div class="col-md-4 col-xs-6 fluid">
           <div class="pp-card">
             <div class="pp-card-header">
-              <a href="poster_{{openreview.id}}.html" class="text-muted">
+              <a href="poster_{{openreview.UID}}.html" class="text-muted">
                 <h5 class="card-title" align="center">
-                  {{openreview.content.title}}
+                  {{openreview.title}}
                 </h5>
               </a>
               <h6 class="card-subtitle text-muted" align="center">
-                {% for a in openreview.content.authors %}
+                {% for a in openreview.authors %}
                 {{a}},
                 {% endfor %}
               </h6>
               <center>
                 <img
                   class="cards_img lazy-load-img"
-                  data-src="static/images/papers/{{openreview.id}}.png"
+                  data-src="https://iclr.github.io/iclr-images/{{openreview.UID}}.png"
                   width="80%"
                 />
               </center>
@@ -206,25 +221,22 @@
 </div>
 {%- endmacro %}
 
-{% macro workshopgroup(tutorials, what) -%}
+{% macro tutorialgroup(tutorials) -%}
 <div class="cards row">
-  {% for tutorial in tutorials %}
-  <div class="col-md-6 col-sm-12 p-3" style="box-sizing: border-box;">
-    <div class="card" style="display: block; overflow: hidden; width: 100%;">
-      <div
-        class="card-header text-center"
-        style="min-height: 200px; width: 100%;"
-      >
-      <a class="text-muted" href="{{what}}_{{tutorial.id}}.html">
-          <h3 class="card-title main-title">
+  {% for tutorial in tutorials or [] %}
+  <div class="col-md-12 col-sm-12 p-3">
+    <div class="card">
+      <div class="card-header text-center">
+        <h3 class="card-title main-title">
+          <a href="tutorial_{{tutorial.id}}.html" class="main-title">
             {{tutorial.title}}
-          </h3>
-        </a>
+          </a>
+        </h3>
         <div class="card-subtitle text-muted">
           {{ tutorial.organizers | join(", ") }}
         </div>
-        <div class="m-3 text-left card-subtitle font-italic">
-          {{tutorial.abstract|safe}}
+        <div class="m-3 text-left card-subtitle">
+          <strong>Abstract:</strong> {{tutorial.abstract|safe}}
         </div>
       </div>
     </div>
@@ -233,21 +245,98 @@
 </div>
 {%- endmacro %}
 
-{% macro slideslive(slideslive_id) -%}
+{% macro proceedingpgroup(proceedings) -%}
+<div class="cards row">
+  {% for proceeding in proceedings or [] %}
+  <div class="col-md-12 col-sm-12 p-3">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title main-title">
+          <a href="proceeding_{{proceeding.id}}.html" class="main-title">
+            {{proceeding.title}}
+          </a>
+        </h3>
+        <div class="card-subtitle text-muted text-left">
+          {{ proceeding.organizers | join("; ") }}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{%- endmacro %}
+
+{% macro symposiumpgroup(symposiums) -%}
+<div class="cards row">
+  {% for symposium in symposiums or [] %}
+  <div class="col-md-12 col-sm-12 p-3">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="card-title main-title">
+          <a href="symposium_{{symposium.id}}.html" class="main-title">
+            {{symposium.title}}
+          </a>
+        </h3>
+        <div class="card-subtitle text-muted text-left">
+          {{ symposium.organizers | join("; ") }}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{%- endmacro %}
+
+{% macro workshopgroup(workshops, type) -%}
+<div class="cards row">
+  {% for workshop in workshops or [] %}
+  <div class="col-md-6 col-sm-12 p-3" style="box-sizing: border-box;">
+    <div class="card" style="display: block; overflow: hidden; width: 100%;">
+      <div
+        class="card-header text-center"
+        style="min-height: 200px; width: 100%;"
+      >
+        <a class="text-muted" href="{% if type == 'proceeding' %}proceeding{% else %}workshop{% endif %}_{{workshop.id}}.html">
+          <h3 class="card-title main-title">
+            {{workshop.id}} - {{workshop.title}}
+          </h3>
+        </a>
+        <div class="card-subtitle text-muted">
+          {{ workshop.organizers | join(", ") }}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{%- endmacro %}
+
+{% macro sponsorgroup(sponsors) -%}
+<div class="row sponsors">
+  {% for sponsor in sponsors or [] %}
+  <div class="{% if sponsor.level == 'silver' %}col-md-6{% else %}col-md-4{% endif %} col-xs-6">
+    <div class="pp-card sponsor {{sponsor.level}}">
+      <div class="pp-card-header" class="text-muted">
+        <img src="{{sponsor.image}}" class="rounded {{sponsor.level}}" alt="{{sponsor.name}}" />
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{%- endmacro %}
+
+{% macro slideslive(slideslive_id, slideslive_active_date) -%}
 {% if slideslive_id %}
-{{ section("Presentation (SlidesLive)") }}
-<div class="col-md-12 col-xs-12 my-auto p-2">
-  <div id="presentation-embed-{{ slideslive_id }}"></div>
+<div id="slideslive-embed" class="col-md-12 col-xs-12 my-auto p-2 hide" data-activedate="{{slideslive_active_date}}">
+  <div id="presentation-embed-{{slideslive_id}}" class="slp my-auto"></div>
   <script src='https://slideslive.com/embed_presentation.js'></script>
   <script>
-      embed = new SlidesLiveEmbed('presentation-embed-{{ slideslive_id }}', {
-          presentationId: '{{ slideslive_id }}',
-          autoPlay: false, // change to true to autoplay the embedded presentation
-          verticalEnabled: true,
-          verticalWhenWidthLte: 500,
-          allowHiddenControlsWhenPaused: true,
-          hideTitle: true
-      });
+    embed = new SlidesLiveEmbed("presentation-embed-{{slideslive_id}}", {
+        presentationId: "{{slideslive_id}}",
+        autoPlay: false, // change to true to autoplay the embedded presentation
+        verticalEnabled: true,
+        verticalWhenWidthLte: 480,
+    });
   </script>
 </div>
 {% endif %}
@@ -259,47 +348,16 @@
 <div class="col-md-12 col-xs-12 p-2">
   <div id="gitter" class="slp">
     <center>
-      <iframe frameborder="0" src="https://{{ chat_server }}/channel/{{ rocketchat_id }}?layout=embedded" height="700px" width="100%" ></iframe>
+      <iframe frameborder="0" src="https://{{chat_server}}/channel/{{rocketchat_id}}" height="450px" width="100%" ></iframe>
     </center>
   </div>
-</div> 
+</div>
 {% endif %}
 {%- endmacro %}
 
-{% macro schedule(preview) -%}
-{% for day in preview %}
-
-{{ subsection(day) }}
+{% macro schedule(day) -%}
 <div class="cards row">
-  <table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">Title/speaker</th>
-      {% if day == 'Keynotes' or day == 'Tutorials' or day == 'Research Papers' %}
-      <th scope="col" width=200px>Q&A Session</th>
-      {% endif %}
-    </tr>
-  </thead>
-    <tbody>
-    {% for row in preview[day] %}
-    <tr>
-        <td>{% if row.doclink%}<a href="{{ row.doclink }}">{% endif %}
-                {{ row.title }}
-                {% if row.doclink %}</a>{% endif %}</td>
-      {% if day == 'Keynotes' or day == 'Tutorials' or day == 'Research Papers' %}
-      <td>{% if row.day %} {{ row.day }} {% endif %}</td>
-      {% endif %}
-    </tr>
-{% endfor %}
-  </tbody>
-</table>
-</div>
-{% endfor %}
-{%- endmacro %}
-
-{% macro day_to_view(day) -%}
-<div class="cards row">
-  <table class="table table-striped">
+  <table class="table-schedule table table-striped table-responsive">
   <thead>
     <tr>
       <th scope="col" width=150px>Time (EDT)</th>
@@ -307,7 +365,7 @@
       <th scope="col">Title</th>
       <th scope="col">Speaker</th>
       <th scope="col">Moderator</th>
-      <th scope="col" width=100px>Q&amp;A Session link</th>
+      <th scope="col" width=100px></th>
     </tr>
   </thead>
     <tbody>
@@ -320,13 +378,12 @@
           {% if row.doclink %}</a>{% endif %}</td>
       <td>{% if row.speaker %}{{ row.speaker }}{% endif %}</td>
       <td>{% if row.moderator %}{{ row.moderator }}{% endif %}</td>
-      <td>{% if row.sessionlink %}<a href="{{ row.sessionlink }}" target="_blank" />{% endif %}
-          {% if row.sessionlinktext %}{{ row.sessionlinktext }}{% endif %}
-          {% if row.sessionlink %}</a>{% endif %}</td>
+      <td>{% if row.link and row.linkactive %}<a href="{{ row.link }}" target="_blank"  rel="noopener">{% endif %}
+          {% if row.linktext %}{{ row.linktext }}{% endif %}
+          {% if row.link and row.linkactive %}</a>{% endif %}</td>
     </tr>
-{% endfor %}
-  </tbody>
-</table>
+    {% endfor %}
+    </tbody>
+  </table>
 </div>
 {%- endmacro %}
-

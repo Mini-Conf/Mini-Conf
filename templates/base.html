@@ -1,193 +1,293 @@
 {% import 'components.html' as components %}
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    {% block head %}
+<head>
+  {% block head %}
     <!-- Required meta tags -->
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
 
-    <link rel="stylesheet" href="static/css/main.css" />
-    <link rel="stylesheet" href="static/css/lazy_load.css" />
-    <link rel="stylesheet" href="static/css/typeahead.css" />
-    <link rel="shortcut icon" href="static/images/favicon.ico" type="image/x-icon">
-
-    <!-- External Javascript libs  -->
-    <script src="https://cdn.jsdelivr.net/npm/d3@5/dist/d3.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.3/dist/handlebars.min.js" integrity="sha256-/PJBs6QWvXijOFIX04kZpLb6ZtSQckdOIavLWKKOgXU=" crossorigin="anonymous"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha256-WqU1JavFxSAMcLP2WIOI+GB2zWmShMI82mTpLDcqFUg=" crossorigin="anonymous"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/min/moment.min.js" integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ=" crossorigin="anonymous"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/moment-timezone@0.5.28/builds/moment-timezone-with-data.min.js" integrity="sha256-IWYg4uIC8/erItNXYvLtyYHioRi2zT1TFva8qaAU/ww=" crossorigin="anonymous"></script>
-
-
-    <!-- Library libs -->
-    <script src="static/js/typeahead.bundle.js"></script>
-
     {% if config.use_auth0 %}
-    <script>
+    <script type="text/javascript">
       var auth0_domain = "{{config.auth0_domain}}";
       var auth0_client_id = "{{config.auth0_client_id}}";
     </script>
     <script src="https://cdn.auth0.com/js/auth0-spa-js/1.7/auth0-spa-js.production.js"></script>
-    <script src="static/js/app.js"></script>
+    <script type="text/javascript" src="/static/js/modules/auth0protect.js"></script>
     {% endif %}
 
+    <link rel="icon" type="image/png" href="/static/images/favicon.png">
+
     <!-- External CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+          integrity="sha256-93wNFzm2GO3EoByj9rKZCwGjAJAwr0nujPaOgwUt8ZQ="
+          crossorigin="anonymous"/>
 
     <!-- External Fonts (no google for china) -->
-    <link
-      href="static/css/Lato.css"
-      rel="stylesheet"
-    />
-    <link href="static/css/Exo.css" rel="stylesheet" />
-    <link
-      href="static/css/Cuprum.css"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="/static/css/main.css"/>
+    <!-- <link rel="stylesheet" href="/static/css/fa_regular.css"/> -->
+    <link rel="stylesheet" href="/static/css/fa_solid.css"/>
+    <link rel="stylesheet" href="/static/css/lazy_load.css"/>
+    <link rel="stylesheet" href="/static/css/typeahead.css"/>
 
-    <title>{{config.page_title.prefix}}{% if page_title %}{{config.page_title.separator}}{{page_title}}{% endif %}</title>
-    {% endblock %}
-  </head>
+    <title>{{config.page_title.prefix}}
+      {% if page_title%}
+        {{config.page_title.separator}}{{page_title}}
+      {% endif %}
+    </title>
+  {% endblock %}
+</head>
 
-  <body>
-    <!-- NAV -->
-    {% block header %}
-    {% set navigation_bar = [
-    ('index.html', 'Home'),
-    ('register.html', 'Registration'),
+<body>
+<!-- NAV -->
+{% block header %}
+  {% set navigation_bar = [
+  ('index.html', 'Home'),
+  ] -%}
+
+  {# Removed navigation_bar ENTRIES
+    ('program.html', 'Program'),
     ('calendar.html', 'Schedule'),
+    ('proceedings.html', 'Papers'),
+    ('live.html', 'Live'),
     ('papers.html', 'Papers'),
+    ('workshops.html', 'Workshops')
     ('chat.html', 'Chat'),
-    ('committee.html', 'Committee'),
-    ('call_papers.html', 'Call for Papers'),
-    ('about.html', 'Help'),
-    ] -%}
+    ('help.html', 'Help'),
+    ('register.html', 'Registration'),
+  #}
 
-    <nav
-      class="navbar sticky-top navbar-expand-lg navbar-light bg-light mr-auto"
-      id="main-nav"
-    >
-      <div class="container">
-        <a class="navbar-brand" href="index.html">
-          <img
-             class="logo" src="{{config.logo.image}}"
-             height={{config.logo.height | default("auto") | tojson}}
-             width={{config.logo.width | default("auto") | tojson}}
-          />
+  {% set organization_dropdown_bar = [
+  ('committee.html', 'Committee'),
+  ] -%}
+
+  {# Removed organization_dropdown_bar ENTRIES
+    ('sponsor.html', 'Sponsorship'),
+    ('call-for-papers.html', 'Call for Papers'),
+  #}
+
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light mr-auto btco-hover-menu" id="main-nav">
+    <div class="container">
+        {% if config.logo.image %}
+        <a class="navbar-brand logo-wrapper" href="/index.html">
+            <img
+                  class="logo" src="{{config.logo.image}}"
+                  height={{config.logo.height | default("auto") | tojson}}
+                  width={{config.logo.width | default("auto") | tojson}}
+                  alt="{{config.logo.alt_text}}"
+            />
         </a>
+        {% endif %}
         {% if config.site_title %}
-        <a class="navbar-brand" href="index.html">{{config.site_title}}</a>
+          <a class="navbar-brand" href="/index.html">{{config.site_title}}</a>
         {% endif %}
         <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div
-          class="collapse navbar-collapse text-right flex-grow-1"
-          id="navbarNav"
+              class="collapse navbar-collapse flex-grow-1"
+              id="navbarNav"
         >
           <ul class="navbar-nav ml-auto">
-            {% for href, id in navigation_bar %}
-            <li class="nav-item {% if id == active_page %}active{% endif %}">
-              <a class="nav-link" href="{{href}}">{{id}}</a>
-            </li>
-            {% endfor %}
+              {% for href, id in navigation_bar %}
+              <li class="nav-item {% if id == active_page %}active{% endif %}">
+                  <a class="nav-link" href="/{{href}}">{{id}}</a>
+              </li>
+              {% endfor %}
+              {% if organization_dropdown_bar %}
+              <li class="nav-item dropdown {% if active_page == 'Organization' %}active{% endif %}">
+                <a class="nav-link dropdown-toggle" href="#" id="organizationDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Organization
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="organizationDropdown">
+                  <li>
+                    {% for href, id in organization_dropdown_bar %}
+                      <a class="dropdown-item" href="/{{href}}">{{id}}</a>
+                    {% endfor %}
+                  </li>
+                </ul>
+              </li>
+              {% endif %}
+              {% if archive.has_data or archive.has_summary %}
+              <li class="nav-item dropdown {% if  active_page == 'Past Events' %}active{% endif %}">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Past Events
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  {% for year in archive.years_list|reverse %}
+                  <li>
+                      <a class="dropdown-item dropdown-toggle" href="#" id="navYear{{year}}Dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{year}}</a>
+                      <ul class="dropdown-menu" aria-labelledby="navYear{{year}}Dropdown">
+                          {% for key, value in archive.items() %}
+                            {% if key == year %}
+                              {% for item, data in value.items() %}
+                              <li><a class="dropdown-item" href="/{{year}}/{{item}}.html">{{item.capitalize()}}</a></li>
+                              {% endfor %}
+                            {% endif %}
+                          {% endfor %}
+                      </ul>
+                  </li>
+                  {% endfor %}
+                </ul>
+              </li>
+              {% endif %}
           </ul>
         </div>
-      </div>
-    </nav>
-    {% endblock %}
+    </div>
+  </nav>
+{% endblock %}
 
-    {% block body %}
-    <!-- User Overrides -->
-    {% block top %} {% endblock %}
+{% block body %}
+  <!-- User Overrides -->
+  {% block top %}
+  {% endblock %}
 
-    <div class="container">
+  <div class="container content-wrapper">
       <!-- Tabs -->
       <div class="tabs">
-        {% block tabs %} {% endblock %}
+          {% block tabs %} {% endblock %}
       </div>
       <!-- Content -->
       <div class="content">
-        {% block content %} {% endblock %}
+          {% block content %} {% endblock %}
       </div>
+  </div>
+{% endblock %}
+
+{% block bottom %}
+  <!-- Sponsors -->
+  {% if sponsors %}
+    <div class="container">
+      <br />
+      <h3>{{config.page_title.prefix}} Sponsors</h3>
+      <p>We thank our <a href="/2021/highlights.html">sponsors</a> for making the CHIL 2021 conference a success.</p>
+      <!-- {{ components.sponsorgroup(sponsors) }} -->
     </div>
-    {% endblock %}
-    {% block footer %}
+  {% endif %}
+{% endblock %}
 
-    <!-- Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id={{config.analytics}}"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "{{config.analytics}}");
-    </script>
-
-    <!-- Footer -->
-    <footer class="footer bg-light p-4">
-      <div class="container">
-        {{ components.section("Sponsors") }}
-
-<img width="2500" height="778" src="static/images/sponsors/sponsor_logos_chil1.png" class="image attachment-full size-full" alt="" style="max-width: 100%; height: auto;" title="Sponsors" srcset="static/images/sponsors/sponsor_logos_chil1.png 2500w, static/images/sponsors/sponsor_logos_chil1-300x93.png 300w, static/images/sponsors/sponsor_logos_chil1-768x239.png 768w, static/images/sponsors/sponsor_logos_chil1-1024x319.png 1024w, static/images/sponsors/sponsor_logos_chil1-600x187.png 600w" sizes="(max-width: 2500px) 100vw, 2500px" />
-
-      </div>
-
-      <div class="container p-5">
+{% block footer %}
+  <!-- Footer -->
+  <footer class="footer bg-light p-4">
+    <div class="container">
         <p class="float-right"><a href="#">Back to Top</a></p>
-        <p class="text-left">© 2020 {{config.organization}}</p>
-      </div>
-    </footer>
+        <p class="text-left">© 2021 {{config.organization}}</p>
+    </div>
+  </footer>
+{% endblock %}
 
-    <!-- Code for hash tags -->
-    <script type="text/javascript">
-      $(document).ready(function () {
-        if (location.hash !== "") {
-          $('a[href="' + location.hash + '"]').tab("show");
+{% block scripts %}
+  <!-- External Javascript libs_ext  -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@5/dist/d3.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/handlebars@4.7.3/dist/handlebars.min.js"
+          integrity="sha256-/PJBs6QWvXijOFIX04kZpLb6ZtSQckdOIavLWKKOgXU="
+          crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"
+          integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+          crossorigin="anonymous"></script>
+
+  <script
+          src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+          integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+          crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+          integrity="sha256-2JaAhvdQnfNMMnhWPauHOZ2k+dzftBmBjjownu3HC4g="
+          crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.24.0/min/moment.min.js"
+          integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ="
+          crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/moment-timezone@0.5.28/builds/moment-timezone-with-data.min.js"
+          integrity="sha256-IWYg4uIC8/erItNXYvLtyYHioRi2zT1TFva8qaAU/ww="
+          crossorigin="anonymous"></script>
+
+  <!-- Library libs_ext -->
+  <script type="text/javascript" src="/static/js/libs_ext/typeahead.bundle.js"></script>
+
+  <!--    Internal Libs -->
+  <script type="text/javascript" src="/static/js/data/api.js"></script>
+
+  <!-- Google Analytics -->
+  <script
+          async
+          type="text/javascript"
+          src="https://www.googletagmanager.com/gtag/js?id={{config.analytics}}"></script>
+
+  <script type="text/javascript">
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag("js", new Date());
+    gtag("config", "{{config.analytics}}");
+  </script>
+
+  <!-- Code for hash tags -->
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (window.location.hash !== "") {
+        $(`a[href="${window.location.hash}"]`).tab("show");
+      }
+
+      $("a[data-toggle='tab']").on("shown.bs.tab", function (e) {
+        const hash = $(e.target).attr("href");
+        if (hash.substr(0, 1) === "#") {
+          const position = $(window).scrollTop();
+          window.location.replace(`#${hash.substr(1)}`);
+          $(window).scrollTop(position);
+        }
+      });
+
+      // Nested dropdown navigation menu
+      var ddHoverOrClick = function (e) {
+        var $el = $(this);
+        var $parent = $(this).offsetParent('.dropdown-menu');
+
+        if (!$(this).next().hasClass('show')) {
+            $(this).parents('.dropdown-menu').first().find('.show').removeClass('show');
         }
 
-        $("a[data-toggle='tab']").on("shown.bs.tab", function (e) {
-          var hash = $(e.target).attr("href");
-          if (hash.substr(0, 1) == "#") {
-            var position = $(window).scrollTop();
-            location.replace("#" + hash.substr(1));
-            $(window).scrollTop(position);
-          }
+        var $subMenu = $(this).next('.dropdown-menu');
+        $subMenu.toggleClass('show');
+
+        $(this).parent('li').toggleClass('show');
+
+        $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function (e) {
+            $('.dropdown-menu .show').removeClass('show');
         });
-      });
-    </script>
-    <script src="static/js/lazy_load.js"></script>
-    {% endblock %}
-  </body>
+
+         if (!$parent.parent().hasClass('navbar-nav')) {
+            $el.next().css({
+              "top": $el[0].offsetTop,
+              "left": -$parent.outerWidth()
+            });
+        }
+
+        return false;
+      };
+
+      $('.dropdown-menu a.dropdown-toggle').click(ddHoverOrClick).hover(ddHoverOrClick).on('touchstart', ddHoverOrClick);
+    });
+  </script>
+  <!-- <script src="/static/js/modules/lazyLoad.js"></script> -->
+{% endblock %}
+</body>
 </html>

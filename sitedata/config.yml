@@ -1,27 +1,32 @@
-name: ACM-CHIL 2020
-tagline: ACM Conference on <br> Health, Inference, and Learning
-date: July 23/24th 2020
+name: CHIL 2022
+tagline: Conference on <br> Health, Inference, and Learning
+date: April 2022
+countdown_date: April 8, 2021
 citation_date: July 2020
-proceedings_title: Proceedings of ACM-CHIL 2020
+proceedings_title: Proceedings of CHIL 2021
 analytics: UA-
 logo:
-  image: static/images/acm_92x192.png
-  width: 50px
-  height: auto
+  image:
+  width: auto
+  height: 50px
+  alt_text: 'CHIL logo'
 # uncomment the following line to show the site title next to the logo image
-site_title: ACM-CHIL 2020
+site_title: CHIL 2022
 page_title:
-  prefix: 'ACM-CHIL'
+  prefix: 'CHIL'
   separator: ': '
-background_image: static/images/main.jpg
-organization: ACM-CHIL Organization Committee
-registration: 'http://www.cvent.com/events/acm-conference-on-health-inference-and-learning-chil-2020-/event-summary-c40cab906b3c48cfa2be7dfb100fc753.aspx'
-registration_2: 'http://www.cvent.com/d/knqpjz'
+background_image: /static/images/main.jpg
+organization: CHIL Organization Committee
+registration:
+  url: 'register.html'
+  link_text: Registration opens February 2021
 
 # Remove or change to your chat server.
 chat_server: chat.chilconference.org
-default_presentation_id: 38922815
-default_poster_pdf: static/images/GLTR_poster.pdf
+default_chat_channel: live
+# Live stream presentation ID
+default_presentation_id: 38954751
+default_poster_pdf: /static/images/GLTR_poster.pdf
 
 
 # Configuration for auth
@@ -29,15 +34,14 @@ default_poster_pdf: static/images/GLTR_poster.pdf
 #user: miniconf@miniconf.com
 #pass: mIniconf1_
 
-use_auth0:
-auth0_client_id : JIdr6wi0z27LyLgwkJF0fpk700aj7MNH
-auth0_domain : miniconf.auth0.com
+use_auth0: false
+auth0_client_id : xzIZGAdejTq7QGPYJdZiB9KCooW7aYK9
+auth0_domain : acmchil.us.auth0.com
+auth0_authorize_endpoint: https://acmchil.us.auth0.com/authorize
 
 calendar:
   colors: #  Colors for the different event hashtags:
     ---: '#bed972'
     qa: '#4FCAEB'
     talk: '#ccc'
-
   sunday_saturday: false  #  Include Sunday and Saturday
-  
