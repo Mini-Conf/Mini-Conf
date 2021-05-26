@@ -128,8 +128,8 @@
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   {% for year in archive.years_list|reverse %}
                   <li>
-                      <a class="dropdown-item dropdown-toggle" href="#">{{year}}</a>
-                      <ul class="dropdown-menu">
+                      <a class="dropdown-item dropdown-toggle" href="#" id="navYear{{year}}Dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{year}}</a>
+                      <ul class="dropdown-menu" aria-labelledby="navYear{{year}}Dropdown">
                           {% for key, value in archive.items() %}
                             {% if key == year %}
                               {% for item, data in value.items() %}
@@ -284,7 +284,7 @@
         return false;
       };
 
-      $('.dropdown-menu a.dropdown-toggle').click(ddHoverOrClick).hover(ddHoverOrClick);
+      $('.dropdown-menu a.dropdown-toggle').click(ddHoverOrClick).hover(ddHoverOrClick).on('touchstart', ddHoverOrClick);
     });
   </script>
   <!-- <script src="/static/js/modules/lazyLoad.js"></script> -->
