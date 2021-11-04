@@ -4,3 +4,82 @@ committee:
   #   aff: MIT-IBM Watson AI Lab
   #   tw: hen_str
   #   im: https://avatars1.githubusercontent.com/u/950990?s=460&u=fba00c4d7c79fd9e4b83a15394dd1bbe7b7d3df5&v=4
+  # - role: General
+  #   name: Tristan Naumann
+  #   aff: Microsoft Research
+
+  # - role: General
+  #   name: Joyce Ho
+  #   aff: Emory University
+
+  # - role: Program
+  #   name: Sherri Rose
+  #   aff: Stanford University
+
+  # - role: Program
+  #   name: Matthew McDermott
+  #   aff: MIT
+
+  # - role: Proceedings
+  #   name: George Chen
+  #   aff: Carnegie Mellon University 
+
+  # - role: Proceedings
+  #   name: Tom Pollard
+  #   aff: MIT
+
+  # - role: Proceedings
+  #   name: Gerardo Flores
+  #   aff: Google
+
+  # - role: Track
+  #   name: Rahul Krishnan
+  #   aff: University of Toronto
+
+  # - role: Track
+  #   name: Shalmali Joshi
+  #   aff: Harvard University
+
+  # - role: Track
+  #   name: Alistair Johnson
+  #   aff: Hospital for Sick Children
+
+  # - role: Track
+  #   name: Judy Gichoya
+  #   aff: Emory University
+
+  # - role: Communications
+  #   name: Sanja Scepanovic
+  #   aff: Bell Labs
+
+  # - role: Communications
+  #   name: Emily Alsentzer
+  #   aff: MIT, Harvard University
+
+  # - role: Finance
+  #   name: Brett Beaulieu-Jones
+  #   aff: Harvard Medical School
+
+  # - role: Finance
+  #   name: Ahmed Alaa
+  #   aff: MIT, Harvard University
+
+  # - role: Finance
+  #   name: Tasmie Sarker
+  #   aff: Association for Health Learning and Inference 
+
+  # - role: Tutorial
+  #   name: Jessica Gronsbell
+  #   aff: University of Toronto 
+  
+  # - role: Tutorial
+  #   name: Harvineet Singh
+  #   aff: New York University
+
+  # - role: Virtual
+  #   name: Stephanie Hyland
+  #   aff: Microsoft Research Cambridge
+
+  # - role: Logistics
+  #   name: Tasmie Sarker
+  #   aff: Association for Health Learning and Inference
