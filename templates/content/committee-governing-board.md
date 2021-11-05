@@ -16,7 +16,7 @@
     * Dr. Alistair Johnson of The Hospital for Sick Children
     * Dr. Judy Gichoya of Emory University
 - ##### **Impact and Society**
-    * Coming soon...
+    * Dr. Bobak Mortazavi of Texas A&M University 
 ##### **Communications Chairs**
 - Dr. Sanja Šćepanović of Bell Labs Cambridge
 - Emily Alsentzer of Harvard University and MIT
