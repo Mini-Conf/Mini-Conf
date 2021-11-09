@@ -23,11 +23,11 @@
 ##### **Finance Chairs**
 - Dr. Brett Beaulieu-Jones of Harvard Medical School
 - Dr. Ahmed Alaa of Harvard University and MIT
-- Tasmie Sarker of Association of Health Learning and Inference
+- Tasmie Sarker of Association for Health Learning and Inference
 ##### **Tutorial Chairs**
 - Dr. Jessica Gronsbell of University of Toronto
 - Harvineet Singh of New York University
 ##### **Virtual Chairs**
 - Dr. Stephanie Hyland of Microsoft Research Cambridge
 ##### **Logistics Chair**
-- Tasmie Sarker of Association of Health Learning and Inference
+- Tasmie Sarker of Association for Health Learning and Inference
