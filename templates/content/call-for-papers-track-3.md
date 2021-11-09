@@ -35,10 +35,10 @@ Some particular areas of interest are:
 
 Bolukbasi T, Chang K-W, Zou J, Saligrama V, Kalai A. 2016. Quantifying and reducing stereotypes in word embeddings. arXiv:1606.06121 [cs.CL]
 
-Kleinberg, Jon, and Sendhil Mullainathan. "Simplicity creates inequity: implications for fairness, stereotypes, and interpretability." *Proceedings of the 2019 ACM Conference on Economics and Computation*. 2019.
+Kleinberg, Jon, and Sendhil Mullainathan. "Simplicity creates inequity: implications for fairness, stereotypes, and interpretability." Proceedings of the 2019 ACM Conference on Economics and Computation. 2019.
 
 Incorporating Interpretable Output Constraints in Bayesian Neural Networks
 Wanqian Yang, Lars Lorch, Moritz Gaule, Himabindu Lakkaraju, Finale Doshi-Velez.
 Advances in Neural Information Processing Systems (NeurIPS), 2020.
 
-Bhatt, Umang, Alice Xiang, Shubham Sharma, Adrian Weller, Ankur Taly, Yunhan Jia, Joydeep Ghosh, Ruchir Puri, José MF Moura, and Peter Eckersley. "Explainable machine learning in deployment." In *Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency, pp*. 648-657. 2020.
+Bhatt, Umang, Alice Xiang, Shubham Sharma, Adrian Weller, Ankur Taly, Yunhan Jia, Joydeep Ghosh, Ruchir Puri, José MF Moura, and Peter Eckersley. "Explainable machine learning in deployment." In Proceedings of the 2020 Conference on Fairness, Accountability, and Transparency, pp. 648-657. 2020.
