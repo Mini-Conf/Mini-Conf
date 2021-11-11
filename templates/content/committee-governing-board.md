@@ -29,5 +29,6 @@
 - Harvineet Singh of New York University
 ##### **Virtual Chairs**
 - Dr. Stephanie Hyland of Microsoft Research Cambridge
+- Dr. Ioakeim Perros of Health at Scale
 ##### **Logistics Chair**
 - Tasmie Sarker of Association for Health Learning and Inference
