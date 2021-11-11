@@ -12,6 +12,7 @@
 - ##### **Models and Methods**
     * Dr. Rahul Krishnan of University of Toronto and Vector Institute
     * Dr. Shalmali Joshi of Harvard University
+    * Dr. Michael Hughes of Tufts University
 - ##### **Applications and Practice**
     * Dr. Alistair Johnson of The Hospital for Sick Children
     * Dr. Judy Gichoya of Emory University
