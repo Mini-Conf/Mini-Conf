@@ -16,6 +16,7 @@
 - ##### **Applications and Practice**
     * Dr. Alistair Johnson of The Hospital for Sick Children
     * Dr. Judy Gichoya of Emory University
+    * Emma Rocheteau of University of Cambridge
 - ##### **Impact and Society**
     * Dr. Bobak Mortazavi of Texas A&M University 
 ##### **Communications Chairs**
