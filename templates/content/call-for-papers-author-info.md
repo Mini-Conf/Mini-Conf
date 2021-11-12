@@ -7,7 +7,7 @@ Track chairs will oversee the reviewing process. In case you are not sure which 
 <!-- <center><a class="btn btn-primary btn-lg active" role="button" aria-pressed="true" href="https://chil2021.hotcrp.com" target="_blank" rel="noopener">Submit your paper</a></center> -->
 
 ### Important Dates
-- Submissions Due – January 7, 2022 (11:59 pm AoE)
+- Submissions Due – January 14, 2022 (11:59 pm AoE)
 - Conference Date – April 7-8, 2022
 
 ### Tracks
