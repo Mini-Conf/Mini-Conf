@@ -6,6 +6,7 @@
 - Dr. Shalmali Joshi 
 - Dr. Michael Hughes
 - Dr. Yuyin Zhou
+- Dr. Uri Shalit
 
 ### Description
 Advances in machine learning are critical for a better understanding of health. This track seeks contributions in modeling, inference, and estimation in health-focused or health-inspired settings. We welcome submissions that develop novel methods and algorithms, introduce relevant machine learning tasks and baselines, identify challenges with prevalent approaches, or suggest new evaluation metrics for assessing algorithmic advances. In addition, we welcome new algorithmic techniques for combining non-clinical and clinical data for public and population health applications, algorithms for public health goals, and causal inference in public health settings.
