@@ -14,7 +14,7 @@
     * Dr. Shalmali Joshi of Harvard University
     * Dr. Michael Hughes of Tufts University
     * Dr. Yuyin Zhou of Stanford
-    * Dr. Uri Shalit
+    * Dr. Uri Shalit of Technion
 - ##### **Applications and Practice**
     * Dr. Alistair Johnson of The Hospital for Sick Children
     * Dr. Judy Gichoya of Emory University
