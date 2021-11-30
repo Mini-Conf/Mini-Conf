@@ -21,6 +21,7 @@
     * Emma Rocheteau of University of Cambridge
 - ##### **Impact and Society**
     * Dr. Bobak Mortazavi of Texas A&M University 
+    * Dr. Stephen Pfohl of Stanford University
 ##### **Communications Chairs**
 - Dr. Sanja Šćepanović of Bell Labs Cambridge
 - Emily Alsentzer of Harvard University and MIT

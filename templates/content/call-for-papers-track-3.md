@@ -1,5 +1,6 @@
 ### Track Chairs
 - Dr. Bobak Mortazavi
+- Dr. Stephen Pfohl
 
 ### Description
 Algorithms do not exist in the digital world alone: indeed, they often explicitly take aim at important social outcomes. This track considers issues at the intersection of algorithms and the societies they seek to impact, specifically with respect to health. Submissions could include methodological contributions such as algorithmic development and performance evaluation for policy and public health applications, combining clinical and non-clinical data, as well as detecting and measuring bias. Submissions could also include impact-oriented research such as determining how algorithmic systems for health may introduce, exacerbate, or reduce inequities and inequalities, discrimination, and unjust outcomes, as well as evaluating the economic implications of these systems. Submissions related to understanding barriers to deployment and adoption of algorithmic systems for societal-level health applications are also of interest. In addressing these problems, insights from social sciences, law, clinical medicine, and the humanities can be crucial.
