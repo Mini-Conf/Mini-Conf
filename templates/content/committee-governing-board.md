@@ -19,6 +19,7 @@
     * Dr. Alistair Johnson of The Hospital for Sick Children
     * Dr. Judy Gichoya of Emory University
     * Emma Rocheteau of University of Cambridge
+    * Dr. Lifang He of Lehigh University
 - ##### **Impact and Society**
     * Dr. Bobak Mortazavi of Texas A&M University 
     * Dr. Stephen Pfohl of Stanford University

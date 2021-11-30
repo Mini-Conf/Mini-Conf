@@ -2,6 +2,7 @@
 - Dr. Alistair Johnson
 - Dr. Judy Gichoya
 - Emma Rocheteau
+- Dr. Lifang He
 
 ### Description
 The goal of this track is to highlight works applying robust methods, models, or practices to identify, characterize, audit, evaluate, or benchmark systems. Additionally, unique deployments and datasets used to empirically evaluate these systems are necessary and important to advancing practice, Whereas the goal of Track 1 is to select papers that show significant technical novelty, submit your work here if the contribution is either more focused on solving a carefully motivated problem grounded in applications or on deployments or datasets that enable exploration and evaluation of applications. Introducing a new method is not prohibited by any means for this track, but the focus should be on methods which are designed to work particularly robustly, scale particularly well either in terms of computational runtime or data required, work across real-world data modalities and systems, etc. Contributions will be evaluated for technical rigor, robustness, and comprehensivity. We encourage applications and practice in both traditional and emerging clinical areas (e.g., models in electronic health records as well as applications in emerging fields such as remote and telehealth, integration of omics, etc.)
