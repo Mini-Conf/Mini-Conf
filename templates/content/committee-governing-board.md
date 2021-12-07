@@ -23,6 +23,7 @@
 - ##### **Impact and Society**
     * Dr. Bobak Mortazavi of Texas A&M University 
     * Dr. Stephen Pfohl of Stanford University
+    * Dr. Farzan Sasangohar of Texas A&M University
 ##### **Communications Chairs**
 - Dr. Sanja Šćepanović of Bell Labs Cambridge
 - Emily Alsentzer of Harvard University and MIT
