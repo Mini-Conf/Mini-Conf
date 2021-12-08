@@ -1,39 +1,41 @@
 ##### **General Chair**
-- Dr. Marzyeh Ghassemi of University of Toronto and Vector Institute
+- Dr. Tristan Naumann of Microsoft Research
+- Dr. Joyce Ho of Emory University
 ##### **Program Chairs**
-- Dr. Tristan Naumann of Microsoft Research Seattle
-- Dr. Emma Pierson of Stanford University and Microsoft Research
-##### **Proceedings Chairs**
-- Emily Alsentzer of Harvard University and MIT
+- Dr. Sherri Rose of Stanford University
 - Matthew McDermott of MIT
+##### **Proceedings Chairs**
 - Dr. George Chen of Carnegie Mellon University
+- Dr. Tom Pollard of MIT
+- Gerardo Flores of Google
 ##### **Track Chairs**
 - ##### **Models and Methods**
-    * Dr. Mike Hughes of Tufts University
+    * Dr. Rahul Krishnan of University of Toronto and Vector Institute
     * Dr. Shalmali Joshi of Harvard University
-    * Dr. Rajesh Ranganath of New York University
-    * Dr. Rahul Krishnan of Microsoft Research, University of Toronto and Vector Institute
+    * Dr. Michael Hughes of Tufts University
+    * Dr. Yuyin Zhou of Stanford
+    * Dr. Uri Shalit of Technion
 - ##### **Applications and Practice**
-    * Dr. Andrew Beam of Harvard University
-    * Dr. Tom Pollard of MIT
-    * Dr. Bobak Mortazavi of Texas A&M University
-    * Dr. Uri Shalit of Technion - Israel Institute of Technology
-- ##### **Impact and Society**
     * Dr. Alistair Johnson of The Hospital for Sick Children
-    * Dr. Rumi Chunara of New York University
-    * Dr. George Chen of Carnegie Mellon University
+    * Dr. Judy Gichoya of Emory University
+    * Emma Rocheteau of University of Cambridge
+    * Dr. Lifang He of Lehigh University
+- ##### **Impact and Society**
+    * Dr. Bobak Mortazavi of Texas A&M University 
+    * Dr. Stephen Pfohl of Stanford University
+    * Dr. Farzan Sasangohar of Texas A&M University
 ##### **Communications Chairs**
-- Dr. Stephanie Hyland of Microsoft Research Cambridge
 - Dr. Sanja Šćepanović of Bell Labs Cambridge
-- Dr. Sanmi Koyejo of University of Illinois at Urbana-Champaign and Google Research
+- Emily Alsentzer of Harvard University and MIT
 ##### **Finance Chairs**
-- Dr. Joyce Ho of Emory University
 - Dr. Brett Beaulieu-Jones of Harvard Medical School
+- Dr. Ahmed Alaa of Harvard University and MIT
+- Tasmie Sarker of Association for Health Learning and Inference
 ##### **Tutorial Chairs**
-- Irene Chen of MIT
 - Dr. Jessica Gronsbell of University of Toronto
+- Harvineet Singh of New York University
 ##### **Virtual Chairs**
 - Dr. Stephanie Hyland of Microsoft Research Cambridge
-- Dr. Tom Pollard of MIT
+- Dr. Ioakeim Perros of HEALTH[at]SCALE
 ##### **Logistics Chair**
-- Tasmie Sarker of University of Toronto
+- Tasmie Sarker of Association for Health Learning and Inference
