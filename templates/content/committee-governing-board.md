@@ -27,6 +27,7 @@
 ##### **Communications Chairs**
 - Dr. Sanja Šćepanović of Bell Labs Cambridge
 - Emily Alsentzer of Harvard University and MIT
+- Dr. Ayah Zirikly of Johns Hopkins University
 ##### **Finance Chairs**
 - Dr. Brett Beaulieu-Jones of Harvard Medical School
 - Dr. Ahmed Alaa of Harvard University and MIT
