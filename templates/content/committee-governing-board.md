@@ -38,5 +38,6 @@
 ##### **Virtual Chairs**
 - Dr. Stephanie Hyland of Microsoft Research Cambridge
 - Dr. Ioakeim Perros of HEALTH[at]SCALE
+- Brian Gow of MIT
 ##### **Logistics Chair**
 - Tasmie Sarker of Association for Health Learning and Inference
