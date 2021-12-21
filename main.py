@@ -140,6 +140,16 @@ def favicon():
     return send_from_directory(site_data_path, "favicon.ico")
 
 
+# REDIRECTS TO SUPPORT EXTERNAL LINKS
+@app.route("/submit")
+def submit():
+    return redirect("https://openreview.net/group?id=chilconference.org/CHIL/2022/Conference", code=302)
+
+@app.route("/latex_template")
+def latex_template():
+    return redirect("https://drive.google.com/file/d/1wupnJaC3WPKlV6m5ZXDReGgcDCy_1f8I/view?usp=sharing", code=302)
+
+
 # REDIRECTS TO SUPPORT EARLIER LINKS
 @app.route("/registration")
 def registration():
