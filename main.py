@@ -139,6 +139,9 @@ def index():
 def favicon():
     return send_from_directory(site_data_path, "favicon.ico")
 
+@app.route("/chil-template-2022.zip")
+def latex_template():
+    return send_from_directory(site_data_path, "chil-template-2022.zip")
 
 # REDIRECTS TO SUPPORT EARLIER LINKS
 @app.route("/registration")
