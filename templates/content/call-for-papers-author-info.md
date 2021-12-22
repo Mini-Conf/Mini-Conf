@@ -38,7 +38,7 @@ Authors are encouraged to use the LaTeX template: [https://chilconference.org/ch
 As with prior years, submissions to the conference are considered by reviewers to be highlighted in two ways:
 
 - <u>Accepted</u>: Submissions that are accepted to the main conference are considered archival and will appear in the published proceedings of the conference. These proceedings will be made openly available in the [Proceedings of Machine Learning Research (PMLR)](https://proceedings.mlr.press/).
-- <u>Included</u>: Submissions that are cannot be accepted to the main conference may still be considered for inclusion to be highlighted during the conferene (e.g. in a poster session). These works are not archival and will not be published as part of the proceedings.
+- <u>Included</u>: Submissions that cannot be accepted to the main conference may still be considered for inclusion to be highlighted during the conference (e.g. in a poster session). These works are not archival and will not be published as part of the proceedings.
 
 **Required Sections** <br />
 This year, two sections will be required: 1) Data and Code Availability, and 2) Institutional Review Board (IRB).
