@@ -14,11 +14,11 @@ The 2022 Conference on Health, Inference, and Learning will be held online. Full
             <th>Amount (USD)</th>
         </tr>
         <tr>
-            <td>ACM Member</td>
+            <td>Student</td>
             <td>25</td>
         </tr>
         <tr>
-            <td>Non-ACM Member</td>
+            <td>Non-Student</td>
             <td>40</td>
         </tr>
     </tbody>
