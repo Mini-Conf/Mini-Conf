@@ -35,10 +35,11 @@ Submitted papers must be 8-10 pages (including all figures and tables), plus unl
 Authors are encouraged to use the LaTeX template: [Overleaf](https://www.overleaf.com/latex/templates/chil-2022-template/jsypybzpbbdd) or [Download](https://chilconference.org/chil-template-2022.zip).
 
 **Archival Submissions** <br />
-As with prior years, submissions to the conference are considered by reviewers to be highlighted in two ways:
+As with prior years, submissions to the conference are considered by reviewers to be included in two ways:
 
-- <u>Accepted</u>: Submissions that are accepted to the main conference are considered archival and will appear in the published proceedings of the conference. These proceedings will be made openly available in the [Proceedings of Machine Learning Research (PMLR)](https://proceedings.mlr.press/).
-- <u>Included</u>: Submissions that cannot be accepted to the main conference may still be considered for inclusion to be highlighted during the conference (e.g. in a poster session). These works are not archival and will not be published as part of the proceedings.
+- <u>Accepted as part of archival proceedings.</u> Submissions of this type are considered archival and will appear in the conference’s published proceedings, which will be made openly available in the [Proceedings of Machine Learning Research (PMLR)](https://proceedings.mlr.press/).
+- <u>Invited non-archival presentation.</u> Submissions of this type are considered non-archival and will not appear in the conference’s published proceedings, but they will be invited to present during the conference (e.g. in a poster session).
+
 
 **Required Sections** <br />
 This year, two sections will be required: 1) Data and Code Availability, and 2) Institutional Review Board (IRB).
