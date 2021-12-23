@@ -32,7 +32,7 @@ Submissions should be made via the online submission system: [https://openreview
 **Length and Formatting** <br />
 Submitted papers must be 8-10 pages (including all figures and tables), plus unlimited pages for references. Additional supplementary materials (e.g., appendices) can be submitted with the main manuscript. Reviewers will not be required to read the supplementary materials. 
 
-Authors are encouraged to use the LaTeX template: [https://chilconference.org/chil-template-2022.zip](https://chilconference.org/chil-template-2022.zip).
+Authors are encouraged to use the LaTeX template: [Overleaf](https://www.overleaf.com/latex/templates/chil-2022-template/jsypybzpbbdd) or [Download](https://chilconference.org/chil-template-2022.zip).
 
 **Archival Submissions** <br />
 As with prior years, submissions to the conference are considered by reviewers to be highlighted in two ways:
