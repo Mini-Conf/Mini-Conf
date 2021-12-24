@@ -4,7 +4,11 @@ The Conference on Health, Inference, and Learning (CHIL), targets a cross-discip
 
 The conference is designed to spark insight-driven discussions on new and emerging ideas that may lead to collaboration and discussion.
 
-<center><a class="btn btn-primary btn-lg active" role="button" aria-pressed="true" href="https://openreview.net/group?id=chilconference.org/CHIL/2022/Conference" target="_blank" rel="noopener">Submit your paper</a></center>
+Submissions are due January 14, 2022 (11:59 pm AoE). For more details see the [CFP](/call-for-papers.html).
+
+<center><a class="btn-primary btn-lg" role="button" aria-pressed="true" href="https://openreview.net/group?id=chilconference.org/CHIL/2022/Conference" target="_blank" rel="noopener">Submit your paper</a></center>
+
+
 
 <div class="hidden">
 ### Conference Timeline
