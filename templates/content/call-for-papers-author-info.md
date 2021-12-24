@@ -1,4 +1,4 @@
-The Conference on Health, Inference, and Learning (CHIL) solicits work across a variety of disciplines, including machine learning, statistics, epidemiology, health policy, operations, and economics. CHIL 2022 invites submissions touching on topics focused on relevant problems affecting health. Specifically, authors are invited to submit 8-10 page papers (with unlimited pages for references) to any of the tracks described below.
+The Conference on Health, Inference, and Learning (CHIL) solicits work across a variety of disciplines, including machine learning, statistics, epidemiology, health policy, operations, and economics. CHIL 2022 invites submissions on all topics at the intersection of machine learning and health. Specifically, authors are invited to submit 8-10 page papers (with unlimited pages for references) to any of the tracks described below.
 
 To ensure that all submissions to CHIL are reviewed by a knowledgeable and appropriate set of reviewers, the conference is divided into tracks and topic areas. Authors will select exactly one primary track when making a submission, in addition to one or more topic areas.
 
@@ -30,15 +30,15 @@ Submissions are due on **January 14 (11:59 pm AoE)** in the form of anonymized P
 Submissions should be made via the online submission system: [https://openreview.net/group?id=chilconference.org/CHIL/2022/Conference](https://openreview.net/group?id=chilconference.org/CHIL/2022/Conference).
 
 **Length and Formatting** <br />
-Submitted papers must be 8-10 pages (including all figures and tables), plus unlimited pages for references. Additional supplementary materials (e.g., appendices) can be submitted with the main manuscript. Reviewers will not be required to read the supplementary materials. 
+Submitted papers must be 8-10 pages (including all figures and tables), plus unlimited pages for references. Additional supplementary materials (e.g., appendices) are welcomed alongside the main manuscript. Reviewers will not be required to read the supplementary materials. 
 
 Authors are encouraged to use the LaTeX template: [Overleaf](https://www.overleaf.com/latex/templates/chil-2022-template/jsypybzpbbdd) or [Download](https://chilconference.org/chil-template-2022.zip).
 
 **Archival Submissions** <br />
-As with prior years, submissions to the conference are considered by reviewers to be included in two ways:
+As with prior years, submissions to the conference will be considered for both:
 
-- <u>Accepted as part of archival proceedings.</u> Submissions of this type are considered archival and will appear in the conference’s published proceedings, which will be made openly available in the [Proceedings of Machine Learning Research (PMLR)](https://proceedings.mlr.press/).
-- <u>Invited non-archival presentation.</u> Submissions of this type are considered non-archival and will not appear in the conference’s published proceedings, but they will be invited to present during the conference (e.g. in a poster session).
+- <u>Accepted for archival proceedings and presentation.</u> Submissions of this type are considered archival and will appear in the conference’s published proceedings, which will be made openly available in the [Proceedings of Machine Learning Research (PMLR)](https://proceedings.mlr.press/).
+- <u>Invited for non-archival presentation.</u> Submissions of this type are considered non-archival and will not appear in the conference’s published proceedings, but they will be invited to present during the conference (e.g. in a poster session).
 
 
 **Required Sections** <br />
