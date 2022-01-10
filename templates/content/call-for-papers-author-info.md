@@ -11,6 +11,8 @@ Track Chairs will oversee the reviewing process. In case you are not sure which 
 - Author Notification - February 25, 2022
 - Conference Date – April 7-8, 2022
 
+**NOTE**: The submission portal will remain open until **January 18, 2022 (11:59 pm AoE)** for those who would like to make revisions to their submitted work.
+
 ## Submission Tracks
 As with previous years, CHIL 2022 will feature three submission tracks:
 
