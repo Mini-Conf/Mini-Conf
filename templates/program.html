@@ -7,13 +7,14 @@
     <h1>Program</h1>
   </div>
   {{ components.tabs([
-        ("speakers", "Keynotes", "active"),
-        ("tutorials", "Tutorials"),
-        ("workshops", "Workshop Posters"),
-        ("proceedings", "Proceedings Posters"),
+        ("speakers", "Keynotes", "active")
     ])}}
 {% endblock %}
-
+<!-- TODO: add to components.tabs when corresponding conf sections are finalized
+  ("tutorials", "Tutorials"),
+  ("workshops", "Workshop Posters"),
+  ("proceedings", "Proceedings Posters"),
+-->
 
 {% block content %}
   <div class="page-content">
