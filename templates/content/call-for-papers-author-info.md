@@ -116,6 +116,7 @@ Works submitted to CHIL will be reviewed by at least 3 reviewers. Reviewers will
 
 Final decisions will be made in accordance with the reviewer’s overall judgement, along with their subjective ratings of confidence/expertise, and according to our own editorial judgement. 
 
+Guidelines for reviewers: [link](https://docs.google.com/document/d/1UV5AZUQ95VBci57AAgfHEbFbYo5cM91dTIAr-nbeAJo/edit).
 
 <!-- ### Camera Ready
 For accepted papers, authors will need to provide the following camera-ready materials by March 5:
