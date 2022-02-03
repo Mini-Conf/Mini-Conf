@@ -4,76 +4,44 @@ The Conference on Health, Inference, and Learning (CHIL), targets a cross-discip
 
 The conference is designed to spark insight-driven discussions on new and emerging ideas that may lead to collaboration and discussion.
 
-Submissions are due January 14, 2022 (11:59 pm AoE), but the submission portal will remain open until **January 18, 2022 (11:59 pm AoE)** for those who would like to make revisions to their submitted work. For more details see the [CFP](/call-for-papers.html).
-
-<center><a class="btn-primary btn-lg" role="button" aria-pressed="true" href="https://openreview.net/group?id=chilconference.org/CHIL/2022/Conference" target="_blank" rel="noopener">Submit your paper</a></center>
+<!---<center><a class="btn-primary btn-lg" role="button" aria-pressed="true" href="https://openreview.net/group?id=chilconference.org/CHIL/2022/Conference" target="_blank" rel="noopener">Submit your paper</a></center> !-->
 
 
 
-<div class="hidden">
-### Conference Timeline
+#### Important dates
+<div>
 
 <table class="timeline-table table table-striped table-sm">
   <tbody>
     <tr>
       <th scope="row">Call for Papers</th>
-      <td>November 25, 2020</td>
-      <td class="text-right"><span class="countdown" data-startdate="November 25, 2020"></span></td>
+      <td>November 13, 2021</td>
+      <td class="text-right"><span class="countdown" data-startdate="November 13, 2021"></span></td>
     </tr>
     <tr>
-      <th scope="row">Submission System Opens</th>
-      <td>December 11, 2020</td>
-      <td class="text-right"><span class="countdown" data-startdate="December 11, 2020"></span></td>
+      <th scope="row">Submissions due</th>
+      <td>January 18, 2022</td>
+      <td class="text-right"><span class="countdown" data-startdate="2022-01-18T06:59:00.00"></span></td>
     </tr>
     <tr>
-      <th scope="row">Abstract Submissions due</th>
-      <td>January 10, 2021</td>
-      <td class="text-right"><span class="countdown" data-startdate="January 10, 2021"></span></td>
-    </tr>
-    <tr>
-      <th scope="row">Paper Submissions due</th>
-      <td>January 15, 2021</td>
-      <td class="text-right"><span class="countdown" data-startdate="2021-01-15T06:59:00.00"></span></td>
-    </tr>
-    <tr>
-      <th scope="row">Reviews due</th>
-      <td>February 1, 2021</td>
-      <td class="text-right"><span class="countdown" data-startdate="February 1, 2021"></span></td>
-    </tr>
-    <tr>
-      <th scope="row">Author Response begins</th>
-      <td>February 4, 2021</td>
-      <td class="text-right"><span class="countdown" data-startdate="February 4, 2021"></span></td>
+      <th scope="row">Reviews out / Author response begins</th>
+      <td>February 19, 2022</td>
+      <td class="text-right"><span class="countdown" data-startdate="February 19, 2022"></span></td>
     </tr>
     <tr>
       <th scope="row">Author Response ends</th>
-      <td>February 8, 2021</td>
-      <td class="text-right"><span class="countdown" data-startdate="2021-02-08T11:59:00.00"></span></td>
+      <td>February 22, 2022</td>
+      <td class="text-right"><span class="countdown" data-startdate="February 22, 2022"></span></td>
     </tr>
     <tr>
-      <th scope="row">Registration opens</th>
-      <td>February 15, 2021</td>
-      <td class="text-right"><span class="countdown" data-startdate="2021-02-15T23:59:00.00"></span></td>
-    </tr>
-    <tr>
-      <th scope="row">Notification of Acceptance</th>
-      <td>February 15, 2021</td>
-      <td class="text-right"><span class="countdown" data-startdate="2021-02-15T23:59:00.00"></span></td>
-    </tr>
-    <tr>
-      <th scope="row">Call for volunteers opens</th>
-      <td>March 1, 2021</td>
-      <td class="text-right"><span class="countdown" data-startdate="2021-03-01T23:59:00.00"></span></td>
-    </tr>
-    <tr>
-      <th scope="row">Camera Ready due</th>
-      <td>March 5, 2021</td>
-      <td class="text-right"><span class="countdown" data-startdate="2021-03-05T23:59:00.00"></span></td>
+      <th scope="row">Notifications out</th>
+      <td>February 28, 2022</td>
+      <td class="text-right"><span class="countdown" data-startdate="February 28, 2022"></span></td>
     </tr>
     <tr>
       <th scope="row">Conference dates</th>
-      <td>April 8-9, 2021</td>
-      <td class="text-right"><span class="countdown" data-startdate="2021-04-08T23:59:00.00"></span></td>
+      <td>April 7-8, 2022</td>
+      <td class="text-right"><span class="countdown" data-startdate="April 7, 2022"></span></td>
     </tr>
   </tbody>
 </table>
