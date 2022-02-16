@@ -1,11 +1,12 @@
-The 2022 Conference on Health, Inference, and Learning will be held online. Full registration opens in February 2022.
+The 2022 Conference on Health, Inference, and Learning will be held online. Registration is open from February 15 to April 6, 2022
 
 
-<a href="https://forms.gle/o9UNVW9xSeeYafJu6" class="btn-lg btn-primary" target="_blank" rel="noopener" role="button">Click here to pre-register!</a>
+<a href="https://forms.gle/o9UNVW9xSeeYafJu6" class="btn-lg btn-primary" target="_blank" rel="noopener" role="button">Register now!</a>
 <br /><br/ >
 
 ### Pricing ###
 
+Contributions from this year's sponsors have enabled us to offer registration at reduced rates. Thank you Health[at]Scale and Vector Institute!
 
 <table class="table table-striped table-responsive-lg">
     <tbody>
@@ -15,11 +16,11 @@ The 2022 Conference on Health, Inference, and Learning will be held online. Full
         </tr>
         <tr>
             <td>Student</td>
-            <td>25</td>
+            <td>10</td>
         </tr>
         <tr>
             <td>Non-Student</td>
-            <td>40</td>
+            <td>20</td>
         </tr>
     </tbody>
 </table>
