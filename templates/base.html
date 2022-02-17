@@ -58,9 +58,9 @@
     ('live.html', 'Live'),
     ('papers.html', 'Papers'),
     ('workshops.html', 'Workshops')
-    ('chat.html', 'Chat'),
     ('help.html', 'Help'),
     ('register.html', 'Registration'),
+    ('chat.html', 'Chat')
   #}
 
   {% set organization_dropdown_bar = [
@@ -170,14 +170,13 @@
 
 {% block bottom %}
   <!-- Sponsors -->
-  <!-- TODO: This is being commented out to fix issue with 2021 sponsors on CFP page -->
   {% if sponsors %}
-    <!-- <div class="container">
+    <div class="container">
       <br />
       <h3>{{config.page_title.prefix}} Sponsors</h3>
-      <p>We thank our <a href="/2021/highlights.html">sponsors</a> for making the CHIL 2021 conference a success.</p> -->
-      <!-- {{ components.sponsorgroup(sponsors) }} -->
-    <!-- </div> -->
+      <p>Thank you to our 2022 sponsors, Health[at]Scale and the Vector Institute!</p>
+      {{ components.sponsorgroup(sponsors) }}
+    </div>
   {% endif %}
 {% endblock %}
 
