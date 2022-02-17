@@ -1,7 +1,7 @@
 The 2022 Conference on Health, Inference, and Learning will be held online. Registration is open from February 15 to April 6, 2022
 
 
-<a href="https://forms.gle/o9UNVW9xSeeYafJu6" class="btn-lg btn-primary" target="_blank" rel="noopener" role="button">Register now!</a>
+<a href="https://chil2022.eventbrite.com/" class="btn-lg btn-primary" target="_blank" rel="noopener" role="button">Register now!</a>
 <br /><br/ >
 
 ### Pricing ###
