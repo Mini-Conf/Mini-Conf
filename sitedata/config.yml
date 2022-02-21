@@ -34,9 +34,9 @@ default_poster_pdf: /static/images/GLTR_poster.pdf
 #user: miniconf@miniconf.com
 #pass: mIniconf1_
 
-use_auth0: false
-auth0_client_id : xzIZGAdejTq7QGPYJdZiB9KCooW7aYK9
-auth0_domain : acmchil.us.auth0.com
+use_auth0: true
+auth0_client_id : 5XCCPprOntZj7tNzPelC4ARWQzpeSvC0
+auth0_domain : dev-2yyn93jp.us.auth0.com
 auth0_authorize_endpoint: https://acmchil.us.auth0.com/authorize
 
 calendar:
