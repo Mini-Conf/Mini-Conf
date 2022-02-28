@@ -36,7 +36,7 @@ The conference is designed to spark insight-driven discussions on new and emergi
     <tr>
       <th scope="row">Notifications out</th>
       <td>February 28, 2022</td>
-      <td class="text-right"><span class="countdown" data-startdate="February 28, 2022"></span></td>
+      <td class="text-right"><span class="countdown" data-startdate="February 29, 2022"></span></td>
     </tr>
     <tr>
       <th scope="row">Conference dates</th>
