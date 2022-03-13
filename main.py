@@ -470,6 +470,8 @@ def format_workshop(v):
         formatted_workshop["rocketchat_id"] = v["rocketchat_id"]
     if "doi_link" in v:
         formatted_workshop["doi_link"] = v["doi_link"]
+    if "image" in v:
+        formatted_workshop["image"] = v["image"]
 
     return formatted_workshop
 

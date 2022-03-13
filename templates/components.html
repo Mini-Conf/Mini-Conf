@@ -64,7 +64,6 @@ schedule
           <div class="col-md-10 col-sm-6">
             <div class="m-3 text-muted">
               <h3>
-                <a href="speaker_{{speaker.UID}}.html" class="main-title">
                   {{speaker.title}}
                 </a>
               </h3>
@@ -80,7 +79,12 @@ schedule
               </span>
             </div>
             <div class="m-3">
-              {{speaker.bio|safe}}
+              {% if speaker.abstract %}
+                <p> Abstract: {{speaker.abstract|safe}} </p>
+              {% endif %}
+              {% if speaker.bio %}
+                <p> Bio: {{speaker.bio|safe}} </p>
+            {% endif %}
             </div>
           </div>
         </div>
@@ -222,27 +226,42 @@ schedule
 {%- endmacro %}
 
 {% macro tutorialgroup(tutorials) -%}
-<div class="cards row">
-  {% for tutorial in tutorials or [] %}
-  <div class="col-md-12 col-sm-12 p-3">
+{% for tutorial in tutorials or [] %}
+<div class="row p-4">
+  <div class="col-md-12">
     <div class="card">
-      <div class="card-header text-center">
-        <h3 class="card-title main-title">
-          <a href="tutorial_{{tutorial.id}}.html" class="main-title">
-            {{tutorial.title}}
-          </a>
-        </h3>
-        <div class="card-subtitle text-muted">
-          {{ tutorial.organizers | join(", ") }}
-        </div>
-        <div class="m-3 text-left card-subtitle">
-          <strong>Abstract:</strong> {{tutorial.abstract|safe}}
+      <div class="card-header">
+        <div class="row">
+          <div class="col-md-2 col-sm-5">
+            <img src="/{{tutorial.image}}" width="100%" class="img-thumbnail" alt="{{tutorial.organizers | join(", ")}}" />
+          </div>
+          <div class="col-md-10 col-sm-6">
+            <div class="m-3 text-muted">
+              <h3>
+                  {{tutorial.title}}
+                </a>
+              </h3>
+            </div>
+            <div class="m-3 text-muted">
+              <span class="card-title h3">
+                {{tutorial.organizers | join(", ")}}
+              </span>
+            </div>
+            <div class="m-3">
+              {% if tutorial.abstract %}
+                <p> Abstract: {{tutorial.abstract|safe}} </p>
+              {% endif %}
+              {% if tutorial.abstract %}
+                <p> Bio: {{tutorial.bio|safe}} </p>
+              {% endif %}
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  {% endfor %}
 </div>
+{% endfor %}
 {%- endmacro %}
 
 {% macro proceedingpgroup(proceedings) -%}
