@@ -189,7 +189,7 @@ thursday:
     linktext: Gathertown
     linkactive: false
 
-  - time: "3:30 - 4:25 PM"
+  - time: "3:30 - 4:30 PM"
     type: Breakout
     title: "Responsible AI for health"
     speaker: Leo Celi
@@ -199,7 +199,7 @@ thursday:
     linktext: Gathertown
     linkactive: false
 
-  - time: "4:00 - 4:25 PM"
+  - time: "3:30 - 4:30 PM"
     type: Breakout
     title: "Social and environmental determinants of health"
     speaker: Esra Suel
