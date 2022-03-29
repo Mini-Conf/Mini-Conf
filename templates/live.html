@@ -10,14 +10,21 @@
 
 {% block content %}
   <div class="page-header text-center">
-    <h1>CHIL Conference 2021</h1>
+    <h1>CHIL Conference 2022</h1>
   </div>
   <div id="gated-content" class="page-content live text-center">
     <!-- Slides Live-->
-    {{ components.subsection("Day 1 - April 8th") }}
-    {{ components.slideslive(38954749) }}
-    {{ components.subsection("Day 2 - April 9th") }}
+    {{ components.subsection("Day 1 - April 7th") }}
+    {{ components.slideslive(38979174) }}
+
+    <!--
+    {{ components.subsection("Day 2 - April 8th") }}
+    {{ components.slideslive(38979175) }}
+    -->
+
+    <!--
     {{ components.slideslive(config.default_presentation_id) }}
+    -->
 
     <!-- Rocket.Chat -->
     {{ components.rocketchat(config.default_chat_channel,config.chat_server) }}
