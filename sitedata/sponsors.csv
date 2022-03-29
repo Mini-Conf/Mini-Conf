@@ -1,3 +1,4 @@
-UID,name,image,level
-1,Health@Scale,/static/images/sponsors/health-at-scale.png,silver
-2,Vector Institute,/static/images/sponsors/vector-institute.png,silver
+UID,name,image,level,website
+1,HEALTH[at]SCALE,/static/images/sponsors/health-at-scale.png,silver,https://healthatscale.com/
+2,Vector Institute,/static/images/sponsors/vector-institute.png,silver,https://vectorinstitute.ai/
+3,Microsoft,/static/images/sponsors/microsoft.png,bronze,https://www.microsoft.com/en-us/research/
