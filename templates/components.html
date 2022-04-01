@@ -365,12 +365,15 @@ schedule
 {% macro rocketchat(rocketchat_id,chat_server) -%}
 {% if rocketchat_id %}
 {{ section("Chat") }}
-  <h6 align="left">To sign in to RocketChat, click the <b>Login via Auth0</b> button. You do not need to enter an email
-    and password. You will be asked to choose a chat nickname.</h6>
+  <h6 align="left"><p>To sign in to rocket.chat, click the <b>Login via Auth0</b> button. You do not need to enter an
+    email and password. You will be asked to choose a nickname.</p>
+    <p>Click <a href="https://chat.chilconference.org" target="_blank">here</a> to open rocket.chat in a new browser
+      tab.</p>
+  </h6>
 <div class="col-md-12 col-xs-12 p-2">
   <div id="gitter" class="slp">
     <center>
-      <iframe frameborder="0" src="https://{{chat_server}}/channel/{{rocketchat_id}}" height="450px" width="100%" ></iframe>
+      <iframe frameborder="0" src="https://{{chat_server}}/channel/{{rocketchat_id}}" height="650px" width="100%" ></iframe>
     </center>
   </div>
 </div>
