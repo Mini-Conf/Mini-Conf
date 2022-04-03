@@ -1,4 +1,2 @@
-<div class="gather-town">
-    <img class="gather-town-avatar" src="/static/images/gather-avatar.png" alt="gather town avatar"/>
-    <p class="gather-town-text">Join us on GatherTown for lunch and poster sessions. See <a href="/calendar.html#tab-schedule" rel="noopener">schedule</a> for more details. </p>
-</div>
+<h6 align="left"><p>Tutorials are held in Zoom. Day 1 link <a href="https://us06web.zoom.us/j/81140384540">here</a>. Day 2 link <a href="https://us06web.zoom.us/j/81712359352">here</a>.</p>
+<p>Join us on GatherTown for lunch and poster sessions. See <a href="/calendar.html#tab-schedule" rel="noopener">schedule</a> for more details.</p>
