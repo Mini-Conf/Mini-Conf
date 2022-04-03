@@ -7,6 +7,7 @@ organizergroup
 faqgroup
 highlightgroup
 tutorialgroup
+roundtablegroup
 proceedingpgroup
 symposiumpgroup
 workshopgroup
@@ -264,6 +265,47 @@ schedule
 {% endfor %}
 {%- endmacro %}
 
+{% macro roundtablegroup(roundtables) -%}
+{% for roundtable in roundtables or [] %}
+<div class="row p-4">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-md-2 col-sm-5">
+            {% if roundtable.image %}
+             <img src="/{{roundtable.image}}" width="100%" class="img-thumbnail" alt="{{roundtable.organizers | join(", ")}}" />
+            {% endif %}
+          </div>
+          <div class="col-md-10 col-sm-6">
+            <div class="m-3 text-muted">
+              <h3>
+                  {{roundtable.title}}
+                </a>
+              </h3>
+            </div>
+            <div class="m-3 text-muted">
+              <span class="card-title h3">
+                Discussion leader: {{roundtable.organizers | join(", ")}}
+              </span>
+            </div>
+            <div class="m-3">
+              {% if roundtable.abstract %}
+                <p> {{roundtable.abstract|safe}} </p>
+              {% endif %}
+              {% if roundtable.bio %}
+                <p> Bio: {{roundtable.bio|safe}} </p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{%- endmacro %}
+
 {% macro proceedingpgroup(proceedings) -%}
 <div class="cards row">
   {% for proceeding in proceedings or [] %}
@@ -386,7 +428,7 @@ schedule
   <thead>
     <tr>
       <th scope="col" width=150px>Time (EDT)</th>
-      <th scope="col">Type</th>
+      <th scope="col" width=120px>Type</th>
       <th scope="col">Title</th>
       <th scope="col">Speaker</th>
       <th scope="col">Moderator</th>

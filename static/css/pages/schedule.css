@@ -41,6 +41,10 @@
   background-color: #e1e3b7;
 }
 
+.schedule-table .table-roundtable {
+  background-color: #bfc375;
+}
+
 .schedule-table .table-poster {
   background-color: #f9cb9c;
 }
