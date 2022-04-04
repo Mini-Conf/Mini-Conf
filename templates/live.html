@@ -10,7 +10,7 @@
 
 {% block content %}
   <div class="page-header text-center">
-    <h1>CHIL Conference 2022</h1>
+    <h1>Livestream</h1>
   </div>
   <div id="gated-content" class="page-content live">
     <!-- Slides Live-->
@@ -29,6 +29,7 @@
     <!-- Rocket.Chat -->
     {{ components.rocketchat(config.default_chat_channel,config.chat_server) }}
 
+    {{ components.section("Useful links") }}
     {{ live | markdown }}
   </div>
 {% endblock %}
