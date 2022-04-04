@@ -290,6 +290,26 @@
       $('.dropdown-menu a.dropdown-toggle').click(ddHoverOrClick).hover(ddHoverOrClick).on('touchstart', ddHoverOrClick);
     });
   </script>
+
+  <!-- Prevent focus from jumping to embedded rocket.chat with an iframe id="chatFrame" -->
+  if ($("#chatFrame").val() != "") {
+    <script type="text/javascript">
+        $("#chatFrame").hide();
+        $("#chatFrame").on(
+          "load",
+          function() {
+            setTimeout(
+              function(){
+                $('#chatFrame').show();
+                $('#chatFrame').removeAttr('style');
+              },
+              3000
+            );
+          }
+        )
+    </script>
+  }
+
   <!-- <script src="/static/js/modules/lazyLoad.js"></script> -->
 {% endblock %}
 </body>
