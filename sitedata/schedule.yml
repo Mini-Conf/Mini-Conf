@@ -7,7 +7,7 @@ thursday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "12:10 - 1:10 PM"
@@ -47,7 +47,7 @@ thursday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "1:30 - 1:50 PM"
@@ -57,7 +57,7 @@ thursday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "1:50 - 2:10 PM"
@@ -67,7 +67,7 @@ thursday:
     moderator: Matthew McDermott
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "2:10 PM"
@@ -77,7 +77,7 @@ thursday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "2:17 PM"
@@ -87,7 +87,7 @@ thursday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "2:24 PM"
@@ -97,7 +97,7 @@ thursday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "2:31 PM"
@@ -107,7 +107,7 @@ thursday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "2:38 PM"
@@ -117,7 +117,7 @@ thursday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "2:45 PM"
@@ -127,7 +127,7 @@ thursday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "2:52 PM"
@@ -137,7 +137,7 @@ thursday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "2:59 PM"
@@ -147,7 +147,7 @@ thursday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "3:05 PM"
@@ -157,7 +157,7 @@ thursday:
     moderator: --
     doclink:
     link:
-    linktext: Gathertown
+    linktext: Gather
     linkactive: false
 -
     time: "3:30 - 4:30 PM"
@@ -167,7 +167,7 @@ thursday:
     moderator: Bobak Mortazavi
     doclink:
     link:
-    linktext: Gathertown
+    linktext: Gather
     linkactive: false
 -
     time: "3:30 - 4:30 PM"
@@ -177,7 +177,7 @@ thursday:
     moderator: Stephen Pfohl
     doclink:
     link:
-    linktext: Gathertown
+    linktext: Gather
     linkactive: false
 -
     time: "3:30 - 4:30 PM"
@@ -187,7 +187,7 @@ thursday:
     moderator: Šćepanović
     doclink:
     link:
-    linktext: Gathertown
+    linktext: Gather
     linkactive: false
 -
     time: "4:30 - 4:50 PM"
@@ -197,7 +197,7 @@ thursday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "4:50 - 5:10 PM"
@@ -207,7 +207,7 @@ thursday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "5:10 - 5:30 PM"
@@ -217,7 +217,7 @@ thursday:
     moderator: Rahul Krishnan
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 
 friday:
@@ -229,7 +229,7 @@ friday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "12:10 - 1:10 PM"
@@ -259,7 +259,7 @@ friday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "1:17 PM"
@@ -269,7 +269,7 @@ friday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "1:24 PM"
@@ -279,7 +279,7 @@ friday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "1:31 PM"
@@ -289,7 +289,7 @@ friday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "1:38 PM"
@@ -299,7 +299,7 @@ friday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "1:45 PM"
@@ -309,7 +309,7 @@ friday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "1:52 PM"
@@ -319,7 +319,7 @@ friday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "1:59 PM"
@@ -329,7 +329,7 @@ friday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "2:10 - 2:30 PM"
@@ -339,7 +339,7 @@ friday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "2:30 - 2:50 PM"
@@ -349,7 +349,7 @@ friday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "2:50 - 3:10 PM"
@@ -359,7 +359,7 @@ friday:
     moderator: Sherri Rose
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "3:10 PM"
@@ -379,7 +379,7 @@ friday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "3:27 PM"
@@ -389,7 +389,7 @@ friday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "3:34 PM"
@@ -399,7 +399,7 @@ friday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "3:41 PM"
@@ -409,7 +409,7 @@ friday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "3:48 PM"
@@ -419,7 +419,7 @@ friday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "3:55 PM"
@@ -429,7 +429,7 @@ friday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "4:02 PM"
@@ -439,7 +439,7 @@ friday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 -
     time: "4:10 PM"
@@ -449,7 +449,7 @@ friday:
     moderator: --
     doclink:
     link:
-    linktext: Gathertown
+    linktext: Gather
     linkactive: false
 -
     time: "4:20 - 5:20 PM"
@@ -459,7 +459,7 @@ friday:
     moderator: Stephanie Hyland
     doclink:
     link:
-    linktext: Gathertown
+    linktext: Gather
     linkactive: false
 -
     time: "5:20 - 5:30 PM"
@@ -469,7 +469,7 @@ friday:
     moderator: --
     doclink:
     link: "/live.html"
-    linktext: Watch Live
+    linktext: Livestream
     linkactive: false
 
 
