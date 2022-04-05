@@ -1,5 +1,8 @@
-<div class="gather-town">
-    <img class="gather-town-avatar" src="/static/images/gather-avatar.png" alt="gather town avatar"/>
-    <p class="gather-town-text">Join us in <a href="https://app.gather.town/app/j4TbOZN9zwDb9xsP/CHIL">GatherTown</a> for breakouts, sponsors, posters, and socialising.</p>
-    <!-- See <a href="/calendar.html#tab-schedule" rel="noopener">schedule</a> for more details. -->
-</div>
+<h6 align="left"><p>Tutorials are hosted in Zoom. For Day 1, the link can be found <a href="https://us06web.zoom.us/j/81140384540">here</a>. For Day 2, the link can be found <a href="https://us06web.zoom.us/j/81712359352">here</a>.</p>
+<p>Gather (<a href="https://app.gather.town/app/j4TbOZN9zwDb9xsP/CHIL">link</a>) is used for:
+<ul>
+<li>Poster session</li>
+<li>Research roundtables</li>
+<li>Sponsor booths</li>
+<li>General socialising</lu>
+</ul>

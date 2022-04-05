@@ -4,27 +4,6 @@
   border: none;
 }
 
-.live .gather-town {
-  display: flex;
-  margin: 60px auto;
-  align-items: center;
-  justify-content: center;
-}
-
-.live .gather-town-avatar {
-  width: 144px;
-  height: 144px;
-  object-fit: cover;
-  object-position: 0px 0px;
-  image-rendering: pixelated;
-  margin-right: 10px;
-}
-
-.live .gather-town-text {
-  width: 283px;
-  font-size: 18px;
-}
-
 .live .table-tutorials {
   margin-bottom: 60px;
 }
