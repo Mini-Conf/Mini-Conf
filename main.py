@@ -32,7 +32,7 @@ def main(site_data_path):
         elif typ == "yml":
             site_data[name] = yaml.load(open(f).read(), Loader=yaml.SafeLoader)
 
-    for typ in ["papers", "speakers", "tutorials", "proceedings", "workshops", "sponsors", "symposiums"]:
+    for typ in ["papers", "speakers", "tutorials", "proceedings", "roundtables", "workshops", "sponsors", "symposiums"]:
         by_uid[typ] = {}
         for p in site_data[typ]:
             by_uid[typ][p["UID"]] = p
@@ -263,6 +263,9 @@ def schedule():
     data["tutorials"] = [
         format_workshop(tutorial) for tutorial in site_data["tutorials"]
     ]
+    data["roundtables"] = [
+        format_workshop(roundtable) for roundtable in site_data["roundtables"]
+    ]
     data["proceedings"] = [
         format_workshop(proceeding) for proceeding in site_data["proceedings"]
     ]
@@ -284,6 +287,9 @@ def program():
     data["speakers"] = site_data["speakers"]
     data["tutorials"] = [
         format_workshop(tutorial) for tutorial in site_data["tutorials"]
+    ]
+    data["roundtables"] = [
+        format_workshop(roundtable) for roundtable in site_data["roundtables"]
     ]
     data["proceedings"] = [
         format_workshop(proceeding) for proceeding in site_data["proceedings"]
@@ -543,6 +549,24 @@ def past_tutorial(year,tutorial):
     data["isArchive"] = True
     data["tutorial"] = format_workshop(v)
     return render_template("tutorial.html", **data)
+
+@app.route("/roundtable_<roundtable>.html")
+def roundtable(roundtable):
+    uid = roundtable
+    v = by_uid["roundtables"][uid]
+    data = _data()
+    data["roundtable"] = format_workshop(v)
+    return render_template("roundtable.html", **data)
+
+@app.route("/<year>/roundtable_<roundtable>.html")
+def past_roundtable(year,roundtable):
+    uid = roundtable
+    v = by_uid["archive"][year]["roundtables"][uid]
+    data = _data()
+    data["year"] = year
+    data["isArchive"] = True
+    data["roundtable"] = format_workshop(v)
+    return render_template("roundtable.html", **data)
 
 @app.route("/proceeding_<proceeding>.html")
 def proceeding(proceeding):

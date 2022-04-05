@@ -9,6 +9,7 @@
   {{ components.tabs([
         ("speakers", "Keynotes", "active"),
         ("tutorials", "Tutorials"),
+        ("roundtables", "Research Roundtables")
     ])}}
 {% endblock %}
 <!-- TODO: add to components.tabs when corresponding conf sections are finalized
@@ -42,6 +43,18 @@
           {{ components.tutorialgroup(tutorials) }}
         {% endif %}
       </div>
+      <!-- Research Roundtables tab -->
+      <div
+        class="tab-pane fade"
+        id="tab-roundtables"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+        {% if roundtables %}
+          {{ components.roundtablegroup(roundtables) }}
+        {% endif %}
+      </div>
+
       <!-- Workshop Posters tab -->
         <div
         class="tab-pane fade"

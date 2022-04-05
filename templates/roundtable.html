@@ -1,0 +1,63 @@
+{% set active_page = "Past Events" if isArchive else "Papers" %}
+{% set page_title = roundtable.title %}
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-content roundtable">
+  <!-- Title -->
+  <div class="pp-card m-3">
+    <div class="card-header">
+      <h2 class="card-title main-title text-center">
+        {{roundtable.title}}
+      </h2>
+      <h3 class="card-subtitle mb-2 text-muted text-center">
+        {{ roundtable.organizers | join(", ") }}
+      </h3>
+      <div class="text-center p-3">
+        <a class="card-link" data-toggle="collapse" role="button" href="#details">
+          Abstract & Bio
+        </a>
+      </div>
+    </div>
+  </div>
+  <div id="details" class="pp-card m-3 collapse">
+    <div class="card-body">
+      <div class="card-text">
+        <div id="abstractExample">
+          <span class="font-weight-bold">Abstract:</span>
+          {{roundtable.abstract|safe}}
+          <br /><br />
+          <span class="font-weight-bold">Bio:</span>
+          {{roundtable.bio|safe}}
+        </div>
+      </div>
+      <p></p>
+    </div>
+  </div>
+
+  <!-- Slides Live Presentation Embed -->
+  {{ components.slideslive(roundtable.slideslive_id, roundtable.slideslive_active_date) }}
+</div>
+{% endblock %}
+
+{% if isArchive %}
+  {% block bottom %}
+  {% endblock %}
+{% endif %}
+
+{% block scripts %}
+  {{ super() }}
+  <script type="text/javascript">
+    $(document).ready(function () {
+          var slidesliveEmbed = $('#slideslive-embed');
+          var details = $('.card-link');
+          var countDownDate = new Date(slidesliveEmbed.data('activedate')).getTime();
+          var currentDate = new Date().getTime();
+
+          if (countDownDate > currentDate) {
+            slidesliveEmbed.hide();
+            details.click();
+          }
+    });
+  </script>
+{% endblock %}

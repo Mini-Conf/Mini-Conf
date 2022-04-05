@@ -32,7 +32,7 @@ thursday:
 -
     time: "12:10 - 1:10 PM"
     type: Tutorial
-    title: '" ''Are log scales endemic yet?'' Strategies for visualizing biomedical and public health data"'
+    title: "'Are log scales endemic yet?' Strategies for visualizing biomedical and public health data"
     speaker: Anamaria Crisan
     moderator: Jesse Gronsbell
     doclink:
@@ -132,7 +132,7 @@ thursday:
 -
     time: "2:52 PM"
     type: Spotlight 30
-    title: '"ADCB: An Alzheimer''s disease simulator for benchmarking observational estimators of causal effects"'
+    title: "ADCB: An Alzheimer's disease simulator for benchmarking observational estimators of causal effects"
     speaker: Newton Mwai Kinyanjui
     moderator: --
     doclink:
@@ -161,7 +161,7 @@ thursday:
     linkactive: false
 -
     time: "3:30 - 4:30 PM"
-    type: Breakout
+    type: Research Roundtable
     title: "Human centered AI for health and wellness"
     speaker: Rosa Arriaga
     moderator: Bobak Mortazavi
@@ -171,7 +171,7 @@ thursday:
     linkactive: false
 -
     time: "3:30 - 4:30 PM"
-    type: Breakout
+    type: Research Roundtable
     title: "Responsible AI for health"
     speaker: Leo Celi
     moderator: Stephen Pfohl
@@ -181,10 +181,10 @@ thursday:
     linkactive: false
 -
     time: "3:30 - 4:30 PM"
-    type: Breakout
+    type: Research Roundtable
     title: "Social and environmental determinants of health"
     speaker: Esra Suel
-    moderator: Šćepanović
+    moderator: Sanja Šćepanović
     doclink:
     link:
     linktext: Gathertown
