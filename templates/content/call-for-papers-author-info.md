@@ -4,8 +4,6 @@ To ensure that all submissions to CHIL are reviewed by a knowledgeable and appro
 
 Track Chairs will oversee the reviewing process. In case you are not sure which track your submission fits under, feel free to contact [info@chilconference.org](mailto:info@chilconference.org) for clarification. The Proceedings Chairs reserve the right to move submissions between tracks and/or topic areas if they believe that a submission has been misclassified.
 
-<center><a class="btn-primary btn-lg" role="button" aria-pressed="true" href="https://openreview.net/group?id=chilconference.org/CHIL/2022/Conference" target="_blank" rel="noopener">Submit your paper</a></center>
-
 ## Important Dates
 - Submissions Due – January 14, 2022 (11:59 pm AoE)
 - Author Notification - February 25, 2022
