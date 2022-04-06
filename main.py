@@ -372,6 +372,7 @@ def committee():
 def live():
     data = _data()
     data["live"] = open("./templates/content/live.md").read()
+    data["media"] = open("./templates/content/media-release.md").read()
     return render_template("live.html", **data)
 
 

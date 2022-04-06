@@ -1,0 +1,1 @@
+<p>By joining this conference, you are granting the CHIL organizing committee permission to use your image (screenshots and/or video recording) for use in media publications including videos, email blasts, social media, brochures, newsletters, websites, and general publications.</p>

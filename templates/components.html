@@ -1,7 +1,7 @@
 {#
 Components:
 tabs -- Navigation tabs
-section, subsection -- bootstrap sections
+section, subsection, sm_section -- bootstrap sections
 speakergroup
 organizergroup
 faqgroup
@@ -48,6 +48,15 @@ schedule
 <div class="row p-3">
   <div class="col-12 bd-content">
     <h3>{{name}}</h3>
+  </div>
+</div>
+{%- endmacro %}
+
+{% macro sm_section(name) -%}
+<div class="border-top my-3"></div>
+<div class="row p-4" id="faq">
+  <div class="col-12 bd-content">
+    <h4 class="text-center">{{name}}</h4>
   </div>
 </div>
 {%- endmacro %}
