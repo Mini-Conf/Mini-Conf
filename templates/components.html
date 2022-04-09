@@ -1,7 +1,7 @@
 {#
 Components:
 tabs -- Navigation tabs
-section, subsection, sm_section -- bootstrap sections
+section, subsection, livestream_subsection, sm_section -- bootstrap sections
 speakergroup
 organizergroup
 faqgroup
@@ -48,6 +48,14 @@ schedule
 <div class="row p-3">
   <div class="col-12 bd-content">
     <h3>{{name}}</h3>
+  </div>
+</div>
+{%- endmacro %}
+
+{% macro livestream_subsection(name) -%}
+<div class="row p-3">
+  <div class="col-12 bd-content">
+    <h3 class="text-center">{{name}}</h3>
   </div>
 </div>
 {%- endmacro %}

@@ -12,8 +12,8 @@
     <h1>Schedule</h1>
   </div>
   {{ components.tabs([
-        ("thursday", "Thursday, April 7"),
-        ("friday", "Friday, April 8", "active"),
+        ("thursday", "Thursday, April 7", "active"),
+        ("friday", "Friday, April 8"),
     ])}}
 {% endblock %}
 
@@ -25,7 +25,7 @@
 
       <!-- Thursday tab -->
       <div
-        class="tab-pane"
+        class="tab-pane active"
         id="tab-thursday"
         role="tabpanel"
         aria-labelledby="nav-profile-tab"
@@ -34,7 +34,7 @@
       </div>
       <!-- Friday tab -->
       <div
-        class="tab-pane active"
+        class="tab-pane"
         id="tab-friday"
         role="tabpanel"
         aria-labelledby="nav-profile-tab"
