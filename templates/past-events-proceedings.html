@@ -1,6 +1,7 @@
 {% set active_page = "Past Events" %}
 {% set page_title = "Past Events - Proceedings" %}
 {% set doi_link_id = "3450439" if (archive_year | int) == 2021 else "3368555" %}
+{% set pmlr_link_id = "174" if (archive_year | int) == 2022 else "" %}
 {% extends "base.html" %}
 
 {% block content %}
@@ -8,6 +9,8 @@
     <h1>Proceedings from {% if (archive_year | int) < 2022 %}ACM{% endif %} CHIL {{archive_year}}</h1>
     {% if (archive_year | int) < 2022 %}
       <p>Proceedings from the {{archive_year}} ACM CHIL Conference are available at the ACM Digital Library: <a href="https://dl.acm.org/doi/proceedings/10.1145/{{doi_link_id}}" target="_blank" rel="noopener">https://dl.acm.org/doi/proceedings/10.1145/{{doi_link_id}}</a></p>
+    {% else %}
+      <p>Proceedings from the {{archive_year}} CHIL Conference are available at PMLR: <a href="https://proceedings.mlr.press/v{{pmlr_link_id}}/" target="_blank" rel="noopener">https://proceedings.mlr.press/v{{pmlr_link_id}}/</a></p>
     {% endif %}
   </div>
   <div class="page-content">

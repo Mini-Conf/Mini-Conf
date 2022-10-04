@@ -46,14 +46,14 @@
 <!-- NAV -->
 {% block header %}
   {% set navigation_bar = [
-    ('index.html', 'Home'),
-    ('live.html', 'Livestream'),
-    ('program.html', 'Program'),
-    ('calendar.html', 'Schedule'),
-    ('call-for-papers.html', 'Call for Papers')
+    ('index.html', 'Home')
   ] -%}
 
   {# Removed navigation_bar ENTRIES
+    ('live.html', 'Livestream'),
+    ('program.html', 'Program'),
+    ('calendar.html', 'Schedule'),
+    ('call-for-papers.html', 'Call for Papers'),
 
     ('proceedings.html', 'Papers'),
     ('papers.html', 'Papers'),
@@ -65,12 +65,11 @@
   #}
 
   {% set organization_dropdown_bar = [
-    ('sponsor.html', 'Sponsorship'),
-    ('committee.html', 'Committee'),
+    ('committee.html', 'Committee')
   ] -%}
 
   {# Removed organization_dropdown_bar ENTRIES
-    
+    ('sponsor.html', 'Sponsorship')
   #}
 
   <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light mr-auto btco-hover-menu" id="main-nav">
@@ -186,7 +185,7 @@
   <footer class="footer bg-light p-4">
     <div class="container">
         <p class="float-right"><a href="#">Back to Top</a></p>
-        <p class="text-left">© 2022 {{config.organization}}</p>
+        <p class="text-left">© 2023 {{config.organization}}</p>
     </div>
   </footer>
 {% endblock %}

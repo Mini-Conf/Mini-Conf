@@ -1,4 +1,4 @@
-## CHIL 2022
+## CHIL 2023
 
 The Conference on Health, Inference, and Learning (CHIL), targets a cross-disciplinary representation of clinicians and researchers (from industry and academia) in machine learning, health policy, causality, fairness, and other related areas.
 
@@ -8,7 +8,7 @@ The conference is designed to spark insight-driven discussions on new and emergi
 
 
 
-#### Important dates
+<!-- #### Important dates
 <div>
 
 <table class="timeline-table table table-striped table-sm">
@@ -48,7 +48,7 @@ The conference is designed to spark insight-driven discussions on new and emergi
 <div class="text-right">*All times shown above are in AoE</div>
 <br />
 </div>
-
+-->
 ### Contact Information
 
 - For questions/comments, email us at [info@chilconference.org](mailto:info@chilconference.org)

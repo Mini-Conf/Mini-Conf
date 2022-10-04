@@ -1,43 +1,44 @@
-##### **General Chair**
-- Dr. Tristan Naumann of Microsoft Research
-- Dr. Joyce Ho of Emory University
+##### **General Chairs**
+- Joyce Ho of Emory University
+- Andrew Beam of Harvard University
 ##### **Program Chairs**
-- Dr. Sherri Rose of Stanford University
-- Matthew McDermott of MIT
-##### **Proceedings Chairs**
-- Dr. George Chen of Carnegie Mellon University
-- Dr. Tom Pollard of MIT
-- Gerardo Flores of Google
+- Matthew McDermott of Harvard University
+- Emily Alsentzer of Harvard University & Brigham and Women's Hospital
 ##### **Track Chairs**
-- ##### **Models and Methods**
-    * Dr. Rahul Krishnan of University of Toronto and Vector Institute
-    * Dr. Shalmali Joshi of Harvard University
-    * Dr. Michael Hughes of Tufts University
-    * Dr. Yuyin Zhou of Stanford
-    * Dr. Uri Shalit of Technion
-- ##### **Applications and Practice**
-    * Dr. Alistair Johnson of The Hospital for Sick Children
-    * Dr. Judy Gichoya of Emory University
-    * Emma Rocheteau of University of Cambridge
-    * Dr. Lifang He of Lehigh University
-- ##### **Impact and Society**
-    * Dr. Bobak Mortazavi of Texas A&M University 
-    * Dr. Stephen Pfohl of Stanford University
-    * Dr. Farzan Sasangohar of Texas A&M University
-##### **Communications Chairs**
-- Dr. Sanja Šćepanović of Bell Labs Cambridge
-- Emily Alsentzer of Harvard University and MIT
-- Dr. Ayah Zirikly of Johns Hopkins University
-##### **Finance Chairs**
-- Dr. Brett Beaulieu-Jones of Harvard Medical School
-- Dr. Ahmed Alaa of Harvard University and MIT
-- Tasmie Sarker of Association for Health Learning and Inference
-##### **Tutorial Chairs**
-- Dr. Jessica Gronsbell of University of Toronto
-- Harvineet Singh of New York University
-##### **Virtual Chairs**
-- Dr. Stephanie Hyland of Microsoft Research Cambridge
-- Dr. Ioakeim Perros of HEALTH[at]SCALE
+- ##### **Track 1**
+    * Mike Hughes of Tufts University (Track Lead)
+    * Yuyin Zhou of University of California, Santa Cruz
+    * Rahul Krishnan of University of Toronto & Vector Institute
+    * Jean Feng of University of California, San Francisco 
+    * Samantha Kleinberg of Stevens Institute of Technology
+- ##### **Tracks 1 & 2**
+    * Elena Sizikova of Food and Drug Administration
+- ##### **Track 2**
+    * Lifang He of Lehigh University (Track Lead)
+    * Tom Pollard of MIT
+    * Carl Yang of Emory University
+    * Yu Zhang of Lehigh University
+- ##### **Track 3**
+    * Sanja Šćepanović of Nokia Bell Labs (Track Lead)
+    * Stephen Pfohl of Google
+    * Dimitris Spathis of Nokia Bell Labs & University of Cambridge
+##### **Proceedings Chair**
+- Bobak Mortazavi of Texas A&M University
+##### **Technology Chairs**
+- Huan He of Harvard University
+- Jiayu Yao of Harvard University & Gladstone Institutes
+##### **Virtual Chair**
 - Brian Gow of MIT
-##### **Logistics Chair**
+##### **Communications Chairs**
+- Ioakeim Perros of HEALTH[at]SCALE
+- Anil Palepu of Harvard University & MIT
+##### **Logistics Chairs**
+- Monica Munnangi of Northeastern University
 - Tasmie Sarker of Association for Health Learning and Inference
+##### **Uncoference Chair**
+- Jessica Gronsbell of University of Toronto
+##### **Finance Chairs**
+- Edward Choi of KAIST
+- Harvineet Singh of New York University
+##### **Doctoral Symposium Chair**
+- Tom Hartvigsen of MIT

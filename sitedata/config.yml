@@ -1,9 +1,9 @@
-name: CHIL 2022
+name: CHIL 2023
 tagline: Conference on <br> Health, Inference, and Learning
-date: April 7-8, 2022
-countdown_date: April 7, 2022
-citation_date: July 2020
-proceedings_title: Proceedings of CHIL 2021
+date: June 22-24, 2023
+countdown_date: June 22, 2023
+citation_date: June 2023
+proceedings_title: Proceedings of CHIL 2023
 analytics: UA-
 logo:
   image:
@@ -11,7 +11,7 @@ logo:
   height: 50px
   alt_text: 'CHIL logo'
 # uncomment the following line to show the site title next to the logo image
-site_title: CHIL 2022
+site_title: CHIL 2023
 page_title:
   prefix: 'CHIL'
   separator: ': '
@@ -19,7 +19,7 @@ background_image: /static/images/main.jpg
 organization: CHIL Organization Committee
 registration:
   url: 'register.html'
-  link_text: Registration opens February 2021
+  link_text: Registration opens February 2023
 
 # Remove or change to your chat server.
 chat_server: chat.chilconference.org
