@@ -9,37 +9,46 @@ Financial support ensures that CHIL remains accessible to a broad set of partici
 
 <br />
 
-### 2022 Sponsorship Levels
+### 2023 Sponsorship Levels
 
 Sponsorship of the annual AHLI Conference on Health, Inference and Learning (CHIL) contributes to furthering research and interdisciplinary dialogue around machine learning and health. We deeply appreciate any amount of support your company or foundation can provide.
 <br />
 
-#### Gold ($10,000 USD)
-<!-- - Recognition as a Presenting Sponsor on the website -->
+#### Platinum ($20,000 USD)
 - Prominent display of company logo on our website
 - Verbal acknowledgment of contribution in the opening and closing remarks of the conference
-<!-- - Written acknowledgement on proceedings cover -->
+- Access to CHIL 2022 attendees’ contact and CV who opt-in for career opportunities
+- Dedicated time at the reception or a keynote session
+- Participate in the Research Roundtables
+- Present demo during the poster session
 - Free registration for up to ten (10) representatives from your organization
-- Dedicated time during the lunch social and breakout sessions with attendees
+- Free company booth at the venue
+
+#### Gold ($10,000 USD)
+- Prominent display of company logo on our website
+- Verbal acknowledgment of contribution in the opening and closing remarks of the conference
+- Participate in the Research Roundtables
+- Present demo during the poster session
+- Free registration for up to five (5) representatives from your organization
+- Free company booth at the venue
+
 
 #### Silver ($5,000 USD)
 - Prominent display of company logo on our website
 - Verbal acknowledgment of contribution in the opening and closing remarks of the conference
-<!-- - Written acknowledgement on proceedings cover -->
-- Free registration for up to five (5) representatives from your organization
-- Dedicated time during the lunch social and breakout sessions with attendees
-
-#### Bronze ($2,500 USD)
-- Prominent display of company logo on our website
-<!-- - Written acknowledgement on proceedings cover -->
 - Free registration for up to two (2) representatives from your organization
+
+
+#### Academy/Start-up ($2,000 USD)
+- Prominent display of company logo on our website
+- Free registration for one (1) representative from your organization
+
 
 <br />
 
 ### Finance Chairs
-- Dr. Brett Beaulieu-Jones
-- Dr. Ahmed Alaa
-- Tasmie Sarker
+- Edward Choi
+- Harvineet Singh
 
 <br />
 
