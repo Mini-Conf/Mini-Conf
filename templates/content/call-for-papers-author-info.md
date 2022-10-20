@@ -12,7 +12,7 @@ Track Chairs will oversee the reviewing process. In case you are not sure which 
 - Author/Reviewer Discussion period: March 10th - March 24th
 - Meta-review period: March 25th - March 31st
 - Author notification: April 3rd
-- CHIL conference: either June 8-10 or 22-24 
+- CHIL conference: June 22-24 
 
 <!-- **NOTE**: The submission portal will remain open until **January 18, 2022 (11:59 pm AoE)** for those who would like to make revisions to their submitted work. -->
 
