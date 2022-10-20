@@ -37,6 +37,7 @@
 - Tasmie Sarker of Association for Health Learning and Inference
 ##### **Uncoference Chair**
 - Jessica Gronsbell of University of Toronto
+- Rui Duan of Harvard University
 ##### **Finance Chairs**
 - Edward Choi of KAIST
 - Harvineet Singh of New York University

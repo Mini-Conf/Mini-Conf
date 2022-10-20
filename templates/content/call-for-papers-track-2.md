@@ -1,68 +1,46 @@
+## <center> Applications and Practice:<br /> Investigation, Evaluation, Interpretation, and Deployment </center>
+
 ### Track Chairs
-- Dr. Alistair Johnson
-- Dr. Judy Gichoya
-- Emma Rocheteau
-- Dr. Lifang He
+- Dr. Lifang He 
+- Dr. Tom Pollard
+- Dr. Carl Yang
+- Dr. Yu Zhang
+
 
 ### Description
-The goal of this track is to highlight works applying robust methods, models, or practices to identify, characterize, audit, evaluate, or benchmark systems. Additionally, unique deployments and datasets used to empirically evaluate these systems are necessary and important to advancing practice, Whereas the goal of Track 1 is to select papers that show significant technical novelty, submit your work here if the contribution is either more focused on solving a carefully motivated problem grounded in applications or on deployments or datasets that enable exploration and evaluation of applications. Introducing a new method is not prohibited by any means for this track, but the focus should be on methods which are designed to work particularly robustly, scale particularly well either in terms of computational runtime or data required, work across real-world data modalities and systems, etc. Contributions will be evaluated for technical rigor, robustness, and comprehensivity. We encourage applications and practice in both traditional and emerging clinical areas (e.g., models in electronic health records as well as applications in emerging fields such as remote and telehealth, integration of omics, etc.)
+The goal of this track is to highlight works applying robust methods, models, or practices to identify, characterize, audit, evaluate, or benchmark systems. Additionally, unique deployments and datasets used to empirically evaluate these systems are necessary and important to advancing practice. Whereas the goal of Track 1 is to select papers that show significant technical novelty, submit your work here if the contribution is either more focused on solving a carefully motivated problem grounded in applications or on deployments or datasets that enable exploration and evaluation of applications. Introducing a new method is not prohibited by any means for this track, but the focus should be on methods which are designed to work particularly robustly (e.g., fail gracefully in practice), scale particularly well either in terms of computational runtime or data required, work across real-world data modalities and systems, etc. Contributions will be evaluated for technical rigor, robustness, and comprehensivity. We encourage applications and practice in both traditional and emerging clinical areas (e.g., models in electronic health records as well as applications in emerging fields such as remote and telehealth, integration of omics, etc.)
 
-Computer software submissions should describe the intended use for the software, justify the need for the software, and provide executable examples for other researchers. Software submissions should directly support a healthcare application. Examples include code for summarizing the demographics of a study cohort [1], deriving meaningful clinical concepts from electronic health records [2], and natural language processing tools specifically designed for clinical text [3, 4]. All computer software submissions must be open source and released under a suitable open source license. Computer software should adhere to best practices in software development where possible, including the use of unit tests, continuous integration, and diligent documentation of component design and purpose [5].
+Computer software submissions should describe the intended use for the software, justify the need for the software, and provide executable examples for other researchers. Software submissions should directly support a healthcare application. Examples include code for summarizing the demographics of a study cohort, deriving meaningful clinical concepts from electronic health records, and natural language processing tools specifically designed for clinical text. All computer software submissions must be open source and released under a suitable open source license. Computer software should adhere to best practices in software development where possible, including the use of unit tests, continuous integration, and diligent documentation of component design and purpose.
 
-[1] Pollard TJ, Johnson AE, Raffa JD, Mark RG. tableone: An open source Python package for producing summary statistics for research papers. JAMIA Open. 2018 May 23;1(1):26-31. <br />
-[2] Johnson AE, Stone DJ, Celi LA, Pollard TJ. The MIMIC Code Repository: enabling reproducibility in critical care research. Journal of the American Medical Informatics Association. 2017 Sep 27;25(1):32-9. <br />
-[3] Peng Y, Wang X, Lu L, Bagheri M, Summers R, Lu Z. NegBio: a high-performance tool for negation and uncertainty detection in radiology reports. AMIA Summits on Translational Science Proceedings. 2018;2018:188. <br />
-[4] Irvin J, Rajpurkar P, Ko M, Yu Y, Ciurea-Ilcus S, Chute C, Marklund H, Haghgoo B, Ball R, Shpanskaya K, Seekins J. Chexpert: A large chest radiograph dataset with uncertainty labels and expert comparison. arXiv preprint arXiv:1901.07031. 2019 Jan 21. <br />
-[5] Wilson G, Aruliah DA, Brown CT, Hong NP, Davis M, Guy RT, Haddock SH, Huff KD, Mitchell IM, Plumbley MD, Waugh B. Best practices for scientific computing. PLoS biology. 2014 Jan 7;12(1):e1001745. <br />
+We welcome submissions from a wide variety of perspectives, including but not limited to: examination of robustness of ML systems to real-world dataset shift or adversarial shift, scalable and safe machine learning/inference in clinical environments, new ML tools or comprehensive benchmarks for healthcare, development of scalable systems for processing data in practice, bridging the deployment gap, remote, wearable, and telehealth, data or software packages.
 
-
-<!-- ### Areas of Interest
-All areas of machine learning and all types of data within healthcare are relevant to this track. An example set of topics of interest and exemplar papers are shown below. These examples are by no means exhaustive and are meant as illustration and motivation. Submit your work here if the contribution is one of the following:
-
-1. Focused on solving a carefully motivated problem grounded in an application,
-2. Focused on a deployment of a system.
-3. Describes data or software packages.
-
-Introducing a new method is not prohibited by any means for this track, but the focus should be on methods which are designed to work in a robust manner in real-world applications (e.g., fail gracefully in practice), work that highlights approaches that scale particularly well either in terms of computational efficiency or data required, and work that succeeds across real-world data modalities and systems. In other words, we want compelling demonstrations of systems that address real world problems in healthcare.These include careful examinations of ML systems on real-world data, comparison of performance in cohort analysis, challenges in application development, tools for dataset shift, adversarial shift, personalization, and models on remote and wearable health.
-
-This track also welcomes submissions of significant computer software which support healthcare research and applications. Submissions should describe the intended use for the software, justify the need for the software, provide executable examples for other researchers, and adhere to best practices in software development where possible, including the use of unit tests, continuous integration, and diligent documentation of component design and purpose. Software submissions should directly support a healthcare application. All computer software submissions must be open source and released under a suitable open source license. -->
+Upon submission, authors will select one or more relevant sub-discipline(s). Peer reviewers for a paper will be experts in the sub-discipline(s) selected upon its submission.
 
 **Examples**
-All areas of machine learning and all kinds of data within healthcare are amenable to this track. An example set of topics of interest and exemplar papers are shown below. These examples are by no means exhaustive and are meant as illustration and motivation.
 
+Pollard TJ, Johnson AE, Raffa JD, Mark RG. "tableone: An open source Python package for producing summary statistics for research papers." JAMIA Open. 2018 May 23;1(1):26-31.
 
-Careful examinations of the robustness of ML systems to real-world dataset shift, adversarial shift, or on minority subpopulations.
+Johnson AE, Stone DJ, Celi LA, Pollard TJ. "The MIMIC Code Repository: enabling reproducibility in critical care research." Journal of the American Medical Informatics Association. 2017 Sep 27;25(1):32-9.
 
-* Nestor, Bret, et al. “Feature Robustness in Non-Stationary Health Records: Caveats to Deployable Model Performance in Common Clinical Machine Learning Tasks.” Proceedings of Machine Learning for Healthcare 2019 (MLHC ’19), 2019, [https://www.mlforhc.org/s/Nestor.pdf](https://www.mlforhc.org/s/Nestor.pdf).
-* Finlayson, Samuel G., et al. "Adversarial attacks on medical machine learning." Science 363.6433 (2019): 1287-1289.
+Chen, Irene Y., Peter Szolovits, and Marzyeh Ghassemi. "Can AI help reduce disparities in general medical and mental health care?." AMA journal of ethics 21.2 (2019): 167-179. 
 
-Investigations into model performance on minority subpopulations, and the implications thereof.
+Irvin J, Rajpurkar P, Ko M, Yu Y, Ciurea-Ilcus S, Chute C, Marklund H, Haghgoo B, Ball R, Shpanskaya K, Seekins J. "Chexpert: A large chest radiograph dataset with uncertainty labels and expert comparison." arXiv preprint arXiv:1901.07031. 2019 Jan 21.
 
-* Boag, Willie, et al. "Racial Disparities and Mistrust in End-of-Life Care." Machine Learning for Healthcare Conference. 2018. [https://www.mlforhc.org/s/2.pdf](https://www.mlforhc.org/s/2.pdf)
-* Chen, Irene Y., Peter Szolovits, and Marzyeh Ghassemi. "Can AI Help Reduce Disparities in General Medical and Mental Health Care?." AMA journal of ethics 21.2 (2019): 167-179. [https://journalofethics.ama-assn.org/article/can-ai-help-reduce-disparities-general-medical-and-mental-health-care/2019-02](https://journalofethics.ama-assn.org/article/can-ai-help-reduce-disparities-general-medical-and-mental-health-care/2019-02)
+Wilson G, Aruliah DA, Brown CT, Hong NP, Davis M, Guy RT, Haddock SH, Huff KD, Mitchell IM, Plumbley MD, Waugh B. "Best practices for scientific computing." PLoS biology. 2014 Jan 7;12(1):e1001745.
 
-Scalable, safe machine learning / inference in clinical environments
+Wei Q, Wang Z, Hong H, Chi Z, Feng DD, Grunstein R, Gordon C. "A residual based attention model for eeg based sleep staging." IEEE Journal of Biomedical and Health Informatics. 2020 Mar 3. 
 
-* Henderson, Jette, et al. "Phenotype instance verification and evaluation tool (PIVET): A scaled phenotype evidence generation framework using web-based medical literature." Journal of medical Internet research 20.5 (2018): e164.
+Nestor B, McDermott MB, Boag W, Berner G, Naumann T, Hughes MC, Goldenberg A, Ghassemi M. "Feature robustness in non-stationary health records: caveats to deployable model performance in common clinical machine learning tasks." In Machine Learning for Healthcare Conference, pp. 381-405. PMLR, 2019.
 
-New tools or comprehensive benchmarks for machine learning for healthcare.
+Finlayson SG, Bowers JD, Ito J, Zittrain JL, Beam AL, Kohane IS. "Adversarial attacks on medical machine learning." Science 363, no. 6433 (2019): 1287-1289.
 
-* Wang, Shirly, et al. "MIMIC-Extract: A Data Extraction, Preprocessing, and Representation Pipeline for MIMIC-III." Machine Learning for Healthcare, 2019.
+Boag W, Suresh H, Celi LA, Szolovits P, Ghassemi M. "Racial disparities and mistrust in end-of-life care." In Machine Learning for Healthcare Conference, pp. 587-602. PMLR, 2018.
 
-Development of Scalable Systems for Processing Data in Practice (demonstrating, e.g., concern for multi-modality, runtime, robustness, etc., as guided by a clinical use case):
+Henderson J, Ke J, Ho JC, Ghosh J, Wallace BC. "Phenotype instance verification and evaluation tool (PIVET): A scaled phenotype evidence generation framework using web-based medical literature." Journal of medical Internet research 20.5 (2018): e164.
 
-* Xu, Yanbo, et al. "Raim: Recurrent attentive and intensive model of multimodal patient monitoring data." Proceedings of the 24th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining. ACM, 2018.
+Wang S, McDermott MB, Chauhan G, Ghassemi M, Hughes MC, Naumann T. "Mimic-extract: A data extraction, preprocessing, and representation pipeline for mimic-iii." In Proceedings of the ACM conference on health, inference, and learning, pp. 222-235. 2020.
 
-Bridging the deployment gap
+Xu Y, Biswal S, Deshpande SR, Maher KO, Sun J. "Raim: Recurrent attentive and intensive model of multimodal patient monitoring data." In Proceedings of the 24th ACM SIGKDD international conference on Knowledge Discovery & Data Mining, pp. 2565-2573, 2018.
 
-* Tonekaboni, Sana, et al. "What Clinicians Want: Contextualizing Explainable Machine Learning for Clinical End Use." Machine Learning for Healthcare (2019)
+Tonekaboni S, Joshi S, McCradden MD, Goldenberg A. "What clinicians want: contextualizing explainable machine learning for clinical end use." In Machine Learning for Healthcare Conference, pp. 359-380. PMLR, 2019.
 
-Remote, Wearable, Telehealth, Public Health
-
-* Wei Q, Wang Z, Hong H, Chi Z, Feng DD, Grunstein R, Gordon C. A Residual based Attention Model for EEG based Sleep Staging. IEEE Journal of Biomedical and Health Informatics. 2020 Mar 3.
-
-Software Packages
-
-<!-- * Pollard TJ, Johnson AE, Raffa JD, Mark RG. tableone: An open source Python package for producing summary statistics for research papers. JAMIA Open. 2018 May 23;1(1):26-31. -->
-* Johnson AE, Stone DJ, Celi LA, Pollard TJ. The MIMIC Code Repository: enabling reproducibility in critical care research. Journal of the American Medical Informatics Association. 2017 Sep 27;25(1):32-9.
-* Peng Y, Wang X, Lu L, Bagheri M, Summers R, Lu Z. NegBio: a high-performance tool for negation and uncertainty detection in radiology reports. AMIA Summits on Translational Science Proceedings. 2018;2018:188.
