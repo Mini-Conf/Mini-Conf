@@ -10,6 +10,7 @@
     <h1>Call for Papers</h1>
   </div>
   {{ components.tabs([("author-info", "Author Information", "active"),
+                      ("reviewer", "Reviewer Instructions", ""),
                       ("track-1", "Track 1: Models and Methods", ""),
                       ("track-2", "Track 2: Applications and Practice", ""),
                       ("track-3", "Track 3: Impact and Society", ""),
@@ -27,6 +28,15 @@
         aria-labelledby="nav-profile-tab"
       >
         {{ call_for_papers_author_info | markdown }}
+      </div>
+      <!-- reviewer instructions -->
+      <div
+        class="tab-pane fade"
+        id="tab-reviewer"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+        {{ call_for_papers_reviewer | markdown }}
       </div>
       <!-- Track 1 -->
       <div

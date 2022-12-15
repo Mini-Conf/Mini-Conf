@@ -349,6 +349,7 @@ def call_for_papers():
     data = _data()
     data["call_for_papers"] = open("./templates/content/call-for-papers.md").read()
     data["call_for_papers_author_info"] = open("./templates/content/call-for-papers-author-info.md").read()
+    data["call_for_papers_reviewer"] = open("./templates/content/call-for-papers-reviewer.md").read()
     data["call_for_papers_track_1"] = open("./templates/content/call-for-papers-track-1.md").read()
     data["call_for_papers_track_2"] = open("./templates/content/call-for-papers-track-2.md").read()
     data["call_for_papers_track_3"] = open("./templates/content/call-for-papers-track-3.md").read()
