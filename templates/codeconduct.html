@@ -1,0 +1,19 @@
+{% set active_page = "Organization" %}
+{% set page_title = "Code of Conduct" %}
+{% extends "base.html" %}
+
+{% block top %}
+{% endblock %}
+
+{% block tabs %}
+{% endblock %}
+
+{% block content %}
+  <div class="page-header text-center">
+    <h1>CHIL Code of Conduct</h1>
+    <sub>This Code of Conduct is largely identical to the NeurIPS and ML4H codes of conduct.</sub>
+  </div>
+  <div class="page-content">
+    {{ codeconduct | markdown }}
+  </div>
+{% endblock %}

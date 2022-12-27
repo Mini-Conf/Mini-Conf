@@ -52,4 +52,4 @@ Sponsorship of the annual AHLI Conference on Health, Inference and Learning (CHI
 
 <br />
 
-To become an CHIL 2022 sponsor, please email [info@chilconference.org](mailto:info@chilconference.org)
+To become an CHIL 2023 sponsor, please email [info@chilconference.org](mailto:info@chilconference.org)

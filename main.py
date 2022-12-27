@@ -343,6 +343,12 @@ def sponsor():
     data["sponsor"] = open("./templates/content/sponsor.md").read()
     return render_template("sponsor.html", **data)
 
+@app.route("/codeconduct.html")
+def codeconduct():
+    data = _data()
+    data["codeconduct"] = open("./templates/content/codeconduct.md").read()
+    return render_template("codeconduct.html", **data)
+
 
 @app.route("/call-for-papers.html")
 def call_for_papers():
