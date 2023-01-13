@@ -4,51 +4,55 @@ The Conference on Health, Inference, and Learning (CHIL), targets a cross-discip
 
 The conference is designed to spark insight-driven discussions on new and emerging ideas that may lead to collaboration and discussion.
 
-<!---<center><a class="btn-primary btn-lg" role="button" aria-pressed="true" href="https://openreview.net/group?id=chilconference.org/CHIL/2022/Conference" target="_blank" rel="noopener">Submit your paper</a></center> !-->
+<!---<center><a class="btn-primary btn-lg" role="button" aria-pressed="true" href="https://openreview.net/group?id=chilconference.org/CHIL/2023/Conference" target="_blank" rel="noopener">Submit your paper</a></center> !-->
 
 
-
-<!-- #### Important dates
+#### Important dates
 <div>
 
-<table class="timeline-table table table-striped table-sm">
+<table class="timeline-table table table-sm">
   <tbody>
     <tr>
-      <th scope="row">Call for Papers</th>
-      <td>November 13, 2021</td>
-      <td class="text-right"><span class="countdown" data-startdate="November 13, 2021"></span></td>
+      <th scope="row">Paper Submission Deadline</th>
+      <td>Feb 3, 2023</td>
+      <td class="text-right"><span class="countdown" data-startdate="2023-02-04T04:59:00.00Z"></span></td> 
     </tr>
     <tr>
-      <th scope="row">Submissions due</th>
-      <td>January 18, 2022</td>
-      <td class="text-right"><span class="countdown" data-startdate="2022-01-18T06:59:00.00"></span></td>
+      <th scope="row">Doctoral Symposium Deadline</th>
+      <td>Feb 10, 2023</td>
+      <td class="text-right"><span class="countdown" data-startdate="2023-02-11T04:59:00.00Z"></span></td> 
     </tr>
     <tr>
-      <th scope="row">Reviews out / Author response begins</th>
-      <td>February 19, 2022</td>
-      <td class="text-right"><span class="countdown" data-startdate="February 19, 2022"></span></td>
+      <th scope="row">Paper Reviews Out / Author Response Begins</th>
+      <td>March 10, 2023</td>
+      <td class="text-right"><span class="countdown" data-startdate="2023-03-11T04:59:00.00Z"></span></td>
     </tr>
     <tr>
-      <th scope="row">Author Response ends</th>
-      <td>February 22, 2022</td>
-      <td class="text-right"><span class="countdown" data-startdate="February 22, 2022"></span></td>
+      <th scope="row">Author Response Ends</th>
+      <td>March 24, 2023</td>
+      <td class="text-right"><span class="countdown" data-startdate="2023-03-25T03:59:00.00Z"></span></td>
     </tr>
     <tr>
-      <th scope="row">Notifications out</th>
-      <td>February 28, 2022</td>
-      <td class="text-right"><span class="countdown" data-startdate="February 29, 2022"></span></td>
+      <th scope="row">Paper Notifications Out</th>
+      <td>April 3, 2023</td>
+      <td class="text-right"><span class="countdown" data-startdate="2023-04-04T03:59:00.00Z"></span></td>
+    </tr>
+    <tr>
+      <th scope="row">Doctoral Symposium Notifications Out</th>
+      <td>April 5, 2023</td>
+      <td class="text-right"><span class="countdown" data-startdate="2023-04-06T03:59:00.00Z"></span></td> 
     </tr>
     <tr>
       <th scope="row">Conference dates</th>
-      <td>April 7-8, 2022</td>
-      <td class="text-right"><span class="countdown" data-startdate="April 7, 2022"></span></td>
+      <td>June 22-24, 2023</td>
+      <td class="text-right"><span class="countdown" data-startdate="June 22, 2023"></span></td>
     </tr>
   </tbody>
 </table>
-<div class="text-right">*All times shown above are in AoE</div>
+<div class="text-right">*All times shown above are in ET (EST prior to March 12 and then EDT) </div>
 <br />
 </div>
--->
+
 ### Contact Information
 
 - For questions/comments, email us at [info@chilconference.org](mailto:info@chilconference.org)

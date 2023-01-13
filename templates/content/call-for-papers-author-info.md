@@ -7,12 +7,13 @@ Track Chairs will oversee the reviewing process. In case you are not sure which 
 
 ### Important Dates
 - Submissions due: Feb 3rd, 11:59 EST
-- Bidding closes: Feb 7th, 11:59 PM
-- Reviews due: March 3rd, 11:59 EST
 - Author/Reviewer Discussion period: March 10th - March 24th
-- Meta-review period: March 25th - March 31st
 - Author notification: April 3rd
 - CHIL conference: June 22-24 
+
+<!-- - Bidding closes: Feb 7th, 11:59 PM
+- Reviews due: March 3rd, 11:59 EST
+- Meta-review period: March 25th - March 31st -->
 
 <!-- **NOTE**: The submission portal will remain open until **January 18, 2022 (11:59 pm AoE)** for those who would like to make revisions to their submitted work. -->
 

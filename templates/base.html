@@ -46,8 +46,7 @@
 <!-- NAV -->
 {% block header %}
   {% set navigation_bar = [
-    ('index.html', 'Home'),
-    ('call-for-papers.html', 'Call for Papers')
+    ('index.html', 'Home')
   ] -%}
 
   {# Removed navigation_bar ENTRIES
@@ -63,6 +62,12 @@
     ('chat.html', 'Chat'),
     ('live.html', 'Live'),
   #}
+
+  {% set submit_dropdown_bar = [
+    ('call-for-papers.html', 'Call for Papers'),
+    ('call-for-doctoral.html', 'Call for Doctoral Symposium')
+  ] -%}
+
 
   {% set organization_dropdown_bar = [
     ('committee.html', 'Committee'),
@@ -110,6 +115,21 @@
                   <a class="nav-link" href="/{{href}}">{{id}}</a>
               </li>
               {% endfor %}
+              {% if submit_dropdown_bar %}
+              <li class="nav-item dropdown {% if active_page == 'Submit' %}active{% endif %}">
+                <a class="nav-link dropdown-toggle" href="#" id="submitDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Submit
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="submitDropdown">
+                  <li>
+                    {% for href, id in submit_dropdown_bar %}
+                      <a class="dropdown-item" href="/{{href}}">{{id}}</a>
+                    {% endfor %}
+                  </li>
+                </ul>
+              </li>
+              {% endif %}
+
               {% if organization_dropdown_bar %}
               <li class="nav-item dropdown {% if active_page == 'Organization' %}active{% endif %}">
                 <a class="nav-link dropdown-toggle" href="#" id="organizationDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
