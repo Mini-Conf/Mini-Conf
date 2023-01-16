@@ -1,0 +1,18 @@
+{% set active_page = "Submit" %}
+{% set page_title = "Call for Doctoral Symposium" %}
+{% extends "base.html" %}
+
+{% block top %}
+{% endblock %}
+
+{% block tabs %}
+{% endblock %}
+
+{% block content %}
+  <div class="page-header text-center">
+    <h1>Call for Doctoral Symposium</h1>
+  </div>
+  <div class="page-content">
+    {{ call_for_doctoral | markdown }}
+  </div>
+{% endblock %}

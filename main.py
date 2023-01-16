@@ -350,6 +350,12 @@ def codeconduct():
     return render_template("codeconduct.html", **data)
 
 
+@app.route("/call-for-doctoral.html")
+def call_for_doctoral():
+    data = _data()
+    data["call_for_doctoral"] = open("./templates/content/call-for-doctoral.md").read()
+    return render_template("call-for-doctoral.html", **data)
+
 @app.route("/call-for-papers.html")
 def call_for_papers():
     data = _data()
