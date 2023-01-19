@@ -7,10 +7,7 @@ Track Chairs will oversee the reviewing process. In case you are not sure which 
 
 ### Important Dates
 - Submissions due: Feb 3rd, 11:59 EST
-- Bidding closes: Feb 7th, 11:59 PM
-- Reviews due: March 3rd, 11:59 EST
 - Author/Reviewer Discussion period: March 10th - March 24th
-- Meta-review period: March 25th - March 31st
 - Author notification: April 3rd
 - CHIL conference: June 22-24 
 
@@ -58,24 +55,32 @@ An exception to this rule is extensions of workshop papers that have previously 
 
 ## Submission Format and Guidelines
 ### Submission Site
-Submissions should be made via the online submission system (Coming soon!). At least one author of each accepted paper is required to register for, attend, and present the work at the conference in order for the paper to appear in the conference proceedings.
+Submissions should be made via OpenReview: [https://openreview.net/group?id=chilconference.org/CHIL/2023/Conference](https://openreview.net/group?id=chilconference.org/CHIL/2023/Conference)
+. 
+At least one author of each accepted paper is required to register for, attend, and present the work at the conference in order for the paper to appear in the conference proceedings.
 
 <!-- Submissions should be made via the online submission system: [https://openreview.net/group?id=chilconference.org/CHIL/2022/Conference](https://openreview.net/group?id=chilconference.org/CHIL/2022/Conference). -->
 
 ### Length and Formatting
 Submitted papers must be 8-10 pages (including all figures and tables), plus unlimited pages for references. Additional supplementary materials (e.g., appendices) can be submitted with their main manuscript. Reviewers will not be required to read the supplementary materials.
 
+Authors are required to use the LaTeX template: [Download](https://drive.google.com/file/d/1EQc5RHHc5u7zdKhBCy1wIqwo0V0fGi-p/view?usp=sharing).
+
 <!-- Authors are required to use the LaTeX template: [Overleaf](https://www.overleaf.com/latex/templates/chil-2022-template/jsypybzpbbdd) or [Download](https://chilconference.org/chil-template-2022.zip). -->
 
-### Archival Submissions
-Submissions to the main conference are considered archival and will appear in the published proceedings of the conference if accepted. Author notification of acceptance will be provided towards April 2023.
-
-<!-- **Required Sections** <br />
-This year, two sections will be required: 1) Data and Code Availability, and 2) Institutional Review Board (IRB).
+**Required Sections** <br />
+Similar to last year, two sections will be required: 1) Data and Code Availability, and 2) Institutional Review Board (IRB).
 
 <u>Data and Code Availability</u>: This initial paragraph is **required**. Briefly state what data you use (including citations if appropriate) and whether the data are available to other researchers. If you are not sharing code, you must explicitly state that you are not making your code available. If you are making your code available, then at the time of submission for review, please include your code as supplemental material or as a code repository link; in either case, your code must be anonymized. If your paper is accepted, then you should de-anonymize your code for the camera-ready version of the paper. If you do not include this data and code availability statement for your paper, or you provide code that is not anonymized at the time of submission, then your paper will be desk-rejected. Your experiments later could refer to this initial data and code availability statement if it is helpful (e.g., to avoid restating what data you use).
 
 <u>Institutional Review Board (IRB)</u>: This endmatter section is **required**. If your research requires IRB approval or has been designated by your IRB as Not Human Subject Research, then for the cameraready version of the paper, you must provide IRB information (and at the time of submission for review, you can say that this IRB information will be provided if the paper is accepted). If your research does not require IRB approval, then you must state this to be the case. This section does not count toward the paper page limit.
+
+### Archival Submissions
+Submissions to the main conference are considered archival and will appear in the published proceedings of the conference if accepted. Author notification of acceptance will be provided towards April 2023.
+
+
+
+<!--
 
 **Topic Areas** <br />
 In addition to specifying a Track, authors should specify one or more topics for their work. In general, topics can be considered independent of Track and may be used to help identify appropriate reviewers. 
