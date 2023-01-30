@@ -356,6 +356,12 @@ def call_for_doctoral():
     data["call_for_doctoral"] = open("./templates/content/call-for-doctoral.md").read()
     return render_template("call-for-doctoral.html", **data)
 
+@app.route("/call-for-lightning.html")
+def call_for_lightning():
+    data = _data()
+    data["call_for_lightning"] = open("./templates/content/call-for-lightning.md").read()
+    return render_template("call-for-lightning.html", **data)
+
 @app.route("/call-for-papers.html")
 def call_for_papers():
     data = _data()
