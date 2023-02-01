@@ -6,9 +6,9 @@ Track Chairs will oversee the reviewing process. In case you are not sure which 
 
 
 ### Important Dates
-- Submissions due: Feb 3rd, 11:59 EST
-- Author/Reviewer Discussion period: March 10th - March 24th
-- Author notification: April 3rd
+- Submissions due: <s>Feb 3rd, 11:59 EST</s> Feb 15th, 11:59 EST
+- Author/Reviewer Discussion period: <s>March 10th - March 24th</s> March 20th - April 3rd
+- Author notification: <s>April 3rd</s> April 10th
 - CHIL conference: June 22-24 
 
 <!-- **NOTE**: The submission portal will remain open until **January 18, 2022 (11:59 pm AoE)** for those who would like to make revisions to their submitted work. -->
@@ -64,7 +64,7 @@ At least one author of each accepted paper is required to register for, attend, 
 ### Length and Formatting
 Submitted papers must be 8-10 pages (including all figures and tables), plus unlimited pages for references. Additional supplementary materials (e.g., appendices) can be submitted with their main manuscript. Reviewers will not be required to read the supplementary materials.
 
-Authors are required to use the LaTeX template: [Download](https://drive.google.com/file/d/1EQc5RHHc5u7zdKhBCy1wIqwo0V0fGi-p/view?usp=sharing).
+Authors are required to use the LaTeX template: [Download](https://drive.google.com/file/d/1EQc5RHHc5u7zdKhBCy1wIqwo0V0fGi-p/view?usp=sharing) or [Overleaf](https://www.overleaf.com/latex/templates/chil-2023-template/yrwrrhnxsjwc).
 
 <!-- Authors are required to use the LaTeX template: [Overleaf](https://www.overleaf.com/latex/templates/chil-2022-template/jsypybzpbbdd) or [Download](https://chilconference.org/chil-template-2022.zip). -->
 
