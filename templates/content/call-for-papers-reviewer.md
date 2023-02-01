@@ -10,33 +10,33 @@ Jump to: Timeline and Workload - [bidding](#bidding) - [assignment](#assignment)
 
 To deliver high-quality reviews, you (a CHIL reviewer) are expected to participate in the 4 distinct phases of review:
 
-- Bidding period (2/4 - 2/7)
+- <s> Bidding period (2/4 - 2/7)
 	- Skim abstracts and suggest >10 submissions you are interested in / qualified for
-	- Estimated time commitment: 1 hour or less
-- Assignment period (2/8 - 2/18)
+	- Estimated time commitment: 1 hour or less </s>
+- Assignment period <s>(2/8 - 2/18)</s> (2/16 - 2/17)
 	- Skim each of your assigned papers and report immediately
 		- Formatting violations
 		- Anonymity or Conflict of Interest violations 
 		- Topics you are not qualified to review
 	- Workload: 2-5 papers per reviewer
 	- Estimated time commitment: 10 minutes per paper
-- Review period (2/8 - 3/3)
+- Review period <s>(2/8 - 3/3)</s> (2/17 - 3/14)
 	- Deliver thoughtful review comments in timely fashion 
 	- Workload: 2-5 papers per reviewer
 	- Estimated time commitment: 2-5 hours per paper, spread out asynchronously
-- Discussion period (3/10 - 3/24)
+- Discussion period <s>(3/10 - 3/24)</s> (3/17 - 4/3)
 	- Provide comments that respond to author feedback, other reviewers, and chairs
 	- Workload: 2-5 papers per reviewer
 	- Estimated time commitment: 1-2 hours per paper, spread out asynchronously
 
 
-### <a name="bidding"></a>Bidding Period Instructions
+### <s><a name="bidding"></a>Bidding Period Instructions
 After all submissions are received on Feb. 3, you (a CHIL reviewer) will have the opportunity to review submitted titles/abstracts within OpenReview and indicate which papers you are most qualified for and excited about. Bidding instructions will be provided via email.
 
-Please bid promptly (by 2/7) and bid generously.
+Please bid promptly (by 2/7) and bid generously.</s>
 
 ### <a name="assignment"></a>Assignment Period Instructions
-By 2/7, you (a CHIL reviewer) will be formally assigned 2-5 papers to review for CHIL.
+By 2/17, you (a CHIL reviewer) will be formally assigned 2-5 papers to review for CHIL.
 We ask for each reviewer to promptly (within 10 days) skim their assigned papers to ensure:
 
 - no violations of required formatting rules (page limits, margins, etc)
@@ -46,7 +46,7 @@ We ask for each reviewer to promptly (within 10 days) skim their assigned papers
 If you feel that you cannot offer an informed opinion about the quality of the paper due to expertise mismatch, please write to your assigned Area Chair on OpenReview ASAP. Because of the diverse interests and finite availability of the research community, we cannot always reassign reviewers, but chairs will do our best to make sure each submission has the most competent reviewers available in the pool.
 
 ### <a name="reviewing"></a>Reviewing Period Instructions
-Between 2/8 and 3/3, you will be asked to complete thoughtful, constructive reviews for all assigned papers. Please make sure to complete your reviews by March 3rd, 11:59 EST (earlier preferred) For each paper, you’ll fill out a form on OpenReview, similar to the form below:
+Between 2/17 and 3/14, you will be asked to complete thoughtful, constructive reviews for all assigned papers. Please make sure to complete your reviews by March 14th, 11:59 EST (earlier preferred). For each paper, you’ll fill out a form on OpenReview, similar to the form below:
 
 #### Review format
 1. Summary of the paper
@@ -70,7 +70,7 @@ Between 2/8 and 3/3, you will be asked to complete thoughtful, constructive revi
 
 
 #### Emergency Reviewing
-To accommodate last minute emergencies, we will be seeking emergency reviewers for papers who do not receive all reviews by the deadline. Emergency reviewers will be sent a maximum of 3 papers by 3/5, and will need to write their reviews in a short time frame (between 3/5 and 3/8). Emergency review signup will be indicated in the reviewer signup form.
+To accommodate last minute emergencies, we will be seeking emergency reviewers for papers who do not receive all reviews by the deadline. Emergency reviewers will be sent a maximum of 3 papers by 3/15, and will need to write their reviews in a short time frame (between 3/15 and 3/18). Emergency review signup will be indicated in the reviewer signup form.
 
 #### General Advice for preparing reviews
 Follow the golden rule: be on time, provide polite and constructive reviews that you yourself would be happy to receive as an author. Be sure to review the paper, not the authors. When making statements about the paper, use phrases like “the paper proposes” rather than “the authors propose”. This makes your review less personal and separates critiques of the submission from critiques of the authors.
@@ -93,8 +93,8 @@ If you are a junior reviewer, there is no harm in asking a senior mentor or coll
 
 
 ### <a name="discussion"></a>Discussion and Consensus-Building Period Instructions
-Between 3/10 and 3/24, you (a CHIL reviewer) will be expected to participate in discussions on OpenReview by reading the authors’ response and comments from other reviewers, adding additional comments from your perspective, and updating your review accordingly. 
+Between 3/20 and 4/3, you (a CHIL reviewer) will be expected to participate in discussions on OpenReview by reading the authors’ response and comments from other reviewers, adding additional comments from your perspective, and updating your review accordingly. 
 
 We expect brief but thoughtful engagement from all reviewers here. For some papers, this would involve several iterations of feedback-response. A simplistic response of “I have read the authors’ response and I chose to keep my score unchanged” is not sufficient, because it does not provide detailed reasoning about what weaknesses are still salient and why the response is not sufficient. Please engage meaningfully!
 
-Track Chairs will work with reviewers to try to reach a consensus decision about each paper by 3/24. In the event that consensus is not reached, Track Chairs make final decisions about acceptance.
+Track Chairs will work with reviewers to try to reach a consensus decision about each paper by 4/3. In the event that consensus is not reached, Track Chairs make final decisions about acceptance.

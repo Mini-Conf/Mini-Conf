@@ -14,36 +14,46 @@ The conference is designed to spark insight-driven discussions on new and emergi
   <tbody>
     <tr>
       <th scope="row">Paper Submission Deadline</th>
-      <td>Feb 3, 2023</td>
-      <td class="text-right"><span class="countdown" data-startdate="2023-02-04T04:59:00.00Z"></span></td> 
+      <td>Feb 15, 2023</td>
+      <td class="text-right"><span class="countdown" data-startdate="2023-02-16T04:59:00.00Z"></span></td> 
     </tr>
     <tr>
       <th scope="row">Doctoral Symposium Deadline</th>
-      <td>Feb 10, 2023</td>
-      <td class="text-right"><span class="countdown" data-startdate="2023-02-11T04:59:00.00Z"></span></td> 
+      <td>Feb 18, 2023</td>
+      <td class="text-right"><span class="countdown" data-startdate="2023-02-18T04:59:00.00Z"></span></td> 
+    </tr>
+    <tr>
+      <th scope="row">Lightning Talk Deadline</th>
+      <td>Feb 28, 2023</td>
+      <td class="text-right"><span class="countdown" data-startdate="2023-03-01T04:59:00.00Z"></span></td> 
     </tr>
     <tr>
       <th scope="row">Paper Reviews Out / Author Response Begins</th>
-      <td>March 10, 2023</td>
-      <td class="text-right"><span class="countdown" data-startdate="2023-03-11T04:59:00.00Z"></span></td>
+      <td>March 20, 2023</td>
+      <td class="text-right"><span class="countdown" data-startdate="2023-03-21T04:59:00.00Z"></span></td>
     </tr>
     <tr>
       <th scope="row">Author Response Ends</th>
-      <td>March 24, 2023</td>
-      <td class="text-right"><span class="countdown" data-startdate="2023-03-25T03:59:00.00Z"></span></td>
-    </tr>
-    <tr>
-      <th scope="row">Paper Notifications Out</th>
       <td>April 3, 2023</td>
       <td class="text-right"><span class="countdown" data-startdate="2023-04-04T03:59:00.00Z"></span></td>
     </tr>
     <tr>
-      <th scope="row">Doctoral Symposium Notifications Out</th>
-      <td>April 5, 2023</td>
-      <td class="text-right"><span class="countdown" data-startdate="2023-04-06T03:59:00.00Z"></span></td> 
+      <th scope="row">Paper Notifications Out</th>
+      <td>April 10, 2023</td>
+      <td class="text-right"><span class="countdown" data-startdate="2023-04-11T03:59:00.00Z"></span></td>
     </tr>
     <tr>
-      <th scope="row">Conference dates</th>
+      <th scope="row">Doctoral Symposium Notifications Out</th>
+      <td>April 10, 2023</td>
+      <td class="text-right"><span class="countdown" data-startdate="2023-04-11T03:59:00.00Z"></span></td> 
+    </tr>
+    <tr>
+      <th scope="row">Lightning Talk Notifications Out</th>
+      <td>April 10, 2023</td>
+      <td class="text-right"><span class="countdown" data-startdate="2023-04-11T03:59:00.00Z"></span></td> 
+    </tr>
+    <tr>
+      <th scope="row">Conference Dates</th>
       <td>June 22-24, 2023</td>
       <td class="text-right"><span class="countdown" data-startdate="June 22, 2023"></span></td>
     </tr>
