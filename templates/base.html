@@ -63,6 +63,11 @@
     ('live.html', 'Live'),
   #}
 
+  {% set attend_dropdown_bar = [
+    ('tentative-schedule.html', 'Schedule')
+  ] -%}
+
+
   {% set submit_dropdown_bar = [
     ('call-for-papers.html', 'Call for Papers'),
     ('call-for-doctoral.html', 'Call for Doctoral Symposium'),
@@ -116,6 +121,22 @@
                   <a class="nav-link" href="/{{href}}">{{id}}</a>
               </li>
               {% endfor %}
+
+              {% if attend_dropdown_bar %}
+              <li class="nav-item dropdown {% if active_page == 'Attend' %}active{% endif %}">
+                <a class="nav-link dropdown-toggle" href="#" id="attendDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Attend
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="attendDropdown">
+                  <li><a class="dropdown-item" href="https://forms.gle/ytAhSYkgfyWMH3Ca9">Pre-registration</a>
+                    {% for href, id in attend_dropdown_bar %}
+                      <a class="dropdown-item" href="/{{href}}">{{id}}</a>
+                    {% endfor %}
+                  </li>
+                </ul>
+              </li>
+              {% endif %}
+
               {% if submit_dropdown_bar %}
               <li class="nav-item dropdown {% if active_page == 'Submit' %}active{% endif %}">
                 <a class="nav-link dropdown-toggle" href="#" id="submitDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

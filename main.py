@@ -250,35 +250,35 @@ def paper_vis():
     return render_template("papers_vis.html", **data)
 
 
-@app.route("/calendar.html")
+# @app.route("/calendar.html")
+@app.route("/tentative-schedule.html")
 def schedule():
     data = _data()
-    data["day"] = {
-        "speakers": site_data["speakers"],
-        "highlighted": [
-            format_paper(by_uid["papers"][h["UID"]]) for h in site_data["highlighted"]
-        ],
-    }
-    data["speakers"] = site_data["speakers"]
-    data["tutorials"] = [
-        format_workshop(tutorial) for tutorial in site_data["tutorials"]
-    ]
-    data["roundtables"] = [
-        format_workshop(roundtable) for roundtable in site_data["roundtables"]
-    ]
-    data["proceedings"] = [
-        format_workshop(proceeding) for proceeding in site_data["proceedings"]
-    ]
-    data["workshops"] = [
-        format_workshop(workshop) for workshop in site_data["workshops"]
-    ]
-    data["schedule"] = {
-        "thursday": site_data['schedule']['thursday'],
-        "friday": site_data['schedule']['friday']
-    }
+    # data["day"] = {
+    #     "speakers": site_data["speakers"],
+    #     "highlighted": [
+    #         format_paper(by_uid["papers"][h["UID"]]) for h in site_data["highlighted"]
+    #     ],
+    # }
+    # data["speakers"] = site_data["speakers"]
+    # data["tutorials"] = [
+    #     format_workshop(tutorial) for tutorial in site_data["tutorials"]
+    # ]
+    # data["roundtables"] = [
+    #     format_workshop(roundtable) for roundtable in site_data["roundtables"]
+    # ]
+    # data["proceedings"] = [
+    #     format_workshop(proceeding) for proceeding in site_data["proceedings"]
+    # ]
+    # data["workshops"] = [
+    #     format_workshop(workshop) for workshop in site_data["workshops"]
+    # ]
+    # data["schedule"] = {
+    #     "thursday": site_data['schedule']['thursday'],
+    #     "friday": site_data['schedule']['friday']
+    # }
     data["schedule_content"] = open("./templates/content/schedule.md").read()
-
-    return render_template("schedule.html", **data)
+    return render_template("tentative-schedule.html", **data)
 
 
 @app.route("/program.html")

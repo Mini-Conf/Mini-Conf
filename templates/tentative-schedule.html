@@ -1,0 +1,18 @@
+{% set active_page = "Attend" %}
+{% set page_title = "Schedule" %}
+{% extends "base.html" %}
+
+{% block top %}
+{% endblock %}
+
+{% block tabs %}
+{% endblock %}
+
+{% block content %}
+  <div class="page-header text-center">
+    <h1>Schedule</h1>
+  </div>
+  <div class="page-content">
+    {{ schedule_content | markdown }}
+  </div>
+{% endblock %}
