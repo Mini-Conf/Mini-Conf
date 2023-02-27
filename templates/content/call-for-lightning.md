@@ -2,7 +2,7 @@ The AHLI Conference on Health, Inference, and Learning (CHIL) solicits work acro
 Unconference Chairs will oversee the reviewing process.  If you are not sure if your submission fits the call, please reach out to the conference organizers (info@chilconference.org) for advice.
 
 ### Important Dates
-- Submissions due: Feb 28, 11:59 EST
+- Submissions due: <s>Feb 28, 11:59 EST</s> Mar 15, 2023 11:59 PM EDT
 - Author notification: April 3
 - CHIL unconference: June 24 
 

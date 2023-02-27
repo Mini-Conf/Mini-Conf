@@ -24,13 +24,13 @@ The conference is designed to spark insight-driven discussions on new and emergi
     </tr>
     <tr>
       <th scope="row">Lightning Talk Deadline</th>
-      <td>Feb 28, 2023</td>
-      <td class="text-right"><span class="countdown" data-startdate="2023-03-01T04:59:00.00Z"></span></td> 
+      <td>March 15, 2023</td>
+      <td class="text-right"><span class="countdown" data-startdate="2023-03-16T04:59:00.00Z"></span></td> 
     </tr>
     <tr>
       <th scope="row">Paper Reviews Out / Author Response Begins</th>
       <td>March 20, 2023</td>
-      <td class="text-right"><span class="countdown" data-startdate="2023-03-21T04:59:00.00Z"></span></td>
+      <td class="text-right"><span class="countdown" data-startdate="2023-03-21T03:59:00.00Z"></span></td>
     </tr>
     <tr>
       <th scope="row">Author Response Ends</th>
