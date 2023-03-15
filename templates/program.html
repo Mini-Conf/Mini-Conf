@@ -7,14 +7,15 @@
     <h1>Program</h1>
   </div>
   {{ components.tabs([
-        ("speakers", "Keynotes", "active"),
-        ("tutorials", "Tutorials"),
-        ("roundtables", "Research Roundtables")
+        ("speakers", "Keynotes", "active")
     ])}}
 {% endblock %}
 <!-- TODO: add to components.tabs when corresponding conf sections are finalized
   ("workshops", "Workshop Posters"),
   ("proceedings", "Proceedings Posters"),
+
+  ("tutorials", "Tutorials"),
+  ("roundtables", "Research Roundtables")
 -->
 
 {% block content %}
