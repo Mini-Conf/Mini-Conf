@@ -12,8 +12,10 @@
     <h1>Schedule</h1>
   </div>
   {{ components.tabs([
-        ("thursday", "Thursday, April 7", "active"),
-        ("friday", "Friday, April 8"),
+        ("thursday", "Thursday, June 22", "active"),
+        ("friday", "Friday, June 23"),
+        ("saturday", "Saturday, June 23"),
+
     ])}}
 {% endblock %}
 
@@ -30,7 +32,8 @@
         role="tabpanel"
         aria-labelledby="nav-profile-tab"
       >
-        {{ components.schedule(schedule["thursday"]) }}
+            {{ schedule_thurs | markdown }}
+        <!-- {{ components.schedule(schedule["thursday"]) }} -->
       </div>
       <!-- Friday tab -->
       <div
@@ -39,7 +42,16 @@
         role="tabpanel"
         aria-labelledby="nav-profile-tab"
       >
-        {{ components.schedule(schedule["friday"]) }}
+          {{ schedule_fri | markdown }}
+      </div>
+      <!-- Saturday tab -->
+      <div
+        class="tab-pane"
+        id="tab-saturday"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+          {{ schedule_sat | markdown }}
       </div>
     </div>
   </div>

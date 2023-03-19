@@ -4,7 +4,7 @@ The Conference on Health, Inference, and Learning (CHIL), targets a cross-discip
 
 The conference is designed to spark insight-driven discussions on new and emerging ideas that may lead to collaboration and discussion.
 
-<center><a class="btn-primary btn-lg" role="button" aria-pressed="true" href="https://forms.gle/gL5KNaV6fTKHPQJP8" target="_blank" rel="noopener">Submit your lightning talk</a></center>
+<!-- <center><a class="btn-primary btn-lg" role="button" aria-pressed="true" href="https://forms.gle/gL5KNaV6fTKHPQJP8" target="_blank" rel="noopener">Submit your lightning talk</a></center> -->
 
 
 #### Important dates

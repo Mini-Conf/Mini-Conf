@@ -32,7 +32,9 @@ def main(site_data_path):
         elif typ == "yml":
             site_data[name] = yaml.load(open(f).read(), Loader=yaml.SafeLoader)
 
-    for typ in ["papers", "speakers", "tutorials", "proceedings", "roundtables", "workshops", "sponsors", "symposiums"]:
+    for typ in ["papers", "speakers", "invited", "panels", "debates", 
+                "tutorials", "proceedings", "roundtables", "workshops",
+                "sponsors", "symposiums"]:
         by_uid[typ] = {}
         for p in site_data[typ]:
             by_uid[typ][p["UID"]] = p
@@ -250,7 +252,7 @@ def paper_vis():
 
 
 @app.route("/calendar.html")
-def old_schedule():
+def schedule():
     data = _data()
     data["day"] = {
         "speakers": site_data["speakers"],
@@ -259,36 +261,43 @@ def old_schedule():
         ],
     }
     data["speakers"] = site_data["speakers"]
-    data["tutorials"] = [
-        format_workshop(tutorial) for tutorial in site_data["tutorials"]
-    ]
-    data["roundtables"] = [
-        format_workshop(roundtable) for roundtable in site_data["roundtables"]
-    ]
-    data["proceedings"] = [
-        format_workshop(proceeding) for proceeding in site_data["proceedings"]
-    ]
-    data["workshops"] = [
-        format_workshop(workshop) for workshop in site_data["workshops"]
-    ]
+    # data["tutorials"] = [
+    #     format_workshop(tutorial) for tutorial in site_data["tutorials"]
+    # ]
+    # data["roundtables"] = [
+    #     format_workshop(roundtable) for roundtable in site_data["roundtables"]
+    # ]
+    # data["proceedings"] = [
+    #     format_workshop(proceeding) for proceeding in site_data["proceedings"]
+    # ]
+    # data["workshops"] = [
+    #     format_workshop(workshop) for workshop in site_data["workshops"]
+    # ]
     data["schedule"] = {
         "thursday": site_data['schedule']['thursday'],
         "friday": site_data['schedule']['friday']
     }
+    data["schedule_thurs"] = open("./templates/content/schedule-thurs.md").read()
+    data["schedule_fri"] = open("./templates/content/schedule-fri.md").read()
+    data["schedule_sat"] = open("./templates/content/schedule-sat.md").read()
     data["schedule_content"] = open("./templates/content/schedule.md").read()
     return render_template("schedule.html", **data)
 
-@app.route("/tentative-schedule.html")
-def schedule():
-    data = _data()
-    data["schedule_content"] = open("./templates/content/schedule.md").read()
-    return render_template("tentative-schedule.html", **data)
+
+# @app.route("/tentative-schedule.html")
+# def schedule():
+#     data = _data()
+#     data["schedule_content"] = open("./templates/content/schedule.md").read()
+#     return render_template("tentative-schedule.html", **data)
 
 
 @app.route("/program.html")
 def program():
     data = _data()
     data["speakers"] = site_data["speakers"]
+    data["invited"] = site_data["invited"]
+    data["debates"] = site_data["debates"]
+    data["panels"] = site_data["panels"]
     data["tutorials"] = [
         format_workshop(tutorial) for tutorial in site_data["tutorials"]
     ]
