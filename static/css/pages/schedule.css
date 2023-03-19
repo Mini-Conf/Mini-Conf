@@ -49,6 +49,12 @@
   background-color: #f9cb9c;
 }
 
+
+.table-bordered tbody>tr>td.keynote {
+  border-left: hidden!important;
+}
+
+
 em {
   font-size: 0.88rem; /* 14px */
   color: #999;

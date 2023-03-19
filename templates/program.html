@@ -7,7 +7,10 @@
     <h1>Program</h1>
   </div>
   {{ components.tabs([
-        ("speakers", "Keynotes", "active")
+        ("keynotes", "Keynotes", "active"),
+        ("panels", "Panelists"),
+        ("invited", "Invited Talks"),
+        ("debates", "Debates")
     ])}}
 {% endblock %}
 <!-- TODO: add to components.tabs when corresponding conf sections are finalized
@@ -24,13 +27,52 @@
       <!-- Keynote speakers tab -->
       <div
         class="tab-pane active"
-        id="tab-speakers"
+        id="tab-keynotes"
         role="tabpanel"
         aria-labelledby="nav-profile-tab"
       >
         <!-- Speakers -->
         {% if speakers %}
           {{ components.speakergroup(speakers) }}
+        {% endif %}
+      </div>
+
+      <!-- Panel speakers & moderators tab -->
+      <div
+        class="tab-pane"
+        id="tab-panels"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+        <!-- Speakers -->
+        {% if panels %}
+          {{ components.speakergroup(panels) }}
+        {% endif %}
+      </div>
+
+      <!-- Invited Speakers tab -->
+      <div
+        class="tab-pane"
+        id="tab-invited"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+        <!-- Speakers -->
+        {% if invited %}
+          {{ components.speakergroup(invited) }}
+        {% endif %}
+      </div>
+
+      <!-- Debate speakers tab -->
+      <div
+        class="tab-pane"
+        id="tab-debates"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+        <!-- Speakers -->
+        {% if debates %}
+          {{ components.speakergroup(debates) }}
         {% endif %}
       </div>
       <!-- Tutorials tab -->
