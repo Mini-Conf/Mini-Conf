@@ -64,8 +64,10 @@
   #}
 
   {% set attend_dropdown_bar = [
+    ('register.html', 'Registration'),
     ('calendar.html', 'Schedule'),
-    ('program.html', 'Program')
+    ('program.html', 'Program'),
+    ('travel.html', 'Plan Your Trip')
   ] -%}
 
 
@@ -79,7 +81,8 @@
   {% set organization_dropdown_bar = [
     ('committee.html', 'Committee'),
     ('sponsor.html', 'Sponsorship'),
-    ('codeconduct.html', 'Code of Conduct')
+    ('codeconduct.html', 'Code of Conduct'),
+    ('communityguidelines.html', 'Community Guidelines')
   ] -%}
 
   {# Removed organization_dropdown_bar ENTRIES
@@ -129,7 +132,7 @@
                   Attend
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="attendDropdown">
-                  <li><a class="dropdown-item" href="https://forms.gle/ytAhSYkgfyWMH3Ca9">Pre-registration</a>
+                  <!-- <li><a class="dropdown-item" href="https://forms.gle/ytAhSYkgfyWMH3Ca9">Pre-registration</a> -->
                     {% for href, id in attend_dropdown_bar %}
                       <a class="dropdown-item" href="/{{href}}">{{id}}</a>
                     {% endfor %}
@@ -219,7 +222,7 @@
     <div class="container">
       <br />
       <h3>{{config.page_title.prefix}} Sponsors</h3>
-      <p>Thank you to our 2022 sponsors: HEALTH[at]SCALE (Silver), the Vector Institute (Silver) and Microsoft (Bronze)!</p>
+      <p>Thank you to our 2023 sponsors: ApolloMed (Gold), Dandelion Health (Gold), Apple (Silver), and AITRICS (Academy/Start-up) !</p>
       {{ components.sponsorgroup(sponsors) }}
     </div>
   {% endif %}

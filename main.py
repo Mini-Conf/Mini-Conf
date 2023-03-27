@@ -350,6 +350,13 @@ def register():
     return render_template("register.html", **data)
 
 
+@app.route("/travel.html")
+def travel():
+    data = _data()
+    data["travel"] = open("./templates/content/travel.md").read()
+    return render_template("travel.html", **data)
+
+
 @app.route("/sponsor.html")
 def sponsor():
     data = _data()
@@ -361,6 +368,13 @@ def codeconduct():
     data = _data()
     data["codeconduct"] = open("./templates/content/codeconduct.md").read()
     return render_template("codeconduct.html", **data)
+
+
+@app.route("/communityguidelines.html")
+def communityguidelines():
+    data = _data()
+    data["communityguidelines"] = open("./templates/content/communityguidelines.md").read()
+    return render_template("communityguidelines.html", **data)
 
 
 @app.route("/call-for-doctoral.html")
