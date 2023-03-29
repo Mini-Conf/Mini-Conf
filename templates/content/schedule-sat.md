@@ -63,7 +63,7 @@ Moderated by <span class="font-weight-bold">Jessica Gronsbell, PhD,</span> Unive
      <tr>
       <td>1:50pm - 2:10pm</td>
       <td><a href="program.html#tab-debates">Data Heterogeneity: More Heterogeneous Data or Less Homogeneous Data?</a><br>
-        <span class="font-italic"><span class="font-weight-bold">Tianxi Cai, ScD,</span> Harvard Medical School and <span class="font-weight-bold">Yong Chen, PhD,</span> McGill University</span>
+        <span class="font-italic"><span class="font-weight-bold">Tianxi Cai, ScD,</span> Harvard Medical School and <span class="font-weight-bold">Yong Chen, PhD,</span> University of Pennsylvania</span>
       </td>
     </tr>
     <tr>
