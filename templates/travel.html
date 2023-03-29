@@ -1,0 +1,18 @@
+{% set active_page = "Plan Your Trip" %}
+{% set page_title = "Plan Your Trip" %}
+{% extends "base.html" %}
+
+{% block top %}
+{% endblock %}
+
+{% block tabs %}
+{% endblock %}
+
+{% block content %}
+  <div class="page-header text-center">
+    <h1>Plan Your Trip</h1>
+  </div>
+  <div class="page-content">
+    {{ travel | markdown }}
+  </div>
+{% endblock %}
