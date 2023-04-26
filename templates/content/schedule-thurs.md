@@ -47,7 +47,7 @@
     </tr>
     <tr>
       <td>1:00pm - 1:45pm</td>
-      <td><a href="program.html#tab-keynotes">Title to be Announced</a><br>
+      <td><a href="program.html#tab-keynotes">Biological Sequence Modeling in Research and Applications</a><br>
       <span class="font-italic"><span class="font-weight-bold">Jun Cheng, PhD,</span> DeepMind</span></td> 
     </tr>
      <tr>

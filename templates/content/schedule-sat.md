@@ -57,7 +57,7 @@ Moderated by <span class="font-weight-bold">Jessica Gronsbell, PhD,</span> Unive
     <tr>
       <td>1:30pm - 1:50pm</td>
       <td><a href="program.html#tab-debates">NetworkStudies: As Many Databases as Possible or Enough to Answer the Question Quickly?</a><br>
-        <span class="font-italic"><span class="font-weight-bold">Christopher Chute, MD,</span> Johns Hopkins University and <span class="font-weight-bold">Robertt Platt, PhD,</span> McGill University</span>
+        <span class="font-italic"><span class="font-weight-bold">Christopher Chute, MD,</span> Johns Hopkins University and <span class="font-weight-bold">Robert Platt, PhD,</span> McGill University</span>
       </td>
     </tr>
      <tr>
@@ -93,8 +93,13 @@ Moderated by <span class="font-weight-bold">Jessica Gronsbell, PhD,</span> Unive
     <tr>
       <td>4:45pm - 5:15pm</td>
       <td><span class="font-weight-bold">
-      Session XIII: I Can’t Believe It’s Not Better</span><br>
-      Lightning Talks</td> 
+      Session XIII: I Can’t Believe It’s Not Better Lightning Talks</span><br>
+      <span class="font-italic"><span class="font-weight-bold">David Bellamy</span>, Bhawesh Kumar, Cindy Wang, Andrew Beam</span> : Can pre-trained Transformers beat simple baselines on lab data?<br>
+      <span class="font-italic"><span class="font-weight-bold">Hiba Ahsan</span>, Silvio Amir, Byron Wallace</span> : On the Difficulty of Disentangling Race in Representations of Clinical Notes<br>
+      <span class="font-italic"><span class="font-weight-bold">Olga Delmer</span></span> : On intransitivity of win ratio and area under the receiver operating characteristics curve<br>
+      <span class="font-italic"><span class="font-weight-bold">Wouter van Amsterdam</span>, Rajesh Ranganath</span> : My prediction model is super accurate so it will be useful for treatment decision making, right? Wrong!<br>
+      <span class="font-italic"><span class="font-weight-bold">Yuan Zhao</span>, David Benkeser, Russell Kempker</span> : Doubly Robust Approaches for Estimating Treatment Effect in Observational Studies are not Better than G-Computation
+    </td> 
     </tr>
      <tr>
       <td>5:15pm - 5:20pm</td>
