@@ -9,6 +9,21 @@ AHLI CHIL 2023 will be held at the Broad Institute of MIT and Harvard (Merkin Bu
 
 <img src="static/images/venue.png" class="img-fluid" alt="Map of venue"/>
 
+### ACCOMMODATION
+
+We negotiated a room block for attendees at the [Boston Marriott Cambridge hotel](https://www.marriott.com/en-us/hotels/boscb-boston-marriott-cambridge/overview/) for a discounted rate. 
+
+A number of rooms are being offered at this rate on a first come first serve basis until Thursday, May 18th, after which room rates are subject to change. Please use one of two methods to book a room: 
+
+* Contact the Reservations Centre at 1-800-228-9290 with the group name CHIL Conference Room Block
+* Use this [weblink](https://www.marriott.com/event-reservations/reservation-link.mi?id=1669818612384&key=GRP&app=resvlink) to book.
+
+
+Other local accommodation options are: 
+
+* [Residence Inn by Boston Marriott Cambridge](https://www.marriott.com/en-us/hotels/boscm-residence-inn-boston-cambridge/overview/)
+* [The Kendall Hotel](https://kendallhotel.com/)
+
 
 ### GETTING TO THE VENUES
 
