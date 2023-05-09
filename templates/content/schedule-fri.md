@@ -76,8 +76,8 @@ Moderated by <span class="font-weight-bold">Isaac Kohane, MD, PhD,</span> Harvar
       <td>Closing Remarks</td>
     </tr>
      <tr>
-      <td>5:05pm - 7:00pm</td>
-      <td>Self-Organized Social</td>
+      <td>5:15pm - 7:15pm</td>
+      <td>Evening Social at Microsoft New England AI Conference Center (1 Memorial Dr., Cambridge, MA 02142)</td>
     </tr>
   </tbody>
 </table>
