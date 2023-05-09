@@ -40,14 +40,14 @@
       </td>
     </tr>
      <tr>
-      <td>12:00pm - 12:30pm</td>
-      <td><a href="program.html#tab-invited">Panel Discussion</a><br>
-        <span class="font-italic"><span class="font-weight-bold">Suchi Saria, PhD,</span> Johns Hopkins University, <span class="font-weight-bold">Karandeep Singh, MD,</span> University of Michigan, and <span class="font-weight-bold">Nigam Shah, MBBS, PhD,</span> Stanford University. 
-Moderated by <span class="font-weight-bold">Jessica Gronsbell, PhD,</span> University of Toronto, and <span class="font-weight-bold">Rui Duan, PhD,</span> Harvard University</span>
+      <td>12:00pm - 12:45pm</td>
+      <td><a href="program.html#tab-invited">Machine Learning for Healthcare in the Era of ChatGPT</a><br>
+        <span class="font-italic"><span class="font-weight-bold">Karandeep Singh, MD,</span> University of Michigan, and <span class="font-weight-bold">Nigam Shah, MBBS, PhD,</span> Stanford University. 
+Moderated by <span class="font-weight-bold">Byron Wallace, PhD,</span> Northeastern University</span>
       </td>
     </tr>
     <tr>
-      <td>12:30pm - 1:30pm</td>
+      <td>12:45pm - 1:30pm</td>
       <td>Lunch Break</td> 
     </tr>
     <tr>
@@ -74,9 +74,9 @@ Moderated by <span class="font-weight-bold">Jessica Gronsbell, PhD,</span> Unive
     </tr>
      <tr>
       <td>2:30pm - 3:00pm</td>
-      <td><span class="font-weight-bold">Session XI: Research Roundtables</span><br>
-        ApolloMed: Topic to be Announced <br>
-        Dandelion Health: Topic to be Announced <br>
+      <td><span class="font-weight-bold"><a href="program.html#tab-roundtables">Session XI: Research Roundtables</a></span><br>
+        Bridging the gap between the business of value-based care and the research of health AI, <span class="font-italic"><span class="font-weight-bold">Yubin Park, PhD</span>, ApolloMed</span><br>
+        Auditing Algorithm Performance and Equity, <span class="font-italic"><span class="font-weight-bold">Ziad Obermeyer</span>, Dandelion Health</span><br>
         Topic to be Announced <br>
         Topic to be Announced <br>
         Topic to be Announced</td>
@@ -96,7 +96,7 @@ Moderated by <span class="font-weight-bold">Jessica Gronsbell, PhD,</span> Unive
       Session XIII: I Can’t Believe It’s Not Better Lightning Talks</span><br>
       <span class="font-italic"><span class="font-weight-bold">David Bellamy</span>, Bhawesh Kumar, Cindy Wang, Andrew Beam</span> : Can pre-trained Transformers beat simple baselines on lab data?<br>
       <span class="font-italic"><span class="font-weight-bold">Hiba Ahsan</span>, Silvio Amir, Byron Wallace</span> : On the Difficulty of Disentangling Race in Representations of Clinical Notes<br>
-      <span class="font-italic"><span class="font-weight-bold">Olga Delmer</span></span> : On intransitivity of win ratio and area under the receiver operating characteristics curve<br>
+      <span class="font-italic"><span class="font-weight-bold">Olga Demler</span></span> : On intransitivity of win ratio and area under the receiver operating characteristics curve<br>
       <span class="font-italic"><span class="font-weight-bold">Wouter van Amsterdam</span>, Rajesh Ranganath</span> : My prediction model is super accurate so it will be useful for treatment decision making, right? Wrong!<br>
       <span class="font-italic"><span class="font-weight-bold">Yuan Zhao</span>, David Benkeser, Russell Kempker</span> : Doubly Robust Approaches for Estimating Treatment Effect in Observational Studies are not Better than G-Computation
     </td> 
