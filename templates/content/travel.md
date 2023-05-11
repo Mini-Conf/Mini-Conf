@@ -11,14 +11,26 @@ AHLI CHIL 2023 will be held at the Broad Institute of MIT and Harvard (Merkin Bu
 
 ### ACCOMMODATION
 
-We negotiated a room block for attendees at the [Boston Marriott Cambridge hotel](https://www.marriott.com/en-us/hotels/boscb-boston-marriott-cambridge/overview/) from Wednesday, June 21 to Saturday, June 24, 2023 at a discounted rate of $259 USD per night plus applicable taxes and fees. The Boston Mariott Cambridge hotel is a 4-6 minute walk from the Broad Institute and CSAIL. 
+We negotiated a room block for attendees at the [Boston Marriott Cambridge hotel](https://www.marriott.com/en-us/hotels/boscb-boston-marriott-cambridge/overview/) from <s>Wednesday, June 21</s> Thursday, June 22 to Saturday, June 24, 2023 at a discounted rate of $259 USD per night plus applicable taxes and fees. The Boston Mariott Cambridge hotel is a 4-6 minute walk from the Broad Institute and CSAIL. 
 
-A limited number of rooms are being offered on a first come first serve basis until Thursday, May 18th, after which room rates are subject to change. Note there is limited availability on Saturday night and may default to a higher rate.
+A limited number of rooms are being offered on a first come first serve basis until Thursday, May 18th, after which room rates are subject to change. Note there is no availability on Wednesday night and limited availability on Saturday night and will default to the market rate.
+To add June 21st (at the market rate) to your reservation, please email [info@chilconference.org](info@chilconference.org) with the following information:
+
+* Name
+* Check in Date
+* Check out Date
+* Email address
+* Marriott Bonvoy #
+* Any special requests
+
 
 Please use one of two methods to book a room: 
 
 * Contact the Reservations Centre at 1-800-228-9290 with the group name CHIL Conference Room Block
 * Use this [weblink](https://www.marriott.com/event-reservations/reservation-link.mi?id=1669818612384&key=GRP&app=resvlink) to book.
+
+
+
 
 
 Other local accommodation options are: 
