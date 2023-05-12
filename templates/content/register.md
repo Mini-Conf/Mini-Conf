@@ -11,7 +11,7 @@ All prices are in USD.
         </tr>
         <tr>
             <td class="text-left"><span class="font-weight-bold">Early Bird</span><br>
-                Sales end May 15, 2023
+                Sales end <s>May 15, 2023</s> May 31, 2023
             </td>
             <td>$260</td>
             <td>$465</td>
