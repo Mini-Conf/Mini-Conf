@@ -35,7 +35,12 @@
     </tr>
     <tr>
       <td>11:00am - 12:00pm</td>
-      <td>Oral Talks I</td>
+      <td><span class="font-weight-bold">Oral Talks I</span><br>
+        <span class="font-italic">Li Xu, Bo Liu, Ameer Hamza Khan, Lu Fan, <span class="font-weight-bold">Xiao-Ming Wu</span></span>: <a href="proceeding_P13.html">Multi-modal Pre-training for Medical Vision-language Understanding and Generation: An Empirical Study with A New Benchmark</a><br>
+        <span class="font-italic"><span class="font-weight-bold">Vincent Jeanselme</span>, Chang Ho Yoon, Brian Tom, Jessica Barrett</span>: <a href="proceeding_P12.html">Neural Fine-Gray: Monotonic neural networks for competing risks</a><br>
+        <span class="font-italic"><span class="font-weight-bold">Eunbyeol Cho</span>, Min Jae Lee, Kyunghoon Hur, Jiyoun Kim, Jinsung Yoon, Edward Choi</span>: <a href="proceeding_P28.html">Rediscovery of CNN's Versatility for Text-based Encoding of Raw Electronic Health Records</a><br>
+        <span class="font-italic"><span class="font-weight-bold">William La Cava</span>, Elle Lett, Guangya Wan</span>: <a href="proceeding_P23.html">Fair Admission Risk Prediction with Proportional Multicalibration</a>
+      </td>
     </tr>
      <tr>
       <td>12:00pm - 1:00pm</td>
@@ -52,7 +57,12 @@
     </tr>
      <tr>
       <td>1:45pm - 2:45pm</td>
-      <td>Oral Talks II</td>
+      <td><span class="font-weight-bold">Oral Talks II</span><br>
+      <span class="font-italic"><span class="font-weight-bold">Kevin Wu</span>, Dominik Dahlem, Christopher Hane, Eran Halperin, James Zou</span>: <a href="proceeding_P24.html">Collecting data when missingness is unknown: a method for improving model performance given under-reporting in patient populations</a><br>
+      <span class="font-italic"><span class="font-weight-bold">Christina X Ji</span>, Ahmed Alaa, David Sontag</span>: <a href="proceeding_P09.html">Large-Scale Study of Temporal Shift in Health Insurance Claims</a><br>
+      <span class="font-italic"><span class="font-weight-bold">Toshiya Yoshida</span>, Trinity Shuxian Fan, Tyler McCormick, Zhenke Wu, Zehang Richard Li</span>: <a href="proceeding_P17.html">Bayesian Active Questionnaire Design for Cause-of-Death Assignment Using Verbal Autopsies</a><br>
+      <span class="font-italic"><span class="font-weight-bold">Eric Lehman</span>, Evan Hernandez, Diwakar Mahajan, Jonas Wulff, Micah J. Smith, Zachary Ziegler, Daniel Nadler, Peter Szolovits, Alistair Johnson, Emily Alsentzer</span>: <a href="proceeding_P31.html">Do We Still Need Clinical Language Models?</a><br>
+    </td>
     </tr>
     <tr>
       <td>2:45pm - 3:10pm</td>
