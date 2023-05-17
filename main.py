@@ -320,7 +320,9 @@ def proceedings():
     data["proceedings"] = [
         format_workshop(proceeding) for proceeding in site_data["proceedings"]
     ]
-
+    # convert to a and b
+    data["sessiona"] = [x for x in data["proceedings"] if x["session"] == "A"]
+    data["sessionb"] = [x for x in data["proceedings"] if x["session"] == "B"]
     return render_template("proceedings.html", **data)
 
 
@@ -510,7 +512,7 @@ def format_workshop(v):
         "id": v["UID"],
         "title": v["title"],
         "organizers": list_fields["authors"],
-        "abstract": v["abstract"],
+        "abstract": v["abstract"]
     }
 
     if "bio" in v:
@@ -525,6 +527,8 @@ def format_workshop(v):
         formatted_workshop["doi_link"] = v["doi_link"]
     if "image" in v:
         formatted_workshop["image"] = v["image"]
+    if "session" in v:
+        formatted_workshop["session"] = v["session"]
 
     return formatted_workshop
 

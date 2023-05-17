@@ -70,7 +70,7 @@
     </tr>
      <tr>
       <td>3:10pm - 4:10pm</td>
-      <td><span class="font-weight-bold">Session III: Poster Session A</span></td>
+      <td><span class="font-weight-bold"><a href="proceedings.html#tab-postera">Session III: Poster Session A</a></span></td>
     </tr>
      <tr>
       <td>4:10pm - 5:10pm</td>

@@ -10,13 +10,37 @@
     <h1>Accepted Papers</h1>
     <p>* denotes the presenting authors</p> 
   </div>
-
+  {{ components.tabs([
+        ("postera", "Poster Session A (Thursday 3:10 PM - 4:10 PM)", "active"),
+        ("posterb", "Poster Session B (Friday 3:00 PM - 4:00 PM)"),
+    ])}}
 {% endblock %}
 
 {% block content %}
   <div class="page-content">
-    {% if proceedings %}
-      {{ components.proceedingpgroup(proceedings) }}
-    {% endif %}
+    <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+      <!-- Thurs -->
+      <div
+        class="tab-pane active"
+        id="tab-postera"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+      {% if sessiona %}
+        {{ components.proceedingpgroup(sessiona) }}
+      {% endif %}
+      </div>
+    <!-- Fri -->
+    <div
+        class="tab-pane"
+        id="tab-posterb"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+      {% if sessionb %}
+        {{ components.proceedingpgroup(sessionb) }}
+      {% endif %}
+    </div>
   </div>
+</div>
 {% endblock %}
