@@ -49,7 +49,7 @@
      <tr>
       <td>12:00pm - 12:45pm</td>
       <td><a href="program.html#tab-invited">Machine Learning for Healthcare in the Era of ChatGPT</a><br>
-        <span class="font-italic"><span class="font-weight-bold">Karandeep Singh, MD,</span> University of Michigan, and <span class="font-weight-bold">Nigam Shah, MBBS, PhD,</span> Stanford University, and <span class="font-italic"><span class="font-weight-bold">Suchi Saria, PhD,</span> Johns Hopkins University</span>Moderated by <span class="font-weight-bold">Byron Wallace, PhD,</span> Northeastern University</span>.
+        <span class="font-italic"><span class="font-weight-bold">Karandeep Singh, MD,</span> University of Michigan, and <span class="font-weight-bold">Nigam Shah, MBBS, PhD,</span> Stanford University, and <span class="font-italic"><span class="font-weight-bold">Tristan Naumann, PhD,</span> Microsoft Research</span>. Moderated by <span class="font-weight-bold">Byron Wallace, PhD,</span> Northeastern University</span>.
 </td>
       <td>CSAIL Kirsch Auditorium</td>
     </tr>
