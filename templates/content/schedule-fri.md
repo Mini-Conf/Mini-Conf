@@ -42,7 +42,7 @@
     <tr>
       <td>11:00am - 12:00pm</td>
       <td><span class="font-weight-bold">Oral Talks III</span><br>
-      <span class="font-italic"><span class="font-weight-bold">Yi Yang</span>, Hejie Cui, Carl Yang</span>: <a href="proceeding_P30.html">PTGB: Pre-Train Graph Neural Networks for Brain Network Analysis</a><br>
+      Yi Yang, <span class="font-italic"><span class="font-weight-bold">Hejie Cui</span>, Carl Yang</span>: <a href="proceeding_P30.html">PTGB: Pre-Train Graph Neural Networks for Brain Network Analysis</a><br>
       <span class="font-italic"><span class="font-weight-bold">
       Siyi Tang</span>, Jared A. Dunnmon, Liangqiong Qu, Khaled K. Saab, Tina Baykaner, Christopher Lee-Messer, Daniel L. Rubin</span>: <a href="proceeding_P11.html">Modeling Multivariate Biosignals With Graph Neural Networks and Structured State Space Models</a><br>
       <span class="font-italic"><span class="font-weight-bold">Sarwan Ali</span>, Babatunde Bello, Prakash Chourasia, Ria Thazhe Punathil, Pin-Yu Chen, Imdad Ullah Khan, Murray Patterson</span>: <a href="proceeding_P06.html">Virus2Vec: Viral Sequence Classification Using Machine Learning</a><br>

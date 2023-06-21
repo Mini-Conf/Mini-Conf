@@ -87,7 +87,7 @@
       <td>2:30pm - 3:00pm</td>
       <td><span class="font-weight-bold"><a href="program.html#tab-roundtables">Session XI: Research Roundtables</a></span><br>
         Bridging the gap between the business of value-based care and the research of health AI, <span class="font-italic"><span class="font-weight-bold">Yubin Park, PhD</span>, ApolloMed</span><br>
-        Auditing Algorithm Performance and Equity, <span class="font-italic"><span class="font-weight-bold">Ziad Obermeyer</span>, Dandelion Health</span><br>
+        Auditing Algorithm Performance and Equity, <span class="font-italic"><span class="font-weight-bold">Alistair Johnson</span>, Hospital for Sick Children</span><br>
         Data privacy: Interactive or Non-interactive?, <span class="font-italic"><span class="font-weight-bold">Khaled El Emam, PhD,</span> University of Ottawa and <span class="font-weight-bold">Li Xiong, PhD,</span> Emory University</span><br>
         Data Heterogeneity: More Heterogeneous Data or Less Homogeneous Data?, <span class="font-weight-bold">Tianxi Cai, ScD,</span> Harvard Medical School and <span class="font-weight-bold">Yong Chen, PhD,</span> University of Pennsylvania</span><br>
         NetworkStudies: As Many Databases as Possible or Enough to Answer the Question Quickly?, <span class="font-italic"><span class="font-weight-bold">Christopher Chute, MD,</span> Johns Hopkins University and <span class="font-weight-bold">Robert Platt, PhD,</span> McGill University</span></td>
