@@ -28,7 +28,7 @@
       <td>CSAIL Kirsch Auditorium</td>
     </tr>
      <tr>
-      <td>9:50am - 10:45am</td>
+      <td>9:55am - 10:45am</td>
       <td><a href="program.html#tab-invited">Invited Talk on Recent Deployments and Real-world Impact</a><br>
         <span class="font-italic"><span class="font-weight-bold">Karandeep Singh, MD,</span> University of Michigan</span>
       </td> 
