@@ -24,7 +24,7 @@
      <tr>
       <td>9:05am - 9:55am</td>
       <td><a href="program.html#tab-invited">Invited Talk on Research and Top Recent Papers from 2020-2022</a><br>
-      <span class="font-italic"><span class="font-weight-bold">Suchi Saria, PhD,</span> Johns Hopkins University</span></td>
+      <span class="font-italic"><span class="font-weight-bold">Suchi Saria, PhD,</span> Johns Hopkins University & Bayesian Health</span></td>
       <td>CSAIL Kirsch Auditorium</td>
     </tr>
      <tr>
