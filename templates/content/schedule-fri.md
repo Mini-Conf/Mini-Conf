@@ -29,7 +29,7 @@
     </tr>
      <tr>
       <td>9:50am - 10:35am</td>
-      <td><a href="program.html#tab-keynotes">Title to be Announced</a><br>
+      <td><a href="program.html#tab-keynotes">A Healthcare Platform Powered by ML and Radio Waves</a><br>
         <span class="font-italic"><span class="font-weight-bold">Dina Katabi, PhD,</span> MIT</span>
       </td> 
       <td>Broad Auditorium</td>
