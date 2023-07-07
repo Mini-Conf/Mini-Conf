@@ -1,9 +1,9 @@
-name: CHIL 2023
+name: CHIL 2024
 tagline: Conference on <br> Health, Inference, and Learning
-date: June 22-24, 2023 <br> <small>Cambridge, MA, United States</small>
-countdown_date: June 22, 2023
-citation_date: June 2023
-proceedings_title: Proceedings of CHIL 2023
+date: June 2024 <br> <small>New York City, NY, United States</small>
+countdown_date: June, 2024
+citation_date: June 2024
+proceedings_title: Proceedings of CHIL 2024
 analytics: UA-
 logo:
   image:
@@ -11,7 +11,7 @@ logo:
   height: 50px
   alt_text: 'CHIL logo'
 # uncomment the following line to show the site title next to the logo image
-site_title: CHIL 2023
+site_title: CHIL 2024
 page_title:
   prefix: 'CHIL'
   separator: ': '

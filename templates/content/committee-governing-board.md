@@ -1,10 +1,9 @@
 ##### **General Chairs**
-- Joyce Ho of Emory University
-- Andrew Beam of Harvard University
+- Matthew McDermott of Harvard Medical School
+- Marzyeh Ghassemi of MIT
 ##### **Program Chairs**
-- Matthew McDermott of Harvard University
-- Emily Alsentzer of Harvard University & Brigham and Women's Hospital
-##### **Track Chairs**
+- Fei Wang of Weill Cornell Medicine
+<!-- ##### **Track Chairs**
 - ##### **Track 1**
     * Mike Hughes of Tufts University (Track Lead)
     * Yuyin Zhou of University of California, Santa Cruz
@@ -42,4 +41,4 @@
 - Edward Choi of KAIST
 - Harvineet Singh of New York University
 ##### **Doctoral Symposium Chair**
-- Tom Hartvigsen of MIT
+- Tom Hartvigsen of MIT -->
