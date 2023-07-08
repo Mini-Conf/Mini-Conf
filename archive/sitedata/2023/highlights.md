@@ -1,9 +1,31 @@
+<div class="page-content live text-center p-3">
+  <!-- YouTube -->
+  <div class="row p-3">
+    <div class="col-12 bd-content">
+      <h3>Day 1 - June 22nd</h3>
+    </div>
+  </div>
+  <div id="youtube-embed" class="col-md-12 col-xs-12 p-3">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/HzoBULgJqsQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+  <div class="row p-3">
+    <div class="col-12 bd-content">
+      <h3>Day 2 - June 3rd</h3>
+    </div>
+  </div>
+  <div id="youtube-embed2" class="col-md-12 col-xs-12 p-3">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/ulAayPsfj2Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div>
+</div>
+
+
 ##### **General Chairs**
--  [Matthew McDermott](https://dbmi.hms.harvard.edu/people/matthew-mcdermott) of Harvard Medical School
-- [Marzyeh Ghassemi](https://healthyml.org/marzyeh/) of MIT
+- Joyce Ho of Emory University
+- Andrew Beam of Harvard University
 ##### **Program Chairs**
-- [Fei Wang](https://weill.cornell.edu/faculty-highlight/fei-wang-phd) of Weill Cornell Medicine
-<!-- ##### **Track Chairs**
+- Matthew McDermott of Harvard University
+- Emily Alsentzer of Harvard University & Brigham and Women's Hospital
+##### **Track Chairs**
 - ##### **Track 1**
     * Mike Hughes of Tufts University (Track Lead)
     * Yuyin Zhou of University of California, Santa Cruz
@@ -41,4 +63,15 @@
 - Edward Choi of KAIST
 - Harvineet Singh of New York University
 ##### **Doctoral Symposium Chair**
-- Tom Hartvigsen of MIT -->
+- Tom Hartvigsen of MIT
+
+
+### Sponsors
+Thank you to our 2023 sponsors:
+
+- ApolloMed
+- Dandelion Health
+- Genentech
+- Apple
+- Sage BioNetworks
+- AITRICS

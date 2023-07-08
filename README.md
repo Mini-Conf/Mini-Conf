@@ -104,7 +104,7 @@ Currently, past event pages have been built for the following sitedata files:
 - tutorials.csv
 - workshops.csv
 
-There is also a highlights.md file which you can be added if you would like to manually currate or display additional page for a given archived year.
+There is also a highlights.md file which can be added if you would like to manually currate or display an additional page for a given archived year.
 
 Steps to archive the current year's data (assuming 2022 is the current year):
 1. Create a folder in `./archive/sitedata` with the name of the current year (2022)

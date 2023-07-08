@@ -9,25 +9,25 @@ Financial support ensures that CHIL remains accessible to a broad set of partici
 
 <br />
 
-### 2023 Sponsorship Levels
+### 2024 Sponsorship Levels
 
 Sponsorship of the annual AHLI Conference on Health, Inference and Learning (CHIL) contributes to furthering research and interdisciplinary dialogue around machine learning and health. We deeply appreciate any amount of support your company or foundation can provide.
 <br />
 
+
 #### Platinum ($20,000 USD)
 - Prominent display of company logo on our website
 - Verbal acknowledgment of contribution in the opening and closing remarks of the conference
-- Access to CHIL 2022 attendees’ contact and CV who opt-in for career opportunities
-- Dedicated time at the reception or a keynote session
-- Host a Research Roundtable
+- Access to CHIL 2024 attendees’ contact and CV who opt-in for career opportunities
+- Dedicated time during the lunch break to present a 20-minute talk on company's research in machine learning and health research or development
 - Present demo during the poster session
 - Free registration for up to ten (10) representatives from your organization
 - Free company booth at the venue
 
+
 #### Gold ($10,000 USD)
 - Prominent display of company logo on our website
 - Verbal acknowledgment of contribution in the opening and closing remarks of the conference
-- Host a Research Roundtable
 - Present demo during the poster session
 - Free registration for up to five (5) representatives from your organization
 - Free company booth at the venue
@@ -46,10 +46,4 @@ Sponsorship of the annual AHLI Conference on Health, Inference and Learning (CHI
 
 <br />
 
-### Finance Chairs
-- Edward Choi
-- Harvineet Singh
-
-<br />
-
-To become an CHIL 2023 sponsor, please email [info@chilconference.org](mailto:info@chilconference.org)
+To become an CHIL 2024 sponsor, please email [finance@chilconference.org](mailto:finance@chilconference.org)
