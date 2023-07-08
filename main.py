@@ -638,6 +638,37 @@ def past_roundtable(year,roundtable):
     data["roundtable"] = format_workshop(v)
     return render_template("roundtable.html", **data)
 
+@app.route("/<year>/invite_<invite>.html")
+def past_invite(year, invite):
+    uid = invite
+    v = by_uid["archive"][year]["invited"][uid]
+    data = _data()
+    data["year"] = year
+    data["isArchive"] = True
+    data["roundtable"] = format_workshop(v)
+    return render_template("roundtable.html", **data)
+
+
+@app.route("/<year>/debate_<debate>.html")
+def past_debate(year, debate):
+    uid = debate
+    v = by_uid["archive"][year]["debates"][uid]
+    data = _data()
+    data["year"] = year
+    data["isArchive"] = True
+    data["roundtable"] = format_workshop(v)
+    return render_template("roundtable.html", **data)
+
+@app.route("/<year>/panel_<panel>.html")
+def past_panel(year, panel):
+    uid = panel
+    v = by_uid["archive"][year]["panels"][uid]
+    data = _data()
+    data["year"] = year
+    data["isArchive"] = True
+    data["roundtable"] = format_workshop(v)
+    return render_template("roundtable.html", **data)
+
 @app.route("/proceeding_<proceeding>.html")
 def proceeding(proceeding):
     uid = proceeding
