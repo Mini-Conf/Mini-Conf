@@ -1,6 +1,6 @@
 <div class="page-content live text-center p-3">
   <!-- YouTube -->
-  <div class="row p-3">
+<!--   <div class="row p-3">
     <div class="col-12 bd-content">
       <h3>Day 1 - June 22nd</h3>
     </div>
@@ -15,7 +15,7 @@
   </div>
   <div id="youtube-embed2" class="col-md-12 col-xs-12 p-3">
     <iframe width="560" height="315" src="https://www.youtube.com/embed/ulAayPsfj2Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-  </div>
+  </div> -->
 </div>
 
 

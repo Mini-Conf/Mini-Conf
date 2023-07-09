@@ -1,0 +1,18 @@
+{% set active_page = "Past Events" %}
+{% set page_title = "Past Events - Panels" %}
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="page-header text-center">
+    <h1>Panels from {% if (archive_year | int) < 2022 %}ACM{% endif %} CHIL {{archive_year}}</h1>
+  </div>
+  <div class="page-content">
+    <!-- Panelists -->
+    {% if panels %}
+    {{ components.speakergroup(panels) }}
+    {% endif %}
+  </div>
+{% endblock %}
+
+{% block bottom %}
+{% endblock %}

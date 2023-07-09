@@ -44,8 +44,20 @@ def main(site_data_path):
     archive_path_sitedata = archive_path_root + "/sitedata"
     archive_dir_exists = archive_directory_check(archive_path_sitedata)
 
+    # custom sort order for archive items
+    data_type_order = {'highlights.md': 1,
+                       'proceedings.csv': 2,
+                       'speakers.csv': 3,
+                       'invited.csv': 4,
+                       'panels.csv': 5,
+                       'debates.csv': 6,
+                       'roundtables.csv': 7,
+                       'tutorials.csv': 8,
+                       'workshops.csv': 9,
+                       'symposiums.csv': 10}
+
     if archive_dir_exists:
-        archive_directories = os.listdir(archive_path_sitedata)
+        archive_directories = sorted(os.listdir(archive_path_sitedata))
         site_data[archive_path_root] = {}
         archive_root_dict = {}
         archive_year_summary_dict = {}
@@ -67,8 +79,12 @@ def main(site_data_path):
                             archive_dict.update({str(archive_year): {}})
 
                         archive_year_summary_dict.update({str(archive_year): False})
+                        # make it so the files are sorted based on order above
+                        archive_year_files = glob.glob(archive_path + "/*")
+                        f_order = [data_type_order[os.path.basename(f)] for f in archive_year_files]
+                        sorted_f_order = sorted(zip(f_order, archive_year_files))
 
-                        for f in glob.glob(archive_path + "/*"):
+                        for _, f in sorted_f_order:
                             extra_files.append(f)
                             name, typ = f.split("/")[-1].split(".")
 
@@ -458,6 +474,9 @@ def archive(year, template):
         elif template == "highlights":
             data[template] = site_data[archive_path_root][year][template]
             return render_template(f"past-events-{template}.html", **data)
+        elif template in ["panels", "invited", "debates"]:
+            data[template] = site_data[archive_path_root][year][template]
+            return render_template(f"past-events-{template}.html", **data)
     else:
         error = {
             "title": "Oops!",
@@ -613,6 +632,37 @@ def roundtable(roundtable):
 def past_roundtable(year,roundtable):
     uid = roundtable
     v = by_uid["archive"][year]["roundtables"][uid]
+    data = _data()
+    data["year"] = year
+    data["isArchive"] = True
+    data["roundtable"] = format_workshop(v)
+    return render_template("roundtable.html", **data)
+
+@app.route("/<year>/invite_<invite>.html")
+def past_invite(year, invite):
+    uid = invite
+    v = by_uid["archive"][year]["invited"][uid]
+    data = _data()
+    data["year"] = year
+    data["isArchive"] = True
+    data["roundtable"] = format_workshop(v)
+    return render_template("roundtable.html", **data)
+
+
+@app.route("/<year>/debate_<debate>.html")
+def past_debate(year, debate):
+    uid = debate
+    v = by_uid["archive"][year]["debates"][uid]
+    data = _data()
+    data["year"] = year
+    data["isArchive"] = True
+    data["roundtable"] = format_workshop(v)
+    return render_template("roundtable.html", **data)
+
+@app.route("/<year>/panel_<panel>.html")
+def past_panel(year, panel):
+    uid = panel
+    v = by_uid["archive"][year]["panels"][uid]
     data = _data()
     data["year"] = year
     data["isArchive"] = True
