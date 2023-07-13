@@ -15,7 +15,7 @@ Sponsorship of the annual AHLI Conference on Health, Inference and Learning (CHI
 <br />
 
 
-#### Platinum ($20,000 USD)
+#### Diamond ($20,000 USD)
 - Prominent display of company logo on our website
 - Verbal acknowledgment of contribution in the opening and closing remarks of the conference
 - Access to CHIL 2024 attendees’ contact and CV who opt-in for career opportunities
@@ -39,7 +39,7 @@ Sponsorship of the annual AHLI Conference on Health, Inference and Learning (CHI
 - Free registration for up to two (2) representatives from your organization
 
 
-#### Academy/Start-up ($2,000 USD)
+#### Bronze ($2,000 USD)
 - Prominent display of company logo on our website
 - Free registration for one (1) representative from your organization
 
