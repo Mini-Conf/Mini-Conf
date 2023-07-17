@@ -2,7 +2,7 @@
 -  [Matthew McDermott](https://dbmi.hms.harvard.edu/people/matthew-mcdermott) of Harvard Medical School
 - [Marzyeh Ghassemi](https://healthyml.org/marzyeh/) of MIT
 ##### **Program Chairs**
-- [Fei Wang](https://weill.cornell.edu/faculty-highlight/fei-wang-phd) of Weill Cornell Medicine
+- [Fei Wang](https://wcm-wanglab.github.io/) of Weill Cornell Medicine
 <!-- ##### **Track Chairs**
 - ##### **Track 1**
     * Mike Hughes of Tufts University (Track Lead)
