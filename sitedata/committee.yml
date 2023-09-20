@@ -4,82 +4,122 @@ committee:
   #   aff: MIT-IBM Watson AI Lab
   #   tw: hen_str
   #   im: https://avatars1.githubusercontent.com/u/950990?s=460&u=fba00c4d7c79fd9e4b83a15394dd1bbe7b7d3df5&v=4
-  # - role: General
-  #   name: Tristan Naumann
-  #   aff: Microsoft Research
+  - role: General
+    name: Anon Person
+    aff: Microsoft Research
+    img: anon-person.jpg
+    url: https://www.chilconference.org/committee.html
 
-  # - role: General
-  #   name: Joyce Ho
-  #   aff: Emory University
+  - role: General
+    name: Joyce Ho
+    aff: Emory University
+    img:
+    url: https://www.chilconference.org/committee.html
 
-  # - role: Program
-  #   name: Sherri Rose
-  #   aff: Stanford University
+  - role: Program
+    name: Sherri Rose
+    aff: Stanford University
+    img:
+    url: https://www.chilconference.org/committee.html
 
-  # - role: Program
-  #   name: Matthew McDermott
-  #   aff: MIT
+  - role: Program
+    name: Matthew McDermott
+    aff: MIT
+    img:
+    url: https://www.chilconference.org/committee.html
 
-  # - role: Proceedings
-  #   name: George Chen
-  #   aff: Carnegie Mellon University 
+  - role: Proceedings
+    name: George Chen
+    aff: Carnegie Mellon University
+    img:
+    url: https://www.chilconference.org/committee.html
 
-  # - role: Proceedings
-  #   name: Tom Pollard
-  #   aff: MIT
+  - role: Proceedings
+    name: Tom Pollard
+    aff: MIT
+    img:
+    url: https://www.chilconference.org/committee.html
 
-  # - role: Proceedings
-  #   name: Gerardo Flores
-  #   aff: Google
+  - role: Proceedings
+    name: Gerardo Flores
+    aff: Google
+    img:
+    url: https://www.chilconference.org/committee.html
 
-  # - role: Track
-  #   name: Rahul Krishnan
-  #   aff: University of Toronto
+  - role: Track
+    name: Rahul Krishnan
+    aff: University of Toronto
+    img:
+    url: https://www.chilconference.org/committee.html
 
-  # - role: Track
-  #   name: Shalmali Joshi
-  #   aff: Harvard University
+  - role: Track
+    name: Shalmali Joshi
+    aff: Harvard University
+    img:
+    url: https://www.chilconference.org/committee.html
 
-  # - role: Track
-  #   name: Alistair Johnson
-  #   aff: Hospital for Sick Children
+  - role: Track
+    name: Alistair Johnson
+    aff: Hospital for Sick Children
+    img:
+    url: https://www.chilconference.org/committee.html
 
-  # - role: Track
-  #   name: Judy Gichoya
-  #   aff: Emory University
+  - role: Track
+    name: Judy Gichoya
+    aff: Emory University
+    img:
+    url: https://www.chilconference.org/committee.html
 
-  # - role: Communications
-  #   name: Sanja Scepanovic
-  #   aff: Bell Labs
+  - role: Communications
+    name: Sanja Scepanovic
+    aff: Bell Labs
+    img:
+    url: https://www.chilconference.org/committee.html
 
-  # - role: Communications
-  #   name: Emily Alsentzer
-  #   aff: MIT, Harvard University
+  - role: Communications
+    name: Emily Alsentzer
+    aff: MIT, Harvard University
+    img:
+    url: https://www.chilconference.org/committee.html
 
-  # - role: Finance
-  #   name: Brett Beaulieu-Jones
-  #   aff: Harvard Medical School
+  - role: Finance
+    name: Brett Beaulieu-Jones
+    aff: Harvard Medical School
+    img:
+    url: https://www.chilconference.org/committee.html
 
-  # - role: Finance
-  #   name: Ahmed Alaa
-  #   aff: MIT, Harvard University
+  - role: Finance
+    name: Ahmed Alaa
+    aff: MIT, Harvard University
+    img:
+    url: https://www.chilconference.org/committee.html
 
-  # - role: Finance
-  #   name: Tasmie Sarker
-  #   aff: Association for Health Learning and Inference 
+  - role: Finance
+    name: Tasmie Sarker
+    aff: Association for Health Learning and Inference
+    img:
+    url: https://www.chilconference.org/committee.html
 
-  # - role: Tutorial
-  #   name: Jessica Gronsbell
-  #   aff: University of Toronto 
-  
-  # - role: Tutorial
-  #   name: Harvineet Singh
-  #   aff: New York University
+  - role: Tutorial
+    name: Jessica Gronsbell
+    aff: University of Toronto
+    img:
+    url: https://www.chilconference.org/committee.html
 
-  # - role: Virtual
-  #   name: Stephanie Hyland
-  #   aff: Microsoft Research Cambridge
+  - role: Tutorial
+    name: Harvineet Singh
+    aff: New York University
+    img:
+    url: https://www.chilconference.org/committee.html
 
-  # - role: Logistics
-  #   name: Tasmie Sarker
-  #   aff: Association for Health Learning and Inference
+  - role: Virtual
+    name: Stephanie Hyland
+    aff: Microsoft Research Cambridge
+    img:
+    url: https://www.chilconference.org/committee.html
+
+  - role: Logistics
+    name: Tasmie Sarker
+    aff: Association for Health Learning and Inference
+    img:
+    url: https://www.chilconference.org/committee.html

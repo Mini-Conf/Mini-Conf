@@ -1,42 +1,21 @@
 {% set active_page = "Organization" %}
-{% set page_title = "Committee" %}
+{% set page_title ="Organizing Committee" %}
 {% extends "base.html" %}
 
-{% block top %}
-{% endblock %}
-
-{% block tabs %}
-  <div class="page-header text-center">
-    <h1>CHIL Committee</h1>
-  </div>
-  {{ components.tabs([("governing-board", "Governing Board", "active")
-                    ]) }}
-{% endblock %}
-<!-- Add tab listed below in components.tabs above so as to add the Steering Committee option -->
-<!-- ("steering-committee", "Steering Committee", "") -->
-
 {% block content %}
-  <div class="page-content">
-    <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-      <!-- Governing Board tab -->
-      <div
-        class="tab-pane active"
-        id="tab-governing-board"
-        role="tabpanel"
-        aria-labelledby="nav-profile-tab"
-      >
-        {{ committee_governing_board | markdown }}
-      </div>
-      <!-- Steering Committee tab -->
-      <div
-        class="tab-pane fade"
-        id="tab-steering-committee"
-        role="tabpanel"
-        aria-labelledby="nav-profile-tab"
-      >
-        {{ committee_steering_committee | markdown }}
-      </div>
-    </div>
-    {{ committee | markdown }}
-  </div>
+<div class="page-content committee">
+  {% if committee %}
+    {{ components.section("Organizing Committee") }}
+    {{ components.organizergroup(committee) }}
+  {% endif %}
+</div>
+
+<div class="committee-info">
+  {{ committee_info | markdown }}
+</div>
 {% endblock %}
+
+{% if isArchive %}
+  {% block bottom %}
+  {% endblock %}
+{% endif %}

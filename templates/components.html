@@ -37,7 +37,7 @@ schedule
 
 {% macro section(name) -%}
 <div class="border-top my-3"></div>
-<div class="row p-4" id="faq">
+<div class="row p-4" id="section-{{name.replace(' ', '-') | lower}}">
   <div class="col-12 bd-content">
     <h2 class="text-center">{{name}}</h2>
   </div>
@@ -45,7 +45,7 @@ schedule
 {%- endmacro %}
 
 {% macro subsection(name) -%}
-<div class="row p-3">
+<div class="row p-3" id="subsection-{{name.replace(' ', '-') | lower}}">
   <div class="col-12 bd-content">
     <h3>{{name}}</h3>
   </div>
@@ -62,7 +62,7 @@ schedule
 
 {% macro sm_section(name) -%}
 <div class="border-top my-3"></div>
-<div class="row p-4" id="faq">
+<div class="row p-4" id="sm-section-{{name.replace(' ', '-') | lower}}">
   <div class="col-12 bd-content">
     <h4 class="text-center">{{name}}</h4>
   </div>
@@ -114,30 +114,25 @@ schedule
 {%- endmacro %}
 
 {% macro organizergroup(committee) -%}
-<div class="row">
+<div class="row committee-row">
   {% for org in committee or [] %}
-  <div class="col-md-4 col-xs-6">
-    <div class="pp-card">
-      <div class="pp-card-header" class="text-muted">
-        <h5 class="card-title" align="center">{{org.name}}</h5>
-        <div>
-          <h6 class="card-subtitle text-muted m-1" align="center">
-            {{org.role}}
-          </h6>
-        </div>
-        <div>
-          <h6 class="card-subtitle text-muted m-1" align="center">
-            {{org.aff}}{% if org.tw %} /
-            <a class="text-muted" href="http://twitter.com/{{org.tw}}"
-              >@{{org.tw}}</a
-            >{% endif %}
-          </h6>
-        </div>
-        <center>
-          <img src="{{org.im}}" class="rounded" style="height: 150px;" />
-        </center>
+  <div class="committee-member">
+    {% if org.url %}
+    <a href="{{org.url}}" target="_blank">
+    {% endif %}
+    <div class="committee-member__card">
+      <div class="committee-member__image">
+        <img src="static/images/committee/{{org.name.replace(' ', '-') | lower if org.img else 'anon-person'}}.jpg" alt="{{org.name}}">
+      </div>
+      <div class="committee-member__info">
+        <h4 class="committee-member__name">{{org.name}}</h4>
+        <p class="committee-member__affiliation">{{org.aff}}</p>
+        <p class="committee-member__role">{{org.role}}</p>
       </div>
     </div>
+    {% if org.url %}
+    </a>
+    {% endif %}
   </div>
   {% endfor %}
 </div>

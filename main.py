@@ -32,7 +32,7 @@ def main(site_data_path):
         elif typ == "yml":
             site_data[name] = yaml.load(open(f).read(), Loader=yaml.SafeLoader)
 
-    for typ in ["papers", "speakers", "invited", "panels", "debates", 
+    for typ in ["papers", "speakers", "invited", "panels", "debates",
                 "tutorials", "proceedings", "roundtables", "workshops",
                 "sponsors", "symposiums"]:
         by_uid[typ] = {}
@@ -243,7 +243,6 @@ def faqs():
 def home():
     data = _data()
     data["index"] = open("./templates/content/index.md").read()
-    data["committee"] = site_data["committee"]["committee"]
     return render_template("index.html", **data)
 
 
@@ -422,7 +421,8 @@ def call_for_papers():
 @app.route("/committee.html")
 def committee():
     data = _data()
-    data["committee"] = open("./templates/content/committee.md").read()
+    data["committee"] = site_data["committee"]["committee"]
+    data["committee_info"] = open("./templates/content/committee-info.md").read()
     data["committee_governing_board"] = open(
         "./templates/content/committee-governing-board.md"
     ).read()
@@ -561,7 +561,6 @@ def poster(poster):
     data = _data()
     data["paper"] = format_paper(v)
     return render_template("poster.html", **data)
-
 
 @app.route("/speaker_<speaker>.html")
 def speaker(speaker):

@@ -42,12 +42,6 @@
 {% block content %}
   <div class="page-content">
     {{ index | markdown }}
-
-    <!-- Organizers -->
-    {% if committee %}
-      {{ components.section("Organizers") }}
-      {{ components.organizergroup(committee) }}
-    {% endif %}
   </div>
 {% endblock %}
 
