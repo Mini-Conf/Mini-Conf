@@ -1,44 +1,37 @@
 ##### **General Chairs**
--  [Matthew McDermott](https://dbmi.hms.harvard.edu/people/matthew-mcdermott) of Harvard Medical School
+- [Matthew McDermott](https://dbmi.hms.harvard.edu/people/matthew-mcdermott) of Harvard Medical School
 - [Marzyeh Ghassemi](https://healthyml.org/marzyeh/) of MIT
+
 ##### **Program Chairs**
 - [Fei Wang](https://wcm-wanglab.github.io/) of Weill Cornell Medicine
-<!-- ##### **Track Chairs**
-- ##### **Track 1**
-    * Mike Hughes of Tufts University (Track Lead)
-    * Yuyin Zhou of University of California, Santa Cruz
-    * Rahul Krishnan of University of Toronto & Vector Institute
-    * Jean Feng of University of California, San Francisco
-    * Samantha Kleinberg of Stevens Institute of Technology
-- ##### **Tracks 1 & 2**
-    * Elena Sizikova of Food and Drug Administration
-- ##### **Track 2**
-    * Lifang He of Lehigh University (Track Lead)
-    * Tom Pollard of MIT
-    * Carl Yang of Emory University
-    * Yu Zhang of Lehigh University
-- ##### **Track 3**
-    * Sanja Šćepanović of Nokia Bell Labs (Track Lead)
-    * Stephen Pfohl of Google
-    * Dimitris Spathis of Nokia Bell Labs & University of Cambridge
+
+##### **Program Chairs**
+- [Irene Chen](https://irenechen.net/) of UC Berkeley
+- [George Chen](https://www.andrew.cmu.edu/user/georgech/) of Carnegie Mellon University
+- [Monica Agrawal](https://people.csail.mit.edu/magrawal/) of Duke University
+- [Emma Rocheteau](https://emmarocheteau.com/) of University of Cambridge
+
+##### **Logistic Chair**
+- [Zehra Abedi](https://phs.weill.cornell.edu/directory/research-staff) of Weill Cornell Medicine
+- [Chengxi Zang](https://www.calvinzang.com/) of Weill Cornell Medicine (Local)
+- [Monica Munnangi](https://monicamunnangi.github.io/) of Northeastern University (Comms)
+- Elizabeth Healey of MIT (Volunteer Coordinator)
+
+##### **Finance Chair**
+- [Ahmed Alaa](https://ahmedmalaa.github.io/) of UC Berkeley and UCSF
+- [Kai Wang](https://guaguakai.com/) of MIT/Georgia Tech
+
 ##### **Proceedings Chair**
-- Bobak Mortazavi of Texas A&M University
-##### **Technology Chairs**
-- Huan He of Harvard University
-- Jiayu Yao of Harvard University & Gladstone Institutes
-##### **Virtual Chair**
-- Brian Gow of MIT
-##### **Communications Chairs**
-- Ioakeim Perros of HEALTH[at]SCALE
-- Anil Palepu of Harvard University & MIT
-##### **Logistics Chairs**
-- Monica Munnangi of Northeastern University
-- Tasmie Sarker of Association for Health Learning and Inference
-##### **Uncoference Chair**
-- Jessica Gronsbell of University of Toronto
-- Rui Duan of Harvard University
-##### **Finance Chairs**
-- Edward Choi of KAIST
-- Harvineet Singh of New York University
-##### **Doctoral Symposium Chair**
-- Tom Hartvigsen of MIT -->
+- [Tom Pollard](https://people.csail.mit.edu/tpollard/) of MIT
+- [Edward Choi](https://mp2893.com/) of KAIST
+- [Pankhuri Singhal](https://pankhurisinghal.com/) of	University of Pennsylvania
+
+##### **Track 1 Senior Area Chair**
+- [Michael C. Hughes](https://www.michaelchughes.com/) of Tufts University
+
+##### **Track 2 Senior Area Chair**
+- [Elena Sizikova](https://esizikova.github.io/) of FDA
+
+##### **Track 3 Senior Area Chair**
+- [Bobak Mortazavi](https://engineering.tamu.edu/cse/profiles/mortazavi-bobak.html) of Texas A&M University
+
