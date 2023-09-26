@@ -150,11 +150,11 @@
                   Submit
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="submitDropdown">
+                  {% for href, id in submit_dropdown_bar %}
                   <li>
-                    {% for href, id in submit_dropdown_bar %}
                       <a class="dropdown-item" href="/{{href}}">{{id}}</a>
-                    {% endfor %}
                   </li>
+                  {% endfor %}
                 </ul>
               </li>
               {% endif %}
@@ -165,11 +165,11 @@
                   Organization
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="organizationDropdown">
+                  {% for href, id in organization_dropdown_bar %}
                   <li>
-                    {% for href, id in organization_dropdown_bar %}
                       <a class="dropdown-item" href="/{{href}}">{{id}}</a>
-                    {% endfor %}
                   </li>
+                  {% endfor %}
                 </ul>
               </li>
               {% endif %}
