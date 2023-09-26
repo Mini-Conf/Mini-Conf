@@ -1,10 +1,12 @@
-## <center> Reviewing for CHIL 2023
+## <center> Coming Soon
+
+<!-- ## <center> Reviewing for CHIL 2023
 
 Reviewing is a critical service in any research community, especially for the vibrant and growing community on machine learning for health that we are all part of. Every submission deserves thoughtful, constructive feedback that both (1) identifies quality work worth highlighting at this venue and (2) helps authors improve their work for either this venue or a future publication.
 
 Here we provide instructions for reviewers to help us achieve these goals, across the 4 distinct phases of reviewing (Bidding, Assignment, Review, and Discussion).
 
-Jump to: Timeline and Workload - [bidding](#bidding) - [assignment](#assignment) - [reviewing](#reviewing) - [discussion](#discussion) 
+Jump to: Timeline and Workload - [bidding](#bidding) - [assignment](#assignment) - [reviewing](#reviewing) - [discussion](#discussion)
 
 ### Timeline and Workload
 
@@ -16,12 +18,12 @@ To deliver high-quality reviews, you (a CHIL reviewer) are expected to participa
 - Assignment period <s>(2/8 - 2/18)</s> (2/16 - 2/17)
 	- Skim each of your assigned papers and report immediately
 		- Formatting violations
-		- Anonymity or Conflict of Interest violations 
+		- Anonymity or Conflict of Interest violations
 		- Topics you are not qualified to review
 	- Workload: 2-5 papers per reviewer
 	- Estimated time commitment: 10 minutes per paper
 - Review period <s>(2/8 - 3/3)</s> (2/17 - 3/14)
-	- Deliver thoughtful review comments in timely fashion 
+	- Deliver thoughtful review comments in timely fashion
 	- Workload: 2-5 papers per reviewer
 	- Estimated time commitment: 2-5 hours per paper, spread out asynchronously
 - Discussion period <s>(3/10 - 3/24)</s> (3/17 - 4/3)
@@ -79,7 +81,7 @@ Follow the golden rule: be on time, provide polite and constructive reviews that
 - Remember [Dennett's 4 rules for successful critical feedback](https://www.themarginalian.org/2014/03/28/daniel-dennett-rapoport-rules-criticism/)
 	- Especially, you should not give criticism without first acknowledging strengths and what you have learned from the submission.
 - ACL 2017 blogpost on [advice for reviewers](https://acl2017.wordpress.com/2017/02/23/last-minute-reviewing-advice/)
-- [Mistakes reviewers make](https://sites.umiacs.umd.edu/elm/2016/02/01/mistakes-reviewers-make/) has some common errata to keep an eye out for 
+- [Mistakes reviewers make](https://sites.umiacs.umd.edu/elm/2016/02/01/mistakes-reviewers-make/) has some common errata to keep an eye out for
 - Matthew McDermott has some [useful advice on structuring reviews](https://mmcdermott.github.io/How-to-PhD/skill_modules/communication#how-do-you-review-papers).
 
 If you are a junior reviewer, there is no harm in asking a senior mentor or colleague to provide you with feedback on your review (though do not breach confidentiality).
@@ -93,8 +95,8 @@ If you are a junior reviewer, there is no harm in asking a senior mentor or coll
 
 
 ### <a name="discussion"></a>Discussion and Consensus-Building Period Instructions
-Between 3/20 and 4/3, you (a CHIL reviewer) will be expected to participate in discussions on OpenReview by reading the authors’ response and comments from other reviewers, adding additional comments from your perspective, and updating your review accordingly. 
+Between 3/20 and 4/3, you (a CHIL reviewer) will be expected to participate in discussions on OpenReview by reading the authors’ response and comments from other reviewers, adding additional comments from your perspective, and updating your review accordingly.
 
 We expect brief but thoughtful engagement from all reviewers here. For some papers, this would involve several iterations of feedback-response. A simplistic response of “I have read the authors’ response and I chose to keep my score unchanged” is not sufficient, because it does not provide detailed reasoning about what weaknesses are still salient and why the response is not sufficient. Please engage meaningfully!
 
-Track Chairs will work with reviewers to try to reach a consensus decision about each paper by 4/3. In the event that consensus is not reached, Track Chairs make final decisions about acceptance.
+Track Chairs will work with reviewers to try to reach a consensus decision about each paper by 4/3. In the event that consensus is not reached, Track Chairs make final decisions about acceptance. -->
