@@ -4,122 +4,122 @@ committee:
   #   aff: MIT-IBM Watson AI Lab
   #   tw: hen_str
   #   im: https://avatars1.githubusercontent.com/u/950990?s=460&u=fba00c4d7c79fd9e4b83a15394dd1bbe7b7d3df5&v=4
-  - role: General
-    name: Anon Person
-    aff: Microsoft Research
-    img: anon-person.jpg
-    url: https://www.chilconference.org/committee.html
-
-  - role: General
-    name: Joyce Ho
-    aff: Emory University
-    img:
-    url: https://www.chilconference.org/committee.html
-
-  - role: Program
-    name: Sherri Rose
-    aff: Stanford University
-    img:
-    url: https://www.chilconference.org/committee.html
-
-  - role: Program
-    name: Matthew McDermott
+  - role: General Chair
+    name: Marzyeh Ghassemi
     aff: MIT
-    img:
-    url: https://www.chilconference.org/committee.html
+    img: marzyeh-ghassemi.jpg
+    url: https://healthyml.org/marzyeh/
 
-  - role: Proceedings
+  - role: General Chair
+    name: Matthew McDermott
+    aff: Harvard Medical School
+    img: matthew-mcdermott.jpg
+    url: https://dbmi.hms.harvard.edu/people/matthew-mcdermott
+
+  - role: Program Chair
+    name: Fei Wang
+    aff: Weill Cornell Medicine
+    img: fei-wang.jpg
+    url: https://wcm-wanglab.github.io/
+
+  - role: Program Chair
+    name: Irene Chen
+    aff: UC Berkeley
+    img: irene-chen.jpg
+    url: https://irenechen.net/
+
+  - role: Program Sub-Chair, Research Roundtables
     name: George Chen
     aff: Carnegie Mellon University
-    img:
-    url: https://www.chilconference.org/committee.html
+    img: george-chen.jpg
+    url: https://www.andrew.cmu.edu/user/georgech/
 
-  - role: Proceedings
-    name: Tom Pollard
+  - role: Program Sub-Chair, Research Roundtables
+    name: Xiaoxiao Li
+    aff: University of British Columbia
+    img: xiaoxiao-li.jpg
+    url: https://bmiai.ubc.ca/people/xiaoxiao-li
+
+  - role: Program Sub-Chair, Doctoral Symposium
+    name: Monica Agrawal
     aff: MIT
     img:
-    url: https://www.chilconference.org/committee.html
+    url:
 
-  - role: Proceedings
-    name: Gerardo Flores
-    aff: Google
+  - role: Program Sub-Chair, Doctoral Symposium
+    name: Emma Rocheteau
+    aff: University of Cambridge
+    img: emma-rocheteau.jpg
+    url: https://emmarocheteau.com/
+
+  - role: Proceedings Chair
+    name: Tom Pollard
+    aff: MIT
+    img: tom-pollard.jpg
+    url: https://people.csail.mit.edu/tpollard/
+
+  - role: Proceedings Chair
+    name: Edward Choi
+    aff: KAIST
+    img: edward-choi.jpg
+    url: https://mp2893.com/
+
+  - role: Proceedings Sub-Chair, Workflow
+    name: Pankhuri Singhal
+    aff: University of Pennsylvania
     img:
-    url: https://www.chilconference.org/committee.html
+    url:
 
-  - role: Track
-    name: Rahul Krishnan
-    aff: University of Toronto
-    img:
-    url: https://www.chilconference.org/committee.html
+  - role: Senior Area Chair, Track 1
+    name: Michael C. Hughes
+    aff: Tufts University
+    img: michael-c-hughes.jpg
+    url: https://www.michaelchughes.com/
 
-  - role: Track
-    name: Shalmali Joshi
-    aff: Harvard University
-    img:
-    url: https://www.chilconference.org/committee.html
+  - role: Senior Area Chair, Track 2
+    name: Elena Sizikova
+    aff: FDA
+    img: elena-sizikova.jpg
+    url: https://esizikova.github.io/
 
-  - role: Track
-    name: Alistair Johnson
-    aff: Hospital for Sick Children
-    img:
-    url: https://www.chilconference.org/committee.html
+  - role: Senior Area Chair, Track 3
+    name: Bobak Mortazavi
+    aff: Texas A&M University
+    img: bobak-mortazavi.jpg
+    url: https://stmilab.github.io/
 
-  - role: Track
-    name: Judy Gichoya
-    aff: Emory University
-    img:
-    url: https://www.chilconference.org/committee.html
+  - role: Logistics Chair
+    name: Zehra Abedi
+    aff: Weill Cornell Medicine
+    img: zehra-abedi.jpg
+    url: https://aidh.weill.cornell.edu
 
-  - role: Communications
-    name: Sanja Scepanovic
-    aff: Bell Labs
-    img:
-    url: https://www.chilconference.org/committee.html
+  - role: Logistics Sub-Chair, Local
+    name: Chengxi Zang
+    aff: Weill Cornell Medicine
+    img: chengxi-zang.jpg
+    url: https://www.calvinzang.com/
 
-  - role: Communications
-    name: Emily Alsentzer
-    aff: MIT, Harvard University
-    img:
-    url: https://www.chilconference.org/committee.html
+  - role: Logistics Sub-Chair, Volunteer Coordinator
+    name: Elizabeth Healey
+    aff: MIT
+    img: elizabeth-healey.jpg
+    url: https://www.linkedin.com/in/elizabeth-healey-408368115
 
-  - role: Finance
-    name: Brett Beaulieu-Jones
-    aff: Harvard Medical School
-    img:
-    url: https://www.chilconference.org/committee.html
+  - role: Logistics Sub-Chair, Comms
+    name: Monica Munnangi
+    aff: Northeastern University
+    img: monica-munnangi.jpg
+    url: https://monicamunnangi.github.io/
 
-  - role: Finance
+  - role: Finance Chair
     name: Ahmed Alaa
-    aff: MIT, Harvard University
-    img:
-    url: https://www.chilconference.org/committee.html
+    aff: UC Berkeley and UCSF
+    img: ahmed-alaa.jpg
+    url: https://ahmedmalaa.github.io/
 
-  - role: Finance
-    name: Tasmie Sarker
-    aff: Association for Health Learning and Inference
-    img:
-    url: https://www.chilconference.org/committee.html
-
-  - role: Tutorial
-    name: Jessica Gronsbell
-    aff: University of Toronto
-    img:
-    url: https://www.chilconference.org/committee.html
-
-  - role: Tutorial
-    name: Harvineet Singh
-    aff: New York University
-    img:
-    url: https://www.chilconference.org/committee.html
-
-  - role: Virtual
-    name: Stephanie Hyland
-    aff: Microsoft Research Cambridge
-    img:
-    url: https://www.chilconference.org/committee.html
-
-  - role: Logistics
-    name: Tasmie Sarker
-    aff: Association for Health Learning and Inference
-    img:
-    url: https://www.chilconference.org/committee.html
+  - role: Finance Chair
+    name: Kai Wang
+    aff: Georgia Tech
+    img: kai-wang.jpg
+    url: https://guaguakai.com/

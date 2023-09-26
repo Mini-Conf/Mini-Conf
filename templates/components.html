@@ -122,7 +122,7 @@ schedule
     {% endif %}
     <div class="committee-member__card">
       <div class="committee-member__image">
-        <img src="static/images/committee/{{org.name.replace(' ', '-') | lower if org.img else 'anon-person'}}.jpg" alt="{{org.name}}">
+        <img src="static/images/committee/{{org.name.replace(' ', '-').replace('.', '') | lower if org.img else 'anon-person'}}.jpg" alt="{{org.name}}">
       </div>
       <div class="committee-member__info">
         <h4 class="committee-member__name">{{org.name}}</h4>

@@ -4,7 +4,7 @@
 }
 
 .committee-row {
-  column-gap: 50px;
+  column-gap: 30px;
   row-gap: 25px;
   justify-content: center;
 }
@@ -19,8 +19,7 @@
 
 .committee-member {
   display: flex;
-  max-width: 300px;
-  flex-direction: column;
+  max-width: 260px;
 }
 
 .committee-member a {
@@ -42,15 +41,15 @@
 
 .committee-member__image {
   position: relative;
-  max-height: 120px;
+  max-height: 110px;
   overflow: hidden;
   border-radius: 15px;
   box-shadow: 1px 1px 16px -6px rgba(0, 0, 0, 0.75);
 }
 
 .committee-member__card img {
-  max-width: 160px;
-  transform: translateX(-15%);
+  max-width: 130px;
+  transform: translate(-15%, 0%);
 }
 
 .committee-member__info {
@@ -62,7 +61,7 @@
 
 
 .committee-member__name {
-  font-size: 1.25rem;
+  font-size: 17px;
 }
 
 .committee-member__role {
@@ -70,6 +69,7 @@
 }
 
 .committee-member__info p {
+  font-size: 14px;
   margin-bottom: 0rem;
   color: #888;
 }
