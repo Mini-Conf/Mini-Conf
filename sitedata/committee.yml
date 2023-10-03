@@ -42,9 +42,9 @@ committee:
 
   - role: Program Sub-Chair, Doctoral Symposium
     name: Monica Agrawal
-    aff: MIT
-    img:
-    url:
+    aff: Duke University
+    img: monica-agrawal.jpg
+    url: https://www.linkedin.com/in/monica-agrawal-bb73a874/
 
   - role: Program Sub-Chair, Doctoral Symposium
     name: Emma Rocheteau
@@ -67,8 +67,8 @@ committee:
   - role: Proceedings Sub-Chair, Workflow
     name: Pankhuri Singhal
     aff: University of Pennsylvania
-    img:
-    url:
+    img: pankhuri-singhal.jpg
+    url: https://pankhurisinghal.com/
 
   - role: Senior Area Chair, Track 1
     name: Michael C. Hughes
@@ -106,12 +106,6 @@ committee:
     img: elizabeth-healey.jpg
     url: https://www.linkedin.com/in/elizabeth-healey-408368115
 
-  - role: Logistics Sub-Chair, Comms
-    name: Monica Munnangi
-    aff: Northeastern University
-    img: monica-munnangi.jpg
-    url: https://monicamunnangi.github.io/
-
   - role: Finance Chair
     name: Ahmed Alaa
     aff: UC Berkeley and UCSF
@@ -123,3 +117,15 @@ committee:
     aff: Georgia Tech
     img: kai-wang.jpg
     url: https://guaguakai.com/
+
+  - role: Comms Chair
+    name: Monica Munnangi
+    aff: Northeastern University
+    img: monica-munnangi.jpg
+    url: https://monicamunnangi.github.io/
+
+  - role: Comms Sub-Chair
+    name: Jiacheng Zhu
+    affil: MIT, CSAIL
+    image: jiacheng-zhu.jpg
+    website: https://jiachengzhuml.github.io/

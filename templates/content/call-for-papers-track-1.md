@@ -1,7 +1,5 @@
 ## <center> Models and Methods:<br /> Algorithms, Inference, and Estimation </center>
 
-
-
 <!-- ### Description -->
 Advances in machine learning are critical for a better understanding of health. This track seeks technical contributions in modeling, inference, and estimation in health-focused or health-inspired settings. We welcome submissions that develop novel methods and algorithms, introduce relevant machine learning tasks, identify challenges with prevalent approaches, or learn from multiple sources of data (e.g. non-clinical and clinical data).
 
@@ -46,14 +44,12 @@ We welcome submissions from many perspectives, including but not limited to supe
 
 **Examples**
 
-Janizek, J. D., Erion, G., DeGrave, A. J., and Lee, S. "<a href="https://dl.acm.org/doi/10.1145/3368555.3384458" target="_blank"rel="noopener"> An adversarial approach for the robust classification of pneumonia from chest radiographs.</a>" Proceedings of the ACM Conference on Health, Inference, and Learning (CHIL), 2020.
+Tang, S., Dunnmon, J. A., Qu, L., Saab, K. K., Baykaner, T., Lee-Messer, C., Rubin, D. L. <a href="https://proceedings.mlr.press/v209/tang23a.html" target="_blank" rel="noopener">Modeling Multivariate Biosignals With Graph Neural Networks and Structured State Space Models.</a> Proceedings of the Conference on Health, Inference, and Learning (CHIL), 2023.
 
-Choi, E., Xiao, C., Stewart, W. F., and Sun, J. "<a href="https://proceedings.neurips.cc/paper/2018/file/934b535800b1cba8f96a5d72f72f1611-Paper.pdf" target="_blank" rel="noopener">MiME: Multilevel medical embedding of electronic health records for predictive healthcare.</a>" Advances in Neural Information Processing Systems. 2018.
+Zhu, J., Darnell, G., Kumar, A., Zhao, D., Li, B., Nguyen, X., Ren, S. Y. <a href="https://proceedings.mlr.press/v174/zhu22a.html" target="_blank" rel="noopener">PhysioMTL: Personalizing Physiological Patterns using Optimal Transport Multi-Task Regression.</a> Proceedings of the Conference on Health, Inference, and Learning (CHIL), 2022.
 
-Shalit, U., Johansson, F.D., and Sontag, D. "<a href="http://proceedings.mlr.press/v70/shalit17a/shalit17a.pdf" target="_blank" rel="noopener">Estimating individual treatment effect: generalization bounds and algorithms.</a>" Proceedings of the 34th International Conference on Machine Learning (ICML), 2017.
+Choi, E., Xiao, C., Stewart, W. F., Sun, J. <a href="https://proceedings.neurips.cc/paper/2018/file/934b535800b1cba8f96a5d72f72f1611-Paper.pdf" target="_blank" rel="noopener">MiME: Multilevel medical embedding of electronic health records for predictive healthcare.</a> Advances in Neural Information Processing Systems (NeurIPS), 2018.
 
-Futoma, J., Hariharan, S., and Heller, K. "<a href="http://proceedings.mlr.press/v70/futoma17a/futoma17a.pdf" target="_blank" rel="noopener">Learning to detect sepsis with a multitask Gaussian process RNN classifier.</a>" Proceedings of the 34th International Conference on Machine Learning (ICML), 2017.
+Shalit, U., Johansson, F.D., Sontag, D. <a href="http://proceedings.mlr.press/v70/shalit17a/shalit17a.pdf" target="_blank" rel="noopener">Estimating individual treatment effect: generalization bounds and algorithms.</a> Proceedings of the 34th International Conference on Machine Learning (ICML), 2017.
 
-<!-- Mate, Aditya, et al. "<a href="https://arxiv.org/abs/2007.04432" target="_blank" rel="noopener">Collapsing Bandits and Their Application to Public Health Interventions.</a>" Advances in Neural Information Processing Systems 2020. -->
-
-<!-- Neill, D.B., Moore, A.W., Sabhnani, M. and Daniel, K. "[Detection of emerging space-time clusters](https://www.cs.cmu.edu/~neill/papers/sss-kdd05.pdf)." In Proceedings of the eleventh ACM SIGKDD international conference on Knowledge discovery in data mining (pp. 218-227). ACM -->
+Futoma, J., Hariharan, S., Heller, K. <a href="http://proceedings.mlr.press/v70/futoma17a/futoma17a.pdf" target="_blank" rel="noopener">Learning to detect sepsis with a multitask Gaussian process RNN classifier.</a> Proceedings of the 34th International Conference on Machine Learning (ICML), 2017.
