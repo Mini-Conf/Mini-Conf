@@ -126,6 +126,12 @@ committee:
 
   - role: Comms Sub-Chair
     name: Jiacheng Zhu
-    affil: MIT, CSAIL
-    image: jiacheng-zhu.jpg
-    website: https://jiachengzhuml.github.io/
+    aff: MIT, CSAIL
+    img: jiacheng-zhu.jpg
+    url: https://jiachengzhuml.github.io/
+
+  - role: Comms Sub-Chair
+    name: Brian Gow
+    aff: MIT
+    img: brian-gow.jpg
+    url: https://www.linkedin.com/in/gowbrian/
