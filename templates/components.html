@@ -387,14 +387,14 @@ schedule
 {% macro sponsorgroup(sponsors) -%}
 <div class="row sponsors">
   {% for sponsor in sponsors or [] %}
-  <div class="{% if sponsor.level == 'silver' %}col-md-6{% else %}col-md-6{% endif %} col-xs-6 mx-auto">
-    <div class="pp-card sponsor {{sponsor.level}}">
-      <div class="pp-card-header" class="text-muted">
-        <img src="{{sponsor.image}}" class="rounded {{sponsor.level}}" alt="{{sponsor.name}}" />
-        <a href="{{sponsor.website}}" class="stretched-link"></a>
+    <div class="{% if sponsor.level == 'gold' %}col-md-6{% else %}col-md-3{% endif %} col-xs-6 mx-auto">
+      <div class="pp-card sponsor {{sponsor.level}}">
+        <div class="pp-card-header" class="text-muted">
+          <img src="{{sponsor.image}}" class="rounded {{sponsor.level}}" alt="{{sponsor.name}}" />
+          <a href="{{sponsor.website}}" class="stretched-link"></a>
+        </div>
       </div>
     </div>
-  </div>
   {% endfor %}
 </div>
 {%- endmacro %}
