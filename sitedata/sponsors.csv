@@ -1,3 +1,7 @@
 UID,name,image,level,website
-S01,The Mount Sinai Hospital,static/images/sponsors/mount-sinai.png,Silver,
-S02,University of Florida Health,static/images/sponsors/uflorida-health.gif,Silver,
+S01,Gordon and Betty Moore Foundation,static/images/sponsors/moore-logo.jpg,gold,
+S02,UFlorida CTSI Department of Biomedical Informatics,static/images/sponsors/CTSI-logo.png,gold,
+S03,Apple,static/images/sponsors/apple-logo.jpg,silver,
+S04,The Mount Sinai Hospital,static/images/sponsors/mount-sinai.png,silver,
+S05,University of Florida Health,static/images/sponsors/uflorida-health.gif,silver,
+S07,Columbia University (Biostats Dept.),static/images/sponsors/Columbia-logo.png,bronze,
