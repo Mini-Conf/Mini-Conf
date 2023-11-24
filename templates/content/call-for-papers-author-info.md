@@ -67,6 +67,8 @@ Submissions should be made via the online submission system (**Coming soon!**). 
 ### Length and Formatting
 Submitted papers must be 8-10 pages (including all figures and tables). Unlimited additional pages can be used for references and additional supplementary materials (e.g. appendices). Reviewers will not be required to read the supplementary materials.
 
+Authors are required to use the LaTeX template: [Overleaf](https://www.overleaf.com/latex/templates/chil-2024-template/hvxrpckycnjm)
+
 <!-- Authors are required to use the LaTeX template: [Download](https://drive.google.com/file/d/1EQc5RHHc5u7zdKhBCy1wIqwo0V0fGi-p/view?usp=sharing) or [Overleaf](https://www.overleaf.com/latex/templates/chil-2023-template/yrwrrhnxsjwc). -->
 
 <!-- Authors are required to use the LaTeX template: [Overleaf](https://www.overleaf.com/latex/templates/chil-2022-template/jsypybzpbbdd) or [Download](https://chilconference.org/chil-template-2022.zip). -->
