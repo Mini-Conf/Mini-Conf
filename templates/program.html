@@ -7,13 +7,15 @@
     <h1>Program</h1>
   </div>
   {{ components.tabs([
-        ("keynotes", "Keynotes", "active"),
-        ("panels", "Panelists"),
-        ("invited", "Invited Talks"),
-        ("debates", "Debates"),
-        ("roundtables", "Research Roundtables")
+        ("keynotes", "Speakers", "active")
     ])}}
 {% endblock %}
+<!-- EXTRA TABS
+{#        ("panels", "Panelists"),#}
+{#        ("invited", "Invited Talks"),#}
+{#        ("debates", "Debates"),#}
+{#        ("roundtables", "Research Roundtables")#}
+-->
 <!-- TODO: add to components.tabs when corresponding conf sections are finalized
   ("workshops", "Workshop Posters"),
   ("proceedings", "Proceedings Posters"),
