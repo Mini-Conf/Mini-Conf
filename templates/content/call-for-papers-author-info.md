@@ -149,6 +149,7 @@ An exception to this rule is extensions of workshop papers that have previously 
 
 Upon submission, authors will select one or more relevant sub-discipline(s). Peer reviewers for a paper will be experts in the sub-discipline(s) selected upon its submission.
 
+**Note:** Senior Area Chairs (AC) are prohibited from submitting manuscripts to their respective track. Area Chairs (AC) who plan to submit papers to the track they were assigned to need to notify the Track Senior Area Chair (AC) within 24 hours of submission.
 
 ### Open Access
 CHIL is committed to open science and ensuring our proceedings are freely available.
