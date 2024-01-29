@@ -60,7 +60,7 @@ An exception to this rule is extensions of workshop papers that have previously 
 
 ## Submission Format and Guidelines
 ### Submission Site
-Submissions should be made via the online submission system (**Coming soon!**). At least one author of each accepted paper is required to register for, attend, and present the work at the conference in order for the paper to appear in the conference proceedings.
+Submissions should be made via the online submission system: [https://openreview.net/group?id=chilconference.org/CHIL/2024/Conference#tab-recent-activity](https://openreview.net/group?id=chilconference.org/CHIL/2024/Conference#tab-recent-activity). At least one author of each accepted paper is required to register for, attend, and present the work at the conference in order for the paper to appear in the conference proceedings.
 
 <!-- Submissions should be made via the online submission system: [https://openreview.net/group?id=chilconference.org/CHIL/2022/Conference](https://openreview.net/group?id=chilconference.org/CHIL/2022/Conference). -->
 
