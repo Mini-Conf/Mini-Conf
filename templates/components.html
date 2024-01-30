@@ -113,6 +113,50 @@ schedule
 {% endfor %}
 {%- endmacro %}
 
+{% macro speakergroup(ml_health) -%}
+{% for speaker in ml_health or [] %}
+<div class="row p-4">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <div class="row">
+          <div class="col-md-2 col-sm-5">
+            <img src="/{{speaker.image}}" width="100%" class="img-thumbnail" alt="{{speaker.speaker}}" />
+          </div>
+          <div class="col-md-10 col-sm-6">
+            <div class="m-3 text-muted">
+              <h3>
+                  {{speaker.title}}
+                </a>
+              </h3>
+            </div>
+            <div class="m-3 text-muted">
+              <span class="card-title h3">
+                {{speaker.speaker}} {% if speaker.institution %} / {{speaker.institution}} {% endif %}
+              </span>
+            </div>
+            <div class="m-3 text-muted">
+              <span class="card-title h3">
+                <a href="{{speaker.website}}" target="_blank" rel="noopener">{{speaker.website}}</a>
+              </span>
+            </div>
+            <div class="m-3">
+              {% if speaker.abstract %}
+                <p> Abstract: {{speaker.abstract|safe}} </p>
+              {% endif %}
+              {% if speaker.bio %}
+                <p> Bio: {{speaker.bio|safe}} </p>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endfor %}
+{%- endmacro %}
+
 {% macro organizergroup(committee) -%}
 <div class="row committee-row">
   {% for org in committee or [] %}
@@ -264,7 +308,7 @@ schedule
               {% if tutorial.abstract %}
                 <p> Abstract: {{tutorial.abstract|safe}} </p>
               {% endif %}
-              {% if tutorial.abstract %}
+              {% if tutorial.bio %}
                 <p> Bio: {{tutorial.bio|safe}} </p>
               {% endif %}
             </div>

@@ -8,102 +8,111 @@
 	</thead>
 	 <tbody>
     <tr>
-      <td>8:00am - 9:00am</td>
-      <td>Check-in and Refreshments</td>
-      <td>Broad Lobby</td>
+      <td>8:00am</td>
+      <td>Registration</td>
+      <td>1st Floor Lobby</td>
     </tr>
     <tr>
       <td>9:00am - 9:05am</td>
-      <td>Welcome and Opening Remarks</td>
-      <td>Broad Auditorium</td>
+      <td>Opening Remarks</td>
+      <td>1st Floor Main Space</td>
     </tr>
     <tr>
       <td></td>
-      <td class="keynote"><span class="border-left-0"><span class="font-weight-bold">Keynote Session I: Innovation in Machine Learning for Health</span></span></td>
+      <td class="keynote"><span class="border-left-0"><span class="font-weight-bold">Keynote Session I</span></span></td>
       <td></td>
     </tr>
      <tr>
-      <td>9:05am - 9:50am</td>
-      <td><a href="program.html#tab-keynotes">Biomedical Question Answering Yesterday, Today, and Tomorrow</a><br>
-      <span class="font-italic"><span class="font-weight-bold">Dina Demner-Fushman, MD, PhD,</span> National Institutes of Health</span></td>
-      <td>Broad Auditorium</td>
+      <td>9:05am - 9:35am</td>
+      <td><a href="program.html#tab-keynotes">Keynote: TBA</a><br>
+      </td>
+      <td>1st Floor Main Space</td>
     </tr>
-     <tr>
-      <td>9:50am - 10:35am</td>
-      <td><a href="program.html#tab-keynotes">Safe Deployment of Medical Imaging AI</a><br>
-        <span class="font-italic"><span class="font-weight-bold">Ben Glocker, PhD,</span> Imperial College London</span>
+    <tr>
+      <td>9:35am - 10:05am</td>
+      <td><a href="program.html#tab-keynotes"></a><!-- <br> -->
+        <span class="font-italic"><span class="font-weight-bold">Samantha Kleinberg, PhD,</span> Stevens Institute of Technology</span>
       </td> 
-      <td>Broad Auditorium</td>
-    </tr>
-     <tr>
-      <td>10:35am - 11:00am</td>
-      <td>Networking Break</td>
-      <td>Broad Lobby</td>
+      <td>1st Floor Main Space</td>
     </tr>
     <tr>
-      <td>11:00am - 12:00pm</td>
-      <td><span class="font-weight-bold">Oral Talks I</span><br>
+      <td>10:05am - 10:15am</td>
+      <td>Opening Keynotes Q&A</td>
+      <td>1st Floor Main Space</td>
+    </tr>
+    <tr>
+      <td>10:15am - 10:45am</td>
+      <td>Coffee Break</td>
+      <td>1st Floor Main Space</td>
+    </tr>
+    <tr>
+      <td>10:45am - 11:30am</td>
+      <td><a href="program.html#tab-ml_health">State of ML for Health</a><br>
+        <span class="font-italic"><span class="font-weight-bold">Zak Kohane, MD, PhD,</span> Harvard University</span>
+      </td> 
+      <td>1st Floor Main Space</td>
+    </tr>
+    </tr>
+     <tr>
+      <td>11:30am - 12:45pm</td>
+      <td><span class="font-weight-bold">Sponsor Break with Booths / Lunch Tables</span></td>
+      <td>2nd Floor Classrooms</td>
+    </tr>
+    <tr>
+      <td>12:45PM - 1:45pm</td>
+      <td><span class="font-weight-bold">Panel: Health Economics and Behavior</span><br>
+        <a href="program.html#tab-panels">Panel Discussion</a><br>
+        <span class="font-italic"><span class="font-weight-bold">Kyra Gan, PhD,</span> Cornell University, <span class="font-italic"><span class="font-weight-bold">David Meltzer, MD, PhD,</span> University of Chicago</span></span>       
+        <!--
         <span class="font-italic">Li Xu, Bo Liu, Ameer Hamza Khan, Lu Fan, <span class="font-weight-bold">Xiao-Ming Wu</span></span>: <a href="proceeding_P13.html">Multi-modal Pre-training for Medical Vision-language Understanding and Generation: An Empirical Study with A New Benchmark</a><br>
         <span class="font-italic"><span class="font-weight-bold">Vincent Jeanselme</span>, Chang Ho Yoon, Brian Tom, Jessica Barrett</span>: <a href="proceeding_P12.html">Neural Fine-Gray: Monotonic neural networks for competing risks</a><br>
         <span class="font-italic"><span class="font-weight-bold">Eunbyeol Cho</span>, Min Jae Lee, Kyunghoon Hur, Jiyoun Kim, Jinsung Yoon, Edward Choi</span>: <a href="proceeding_P28.html">Rediscovery of CNN's Versatility for Text-based Encoding of Raw Electronic Health Records</a><br>
         <span class="font-italic"><span class="font-weight-bold">William La Cava</span>, Elle Lett, Guangya Wan</span>: <a href="proceeding_P23.html">Fair Admission Risk Prediction with Proportional Multicalibration</a>
-      </td>
-      <td>Broad Auditorium</td>
-    </tr>
-     <tr>
-      <td>12:00pm - 1:00pm</td>
-      <td>Lunch Break</td>
-      <td></td>
+        -->
+        </td>
+      <td>1st Floor Main Space</td>
     </tr>
     <tr>
       <td></td>
-      <td class="keynote"><span class="border-left-0"><span class="font-weight-bold">Keynote Session II: Foundations of Health: Machine Learning for Genomics</span></span></td>
+      <td class="keynote"><span class="border-left-0"><span class="font-weight-bold">Keynote Session II</span></span></td>
       <td>
     </tr>
-    <tr>
-      <td>1:00pm - 1:45pm</td>
-      <td><a href="program.html#tab-keynotes">Biological Sequence Modeling in Research and Applications</a><br>
-      <span class="font-italic"><span class="font-weight-bold">Jun Cheng, PhD,</span> DeepMind</span></td> 
-      <td>Broad Auditorium</td>
+     <tr>
+      <td>1:45pm - 2:15pm</td>
+      <td><a href="program.html#tab-keynotes"></a><!-- <br> -->
+        <span class="font-italic"><span class="font-weight-bold">Deb Raji, BASc,</span> UC Berkeley</span>
+      </td> 
+      <td>1st Floor Main Space</td>
     </tr>
      <tr>
-      <td>1:45pm - 2:45pm</td>
-      <td><span class="font-weight-bold">Oral Talks II</span><br>
-      <span class="font-italic"><span class="font-weight-bold">Kevin Wu</span>, Dominik Dahlem, Christopher Hane, Eran Halperin, James Zou</span>: <a href="proceeding_P24.html">Collecting data when missingness is unknown: a method for improving model performance given under-reporting in patient populations</a><br>
-      <span class="font-italic"><span class="font-weight-bold">Christina X Ji</span>, Ahmed Alaa, David Sontag</span>: <a href="proceeding_P09.html">Large-Scale Study of Temporal Shift in Health Insurance Claims</a><br>
-      <span class="font-italic"><span class="font-weight-bold">Toshiya Yoshida</span>, Trinity Shuxian Fan, Tyler McCormick, Zhenke Wu, Zehang Richard Li</span>: <a href="proceeding_P17.html">Bayesian Active Questionnaire Design for Cause-of-Death Assignment Using Verbal Autopsies</a><br>
-      <span class="font-italic"><span class="font-weight-bold">Eric Lehman</span>, Evan Hernandez, Diwakar Mahajan, Jonas Wulff, Micah J. Smith, Zachary Ziegler, Daniel Nadler, Peter Szolovits, Alistair Johnson, Emily Alsentzer</span>: <a href="proceeding_P31.html">Do We Still Need Clinical Language Models?</a><br>
-    </td>
-    <td>Broad Auditorium</td>
+      <td>2:15pm - 2:45pm</td>
+      <td><a href="program.html#tab-keynotes"></a><!-- <br> -->
+        <span class="font-italic"><span class="font-weight-bold">Sanmi Koyejo, PhD,</span> Stanford University</span>
+      </td> 
+      <td>1st Floor Main Space</td>
     </tr>
     <tr>
-      <td>2:45pm - 3:10pm</td>
-      <td>Networking Break</td>
-      <td>Broad Lobby</td>
+      <td>2:45pm - 3:00pm</td>
+      <td>Closing Keynotes Q&A</td>
+      <td>1st Floor Main Space</td>
     </tr>
-     <tr>
-      <td>3:10pm - 4:10pm</td>
-      <td><span class="font-weight-bold"><a href="proceedings.html#tab-postera">Session III: Poster Session A</a></span></td>
-      <td>Broad Lobby</td>
+    <tr>
+      <td>3:00pm - 3:30pm</td>
+      <td>Coffee Break</td>
+      <td>1st Floor Main Space</td>
     </tr>
+    <tr>
+    <tr>
+      <td>3:30pm - 5:00pm</td>
+      <td><a href="program.html#tab-tutorials">Tutorial</a><br>
+        <span class="font-italic"><span class="font-weight-bold">Katie Link, BS,</span> Hugging Face</span>
+      </td> 
+      <td>1st Floor Main Space</td>
      <tr>
-      <td>4:10pm - 5:10pm</td>
-      <td>
-      <span class="font-weight-bold">Session IV: Sharing Health Data in an Age of Generative AI: Risks, Limitations, and Solutions</span><br>
-      <a href="program.html#tab-panels">Panel Discussion</a><br>
-      <span class="font-italic"><span class="font-weight-bold">Ziad Obermeyer, MD,</span> UC Berkeley, <span class="font-weight-bold">John Halamka, MD,</span> Mayo Clinic, <span class="font-weight-bold">Elaine Nsoesie, PhD,</span> Boston University, and <span class="font-weight-bold">Khaled El Emam, PhD,</span> University of Ottawa.
-Moderated by <span class="font-weight-bold">Marzyeh Ghassemi, PhD,</span> MIT</span></td> 
-      <td>Broad Auditorium</td>
-    </tr>
-     <tr>
-      <td>5:10pm - 5:15pm</td>
-      <td>Closing Remarks</td>
-      <td>Broad Auditorium</td>
-    </tr>
-     <tr>
-      <td>5:15pm - 6:15pm</td>
-      <td>Reception</td>
-      <td>Broad Lobby</td>
+      <td>5:00ppm - 6:00pm</td>
+      <td><span class="font-weight-bold"><a>Poster Session</a>
+        <!--<a href="proceedings.html#tab-postera">Poster Session </a>--></span></td>
+      <td>2nd Floor Gallery</td>
     </tr>
   </tbody>
 </table>
