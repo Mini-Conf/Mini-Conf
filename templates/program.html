@@ -7,11 +7,13 @@
     <h1>Program</h1>
   </div>
   {{ components.tabs([
-        ("keynotes", "Speakers", "active")
+        ("keynotes", "Keynotes", "active"),
+        ("panels", "Panelists"),
+        ("ml_health", "ML for Health"),
+        ("tutorials", "Tutorials")
     ])}}
 {% endblock %}
 <!-- EXTRA TABS
-{#        ("panels", "Panelists"),#}
 {#        ("invited", "Invited Talks"),#}
 {#        ("debates", "Debates"),#}
 {#        ("roundtables", "Research Roundtables")#}
@@ -50,6 +52,18 @@
         <!-- Speakers -->
         {% if panels %}
           {{ components.speakergroup(panels) }}
+        {% endif %}
+      </div>
+
+      <!-- ML for Health tab -->
+      <div
+        class="tab-pane fade"
+        id="tab-ml_health"
+        role="tabpanel"
+        aria-labelledby="nav-profile-tab"
+      >
+        {% if ml_health %}
+          {{ components.speakergroup(ml_health) }}
         {% endif %}
       </div>
 

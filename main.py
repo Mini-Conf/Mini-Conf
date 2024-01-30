@@ -312,6 +312,7 @@ def program():
     data["speakers"] = site_data["speakers"]
     data["invited"] = site_data["invited"]
     data["debates"] = site_data["debates"]
+    data["ml_health"] = site_data["ml_health"]
     data["panels"] = site_data["panels"]
     data["tutorials"] = [
         format_workshop(tutorial) for tutorial in site_data["tutorials"]
