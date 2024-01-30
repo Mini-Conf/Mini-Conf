@@ -82,7 +82,7 @@
       <td>2:15PM - 3:15pm</td>
       <td><span class="font-weight-bold">Panel: Real Deployments, and How to Find Them</span><br>
         <a href="program.html#tab-panels">Panel Discussion</a><br>
-        <span class="font-italic"><span class="font-weight-bold">Roy Perlis, MD,</span> Harvard University, <span class="font-italic"><span class="font-weight-bold">DGirish Nadkarni, MD, MPH,</span> Mount Sinai, <span class="font-italic"><span class="font-weight-bold">Ashley Beecy, MD,</span> NewYork-Presbyterian </span></span></span>       
+        <span class="font-italic"><span class="font-weight-bold">Roy Perlis, MD,</span> Harvard University, <span class="font-italic"><span class="font-weight-bold">Girish Nadkarni, MD, MPH,</span> Mount Sinai, <span class="font-italic"><span class="font-weight-bold">Ashley Beecy, MD,</span> NewYork-Presbyterian </span></span></span>       
         <!--
         <span class="font-italic">Li Xu, Bo Liu, Ameer Hamza Khan, Lu Fan, <span class="font-weight-bold">Xiao-Ming Wu</span></span>: <a href="proceeding_P13.html">Multi-modal Pre-training for Medical Vision-language Understanding and Generation: An Empirical Study with A New Benchmark</a><br>
         <span class="font-italic"><span class="font-weight-bold">Vincent Jeanselme</span>, Chang Ho Yoon, Brian Tom, Jessica Barrett</span>: <a href="proceeding_P12.html">Neural Fine-Gray: Monotonic neural networks for competing risks</a><br>
