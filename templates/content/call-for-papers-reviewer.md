@@ -47,7 +47,7 @@ If you feel that you cannot offer an informed opinion about the quality of the p
 
 ### <a name="reviewing"></a>Reviewing
 
-You will be asked to complete thoughtful, constructive reviews for all assigned papers. Please ensure that your reviews are completed before the deadline, and sooner if possible. For each paper, you will fill out a form on OpenReview, similar to the form below:
+You will be asked to complete thoughtful, constructive reviews for all assigned papers. Please ensure that your reviews are completed before the deadline, and sooner if possible. For each paper, you will fill out a form on OpenReview, similar to the form below. To help us to ensure consistency and quality, all reviews are subject to internal checks that may be manual or automated.
 
 #### Review format
 
