@@ -1,6 +1,4 @@
-## <center> Coming Soon
-
-<!-- ## <center> Reviewing for CHIL 2023
+## <center> Reviewing for CHIL 2023
 
 Reviewing is a critical service in any research community, especially for the vibrant and growing community on machine learning for health that we are all part of. Every submission deserves thoughtful, constructive feedback that both (1) identifies quality work worth highlighting at this venue and (2) helps authors improve their work for either this venue or a future publication.
 
@@ -99,4 +97,4 @@ Between 3/20 and 4/3, you (a CHIL reviewer) will be expected to participate in d
 
 We expect brief but thoughtful engagement from all reviewers here. For some papers, this would involve several iterations of feedback-response. A simplistic response of “I have read the authors’ response and I chose to keep my score unchanged” is not sufficient, because it does not provide detailed reasoning about what weaknesses are still salient and why the response is not sufficient. Please engage meaningfully!
 
-Track Chairs will work with reviewers to try to reach a consensus decision about each paper by 4/3. In the event that consensus is not reached, Track Chairs make final decisions about acceptance. -->
+Track Chairs will work with reviewers to try to reach a consensus decision about each paper by 4/3. In the event that consensus is not reached, Track Chairs make final decisions about acceptance.
